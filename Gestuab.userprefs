@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/Controllers/UserController.cs">
+    <Files>
+      <File FileName="src/Program.cs" Line="7" Column="13" />
+      <File FileName="src/Views/user.cshtml" Line="13" Column="8" />
+      <File FileName="src/Controllers/UserController.cs" Line="24" Column="103" />
+      <File FileName="src/app.config" Line="17" Column="48" />
+      <File FileName="src/GestuabStarter.cs" Line="39" Column="57" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

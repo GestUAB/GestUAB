@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="KayakTest/Program.cs">
+    <Files>
+      <File FileName="KayakTest/Models/UserModel.cs" Line="1" Column="1" />
+      <File FileName="KayakTest/MainModule.cs" Line="1" Column="1" />
+      <File FileName="KayakTest/Program.cs" Line="7" Column="1" />
+      <File FileName="KayakTest/KayakStarter.cs" Line="36" Column="46" />
+      <File FileName="Disassembly" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
