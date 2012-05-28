@@ -57,6 +57,7 @@
     <Reference Include="Nancy.ViewEngines.Razor.BuildProviders">
       <HintPath>..\libs\Nancy.Viewengines.Razor.0.11.0\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\UserModel.cs" />
