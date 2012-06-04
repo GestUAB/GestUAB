@@ -69,7 +69,13 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="Views\user.cshtml">
+    <None Include="Views\User\user.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\User\users.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\User\delete.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -85,5 +91,6 @@
   <ItemGroup>
     <Folder Include="Views\" />
     <Folder Include="Controllers\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
 </Project>

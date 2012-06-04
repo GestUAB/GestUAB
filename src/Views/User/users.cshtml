@@ -1,0 +1,13 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Nancy in a Kayak</title>
+</head>
+<body>
+    <ul>
+        @foreach(var user in @Model) {
+            <li>@user.UserName</li>
+        }
+    </ul>
+</body>
+</html>
