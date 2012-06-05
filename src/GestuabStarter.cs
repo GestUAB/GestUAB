@@ -42,7 +42,7 @@ namespace Gestuab
         public void OnException(IScheduler scheduler, Exception e)
         {
             Console.WriteLine("Exception on scheduler");
-//            Console.Out.WriteStackTrace(e);
+            Console.Out.WriteStackTrace(e);
         }
 
         public void OnStop(IScheduler scheduler)

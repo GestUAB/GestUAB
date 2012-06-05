@@ -23,6 +23,7 @@ namespace Gestuab.Controllers
             users.Add (new UserModel{UserName = "rciqueira", FirstName = "Ricardo", LastName= "Ciqueira"});
 
             Get ["/"] = _ => { 
+                throw new DirectoryNotFoundException();
                 return View ["User/user",
                 new UserModel { FirstName = "John", LastName = "Doe" }];
             };
