@@ -1,12 +1,19 @@
-﻿namespace Gestuab.Models
+﻿namespace GestUAB.Models
 {
-    public class UserModel
+    public interface IModel
+    {
+
+    }
+
+    public class UserModel : IModel
     {
  
-        public string UserName { get; set; }
+        public string Username { get; set; }
 
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
+
+        public string Name { get { return FirstName + " " + LastName; } }
     }
 }

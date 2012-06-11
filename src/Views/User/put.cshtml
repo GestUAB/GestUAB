@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "Shared/_layout.cshtml";
+    ViewBag.Title = "Put some User...";
+}
+@section JavaScript
+{
+    <script type="text/javascript" >
+        $(function() {
+        // Handler for .ready() called.
+            $("#put_button").click(function() {
+                //alert("Handler for .click() called.");
+                $.ajax({
+                   url: '/user/put',
+                   async: false,
+                   type: "PUT",
+                   data: $("#put_form").serialize(),
+                   dataType: "jsonp",
+                   error: function(jqXHR, textStatus, errorThrown){
+                            alert("Error!");
+                   },
+                   complete: function(jqXHR, textStatus){
+                   },
+                    statusCode: {
+                        201: function(data, textStatus, jqXHR) {
+                            if (jqXHR.getResponseHeader('Location')) {
+                                // data.redirect contains the string URL to redirect to
+                                window.location.href = jqXHR.getResponseHeader('Location');
+                            }
+                            else {
+                                alert("Ooops!");
+                            }
+                        }
+                      }                  
+                });
+            });
+        });
+    </script>
+}        
+<form id="put_form">
+  Username: <input type="text" name="Username" value="mmouse" /><br />
+  First name: <input type="text" name="FirstName" value="Mickey" /><br />
+  Last name:<input type="text" name="LastName" value="Mouse" /><br />
+  <input id="put_button" type="button" value="Put"  />
+</form> 
