@@ -16,7 +16,7 @@ namespace GestUAB.Modules
                 //http://stackoverflow.com/questions/5399967/parse-string-into-a-linq-query
                 //http://www.codeproject.com/Articles/43678/Dynamically-evaluated-SQL-LINQ-queries
                 return View ["User/users",
-                DocumentSession.Query<UserModel>().ToList()];
+                DocumentSession.Query<UserModel> ().ToList ()];
             };
     
             Get ["/user/{Username}"] = x => { 
@@ -24,9 +24,8 @@ namespace GestUAB.Modules
 //                var user = Database.Instance.ReadAll<UserModel> ().Where(u => u.Username == username).FirstOrDefault();
                 var user = DocumentSession.Query<UserModel> ("UsersByUsername")
                     .Where (n => n.Username == username).FirstOrDefault ();
-                if (user == null) {
+                if (user == null)
                     return new NotFoundResponse ();
-                }
 //                Context.EnableOutputCache(int.MaxValue);
                 return View ["User/user", user];
             };
@@ -54,9 +53,8 @@ namespace GestUAB.Modules
 //                var user = Database.Instance.ReadAll<UserModel> ().Where(u => u.Username == username).FirstOrDefault();
                 var user = DocumentSession.Query<UserModel> ("UsersByUsername")
                     .Where (n => n.Username == username).FirstOrDefault ();
-                if (user == null) {
+                if (user == null) 
                     return new NotFoundResponse ();
-                }
                 return View ["User/post", user];
             };
 
@@ -66,9 +64,8 @@ namespace GestUAB.Modules
                 var saved = DocumentSession.Query<UserModel> ("UsersByUsername")
                     .Where (n => n.Username == username)
                     .FirstOrDefault ();
-                if (saved == null) {
+                if (saved == null) 
                     return new NotFoundResponse ();
-                }
                 saved.Fill (user);
                 var resp = new JsonResponse<UserModel> (
                     saved,
@@ -86,9 +83,8 @@ namespace GestUAB.Modules
                 var user = DocumentSession.Query<UserModel> ("UsersByUsername")
                         .Where (n => n.Username == username)
                         .FirstOrDefault ();
-                if (user == null) {
+                if (user == null) 
                     return new NotFoundResponse ();
-                }
 //                if (user == default(UserModel)) {
 //                    message = "Usuário " + x.Username + " excluído!";
 //                    Database.Instance.Delete (user);
