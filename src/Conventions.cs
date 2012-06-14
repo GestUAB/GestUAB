@@ -29,7 +29,7 @@ namespace GestUAB
     public static class Conventions
     {
         public const string RavenSession = "RavenSession";
-        public const string RavenDataDirectory = "Database";
+        public const string RavenDataDirectory = "App_Data";
         public const string RavenDatabase = "GestUAB";
     }
 }

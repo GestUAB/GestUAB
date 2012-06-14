@@ -7,3 +7,4 @@ TestResults
 
 *.suo
 *.userprefs
+App_Data/**/*
