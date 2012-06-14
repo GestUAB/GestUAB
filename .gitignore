@@ -8,3 +8,4 @@ TestResults
 *.suo
 *.userprefs
 src/App_Data/*
+[P]ackages\
