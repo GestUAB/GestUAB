@@ -30,7 +30,7 @@ namespace GestUAB
     {
         public const string RavenSession = "RavenSession";
         public const string RavenDataDirectory = "App_Data";
-        public const string RavenDatabase = "GestUAB";
+        public const string RavenDatabase = "Database";
     }
 }
 

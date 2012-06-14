@@ -47,13 +47,14 @@ namespace GestUAB
 
         static IDocumentStore CreateDocumentStore ()
         {
-            //var path = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
-            //path = Path.Combine(path, Conventions.RavenDataDirectory);
-            var populate = !Directory.Exists(Conventions.RavenDataDirectory);
+            var path = AppDomain.CurrentDomain.BaseDirectory;
+            path = Path.Combine(path, Conventions.RavenDataDirectory);
+            path = Path.Combine(path, Conventions.RavenDatabase);
+            var populate = !Directory.Exists(path);
 
             var documentStore = new EmbeddableDocumentStore()
             {
-                DataDirectory = Conventions.RavenDataDirectory
+                DataDirectory = path
             }.Initialize();
 
             if (populate) documentStore.PopulateUsers();
