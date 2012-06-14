@@ -27,6 +27,7 @@ using Raven.Client;
 using Raven.Client.Extensions;
 using Raven.Client.Embedded;
 using System.IO;
+using System;
 
 
 namespace GestUAB
@@ -46,11 +47,14 @@ namespace GestUAB
 
         static IDocumentStore CreateDocumentStore ()
         {
-            var populate = !Directory.Exists(Conventions.RavenDataDirectory);
+            var path = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+            path = Path.Combine(path, Conventions.RavenDataDirectory);
+            var populate = !Directory.Exists(path);
 
-            var documentStore = new EmbeddableDocumentStore () {
-                DataDirectory = Conventions.RavenDataDirectory
-            }.Initialize ();
+            var documentStore = new EmbeddableDocumentStore()
+            {
+                DataDirectory = path
+            }.Initialize();
 
             if (populate) documentStore.PopulateUsers();
 
