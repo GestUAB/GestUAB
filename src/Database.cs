@@ -1,3 +1,6 @@
+using System.Linq;
+using GestUAB.Models;
+using Raven.Abstractions.Indexing;
 // 
 // Store.cs
 //  
@@ -24,10 +27,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using Raven.Client;
-using Raven.Client.Embedded;
-using System.Linq;
-using GestUAB.Models;
-using Raven.Abstractions.Indexing;
 using Raven.Client.Indexes;
 
 namespace GestUAB

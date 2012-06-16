@@ -25,8 +25,6 @@
 // THE SOFTWARE.
 using Nancy;
 using Nancy.Bootstrapper;
-using System;
-using System.Collections.Generic;
 
 namespace GestUAB
 {

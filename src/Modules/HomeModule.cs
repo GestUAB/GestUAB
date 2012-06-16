@@ -1,5 +1,5 @@
-﻿using GestUAB.Models;
-using System.Linq;
+﻿using System.Linq;
+using GestUAB.Models;
 
 namespace GestUAB.Modules
 {

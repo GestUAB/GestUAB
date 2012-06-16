@@ -25,9 +25,8 @@
 // THE SOFTWARE.
 using System;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
-using System.Reflection;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace GestUAB
 {
