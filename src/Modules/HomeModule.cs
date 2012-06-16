@@ -3,14 +3,13 @@ using System.Linq;
 
 namespace GestUAB.Modules
 {
-    public class HomeModule : BaseModule
+    public class HomeModule : Nancy.NancyModule
     {
 
         public HomeModule ()
         {
             Get ["/"] = _ => { 
-                return View ["Home/index",
-                DocumentSession.Query<UserModel>().ToList()];
+                return View ["Home/index"];
             };
         }
     }

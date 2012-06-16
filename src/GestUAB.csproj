@@ -121,20 +121,19 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bootstrapper.cs" />
-    <Compile Include="CachedResponse.cs" />
+    <None Include="Bootstrapper.cs" />
     <Compile Include="Conventions.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Extensions\ContextExtensions.cs" />
     <Compile Include="Extensions\UtilExtensions.cs" />
     <Compile Include="HtmlTagHelpers.cs" />
     <Compile Include="Models\UserModel.cs" />
-    <Compile Include="Modules\BaseModule.cs" />
+    <None Include="Modules\BaseModule.cs" />
     <Compile Include="Modules\HomeModule.cs" />
-    <Compile Include="Modules\UserModule.cs" />
+    <None Include="Modules\UserModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RavenModuleBuilder.cs" />
-    <Compile Include="RavenSessionProvider.cs" />
+    <None Include="RavenModuleBuilder.cs" />
+    <None Include="RavenSessionProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
