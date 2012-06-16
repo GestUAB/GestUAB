@@ -27,7 +27,6 @@ using System;
 using Kayak;
 using System.Net;
 using Nancy;
-using System.IO;
 
 namespace GestUAB
 {
