@@ -7,8 +7,9 @@
     <script type="text/javascript" >
         $(function() {
         // Handler for .ready() called.
-            $("#put_button").click(function() {
+            $("#put_button").click(function(event) {
                 //alert("Handler for .click() called.");
+                event.preventDefault();
                 $.ajax({
                    url: '/user/put',
                    async: false,
@@ -40,5 +41,5 @@
   Username: <input type="text" name="Username" value="mmouse" /><br />
   First name: <input type="text" name="FirstName" value="Mickey" /><br />
   Last name:<input type="text" name="LastName" value="Mouse" /><br />
-  <input id="put_button" type="button" value="Put"  />
 </form> 
+<a id="put_button"  href="@Html.RenderContext.Context.Request.Url" />Inserir</a>

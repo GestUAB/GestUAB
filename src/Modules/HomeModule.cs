@@ -9,8 +9,10 @@ namespace GestUAB.Modules
         public HomeModule ()
         {
             Get ["/"] = _ => { 
-                return View ["Home/index", DocumentSession.Query<UserModel>().ToList()];
+                return View ["Home/index",
+                DocumentSession.Query<UserModel>().ToList()];
             };
         }
     }
+    
 }
