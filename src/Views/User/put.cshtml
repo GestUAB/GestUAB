@@ -15,9 +15,11 @@
                    async: false,
                    type: "PUT",
                    data: $("#put_form").serialize(),
-                   dataType: "jsonp",
+                   dataType: "text",
                    error: function(jqXHR, textStatus, errorThrown){
-                            alert("Error!");
+                        console.log(jqXHR);
+                        console.log(textStatus);
+                        console.log(errorThrown);
                    },
                    complete: function(jqXHR, textStatus){
                    },
@@ -30,16 +32,21 @@
                             else {
                                 alert("Ooops!");
                             }
-                        }
+                        },
+                        200: function(data, textStatus, jqXHR) {
+                            $("#error_report").html(data);
+                        }                        
                       }                  
                 });
             });
         });
     </script>
 }        
+<div id="error_report"></div>
 <form id="put_form">
   Username: <input type="text" name="Username" value="mmouse" /><br />
   First name: <input type="text" name="FirstName" value="Mickey" /><br />
   Last name:<input type="text" name="LastName" value="Mouse" /><br />
+  Email:<input type="text" name="Email" value="mickey@disney.com" /><br />
 </form> 
 <a id="put_button"  href="@Html.RenderContext.Context.Request.Url" />Inserir</a>

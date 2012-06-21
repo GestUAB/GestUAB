@@ -4,6 +4,7 @@ using Raven.Client.Linq;
 using System.Linq;
 using Nancy.Responses;
 using Nancy.ModelBinding;
+using Nancy.Validation;
 
 namespace GestUAB.Modules
 {
@@ -35,13 +36,19 @@ namespace GestUAB.Modules
             };
 
             Put ["/user/put"] = x => {
-                var user = this.Bind<UserModel> ();
-                DocumentSession.Store (user);
+                var model = this.Bind<UserModel> ();
+                var result = this.Validate(model);
+                if (!result.IsValid) {
+                    var response = View["Shared/_error", result.Errors];
+                    response.ContentType = "text";
+                    return View["Shared/_error", result.Errors];
+                }
+                DocumentSession.Store (model);
                 var resp = new JsonResponse<UserModel> (
-                    user,
+                    model,
                     new DefaultJsonSerializer ()
                 );
-                resp.Headers.Add ("Location", "/user/" + user.Username);
+                resp.Headers.Add ("Location", "/user/" + model.Username);
                 resp.StatusCode = HttpStatusCode.Created;
                 return resp;
 //                return Response.AsRedirect("/users");

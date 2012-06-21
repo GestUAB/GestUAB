@@ -89,9 +89,6 @@
     <Reference Include="FluentValidation">
       <HintPath>..\packages\FluentValidation.3.3.1.0\lib\Net40\FluentValidation.dll</HintPath>
     </Reference>
-    <Reference Include="FluentValidation.resources">
-      <HintPath>..\packages\FluentValidation.3.3.1.0\lib\Net40\pt\FluentValidation.resources.dll</HintPath>
-    </Reference>
     <Reference Include="Nancy.Validation.FluentValidation">
       <HintPath>..\packages\Nancy.Validation.FluentValidation.0.11.0\lib\net40\Nancy.Validation.FluentValidation.dll</HintPath>
     </Reference>
@@ -163,6 +160,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Content\js\jquery-1.7.2.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\Shared\_error.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
