@@ -36,7 +36,7 @@ namespace GestUAB
 //        readonly Dictionary<string, Tuple<DateTime, Response, int>> cachedResponses = new Dictionary<string, Tuple<DateTime, Response, int>> ();
 
         protected override NancyInternalConfiguration InternalConfiguration {
-            get { 
+            get {   
                 return NancyInternalConfiguration.WithOverrides (x => x.NancyModuleBuilder = typeof(RavenModuleBuilder)); 
             }
         }

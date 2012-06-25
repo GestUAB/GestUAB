@@ -1,0 +1,20 @@
+{
+  "Name": "UsersByUsername",
+  "Map": "docs.UserModels\r\n\t.Select(user => new {Username = user.Username})",
+  "Maps": [
+    "docs.UserModels\r\n\t.Select(user => new {Username = user.Username})"
+  ],
+  "Reduce": null,
+  "TransformResults": null,
+  "IsMapReduce": false,
+  "IsCompiled": false,
+  "IsTemp": false,
+  "Stores": {},
+  "Indexes": {
+    "Username": "Analyzed"
+  },
+  "SortOptions": {},
+  "Analyzers": {},
+  "Fields": [],
+  "Type": "Map"
+}
