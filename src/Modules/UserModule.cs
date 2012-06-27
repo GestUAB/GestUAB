@@ -39,7 +39,9 @@ namespace GestUAB.Modules
                 var model = this.Bind<UserModel> ();
                 var result = this.Validate(model);
                 if (!result.IsValid) {
-                    return View["CustomerError", result];
+                    var response = View["Shared/_error", result.Errors];
+                    response.ContentType = "text";
+                    return View["Shared/_error", result.Errors];
                 }
                 DocumentSession.Store (model);
                 var resp = new JsonResponse<UserModel> (

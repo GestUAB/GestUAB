@@ -1,5 +1,5 @@
 // 
-// SessionManager.cs
+// KayakStarter.cs
 //  
 // Author:
 //       Tony Alexander Hild <tony_hild@yahoo.com>
@@ -23,50 +23,38 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-using Raven.Client;
-using Raven.Client.Extensions;
-using Raven.Client.Embedded;
-using System.IO;
 using System;
-
+using Kayak;
+using System.Net;
+using Nancy;
 
 namespace GestUAB
 {
-    public interface IRavenSessionProvider
+    public class Starter : ISchedulerDelegate
     {
-        IDocumentSession GetSession ();
-    }
-
-    public class RavenSessionProvider : IRavenSessionProvider
-    {
-        static IDocumentStore _documentStore;
-
-        public static IDocumentStore DocumentStore {
-            get { return (_documentStore ?? (_documentStore = CreateDocumentStore ())); }
-        }
-
-        static IDocumentStore CreateDocumentStore ()
+        public static void Start (int port, bool debug)
         {
-            var path = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
-            path = Path.Combine(path, Conventions.RavenDataDirectory);
-            var populate =  !Directory.Exists(path);
-
-            var documentStore = new EmbeddableDocumentStore () {
-                DataDirectory = path
-            }.Initialize ();
-
-            if (populate) documentStore.PopulateUsers();
-
-            //documentStore.DatabaseCommands.EnsureDatabaseExists (Conventions.RavenDatabase);
-
-            return documentStore;
+            StaticConfiguration.DisableErrorTraces = !debug;
+         
+            Gate.Hosts.Kayak.KayakGate.Start (
+                new Starter (),
+                new IPEndPoint (IPAddress.Any, port),
+                Gate.Adapters.Nancy.NancyAdapter.App ());
         }
 
-        public IDocumentSession GetSession ()
+        public void OnException (IScheduler scheduler, Exception e)
         {
-            //return DocumentStore.OpenSession (Conventions.RavenDatabase);
-            return DocumentStore.OpenSession ();
+            Console.WriteLine ("Exception on scheduler");
+            Console.Out.WriteStackTrace (e);
         }
+
+        public void OnStop (IScheduler scheduler)
+        {
+            // called when Kayak's run loop is about to exit.
+            // this is a good place for doing clean-up or other chores.
+            Console.WriteLine ("Scheduler is stopping.");
+        }
+
     }
 }
 

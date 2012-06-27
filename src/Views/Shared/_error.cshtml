@@ -1,0 +1,9 @@
+﻿<ul>
+    @foreach(var error in @Model) {
+        @foreach(var mn in error.MemberNames) {
+            <li class="error-item">
+                <span>@error.GetMessage(mn)</span> 
+            </li>
+        }
+    }
+</ul>

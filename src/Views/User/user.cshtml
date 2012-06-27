@@ -2,4 +2,5 @@
     Layout = "Shared/_layout.cshtml";
     ViewBag.Title = "User details";
 }
-<h1>Hello @Model.Name</h1>
+<h1>Hello user @Model.Name</h1>
+<a href='@Url.Content("~/user/post/" + Model.Username)'>Editar</a>
