@@ -7,3 +7,4 @@ TestResults
 
 *.suo
 *.userprefs
+src/App_Data/Database
