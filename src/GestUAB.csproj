@@ -26,23 +26,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Nancy.Hosting.Owin">
-      <HintPath>..\packages\Nancy.Hosting.Owin.0.11.0\lib\net40\Nancy.Hosting.Owin.dll</HintPath>
-    </Reference>
     <Reference Include="Nancy">
       <HintPath>..\packages\Nancy.0.11.0\lib\net40\Nancy.dll</HintPath>
-    </Reference>
-    <Reference Include="Gate">
-      <HintPath>..\packages\Gate.0.3.6\lib\net40\Gate.dll</HintPath>
-    </Reference>
-    <Reference Include="Gate.Adapters.Nancy">
-      <HintPath>..\packages\Gate.Adapters.Nancy.0.3.6\lib\net40\Gate.Adapters.Nancy.dll</HintPath>
-    </Reference>
-    <Reference Include="Gate.Hosts.Kayak">
-      <HintPath>..\packages\Gate.Hosts.Kayak.0.3.6\lib\net40\Gate.Hosts.Kayak.dll</HintPath>
-    </Reference>
-    <Reference Include="Kayak">
-      <HintPath>..\packages\Kayak.0.7.2\lib\Kayak.dll</HintPath>
     </Reference>
     <Reference Include="Nancy.ViewEngines.Razor">
       <HintPath>..\packages\Nancy.Viewengines.Razor.0.11.0\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
@@ -92,6 +77,9 @@
     <Reference Include="Nancy.Validation.FluentValidation">
       <HintPath>..\packages\Nancy.Validation.FluentValidation.0.11.0\lib\net40\Nancy.Validation.FluentValidation.dll</HintPath>
     </Reference>
+    <Reference Include="Nancy.Hosting.Self">
+      <HintPath>..\packages\Nancy.Hosting.Self.0.11.0\lib\net40\Nancy.Hosting.Self.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -101,7 +89,6 @@
     <Compile Include="Modules\HomeModule.cs" />
     <Compile Include="Modules\UserModule.cs" />
     <Compile Include="Modules\BaseModule.cs" />
-    <Compile Include="Starter.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="RavenModuleBuilder.cs" />
     <Compile Include="RavenSessionProvider.cs" />
