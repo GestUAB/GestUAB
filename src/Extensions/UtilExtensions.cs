@@ -85,14 +85,14 @@ namespace GestUAB
                 if (!p.CanWrite) continue;
 
                 //We query if the fiels support the ICloneable interface.
-                var ICloneType = p.PropertyType.GetInterface ("ICloneable", true);
+                var cloneType = p.PropertyType.GetInterface ("ICloneable", true);
 
-                if (ICloneType != null) {
+                if (cloneType != null) {
                     //Getting the ICloneable interface from the object.
 
-                    var IClone = (ICloneable)p.GetValue (source, null);
+                    var clone = (ICloneable)p.GetValue (source, null);
                     //We use the clone method to set the new value to the field.
-                    props [i].SetValue (dest, IClone.Clone (), null);
+                    props [i].SetValue (dest, clone == null ? default(T) : clone.Clone (), null);
                 } else {
                     // If the field doesn't support the ICloneable 
                     // interface then just set it.

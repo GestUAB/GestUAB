@@ -129,14 +129,14 @@ namespace GestUAB
         {
             using (var session = ds.OpenSession()) {
                 // Operations against session
-                session.Store (new UserModel{Username = "thild", FirstName = "Tony", LastName= "Hild"});
-                session.Store (new UserModel{Username = "jbarbosa", FirstName = "João", LastName= "Barbosa"});
-                session.Store (new UserModel{Username = "rciqueira", FirstName = "Ricardo", LastName= "Ciqueira"});
+                session.Store (new User{Username = "thild", FirstName = "Tony", LastName= "Hild"});
+                session.Store (new User{Username = "jbarbosa", FirstName = "João", LastName= "Barbosa"});
+                session.Store (new User{Username = "rciqueira", FirstName = "Ricardo", LastName= "Ciqueira"});
                 // Flush those changes
                 session.SaveChanges ();
             }
 
-            ds.DatabaseCommands.PutIndex("UsersByUsername", new IndexDefinitionBuilder<UserModel>
+            ds.DatabaseCommands.PutIndex("UsersByUsername", new IndexDefinitionBuilder<User>
             {
                 Map = users => from user in users
                                select new { user.Username },
