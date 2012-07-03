@@ -18,14 +18,15 @@
                    data: $("#update_form").serialize(),
                    dataType: "jsonp",
                    error: function(jqXHR, textStatus, errorThrown){
-                            alert("Error!");
+                        console.log(textStatus);
+                        console.log(errorThrown);
                    },
                    complete: function(jqXHR, textStatus){
+                        console.log(textStatus);
                    },
                     statusCode: {
                         200: function(data, textStatus, jqXHR) {
                             if (jqXHR.getResponseHeader('Location')) {
-                                // data.redirect contains the string URL to redirect to
                                 window.location.href = jqXHR.getResponseHeader('Location');
                             }
                             else {

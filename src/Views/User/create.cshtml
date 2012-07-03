@@ -6,25 +6,27 @@
 {
     <script type="text/javascript" >
         $(function() {
-        // Handler for .ready() called.
             $("#create_button").click(function(event) {
-                //alert("Handler for .click() called.");
                 event.preventDefault();
                 $.ajax({
                    url: '/user/create',
                    async: false,
                    type: "POST",
                    data: $("#create_form").serialize(),
-                   dataType: "jsonp",
+                   dataType: "text",
                    error: function(jqXHR, textStatus, errorThrown){
-                            alert("Error!");
+                        console.log(textStatus);
+                        console.log(errorThrown);
                    },
                    complete: function(jqXHR, textStatus){
+                        console.log(textStatus);
                    },
                     statusCode: {
+                        200: function(data, textStatus, jqXHR) {
+                            $("#errors").html(data);
+                        },                    
                         201: function(data, textStatus, jqXHR) {
                             if (jqXHR.getResponseHeader('Location')) {
-                                // data.redirect contains the string URL to redirect to
                                 window.location.href = jqXHR.getResponseHeader('Location');
                             }
                             else {
@@ -37,6 +39,7 @@
         });
     </script>
 }        
+<div id="errors"></div>
 <form id="create_form">
   Username: <input type="text" name="Username" value="mmouse" /><br />
   First name: <input type="text" name="FirstName" value="Mickey" /><br />
