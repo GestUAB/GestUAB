@@ -30,35 +30,17 @@ namespace GestUAB.Modules
                 return View ["User/user", user];
             };
 
-            Get ["/user/put"] = x => {
-                return View ["User/put"];
-            };
-
-            Put ["/user/put"] = x => {
-                var user = this.Bind<User> ();
-                DocumentSession.Store (user);
-                var resp = new JsonResponse<User> (
-                    user,
-                    new DefaultJsonSerializer ()
-                );
-                resp.Headers.Add ("Location", "/user/" + user.Username);
-                resp.StatusCode = HttpStatusCode.Created;
-                return resp;
-//                return Response.AsRedirect("/users");
-//                return View ["User/users", Database.Instance.Read<UserModel> ().ToArray ()];
-            };
-
-            Get ["/user/post/{Username}"] = x => { 
+            Get ["/user/update/{Username}"] = x => {
                 var username = (string)x.Username;
 //                var user = Database.Instance.ReadAll<UserModel> ().Where(u => u.Username == username).FirstOrDefault();
                 var user = DocumentSession.Query<User> ("UsersByUsername")
                     .Where (n => n.Username == username).FirstOrDefault ();
                 if (user == null) 
                     return new NotFoundResponse ();
-                return View ["User/post", user];
+                return View ["User/update", user];
             };
 
-            Post ["/user/post/{Username}"] = x => {
+            Put ["/user/update/{Username}"] = x => {
                 var user = this.Bind<User> ();
                 var username = (string)x.Username;
                 var saved = DocumentSession.Query<User> ("UsersByUsername")
@@ -75,6 +57,24 @@ namespace GestUAB.Modules
                 resp.Headers.Add ("Location", "/user/" + saved.Username);
                 resp.StatusCode = HttpStatusCode.OK;
                 return resp;
+            };
+
+            Get ["/user/create"] = x => { 
+                return View ["User/create"];
+            };
+
+            Post ["/user/create"] = x => {
+                var user = this.Bind<User> ();
+                DocumentSession.Store (user);
+                var resp = new JsonResponse<User> (
+                    user,
+                    new DefaultJsonSerializer ()
+                );
+                resp.Headers.Add ("Location", "/user/" + user.Username);
+                resp.StatusCode = HttpStatusCode.Created;
+                return resp;
+//                return Response.AsRedirect("/users");
+//                return View ["User/users", Database.Instance.Read<UserModel> ().ToArray ()];
             };
 
             Delete ["/user/delete/{Username}"] = x => { 

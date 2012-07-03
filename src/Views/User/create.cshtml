@@ -1,21 +1,20 @@
 ﻿@{
     Layout = "Shared/_layout.cshtml";
-    ViewBag.Title = "Update some User...";
+    ViewBag.Title = "Inserindo usuário...";
 }
 @section JavaScript
 {
-
     <script type="text/javascript" >
         $(function() {
         // Handler for .ready() called.
-            $("#post_button").click(function(event) {
+            $("#create_button").click(function(event) {
                 //alert("Handler for .click() called.");
                 event.preventDefault();
                 $.ajax({
-                   url: window.location.href,
+                   url: '/user/create',
                    async: false,
                    type: "POST",
-                   data: $("#post_form").serialize(),
+                   data: $("#create_form").serialize(),
                    dataType: "jsonp",
                    error: function(jqXHR, textStatus, errorThrown){
                             alert("Error!");
@@ -23,7 +22,7 @@
                    complete: function(jqXHR, textStatus){
                    },
                     statusCode: {
-                        200: function(data, textStatus, jqXHR) {
+                        201: function(data, textStatus, jqXHR) {
                             if (jqXHR.getResponseHeader('Location')) {
                                 // data.redirect contains the string URL to redirect to
                                 window.location.href = jqXHR.getResponseHeader('Location');
@@ -38,11 +37,11 @@
         });
     </script>
 }        
-<form id="post_form">
-  Username: @Model.Username <br />
-  First name: <input type="text" name="FirstName" value="@Model.FirstName" /><br />
-  Last name:<input type="text" name="LastName" value="@Model.LastName" /><br />
-  Email:<input type="text" name="Email" value="@Model.Email" /><br />
-<!--  <input id="post_button" type="button" value="Post"  />-->
+<form id="create_form">
+  Username: <input type="text" name="Username" value="mmouse" /><br />
+  First name: <input type="text" name="FirstName" value="Mickey" /><br />
+  Last name:<input type="text" name="LastName" value="Mouse" /><br />
+  Email:<input type="text" name="Email" value="mickey@disney.com" /><br />
 </form> 
-<a id="post_button"  href="@Html.RenderContext.Context.Request.Url" />Salvar</a>
+<a id="create_button"  href="@Html.RenderContext.Context.Request.Url" />Inserir</a>
+
