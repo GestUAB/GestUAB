@@ -89,8 +89,6 @@ namespace GestUAB.Modules
                 return resp;
 
             };
-    
-
         }
     }
 }

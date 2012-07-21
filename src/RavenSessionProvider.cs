@@ -55,7 +55,9 @@ namespace GestUAB
                 DataDirectory = path
             }.Initialize ();
 
-            if (populate) documentStore.PopulateUsers();
+            if (populate) {
+				documentStore.PopulateAll();
+			}
 
             //documentStore.DatabaseCommands.EnsureDatabaseExists (Conventions.RavenDatabase);
 
