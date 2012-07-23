@@ -1,52 +1,49 @@
 ﻿@{
     Layout = "Shared/_layout.cshtml";
-    ViewBag.Title = "Put some User...";
+    ViewBag.Title = "Editando usuário...";
 }
 @section JavaScript
 {
+
     <script type="text/javascript" >
         $(function() {
         // Handler for .ready() called.
-            $("#put_button").click(function(event) {
+            $("#update_button").click(function(event) {
                 //alert("Handler for .click() called.");
                 event.preventDefault();
                 $.ajax({
-                   url: '/user/put',
+                   url: window.location.href,
                    async: false,
                    type: "PUT",
-                   data: $("#put_form").serialize(),
-                   dataType: "text",
+                   data: $("#update_form").serialize(),
+                   dataType: "jsonp",
                    error: function(jqXHR, textStatus, errorThrown){
-                        console.log(jqXHR);
                         console.log(textStatus);
                         console.log(errorThrown);
                    },
                    complete: function(jqXHR, textStatus){
+                        console.log(textStatus);
                    },
                     statusCode: {
-                        201: function(data, textStatus, jqXHR) {
+                        200: function(data, textStatus, jqXHR) {
                             if (jqXHR.getResponseHeader('Location')) {
-                                // data.redirect contains the string URL to redirect to
                                 window.location.href = jqXHR.getResponseHeader('Location');
                             }
                             else {
                                 alert("Ooops!");
                             }
-                        },
-                        200: function(data, textStatus, jqXHR) {
-                            $("#error_report").html(data);
-                        }                        
+                        }
                       }                  
                 });
             });
         });
     </script>
 }        
-<div id="error_report"></div>
-<form id="put_form">
-  Username: <input type="text" name="Username" value="mmouse" /><br />
-  First name: <input type="text" name="FirstName" value="Mickey" /><br />
-  Last name:<input type="text" name="LastName" value="Mouse" /><br />
-  Email:<input type="text" name="Email" value="mickey@disney.com" /><br />
+<form id="update_form">
+  Username: @Model.Username <br />
+  First name: <input type="text" name="FirstName" value="@Model.FirstName" /><br />
+  Last name:<input type="text" name="LastName" value="@Model.LastName" /><br />
+  Email:<input type="text" name="Email" value="@Model.Email" /><br />
+<!--  <input id="update_button" type="button" value="put"  />-->
 </form> 
-<a id="put_button"  href="@Html.RenderContext.Context.Request.Url" />Inserir</a>
+<a id="update_button"  href="@Html.RenderContext.Context.Request.Url" />Salvar</a>

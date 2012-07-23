@@ -5,6 +5,7 @@ using System.Linq;
 using Nancy.Responses;
 using Nancy.ModelBinding;
 using Nancy.Validation;
+using Raven.Client.UniqueConstraints;
 
 namespace GestUAB.Modules
 {
@@ -14,92 +15,75 @@ namespace GestUAB.Modules
         public UserModule ()
         {
             Get ["/users"] = _ => { 
-                //http://stackoverflow.com/questions/5399967/parse-string-into-a-linq-query
-                //http://www.codeproject.com/Articles/43678/Dynamically-evaluated-SQL-LINQ-queries
-                return View ["User/users",
-                DocumentSession.Query<UserModel> ().ToList ()];
+                return View ["User/users", DocumentSession.Query<User> ().ToList ()];
             };
     
             Get ["/user/{Username}"] = x => { 
                 var username = (string)x.Username;
-//                var user = Database.Instance.ReadAll<UserModel> ().Where(u => u.Username == username).FirstOrDefault();
-                var user = DocumentSession.Query<UserModel> ("UsersByUsername")
+                var user = DocumentSession.Query<User> ("UsersByUsername")
                     .Where (n => n.Username == username).FirstOrDefault ();
                 if (user == null)
                     return new NotFoundResponse ();
-//                Context.EnableOutputCache(int.MaxValue);
                 return View ["User/user", user];
             };
 
-            Get ["/user/put"] = x => {
-                return View ["User/put"];
-            };
-
-            Put ["/user/put"] = x => {
-                var model = this.Bind<UserModel> ();
-                var result = this.Validate(model);
-                if (!result.IsValid) {
-                    var response = View["Shared/_error", result.Errors];
-                    response.ContentType = "text";
-                    return View["Shared/_error", result.Errors];
-                }
-                DocumentSession.Store (model);
-                var resp = new JsonResponse<UserModel> (
-                    model,
-                    new DefaultJsonSerializer ()
-                );
-                resp.Headers.Add ("Location", "/user/" + model.Username);
-                resp.StatusCode = HttpStatusCode.Created;
-                return resp;
-//                return Response.AsRedirect("/users");
-//                return View ["User/users", Database.Instance.Read<UserModel> ().ToArray ()];
-            };
-
-            Get ["/user/post/{Username}"] = x => { 
+            Get ["/user/update/{Username}"] = x => {
                 var username = (string)x.Username;
-//                var user = Database.Instance.ReadAll<UserModel> ().Where(u => u.Username == username).FirstOrDefault();
-                var user = DocumentSession.Query<UserModel> ("UsersByUsername")
+                var user = DocumentSession.Query<User> ("UsersByUsername")
                     .Where (n => n.Username == username).FirstOrDefault ();
                 if (user == null) 
                     return new NotFoundResponse ();
-                return View ["User/post", user];
+                return View ["User/update", user];
             };
 
-            Post ["/user/post/{Username}"] = x => {
-                var user = this.Bind<UserModel> ();
+            Put ["/user/update/{Username}"] = x => {
+                var user = this.Bind<User> ();
                 var username = (string)x.Username;
-                var saved = DocumentSession.Query<UserModel> ("UsersByUsername")
+                var saved = DocumentSession.Query<User> ("UsersByUsername")
                     .Where (n => n.Username == username)
                     .FirstOrDefault ();
                 if (saved == null) 
                     return new NotFoundResponse ();
                 saved.Fill (user);
-                var resp = new JsonResponse<UserModel> (
+                var resp = new JsonResponse<User> (
                     saved,
                     new DefaultJsonSerializer ()
                 );
-//                Context.DisableOutputCache();
                 resp.Headers.Add ("Location", "/user/" + saved.Username);
                 resp.StatusCode = HttpStatusCode.OK;
                 return resp;
             };
 
+            Get ["/user/create"] = x => { 
+                return View ["User/create"];
+            };
+
+            Post ["/user/create"] = x => {
+                var user = this.Bind<User> ();
+                var result = this.Validate(user);
+                if (!result.IsValid) {
+                    return View["Shared/_errors", result];
+                }
+
+                DocumentSession.Store (user);
+                var resp = new JsonResponse<User> (
+                    user,
+                    new DefaultJsonSerializer ()
+                );
+                resp.Headers.Add ("Location", "/user/" + user.Username);
+                resp.StatusCode = HttpStatusCode.Created;
+                return resp;
+            };
+
             Delete ["/user/delete/{Username}"] = x => { 
-//                string message = "";
                 var username = (string)x.Username;
-                var user = DocumentSession.Query<UserModel> ("UsersByUsername")
+                var user = DocumentSession.Query<User> ("UsersByUsername")
                         .Where (n => n.Username == username)
                         .FirstOrDefault ();
                 if (user == null) 
                     return new NotFoundResponse ();
-//                if (user == default(UserModel)) {
-//                    message = "Usuário " + x.Username + " excluído!";
-//                    Database.Instance.Delete (user);
-//                } else {
-//                    message = "Usuário " + x.Username + " não encontrado!";
-//                }
                 DocumentSession.Delete (user);
-                var resp = new JsonResponse<UserModel> (
+                var resp = new JsonResponse<User> (
                         user,
                         new DefaultJsonSerializer ()
                 );

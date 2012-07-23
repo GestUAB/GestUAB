@@ -70,10 +70,17 @@ namespace GestUAB
         }
 
         /// <summary>
-        /// Clone the object, and returning a reference to a cloned object.
+        /// Fill the dest object with the source object.
         /// </summary>
-        /// <returns>Reference to the new cloned 
-        /// object.</returns>
+        /// <param name='dest'>
+        /// Destination.
+        /// </param>
+        /// <param name='source'>
+        /// Source.
+        /// </param>
+        /// <typeparam name='T'>
+        /// The type parameter of filled object.
+        /// </typeparam>
         public static void Fill<T> (this T dest, T source)
         {
             //We get the array of fields for the new type instance.
@@ -85,14 +92,14 @@ namespace GestUAB
                 if (!p.CanWrite) continue;
 
                 //We query if the fiels support the ICloneable interface.
-                var ICloneType = p.PropertyType.GetInterface ("ICloneable", true);
+                var cloneType = p.PropertyType.GetInterface ("ICloneable", true);
 
-                if (ICloneType != null) {
+                if (cloneType != null) {
                     //Getting the ICloneable interface from the object.
 
-                    var IClone = (ICloneable)p.GetValue (source, null);
+                    var clone = (ICloneable)p.GetValue (source, null);
                     //We use the clone method to set the new value to the field.
-                    props [i].SetValue (dest, IClone.Clone (), null);
+                    props [i].SetValue (dest, clone == null ? default(T) : clone.Clone (), null);
                 } else {
                     // If the field doesn't support the ICloneable 
                     // interface then just set it.

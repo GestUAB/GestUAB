@@ -7,4 +7,8 @@ TestResults
 
 *.suo
 *.userprefs
+<<<<<<< HEAD
 scr/App_Data/Database
+=======
+src/App_Data/Database
+>>>>>>> master

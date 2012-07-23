@@ -41,6 +41,13 @@ namespace GestUAB
             }
         }
 
+        protected override void ApplicationStartup (TinyIoC.TinyIoCContainer container, IPipelines pipelines)
+        {
+            base.ApplicationStartup (container, pipelines);
+            StaticConfiguration.DisableErrorTraces = true;
+            StaticConfiguration.DisableCaches = false;
+        }
+
 //        protected override void ConfigureConventions (NancyConventions nancyConventions)
 //        {
 ////            nancyConventions.StaticContentsConventions.Add (StaticContentConventionBuilder.AddDirectory (
