@@ -1,5 +1,5 @@
-﻿using GestUAB.Models;
-using System.Linq;
+﻿using System.Linq;
+using GestUAB.Models;
 
 namespace GestUAB.Modules
 {
@@ -11,6 +11,9 @@ namespace GestUAB.Modules
             Get ["/"] = _ => { 
                 return View ["Home/index",
                 DocumentSession.Query<User>().ToList()];
+            };
+            Get ["/test"] = _ => { 
+                return "test";
             };
         }
     }

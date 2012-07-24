@@ -1,10 +1,10 @@
-﻿using Nancy;
+﻿using System.Linq;
 using GestUAB.Models;
-using Raven.Client.Linq;
-using System.Linq;
-using Nancy.Responses;
+using Nancy;
 using Nancy.ModelBinding;
 using Nancy.Validation;
+using Raven.Client.UniqueConstraints;
+using Nancy.Responses;
 
 namespace GestUAB.Modules
 {
@@ -63,6 +63,7 @@ namespace GestUAB.Modules
                 if (!result.IsValid) {
                     return View["Shared/_errors", result];
                 }
+
                 DocumentSession.Store (user);
                 var resp = new JsonResponse<User> (
                     user,
