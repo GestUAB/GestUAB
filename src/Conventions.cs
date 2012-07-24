@@ -23,13 +23,12 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-using System;
 namespace GestUAB
 {
     public static class Conventions
     {
         public const string RavenSession = "RavenSession";
-        public const string RavenDataDirectory = "Database";
+        public const string RavenDataDirectory = "App_Data/Database";
         public const string RavenDatabase = "GestUAB";
     }
 }

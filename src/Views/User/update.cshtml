@@ -1,0 +1,49 @@
+﻿@{
+    Layout = "Shared/_layout.cshtml";
+    ViewBag.Title = "Editando usuário...";
+}
+@section JavaScript
+{
+
+    <script type="text/javascript" >
+        $(function() {
+        // Handler for .ready() called.
+            $("#update_button").click(function(event) {
+                //alert("Handler for .click() called.");
+                event.preventDefault();
+                $.ajax({
+                   url: window.location.href,
+                   async: false,
+                   type: "PUT",
+                   data: $("#update_form").serialize(),
+                   dataType: "jsonp",
+                   error: function(jqXHR, textStatus, errorThrown){
+                        console.log(textStatus);
+                        console.log(errorThrown);
+                   },
+                   complete: function(jqXHR, textStatus){
+                        console.log(textStatus);
+                   },
+                    statusCode: {
+                        200: function(data, textStatus, jqXHR) {
+                            if (jqXHR.getResponseHeader('Location')) {
+                                window.location.href = jqXHR.getResponseHeader('Location');
+                            }
+                            else {
+                                alert("Ooops!");
+                            }
+                        }
+                      }                  
+                });
+            });
+        });
+    </script>
+}        
+<form id="update_form">
+  Username: @Model.Username <br />
+  First name: <input type="text" name="FirstName" value="@Model.FirstName" /><br />
+  Last name:<input type="text" name="LastName" value="@Model.LastName" /><br />
+  Email:<input type="text" name="Email" value="@Model.Email" /><br />
+<!--  <input id="update_button" type="button" value="put"  />-->
+</form> 
+<a id="update_button"  href="@Html.RenderContext.Context.Request.Url" />Salvar</a>

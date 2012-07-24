@@ -1,6 +1,6 @@
 ﻿@{
     Layout = "Shared/_layout.cshtml";
-    ViewBag.Title = "Users";
+    ViewBag.Title = "Lista de usuários";
 }
 
 @section JavaScript
@@ -39,8 +39,9 @@
         <li class="user-item">
             <span>@user.Username</span> 
             <span><a href='@Url.Content("~/user/" + user.Username)'>Detalhes</a></span> 
-            <span><a href='@Url.Content("~/user/post/" + user.Username)'>Editar</a></span>
+            <span><a href='@Url.Content("~/user/update/" + user.Username)'>Editar</a></span>
             <span><a class="delete-link" href='@Url.Content("~/user/delete/" + user.Username)'>Excluir</a></span>
         </li>
     }
 </ul>
+<a href='@Url.Content("~/user/create")'>Inserir</a>

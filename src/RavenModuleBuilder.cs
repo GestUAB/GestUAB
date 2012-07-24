@@ -1,3 +1,5 @@
+using Nancy;
+using Nancy.ModelBinding;
 // 
 // RavenModuleBuilder.cs
 //  
@@ -24,11 +26,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using Nancy.Routing;
-using Nancy.ViewEngines;
-using Nancy;
-using Nancy.ModelBinding;
-using Raven.Client;
 using Nancy.Validation;
+using Nancy.ViewEngines;
+using Raven.Client;
 
 
 namespace GestUAB
