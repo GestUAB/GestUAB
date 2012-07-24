@@ -1,11 +1,10 @@
-﻿using Nancy;
+﻿using System.Linq;
 using GestUAB.Models;
-using Raven.Client.Linq;
-using System.Linq;
-using Nancy.Responses;
+using Nancy;
 using Nancy.ModelBinding;
 using Nancy.Validation;
 using Raven.Client.UniqueConstraints;
+using Nancy.Responses;
 
 namespace GestUAB.Modules
 {

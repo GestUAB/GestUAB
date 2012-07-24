@@ -25,8 +25,6 @@
 // THE SOFTWARE.
 using Nancy;
 using Nancy.Bootstrapper;
-using System;
-using System.Collections.Generic;
 
 namespace GestUAB
 {
@@ -44,8 +42,8 @@ namespace GestUAB
         protected override void ApplicationStartup (TinyIoC.TinyIoCContainer container, IPipelines pipelines)
         {
             base.ApplicationStartup (container, pipelines);
-            StaticConfiguration.DisableErrorTraces = true;
-            StaticConfiguration.DisableCaches = false;
+            StaticConfiguration.DisableErrorTraces = false;
+            StaticConfiguration.DisableCaches = true;
         }
 
 //        protected override void ConfigureConventions (NancyConventions nancyConventions)
