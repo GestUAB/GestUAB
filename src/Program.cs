@@ -9,7 +9,7 @@ namespace GestUAB
         {
             Console.WriteLine ("Listening on port 8888");
             Console.WriteLine ("Press CTRL+C to quit :-)");
-            Process.Start ("http://localhost:8888/");
+            Process.Start ("http://127.0.0.1:8888/");
             Starter.Start (8888, true);
         }
     }

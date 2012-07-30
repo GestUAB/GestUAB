@@ -134,7 +134,3 @@ namespace GestUAB
 	}
 
 }
-
-
-
-
