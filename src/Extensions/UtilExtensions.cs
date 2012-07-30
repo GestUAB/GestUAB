@@ -25,9 +25,8 @@
 // THE SOFTWARE.
 using System;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
-using System.Reflection;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace GestUAB
 {
@@ -70,10 +69,17 @@ namespace GestUAB
         }
 
         /// <summary>
-        /// Clone the object, and returning a reference to a cloned object.
+        /// Fill the dest object with the source object.
         /// </summary>
-        /// <returns>Reference to the new cloned 
-        /// object.</returns>
+        /// <param name='dest'>
+        /// Destination.
+        /// </param>
+        /// <param name='source'>
+        /// Source.
+        /// </param>
+        /// <typeparam name='T'>
+        /// The type parameter of filled object.
+        /// </typeparam>
         public static void Fill<T> (this T dest, T source)
         {
             //We get the array of fields for the new type instance.
