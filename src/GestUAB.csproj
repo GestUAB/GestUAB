@@ -99,6 +99,7 @@
     <Compile Include="Modules\HomeModule.cs" />
     <Compile Include="Modules\UserModule.cs" />
     <Compile Include="Modules\BaseModule.cs" />
+    <Compile Include="Modules\CourseModule.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="RavenModuleBuilder.cs" />
     <Compile Include="RavenSessionProvider.cs" />
@@ -108,7 +109,10 @@
     <Compile Include="Extensions\UtilExtensions.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\IModel.cs" />
+    <Compile Include="Models\Course.cs" />
     <Compile Include="Models\ValidatorBase.cs" />
+    <Compile Include="Database\PopulateCourses.cs" />
+    <Compile Include="Database\PopulateUsers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -163,6 +167,18 @@
     <None Include="Views\Shared\_errors.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Views\Course\show.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\Course\index.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\Course\new.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\Course\edit.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -177,7 +193,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" /-->
   <ProjectExtensions>
     <MonoDevelop>
       <Properties VerifyCodeBehindFields="true" VerifyCodeBehindEvents="true">

@@ -1,0 +1,39 @@
+@{
+    Layout = "Shared/_layout.cshtml";
+    ViewBag.Title = "Editar curso";
+}
+
+<div id="errors"></div>
+<form class="form-horizontal" id="create_form" method="put" action='@Url.Content("~/courses/update/" + Model.Number)'>
+
+  <fieldset>
+  
+    <legend>Editar curso @Model.Name</legend>
+    
+    <div class="control-group">
+      <label class="control-label" for="CourseNumber">Número:</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="CourseNumber" name="Number" value="@Model.Number">
+        <p class="help-block">Ex.: 57</p>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <label class="control-label" for="CourseName">Nome:</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="CourseName" name="Name" value="@Model.Name">
+        <p class="help-block">Ex.: Ciência da Computação</p>
+      </div>
+    </div>
+    
+  </fieldset>
+  
+  <div class='form-actions'>
+  
+    <button type="reset" class="btn" onclick="history.go(-1);return false;">Cancelar</button>
+    <button type="reset" class="btn">Desfazer mudanças</button>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    
+  </div>
+  
+</form>
