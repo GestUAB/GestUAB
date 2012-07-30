@@ -27,8 +27,6 @@ using System.IO;
 // THE SOFTWARE.
 using Raven.Client;
 using Raven.Client.Embedded;
-using System.IO;
-using System;
 
 namespace GestUAB
 {
@@ -55,7 +53,9 @@ namespace GestUAB
                 DataDirectory = path
             }.Initialize ();
 
-            if (populate) documentStore.PopulateUsers();
+            if (populate) {
+				documentStore.PopulateAll();
+			}
 
             //documentStore.DatabaseCommands.EnsureDatabaseExists (Conventions.RavenDatabase);
 
