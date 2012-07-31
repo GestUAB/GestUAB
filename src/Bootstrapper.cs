@@ -25,6 +25,7 @@
 // THE SOFTWARE.
 using Nancy;
 using Nancy.Bootstrapper;
+using Nancy.Diagnostics;
 
 namespace GestUAB
 {
@@ -44,6 +45,13 @@ namespace GestUAB
             base.ApplicationStartup (container, pipelines);
             StaticConfiguration.DisableErrorTraces = false;
             StaticConfiguration.DisableCaches = true;
+
+        }
+
+        protected override Nancy.Diagnostics.DiagnosticsConfiguration DiagnosticsConfiguration {
+            get {
+                return new DiagnosticsConfiguration { Password = @"teste"};
+            }
         }
 
 //        protected override void ConfigureConventions (NancyConventions nancyConventions)

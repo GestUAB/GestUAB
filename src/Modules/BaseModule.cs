@@ -33,7 +33,7 @@ namespace GestUAB.Modules
     {
         protected BaseModule() { }
 
-        protected BaseModule(string modulePath)
+        protected BaseModule(string modulePath) 
             : base(modulePath) { }
 
         protected IDocumentSession DocumentSession
