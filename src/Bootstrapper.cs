@@ -25,8 +25,7 @@
 // THE SOFTWARE.
 using Nancy;
 using Nancy.Bootstrapper;
-using System;
-using System.Collections.Generic;
+using Nancy.Diagnostics;
 
 namespace GestUAB
 {
@@ -36,8 +35,22 @@ namespace GestUAB
 //        readonly Dictionary<string, Tuple<DateTime, Response, int>> cachedResponses = new Dictionary<string, Tuple<DateTime, Response, int>> ();
 
         protected override NancyInternalConfiguration InternalConfiguration {
-            get { 
+            get {   
                 return NancyInternalConfiguration.WithOverrides (x => x.NancyModuleBuilder = typeof(RavenModuleBuilder)); 
+            }
+        }
+
+        protected override void ApplicationStartup (TinyIoC.TinyIoCContainer container, IPipelines pipelines)
+        {
+            base.ApplicationStartup (container, pipelines);
+            StaticConfiguration.DisableErrorTraces = false;
+            StaticConfiguration.DisableCaches = true;
+
+        }
+
+        protected override Nancy.Diagnostics.DiagnosticsConfiguration DiagnosticsConfiguration {
+            get {
+                return new DiagnosticsConfiguration { Password = @"teste"};
             }
         }
 

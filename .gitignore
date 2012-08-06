@@ -7,3 +7,9 @@ TestResults
 
 *.suo
 *.userprefs
+*.user
+scr/App_Data/Database
+scr/App_Data/*
+scr\App_Data\Database
+scr\App_Data\*
+[P]ackages\

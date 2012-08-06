@@ -23,12 +23,12 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-using Raven.Client;
-using Raven.Client.Embedded;
 using System.Linq;
 using GestUAB.Models;
 using Raven.Abstractions.Indexing;
+using Raven.Client;
 using Raven.Client.Indexes;
+using System;
 
 namespace GestUAB
 {
@@ -125,32 +125,12 @@ namespace GestUAB
 
     public static partial class PopulateDatabaseExtensions
     {
-        public static void PopulateUsers (this IDocumentStore ds)
-        {
-            using (var session = ds.OpenSession()) {
-                // Operations against session
-                session.Store (new UserModel{Username = "thild", FirstName = "Tony", LastName= "Hild"});
-                session.Store (new UserModel{Username = "jbarbosa", FirstName = "João", LastName= "Barbosa"});
-                session.Store (new UserModel{Username = "rciqueira", FirstName = "Ricardo", LastName= "Ciqueira"});
-                // Flush those changes
-                session.SaveChanges ();
-            }
-
-            ds.DatabaseCommands.PutIndex("UsersByUsername", new IndexDefinitionBuilder<UserModel>
-            {
-                Map = users => from user in users
-                               select new { user.Username },
-                Indexes =
-                    {
-                        { x => x.Username, FieldIndexing.Analyzed}
-                    }
-            });
-            
-
-        }
-
-
-    }
+		public static void PopulateAll (this IDocumentStore ds)
+		{
+			// Put populate methods here
+			ds.PopulateUsers();
+			ds.PopulateCourses();
+		}
+	}
 
 }
-
