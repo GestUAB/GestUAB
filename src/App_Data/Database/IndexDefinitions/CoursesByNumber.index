@@ -1,0 +1,20 @@
+{
+  "Name": "CoursesByNumber",
+  "Map": "docs.Courses\r\n\t.Select(course => new {Number = course.Number})",
+  "Maps": [
+    "docs.Courses\r\n\t.Select(course => new {Number = course.Number})"
+  ],
+  "Reduce": null,
+  "TransformResults": null,
+  "IsMapReduce": false,
+  "IsCompiled": false,
+  "IsTemp": false,
+  "Stores": {},
+  "Indexes": {
+    "Number": "Analyzed"
+  },
+  "SortOptions": {},
+  "Analyzers": {},
+  "Fields": [],
+  "Type": "Map"
+}

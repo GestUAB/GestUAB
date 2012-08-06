@@ -4,46 +4,52 @@
 }
 @section JavaScript
 {
+    <script src='@Url.Content("~/Content/js/jquery.validate.js")'></script>
+    <script src='@Url.Content("~/Content/js/jquery.validate.unobtrusive.js")'></script>
+    <script src='@Url.Content("~/Content/js/crud.js")'></script>
+}  
 
-    <script type="text/javascript" >
-        $(function() {
-        // Handler for .ready() called.
-            $("#update_button").click(function(event) {
-                //alert("Handler for .click() called.");
-                event.preventDefault();
-                $.ajax({
-                   url: window.location.href,
-                   async: false,
-                   type: "PUT",
-                   data: $("#update_form").serialize(),
-                   dataType: "jsonp",
-                   error: function(jqXHR, textStatus, errorThrown){
-                        console.log(textStatus);
-                        console.log(errorThrown);
-                   },
-                   complete: function(jqXHR, textStatus){
-                        console.log(textStatus);
-                   },
-                    statusCode: {
-                        200: function(data, textStatus, jqXHR) {
-                            if (jqXHR.getResponseHeader('Location')) {
-                                window.location.href = jqXHR.getResponseHeader('Location');
-                            }
-                            else {
-                                alert("Ooops!");
-                            }
-                        }
-                      }                  
-                });
-            });
-        });
-    </script>
-}        
-<form id="update_form">
-  Username: @Model.Username <br />
-  First name: <input type="text" name="FirstName" value="@Model.FirstName" /><br />
-  Last name:<input type="text" name="LastName" value="@Model.LastName" /><br />
-  Email:<input type="text" name="Email" value="@Model.Email" /><br />
-<!--  <input id="update_button" type="button" value="put"  />-->
-</form> 
-<a id="update_button"  href="@Html.RenderContext.Context.Request.Url" />Salvar</a>
+<div id="summary"></div>
+<form class="form-horizontal" id="update_form" method="PUT" action='@Url.Content("~/courses/update/" + Model.Username)'>
+
+  <fieldset>
+  
+    <legend>Editar usuário @Model.Username</legend>
+    
+    <fieldset class="control-group">
+      <label class="control-label" for="FirstName">Nome:</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" data-val="true" data-val-alpha="O nome deve conter apenas caracteres alfabéticos." data-val-length="O nome deve conter entre 2 e 30 caracteres." data-val-length-max="30" data-val-length-min="2" data-val-required="O campo Nome é obrigatório." id="FirstName" name="FirstName" value="@Model.FirstName">
+        <span class="field-validation-valid error" data-valmsg-for="FirstName" data-valmsg-replace="true"></span>
+        <p class="help-block">Ex.: José</p>
+      </div>
+    </fieldset>
+    
+    <fieldset class="control-group">
+      <label class="control-label" for="LastName">Sobrenome:</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="LastName" name="LastName" value="@Model.LastName">
+        <p class="help-block">Ex.: da Silva</p>
+      </div>
+    </fieldset>
+    
+    <fieldset class="control-group">
+      <label class="control-label" for="Email">Email:</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="Email" name="Email" value="@Model.Email">
+        <p class="help-block">Ex.: jose@unicentro.br</p>
+      </div>
+    </fieldset>
+    
+  </fieldset>
+  
+  <div class='form-actions'>
+  
+    <button type="reset" class="btn" onclick="history.go(-1);return false;">Cancelar</button>
+    <button type="reset" class="btn">Desfazer mudanças</button>
+    <button type="button" class="btn btn-primary" id="update_button">Salvar</button>
+    
+  </div>
+  
+</form>
+

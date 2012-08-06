@@ -2,9 +2,8 @@
 using GestUAB.Models;
 using Nancy;
 using Nancy.ModelBinding;
-using Nancy.Validation;
-using Raven.Client.UniqueConstraints;
 using Nancy.Responses;
+using FluentValidation;
 
 namespace GestUAB.Modules
 {
@@ -14,7 +13,8 @@ namespace GestUAB.Modules
         public UserModule ()
         {
             Get ["/users"] = _ => { 
-                return View ["User/users", DocumentSession.Query<User> ().ToList ()];
+                var a = DocumentSession.Query<User> ().ToList ();
+                return View ["User/users", a];
             };
     
             Get ["/user/{Username}"] = x => { 
@@ -34,9 +34,13 @@ namespace GestUAB.Modules
                     return new NotFoundResponse ();
                 return View ["User/update", user];
             };
-
+            
             Put ["/user/update/{Username}"] = x => {
                 var user = this.Bind<User> ();
+                var result = new UserValidator().Validate(user, ruleSet: "Update");
+                if (!result.IsValid) {
+                    return View["Shared/_errors", result];
+                }
                 var username = (string)x.Username;
                 var saved = DocumentSession.Query<User> ("UsersByUsername")
                     .Where (n => n.Username == username)
@@ -49,7 +53,7 @@ namespace GestUAB.Modules
                     new DefaultJsonSerializer ()
                 );
                 resp.Headers.Add ("Location", "/user/" + saved.Username);
-                resp.StatusCode = HttpStatusCode.OK;
+                resp.StatusCode = HttpStatusCode.Created;
                 return resp;
             };
 
@@ -59,11 +63,10 @@ namespace GestUAB.Modules
 
             Post ["/user/create"] = x => {
                 var user = this.Bind<User> ();
-                var result = this.Validate(user);
+                var result = new UserValidator().Validate(user);
                 if (!result.IsValid) {
                     return View["Shared/_errors", result];
                 }
-
                 DocumentSession.Store (user);
                 var resp = new JsonResponse<User> (
                     user,

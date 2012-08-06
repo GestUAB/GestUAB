@@ -70,9 +70,9 @@ namespace GestUAB
                                  Email = x.Item1.ToLower() + "." +  x.Item1.ToLower() + "@gestuab.com" 
                                 }
 					);
-
 				}
 				);
+                session.SaveChanges ();
 
 //                Random rand = new Random();
 

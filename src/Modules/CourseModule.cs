@@ -47,7 +47,7 @@ namespace GestUAB.Modules
                 return View ["edit", course];
             };
 
-            Put ["courses/update/{Number}"] = x => {
+            Post ["courses/update/{Number}"] = x => {
                 var course = this.Bind<Course>();
                 var result = this.Validate(course);
                 if (!result.IsValid)
