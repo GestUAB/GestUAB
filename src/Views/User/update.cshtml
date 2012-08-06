@@ -1,16 +1,18 @@
 ﻿@{
     Layout = "Shared/_layout.cshtml";
-    ViewBag.Title = "Editando usuário...";
+    ViewBag.Title = "Editar usuário " + Model.Username;
 }
 @section JavaScript
 {
-    <script src='@Url.Content("~/Content/js/jquery.validate.js")'></script>
-    <script src='@Url.Content("~/Content/js/jquery.validate.unobtrusive.js")'></script>
+    <script src='@Url.Content("~/Content/js/jquery.validate.min.js")'></script>
+    <script src='@Url.Content("~/Content/js/jquery.validate.unobtrusive.min.js")'></script>
+    <script src='@Url.Content("~/Content/js/validation.js")'></script>
     <script src='@Url.Content("~/Content/js/crud.js")'></script>
 }  
 
 <div id="summary"></div>
-<form class="form-horizontal" id="update_form" method="PUT" action='@Url.Content("~/courses/update/" + Model.Username)'>
+<form class="form-horizontal" id="update_form" method="PUT" 
+    action='@Url.Content("~/courses/update/" + Model.Username)'>
 
   <fieldset>
   
@@ -19,8 +21,14 @@
     <fieldset class="control-group">
       <label class="control-label" for="FirstName">Nome:</label>
       <div class="controls">
-        <input type="text" class="input-xlarge" data-val="true" data-val-alpha="O nome deve conter apenas caracteres alfabéticos." data-val-length="O nome deve conter entre 2 e 30 caracteres." data-val-length-max="30" data-val-length-min="2" data-val-required="O campo Nome é obrigatório." id="FirstName" name="FirstName" value="@Model.FirstName">
-        <span class="field-validation-valid error" data-valmsg-for="FirstName" data-valmsg-replace="true"></span>
+        <input type="text" class="input-xlarge" data-val="true" 
+            data-val-alpha="O nome deve conter apenas caracteres alfabéticos." 
+            data-val-length="O nome deve conter entre 2 e 30 caracteres." 
+            data-val-length-max="30" data-val-length-min="2" 
+            data-val-required="O campo Nome é obrigatório." 
+            id="FirstName" name="FirstName" value="@Model.FirstName">
+        <span class="field-validation-valid error" data-valmsg-for="FirstName" 
+            data-valmsg-replace="true"></span>
         <p class="help-block">Ex.: José</p>
       </div>
     </fieldset>
@@ -28,7 +36,14 @@
     <fieldset class="control-group">
       <label class="control-label" for="LastName">Sobrenome:</label>
       <div class="controls">
-        <input type="text" class="input-xlarge" id="LastName" name="LastName" value="@Model.LastName">
+        <input type="text" class="input-xlarge" data-val="true" 
+            data-val-alpha="O nome deve conter apenas caracteres alfabéticos." 
+            data-val-length="O nome deve conter entre 2 e 30 caracteres." 
+            data-val-length-max="30" data-val-length-min="2" 
+            data-val-required="O campo Nome é obrigatório." 
+            id="LastName" name="LastName" value="@Model.LastName">
+        <span class="field-validation-valid error" data-valmsg-for="LastName" 
+            data-valmsg-replace="true"></span>
         <p class="help-block">Ex.: da Silva</p>
       </div>
     </fieldset>
@@ -36,7 +51,12 @@
     <fieldset class="control-group">
       <label class="control-label" for="Email">Email:</label>
       <div class="controls">
-        <input type="text" class="input-xlarge" id="Email" name="Email" value="@Model.Email">
+        <input type="text" class="input-xlarge" data-val="true" 
+            data-val-email="O e-mail digitado não é válido." 
+            data-val-required="O campo E-mail é obrigatório." 
+            id="Email" name="Email" value="@Model.Email">
+        <span class="field-validation-valid error" data-valmsg-for="Email" 
+            data-valmsg-replace="true"></span>
         <p class="help-block">Ex.: jose@unicentro.br</p>
       </div>
     </fieldset>
@@ -45,9 +65,11 @@
   
   <div class='form-actions'>
   
-    <button type="reset" class="btn" onclick="history.go(-1);return false;">Cancelar</button>
+    <button type="reset" class="btn" 
+        onclick="history.go(-1);return false;">Cancelar</button>
     <button type="reset" class="btn">Desfazer mudanças</button>
-    <button type="button" class="btn btn-primary" id="update_button">Salvar</button>
+    <button type="button" class="btn btn-primary" 
+        id="update_button">Salvar</button>
     
   </div>
   

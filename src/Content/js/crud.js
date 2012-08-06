@@ -1,5 +1,5 @@
 //
-// crud.cs
+// crud.js
 //
 // Author:
 //       Tony Alexander Hild <tony_hild@yahoo.com>
@@ -24,72 +24,14 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-var page = function () {
-    $.validator.addMethod('alpha', function (value, element, params) {
-        return (/^[a-zA-Z]+$/.test(value));
-    });
-    
-    $.validator.unobtrusive.adapters.add("alpha", {}, function(options) {
-        options.rules['alpha'] = true;
-        options.messages['alpha'] = options.message;
-    });
-    //Update that validator
-    $.validator.setDefaults({
-        //errorClass:'error',
-        //validClass:'success',
-        highlight: function (element) {
-            //console.log($(element));
-            $(element).closest(".control-group").addClass("error");
-        },
-        unhighlight: function (element) {
-            $(element).closest(".control-group").removeClass("error");
-        }
-    });
-} ();
-
-
 $(function() {
-/*
-    $("#update_form").validate({
-        errorClass:'error',
-        validClass:'success',
-        errorElement:'span',
-        showErrors: function(errorMap, errorList) {
-            $("#summary").html("Your form contains "
-                                           + this.numberOfInvalids() 
-                                           + " errors, see details below.");
-            this.defaultShowErrors();
-          },        
-        highlight: function (element, errorClass, validClass) { 
-            $(element).parents("div[class='clearfix']").addClass(errorClass).removeClass(validClass); 
-        }, 
-        unhighlight: function (element, errorClass, validClass) { 
-            $(element).parents(".error").removeClass(errorClass).addClass(validClass); 
-        }
-    });
-    $.validator.setDefaults({
-        errorClass:'error',
-        validClass:'success',
-        errorElement:'span',
-        onkeyup:false,
-        showErrors: function(errorMap, errorList) {
-            $("#summary").html("Your form contains "
-                                           + this.numberOfInvalids() 
-                                           + " errors, see details below.");
-            this.defaultShowErrors();
-          }        
-    });
-*/
-    
-    
-    
-    //var settings = $("#update_form").data('validator').settings;
-    //settings.errorClass = 'error';
-    //settings.validClass = 'success';
-    
     // Handler for .ready() called.
     $("#update_button").click(function(event) {
         alert("Handler for .click() called.");
+        if(!$("#update_form").valid()) {
+            alert("Form not valid!");
+            return false;
+        }
         //event.preventDefault();
         $.ajax({
            url: window.location.href,
