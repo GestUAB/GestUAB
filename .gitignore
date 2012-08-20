@@ -7,14 +7,9 @@ TestResults
 
 *.suo
 *.userprefs
-<<<<<<< HEAD
 *.user
 scr/App_Data/Database
 scr/App_Data/*
 scr\App_Data\Database
 scr\App_Data\*
-
-=======
-src/App_Data/*
 [P]ackages\
->>>>>>> df0db134535534a6fce4c3202d8b4983b9b91fd5

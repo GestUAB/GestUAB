@@ -23,7 +23,6 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-
 using FluentValidation;
 using Raven.Client;
 using Raven.Client.Linq;
@@ -34,9 +33,13 @@ namespace GestUAB.Models
     public class User : IModel
     {
         public string Username { get; set; }
+
         public string FirstName { get; set; }
+
         public string LastName { get; set; }
+
         public string Email { get; set; }
+
         public string Name { get { return FirstName + " " + LastName; } }
     }
 
@@ -49,17 +52,22 @@ namespace GestUAB.Models
                     .Length (5, 15)
                     .Matches ("[a-z]*")
                     .Must ((user, username) => !session.Query<User> ()
-                        .Where (n => n.Username == username).Any ())
+                        .Where (n => n.Username == username).Any ()
+                )
                    .WithMessage ("Already exists a user with the username '{0}'", user => user.Username);
                 RuleFor (user => user.Email)
                     .NotEmpty ()
                     .EmailAddress ()
                     .Must ((user, email) => !session.Query<User> ()
-                        .Where (n => n.Email == email).Any ())
+                        .Where (n => n.Email == email).Any ()
+                )
                     .WithMessage ("Already exists a user with the email '{0}'", user => user.Email);
             }
-            RuleFor (user => user.FirstName).NotEmpty ();
-            RuleFor (user => user.LastName).NotEmpty ();
+            RuleSet ("Update", () => {
+                RuleFor (user => user.FirstName).NotEmpty ();
+                RuleFor (user => user.LastName).NotEmpty ();
+            }
+            );
         }
     }
 }
