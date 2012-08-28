@@ -183,9 +183,11 @@
     <None Include="Views\Course\new.cshtml" />
     <None Include="Views\Course\show.cshtml" />
     <None Include="Content\js\crud.js" />
+    <None Include="Views\Home\about.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\About\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config">
