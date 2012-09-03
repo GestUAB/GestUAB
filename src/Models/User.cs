@@ -67,7 +67,6 @@ namespace GestUAB.Models
         [ScaffoldVisibility(all:ScaffoldVisibilityType.Show)] 
         public string FirstName { get; set; }
 
-        //[Display(Name="Sobrenome", Description = "", )]
         [Display(Name = "Sobrenome",
                  Description= "Sobrenome do usuário. Ex.: da Silva.")]
         [ScaffoldVisibility(all:ScaffoldVisibilityType.Show)] 

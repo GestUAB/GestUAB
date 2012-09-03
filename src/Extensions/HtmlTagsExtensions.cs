@@ -301,7 +301,7 @@ namespace GestUAB
         {
             var fullName = Assembly.GetExecutingAssembly ().FullName;
             var typeFullName = typeof(TModel).FullName;
-            AbstractValidator<TModel> validator = 
+            var validator = 
                 (AbstractValidator<TModel>)Activator.CreateInstance (fullName, 
                                         typeFullName + "Validator").Unwrap ();
             var descriptor = validator.CreateDescriptor ();
@@ -321,7 +321,7 @@ namespace GestUAB
             tag.Data ("val", "true");
             foreach (var v in r.Validators) {
                 var message = v.ErrorMessageSource;
-                MessageFormatter messageFormatter = new MessageFormatter ();
+                var messageFormatter = new MessageFormatter ();
                 messageFormatter.AppendPropertyName (r.DisplayName.GetString ());
                 var formattedMessage = messageFormatter.BuildMessage (message.GetString ());
                 if (v is NotEmptyValidator) {
