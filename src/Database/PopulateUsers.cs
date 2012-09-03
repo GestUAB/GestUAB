@@ -67,7 +67,7 @@ namespace GestUAB
                         new User{Username = x.Item1.ToLower() + "." + x.Item2.ToLower(), 
                                  FirstName = x.Item1, 
                                  LastName = x.Item2, 
-                                 Email = x.Item1.ToLower() + "." +  x.Item1.ToLower() + "@gestuab.com" 
+                                 Email = x.Item1.ToLower() + "." +  x.Item2.ToLower() + "@gestuab.com" 
                                 }
 					);
 				}

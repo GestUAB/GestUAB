@@ -24,13 +24,45 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
+using Nancy;
+using GestUAB.Models;
+using FluentValidation;
 
-namespace GestUAB
+namespace GestUAB.Modules
 {
-    public class ValidationModule
+    public class ValidationModule : BaseModule
     {
+
         public ValidationModule ()
         {
+            Get ["/validation/user/validate-exists-username"] = x => { 
+                return Response.AsJson<bool>(true);
+            };
+            Get ["/validation/user/validate-exists-email"] = x => { 
+                var user = new User();
+                var q = DeserializeQueryString(Request.Query["*"]);
+                user.Username = q.Username;
+                user.FirstName =  q.FirstName;
+                user.LastName =  q.LastName;
+                user.Email =  q.Email;
+                var result = new UserValidator().Validate(user, y => y.Email);
+                if (result.IsValid) {
+                    return Response.AsJson<bool>(true);
+                }
+                return Response.AsJson<bool>(false);
+            };
+        }
+
+        dynamic DeserializeQueryString(string queryString)
+        {
+            queryString = Nancy.Helpers.HttpUtility.UrlDecode(queryString);
+            dynamic obj = new DynamicDictionary();
+            var pairs = queryString.Split('&');
+            foreach (var pair in pairs) {
+                var kv = pair.Split('=');
+                obj[kv[0]] = kv[1];
+            }
+            return obj;
         }
     }
 }

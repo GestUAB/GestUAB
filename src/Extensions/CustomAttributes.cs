@@ -27,10 +27,50 @@ using System;
 
 namespace GestUAB
 {
-    public class CustomAttributes
+
+    public enum ScaffoldVisibilityType
     {
-        public CustomAttributes ()
+//        Create,
+//        Read,
+//        Update,
+//        Delete,
+//        All = Create | Read | Update | Delete,
+//        AllHidden = All | Hidden,
+        Hidden,
+        Show,
+        None
+    }
+
+    public class ScaffoldVisibilityAttribute : Attribute
+    {
+        public ScaffoldVisibilityType All { get; private set; }
+
+        public ScaffoldVisibilityType Create { get; private set; }
+
+        public ScaffoldVisibilityType Read { get; private set; }
+
+        public ScaffoldVisibilityType Update { get; private set; }
+
+        public ScaffoldVisibilityType Delete { get; private set; }
+
+        public ScaffoldVisibilityAttribute (ScaffoldVisibilityType create = ScaffoldVisibilityType.None, 
+                                            ScaffoldVisibilityType read = ScaffoldVisibilityType.None,
+                                            ScaffoldVisibilityType update = ScaffoldVisibilityType.None,
+                                            ScaffoldVisibilityType delete = ScaffoldVisibilityType.None,
+                                            ScaffoldVisibilityType all = ScaffoldVisibilityType.None)
         {
+            if (all != ScaffoldVisibilityType.None) {
+                Create = all;
+                Read = all;
+                Update = all;
+                Delete = all;
+            } else {
+                Create = create;
+                Read = read;
+                Update = update;
+                Delete = delete;
+            }
+            All = all;
         }
     }
 }

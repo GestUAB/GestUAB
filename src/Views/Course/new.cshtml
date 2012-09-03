@@ -1,30 +1,24 @@
+@using GestUAB
 @{
     Layout = "Shared/_layout.cshtml";
     ViewBag.Title = "Novo curso";
 }
-
+@section JavaScript
+{
+    <script src='@Url.Content("~/Content/js/jquery.validate.js")'></script>
+    <script src='@Url.Content("~/Content/js/jquery.validate.unobtrusive.js")'></script>
+    <script src='@Url.Content("~/Content/js/additional-methods.js")'></script>
+    <script src='@Url.Content("~/Content/js/validation.js")'></script>
+}  
 <div id="errors"></div>
-<form class="form-horizontal" id="create_form" method="post" action='@Url.Content("~/courses/create")'>
+<form class="form-horizontal" id="new_form" method="post" action='@Url.Content("~/courses/new")'>
 
   <fieldset>
   
     <legend>Novo curso</legend>
 
-    <div class="control-group">
-      <label class="control-label" for="CourseNumber">Número:</label>
-      <div class="controls">
-        <input type="text" class="input-xlarge" id="CourseNumber" name="Number" value="">
-        <p class="help-block">Ex.: 57</p>
-      </div>
-    </div>
+    @HtmlTagsExtensions.FieldsFor(@Model, FormType.Create)
 
-    <div class="control-group">
-      <label class="control-label" for="CourseName">Nome:</label>
-      <div class="controls">
-        <input type="text" class="input-xlarge" id="CourseName" name="Name" value="">
-        <p class="help-block">Ex.: Ciência da Computação</p>
-      </div>
-    </div>
 
   </fieldset>
   

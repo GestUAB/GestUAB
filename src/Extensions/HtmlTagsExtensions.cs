@@ -24,14 +24,348 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
+using HtmlTags;
+using Nancy.ViewEngines.Razor;
+using FluentValidation;
+using FluentValidation.Validators;
+using FluentValidation.Internal;
+using GestUAB.Validators;
+using System.Text;
 
 namespace GestUAB
 {
-    public class HtmlTagsExtensions
+    public static class HtmlTagsExtensions
     {
-        public HtmlTagsExtensions ()
+        static PropertyInfo GetMember<TModel> (Expression<Func<TModel, object>> objectProperty)
         {
+            var lambda = objectProperty as LambdaExpression;
+            if (lambda == null) {
+                return null;
+            }
+            var property = lambda.Body as MemberExpression;
+            if (property == null) {
+                return null;
+            }
+            var member = property.Member as PropertyInfo;
+            if (member == null) {
+                return null;
+            }
+            return member;
         }
+
+        public static IHtmlString FormFor<TModel> (TModel model, FormType formType, FormTag formTag)
+        {
+            var form = GenerateForm (model, formType, formTag);
+            return new NonEncodedHtmlString (form == null ? "" : form.ToString ());
+        }
+
+        public static IHtmlString FormFor<TModel> (TModel model, FormType formType)
+        {
+            var form = GenerateForm (model, formType, new FormTag ());
+            return new NonEncodedHtmlString (form == null ? "" : form.ToString ());
+        }
+
+        static HtmlTag GenerateForm<TModel> (TModel model, FormType formType, FormTag formTag)
+        {
+            foreach (var prop in model.GetType().GetProperties()) {
+                //var value = prop.GetValue (model, null);
+                var visibility = (ScaffoldVisibilityType)model.GetAttributeValue (prop, typeof(ScaffoldVisibilityAttribute), formType.ToString ());
+                if (visibility == ScaffoldVisibilityType.None) {
+                    continue;
+                }
+                if (visibility == ScaffoldVisibilityType.Show) {
+                    var type = prop.PropertyType;
+                    if (type == typeof(string)) {
+                        formTag.Append (GenerateInputText<TModel> (model, prop));
+                    }   
+                } else {
+                    formTag.Append (GenerateInputHidden<TModel> (model, prop));
+                }
+            }
+            if (formTag.Children.Count == 0) {
+                return null;
+            }
+            return formTag;
+        }
+
+        public static IHtmlString FieldsFor<TModel> (TModel model, FormType formType)
+        {
+            var form = GenerateFields (model, formType);
+            return new NonEncodedHtmlString (form == null ? "" : form.ToString ());
+        }
+
+//        public static IHtmlString FildsFor<TModel> (TModel model, FormType formType)
+//        {
+//            var form = GenerateForm (model, formType, new FormTag());
+//            return new NonEncodedHtmlString (form == null ? "" : form.ToString()) ;
+//        }
+
+        static HtmlTag GenerateFields<TModel> (TModel model, FormType formType)
+        {
+            var tag = new DivTag ();
+            foreach (var prop in model.GetType().GetProperties()) {
+                //var value = prop.GetValue (model, null);
+                var visibility = (ScaffoldVisibilityType)model.GetAttributeValue (prop, typeof(ScaffoldVisibilityAttribute), formType.ToString ());
+                if (visibility == ScaffoldVisibilityType.None) {
+                    continue;
+                }
+                if (visibility == ScaffoldVisibilityType.Show) {
+                    var type = prop.PropertyType;
+                    if (type == typeof(string)) {
+                        tag.Append (GenerateInputText<TModel> (model, prop));
+                    }   
+                } else {
+                    tag.Append (GenerateInputHidden<TModel> (model, prop));
+                }
+            }
+            if (tag.Children.Count == 0) {
+                return null;
+            }
+            return tag;
+        }
+
+        public static IHtmlString InputTextFor<TModel> (TModel model, 
+            Expression<Func<TModel, object>> objectProperty)
+        {
+            var member = GetMember<TModel> (objectProperty);
+            if (member == null)
+                return new NonEncodedHtmlString ("");
+            var tag = GenerateInputText (model, member);
+            return new NonEncodedHtmlString (tag == null ? "" : tag.ToString ());
+        }
+
+        public static IHtmlString InputTextFor<TModel> (TModel model, 
+            string propertyName)
+        {
+            var member = typeof(TModel).GetProperty (propertyName, 
+                BindingFlags.Public | BindingFlags.Instance);
+            if (member == null)
+                return new NonEncodedHtmlString ("");
+            var tag = GenerateInputText (model, member);
+            return new NonEncodedHtmlString (tag == null ? "" : tag.ToString ());
+        }
+
+        static HtmlTag GenerateInputText<TModel> (TModel model, PropertyInfo member)
+        {
+            var modelValue = member.GetValue (model, null);
+
+            if (modelValue == null) {
+                return null;
+            }
+
+            //<div class="control-group">
+            //  <label class="control-label" for="Email">Email:</label>
+            //  <div class="controls">
+            //    <input type="text" class="input-xlarge" data-val="true" 
+            //        data-val-email="O e-mail digitado não é válido." 
+            //        data-val-required="O campo E-mail é obrigatório." 
+            //        id="Email" name="Email" value="@Model.Email">
+            //    <span class="field-validation-valid error" data-valmsg-for="Email" 
+            //        data-valmsg-replace="true"></span>
+            //    <p class="help-block">Ex.: jose@unicentro.br</p>
+            //  </div>
+            //</div>
+
+            var controlGroup = new DivTag ().AddClass ("control-group");
+
+            controlGroup.Children.Add (
+                new HtmlTag ("label")
+                    .AddClass ("control-label")
+                    .Attr ("for", member.Name)
+                    .Text (model.GetAttributeValue (member.Name, 
+                                                  "Display", 
+                                                  "Name") + ":"
+            )
+            );
+            var controls = new DivTag ().AddClass ("controls");
+            controlGroup.Children.Add (controls);
+
+            var input = new TextboxTag (member.Name, modelValue.ToString ())
+                .Id (member.Name);
+
+            FillValidation<TModel> (input, member);
+
+            controls.Children.Add (input);
+
+            controls.Children.Add (
+                new HtmlTag ("span")
+                    .AddClasses ("field-validation-valid", "error")
+                    .Data ("valmsg-for", member.Name)
+                    .Data ("valmsg-replace", true)
+            );
+            controls.Children.Add (
+                new HtmlTag ("p")
+                    .AddClass ("help-block")
+                    .Text (model.GetAttributeValue (member.Name, 
+                                                  "Display", 
+                                                  "Description").ToString ()
+            )
+            );
+            return controlGroup;
+        }
+
+        /// <summary>
+        /// Fills the validation.
+        /// All the validators class must folows the pattern ModelName + Validator
+        /// </summary>
+        /// <param name='tag'>
+        /// Tag.
+        /// </param>
+        static void FillValidation<TModel> (HtmlTag tag, PropertyInfo member)
+        {
+            var fullName = Assembly.GetExecutingAssembly ().FullName;
+            var typeFullName = typeof(TModel).FullName;
+            AbstractValidator<TModel> validator = 
+                (AbstractValidator<TModel>)Activator.CreateInstance (fullName, 
+                                        typeFullName + "Validator").Unwrap ();
+            var descriptor = validator.CreateDescriptor ();
+            var members = descriptor.GetMembersWithValidators ();
+            foreach (var m in members) {
+                if (m.Key != member.Name)
+                    continue;
+                var rules = descriptor.GetRulesForMember (m.Key);
+                foreach (var r in rules) {
+                    FillValidation<TModel> (tag, r as PropertyRule);
+                }
+            }
+        }
+
+        static void FillValidation<TModel> (HtmlTag tag, PropertyRule r)
+        {
+            tag.Data ("val", "true");
+            foreach (var v in r.Validators) {
+                var message = v.ErrorMessageSource;
+                MessageFormatter messageFormatter = new MessageFormatter ();
+                messageFormatter.AppendPropertyName (r.DisplayName.GetString ());
+                var formattedMessage = messageFormatter.BuildMessage (message.GetString ());
+                if (v is NotEmptyValidator) {
+                    tag.Data ("val-required", formattedMessage);
+                }
+                if (v is EmailValidator) {
+                    tag.Data ("val-email", formattedMessage);
+                }
+                if (v is RegularExpressionValidator) {
+                    tag.Data ("val-regex", formattedMessage);
+                    tag.Data ("val-regex-pattern", (v as RegularExpressionValidator).Expression);
+                }
+                if (v is LengthValidator) {
+                    var lv = v as LengthValidator;
+                    tag.Data ("val-length", formattedMessage
+                                .Replace ("PropertyName", "0")
+                                .Replace ("MinLength", "1")
+                                .Replace ("MaxLength", "2")
+                                .Replace ("TotalLength", "3")
+                    );
+                    tag.Data ("val-length-max", lv.Max);
+                    tag.Data ("val-length-min", lv.Min);
+                }
+                if (v is RemoteValidator) {
+                    var rv = v as RemoteValidator;
+                    tag.Data ("val-remote", formattedMessage);
+                    tag.Data ("val-remote-additionalfields", rv.AdditionalFields);
+                    tag.Data ("val-remote-type", rv.HttpMethod);
+                    tag.Data ("val-remote-url", rv.Action);
+                }
+            }
+        }
+
+        public static IHtmlString InputHiddenFor<TModel> (TModel model, 
+            Expression<Func<TModel, object>> objectProperty)
+        {
+            var member = GetMember<TModel> (objectProperty);
+            if (member == null)
+                return null;
+            var tag = GenerateInputText (model, member);
+            return new NonEncodedHtmlString (tag == null ? "" : tag.ToString ());
+        }
+
+        public static IHtmlString InputHiddenFor<TModel> (TModel model, 
+            string propertyName)
+        {
+            var member = typeof(TModel).GetProperty (propertyName, 
+                BindingFlags.Public | BindingFlags.Instance);
+            if (member == null)
+                return new NonEncodedHtmlString ("");
+            var tag = GenerateInputText (model, member);
+            return new NonEncodedHtmlString (tag == null ? "" : tag.ToString ());
+        }
+
+        static HtmlTag GenerateInputHidden<TModel> (TModel model, PropertyInfo member)
+        {
+            var modelValue = member.GetValue (model, null);
+
+            if (modelValue == null) {
+                return null;
+            }
+
+            //<input type="hidden" name="member.Name" id="member.Name" value="modelValue.ToString ()" />
+            var input = new HiddenTag ()
+                .Attr ("name", member.Name)
+                .Attr ("value", modelValue.ToString ())
+                .Id (member.Name);
+
+            FillValidation<TModel> (input, member);
+
+            return input;
+        }
+
+        public static IHtmlString LabelsFor<TModel> (TModel model)
+        {
+            var div = GenerateLabels (model);
+            var sb = new StringBuilder();
+            foreach (var i in div.Children) {
+                sb.Append(i.ToHtmlString());
+            }
+            return new NonEncodedHtmlString (div == null ? "" : sb.ToString());
+        }
+
+        static HtmlTag GenerateLabels<TModel> (TModel model)
+        {
+            var ul = new HtmlTag ("div").AddClass ("fields");
+            
+            foreach (var prop in model.GetType().GetProperties()) {
+                var scaffold = model.GetAttribute (prop, typeof(ScaffoldVisibilityAttribute)) as ScaffoldVisibilityAttribute;
+                if (scaffold.Read == ScaffoldVisibilityType.Show) {
+                    var p = GenerateLabel (model, prop);
+                    if (p != null) {
+                        ul.Append (p);
+                    }
+                }
+            }
+            if (ul.Children.Count == 0) {
+                return null;
+            }
+            return ul;
+            
+        }
+
+        static HtmlTag GenerateLabel<TModel> (TModel model, PropertyInfo member)
+        {
+            var modelValue = member.GetValue (model, null);
+
+            if (modelValue == null) {
+                return null;
+            }
+            var p = new HtmlTag ("p").AddClass ("field");
+
+            //<input type="hidden" name="member.Name" id="member.Name" value="modelValue.ToString ()" />
+            var labelText = model.GetAttributeValue (member.Name, 
+                                               "Display", 
+                                                "Name") + ": ";
+            p.Append (new HtmlTag ("span")
+                .AddClass ("field-label")
+                .Text (labelText ?? member.Name)
+            );
+            p.Append (new HtmlTag ("span")
+                .AddClass ("field-value")
+                 .Text (modelValue.ToString ())
+            );
+            return p;
+        }
+
     }
 }
 

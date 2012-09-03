@@ -27,11 +27,12 @@ using System;
 
 namespace GestUAB
 {
-    public class FormType
+    public enum FormType
     {
-        public FormType ()
-        {
-        }
+        Create,
+        Read,
+        Update,
+        Delete
     }
 }
 

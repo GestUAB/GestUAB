@@ -2,10 +2,13 @@
     Layout = "Shared/_layout.cshtml";
     ViewBag.Title = "Lista de usuários";
 }
-        
+@section JavaScript
+{
+    <script src='@Url.Content("~/Content/js/crud.js")'></script>
+}          
 <table class='table'>
   <thead>
-    <td>Login</td>
+    <td>Nome de usuário</td>
     <td>Nome</td>
     <td>Ações</td>
   </thead>
@@ -15,14 +18,14 @@
             <td>@user.Username</td> 
             <td>@user.Name</td> 
             <td>   
-                <a href='@Url.Content("~/user/" + user.Username)' class='btn'>
+                <a href='@Url.Content("~/users/" + user.Username)' class='btn'>
                   Exibir
                 </a> 
-                <a href='@Url.Content("~/users/update/" + user.Username)' class='btn btn-info'>
+                <a href='@Url.Content("~/users/edit/" + user.Username)' class='btn btn-info'>
                   <i class="icon-edit"></i>
                   Editar
                 </a>
-                <a href='@Url.Content("~/users/delete/" + user.Username)' class='btn btn-danger'>
+                <a href='@Url.Content("~/users/delete/" + user.Username)' class='btn btn-danger delete'>
                   <i class="icon-remove"></i>
                   Remover
                 </a>
@@ -39,7 +42,7 @@
   <a href="#" class="btn" onclick="history.go(-1);return false;">
     <i class="icon-arrow-left"></i> Voltar
   </a>
-  <a href='@Url.Content("~/users/create")' class='btn btn-info'>
+  <a href='@Url.Content("~/users/new")' class='btn btn-info'>
     <i class="icon-plus"></i> Cadastrar novo
   </a>
   

@@ -13,20 +13,20 @@ namespace GestUAB
         {
             using (var session = ds.OpenSession()) {
                 // Operations against session
-                session.Store (new Course{Number = 1, Name = "Ciência da computação"});
-                session.Store (new Course{Number = 2, Name = "Matemática"});
-                session.Store (new Course{Number = 3, Name = "Geografia"});
+                session.Store (new Course{Name = "Ciência da computação"});
+                session.Store (new Course{Name = "Matemática"});
+                session.Store (new Course{Name = "Geografia"});
                 // Flush those changes
                 session.SaveChanges ();
             }
 
-            ds.DatabaseCommands.PutIndex("CoursesByNumber", new IndexDefinitionBuilder<Course>
+            ds.DatabaseCommands.PutIndex("CoursesById", new IndexDefinitionBuilder<Course>
             {
                 Map = courses => from course in courses
-                               select new { course.Number },
+                               select new { course.Id },
                 Indexes =
                     {
-                        { x => x.Number, FieldIndexing.Analyzed}
+                        { x => x.Id, FieldIndexing.Analyzed}
                     }
             });
 		}
