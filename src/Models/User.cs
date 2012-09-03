@@ -57,6 +57,11 @@ namespace GestUAB.Models
                             delete:ScaffoldVisibilityType.Hidden)] 
         public string Username { get; set; }
 
+        [Display(Name = "Nome completo",
+                 Description= "Nome completo do usuário. Ex.: João da Silva.")]
+        [ScaffoldVisibility(read:ScaffoldVisibilityType.Show)] 
+        public string Name { get { return FirstName + " " + LastName; } }
+
         [Display(Name = "Nome",
                  Description= "Nome do usuário. Ex.: João.")]
         [ScaffoldVisibility(all:ScaffoldVisibilityType.Show)] 
@@ -72,11 +77,6 @@ namespace GestUAB.Models
                  Description= "E-mail do usuário. Ex.: joao@gestuab.com.br.")]
         [ScaffoldVisibility(all:ScaffoldVisibilityType.Show)] 
         public string Email { get; set; }
-
-        [Display(Name = "Nome completo",
-                 Description= "Nome completo do usuário. Ex.: João da Silva.")]
-        [ScaffoldVisibility(read:ScaffoldVisibilityType.Show)] 
-        public string Name { get { return FirstName + " " + LastName; } }
     }
 
     public class UserValidator : ValidatorBase<User>

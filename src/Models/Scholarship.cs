@@ -4,9 +4,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GestUAB.Models
 {
+    /// <summary>
+    /// Scholarship.
+    /// </summary>
     public class Scholarship : IModel
     {
- 
+        
         public Scholarship ()
         {
             Id = Guid.NewGuid();
@@ -15,11 +18,18 @@ namespace GestUAB.Models
 
         #region IModel implementation
         [Display(Name = "Código",
-                 Description= "Código do curso.")]
+                 Description= "Código da bolsa.")]
         [ScaffoldVisibility(all:ScaffoldVisibilityType.Hidden)] 
         public System.Guid Id { get ; set ; }
         #endregion
 
+        //TODO: This must be a person?
+        /// <summary>
+        /// Gets or sets the owner.
+        /// </summary>
+        /// <value>
+        /// The owner.
+        /// </value>
         public string Owner { get; set; }
 		
     }
