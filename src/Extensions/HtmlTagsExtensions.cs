@@ -37,6 +37,11 @@ using System.Text;
 
 namespace GestUAB
 {
+    /// <summary>
+    /// Html tags extensions class.
+    /// This class is capable to render html elements in a razor page.
+    /// Basically you can scaffold any model to an input or list of inputs. 
+    /// </summary>
     public static class HtmlTagsExtensions
     {
         static PropertyInfo GetMember<TModel> (Expression<Func<TModel, object>> objectProperty)
@@ -56,12 +61,45 @@ namespace GestUAB
             return member;
         }
 
+        /// <summary>
+        /// Render an entire form from model.
+        /// </summary>
+        /// <returns>
+        /// An <see cref="IHtmlString"/> object.
+        /// </returns>
+        /// <param name='model'>
+        /// The model that refers to form.
+        /// </param>
+        /// <param name='formType'>
+        /// The type of form. <see cref="FormType"/>
+        /// </param>
+        /// <param name='formTag'>
+        /// An outter form tag which will enclose the inputs.
+        /// </param>
+        /// <typeparam name='TModel'>
+        /// The 1st type parameter.
+        /// </typeparam>
         public static IHtmlString FormFor<TModel> (TModel model, FormType formType, FormTag formTag)
         {
             var form = GenerateForm (model, formType, formTag);
             return new NonEncodedHtmlString (form == null ? "" : form.ToString ());
         }
 
+        /// <summary>
+        /// Render an entire form from model.
+        /// </summary>
+        /// <returns>
+        /// An <see cref="IHtmlString"/> object.
+        /// </returns>
+        /// <param name='model'>
+        /// The model that refers to form.
+        /// </param>
+        /// <param name='formType'>
+        /// The type of form. <see cref="FormType"/>
+        /// </param>
+        /// <typeparam name='TModel'>
+        /// The 1st type parameter.
+        /// </typeparam>
         public static IHtmlString FormFor<TModel> (TModel model, FormType formType)
         {
             var form = GenerateForm (model, formType, new FormTag ());
@@ -91,6 +129,21 @@ namespace GestUAB
             return formTag;
         }
 
+        /// <summary>
+        /// Render a list of inputs from a model.
+        /// </summary>
+        /// <returns>
+        /// An <see cref="IHtmlString"/> object.
+        /// </returns>
+        /// <param name='model'>
+        /// Model.
+        /// </param>
+        /// <param name='formType'>
+        /// Form type.
+        /// </param>
+        /// <typeparam name='TModel'>
+        /// The 1st type parameter.
+        /// </typeparam>
         public static IHtmlString FieldsFor<TModel> (TModel model, FormType formType)
         {
             var form = GenerateFields (model, formType);
@@ -127,6 +180,21 @@ namespace GestUAB
             return tag;
         }
 
+        /// <summary>
+        /// Render an input from a model.
+        /// </summary>
+        /// <returns>
+        /// An <see cref="IHtmlString"/> object.
+        /// </returns>
+        /// <param name='model'>
+        /// Model.
+        /// </param>
+        /// <param name='objectProperty'>
+        /// Object property.
+        /// </param>
+        /// <typeparam name='TModel'>
+        /// The 1st type parameter.
+        /// </typeparam>
         public static IHtmlString InputTextFor<TModel> (TModel model, 
             Expression<Func<TModel, object>> objectProperty)
         {
@@ -137,6 +205,21 @@ namespace GestUAB
             return new NonEncodedHtmlString (tag == null ? "" : tag.ToString ());
         }
 
+        /// <summary>
+        /// Render an input from a model.
+        /// </summary>
+        /// <returns>
+        /// An <see cref="IHtmlString"/> object.
+        /// </returns>
+        /// <param name='model'>
+        /// Model.
+        /// </param>
+        /// <param name='propertyName'>
+        /// Property name.
+        /// </param>
+        /// <typeparam name='TModel'>
+        /// The 1st type parameter.
+        /// </typeparam>
         public static IHtmlString InputTextFor<TModel> (TModel model, 
             string propertyName)
         {
@@ -272,6 +355,21 @@ namespace GestUAB
             }
         }
 
+        /// <summary>
+        /// Render an input hidden from a model.
+        /// </summary>
+        /// <returns>
+        /// An <see cref="IHtmlString"/> object.
+        /// </returns>
+        /// <param name='model'>
+        /// Model.
+        /// </param>
+        /// <param name='objectProperty'>
+        /// Object property.
+        /// </param>
+        /// <typeparam name='TModel'>
+        /// The 1st type parameter.
+        /// </typeparam>
         public static IHtmlString InputHiddenFor<TModel> (TModel model, 
             Expression<Func<TModel, object>> objectProperty)
         {
@@ -282,6 +380,21 @@ namespace GestUAB
             return new NonEncodedHtmlString (tag == null ? "" : tag.ToString ());
         }
 
+        /// <summary>
+        /// Render an input hidden from a model.
+        /// </summary>
+        /// <returns>
+        /// An <see cref="IHtmlString"/> object.
+        /// </returns>
+        /// <param name='model'>
+        /// Model.
+        /// </param>
+        /// <param name='propertyName'>
+        /// Property name.
+        /// </param>
+        /// <typeparam name='TModel'>
+        /// The 1st type parameter.
+        /// </typeparam>
         public static IHtmlString InputHiddenFor<TModel> (TModel model, 
             string propertyName)
         {
@@ -312,6 +425,18 @@ namespace GestUAB
             return input;
         }
 
+        /// <summary>
+        /// Render a list of labels from a model.
+        /// </summary>
+        /// <returns>
+        /// An <see cref="IHtmlString"/> object.
+        /// </returns>
+        /// <param name='model'>
+        /// Model.
+        /// </param>
+        /// <typeparam name='TModel'>
+        /// The 1st type parameter.
+        /// </typeparam>
         public static IHtmlString LabelsFor<TModel> (TModel model)
         {
             var div = GenerateLabels (model);
