@@ -176,9 +176,7 @@
     <None Include="Views\Course\show.cshtml" />
     <None Include="Views\Course\index.cshtml" />
     <None Include="Views\Course\new.cshtml" />
-    <None Include="Views\Course\edit.cshtml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Views\Course\edit.cshtml" />
     <None Include="Views\User\new.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -191,7 +189,6 @@
     <None Include="Views\User\index.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Views\Course\edit.cshtml" />
     <None Include="Views\Home\about.cshtml" />
   </ItemGroup>
   <ItemGroup>

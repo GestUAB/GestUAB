@@ -192,7 +192,7 @@ namespace GestUAB
 
             controls.Children.Add (
                 new HtmlTag ("span")
-                    .AddClasses ("field-validation-valid", "error")
+                    .AddClasses ("field-validation-valid help-inline", "error")
                     .Data ("valmsg-for", member.Name)
                     .Data ("valmsg-replace", true)
             );
