@@ -2,27 +2,29 @@
     Layout = "Shared/_layout.cshtml";
     ViewBag.Title = "Lista de cursos";
 }
-        
+@section JavaScript
+{
+    <script src='@Url.Content("~/Content/js/crud.js")'></script>
+
+}        
 <table class='table'>
   <thead>
-    <td>Número</td>
     <td>Nome</td>
     <td>Ações</td>
   </thead>
   <tbody>
     @foreach(var course in @Model) {
         <tr>
-            <td>@course.Number</td> 
             <td>@course.Name</td> 
             <td>   
-				<a href='@Url.Content("~/course/" + course.Number)' class='btn'>
+				<a href='@Url.Content("~/courses/" + course.Id)' class='btn'>
 				  Exibir
 				</a> 
-				<a href='@Url.Content("~/courses/edit/" + course.Number)' class='btn btn-info'>
+				<a href='@Url.Content("~/courses/edit/" + course.Id)' class='btn btn-info'>
 				  <i class="icon-edit"></i>
 				  Editar
 				</a>
-				<a href='@Url.Content("~/courses/delete/" + course.Number)' class='btn btn-danger'>
+				<a href='@Url.Content("~/courses/delete/" + course.Id)' class='btn btn-danger delete'>
 				  <i class="icon-remove"></i>
 				  Remover
 				</a>

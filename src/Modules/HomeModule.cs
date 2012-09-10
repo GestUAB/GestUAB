@@ -12,8 +12,9 @@ namespace GestUAB.Modules
                 return View ["Home/index",
                 DocumentSession.Query<User>().ToList()];
             };
-            Get ["/test"] = _ => { 
-                return "test";
+            Get ["/about"] = _ => { 
+                return View ["Home/about",
+                DocumentSession.Query<User>().ToList()];
             };
         }
     }

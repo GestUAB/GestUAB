@@ -1,7 +1,7 @@
-@using GestUAB
+﻿@using GestUAB
 @{
     Layout = "Shared/_layout.cshtml";
-    ViewBag.Title = "Novo curso";
+    ViewBag.Title = "Novo usuário";
 }
 @section JavaScript
 {
@@ -11,11 +11,11 @@
     <script src='@Url.Content("~/Content/js/validation.js")'></script>
 }  
 <div id="errors"></div>
-<form class="form-horizontal" id="new_form" method="post" action='@Url.Content("~/courses/new")'>
+<form class="form-horizontal" id="new_form" method="post" action='@Url.Content("~/users/new")'>
 
   <fieldset>
   
-    <legend>Novo curso</legend>
+    <legend>Novo usuário</legend>
 
     @HtmlTagsExtensions.FieldsFor(@Model, FormType.Create)
 
@@ -31,4 +31,3 @@
   </div>
   
 </form>
-
