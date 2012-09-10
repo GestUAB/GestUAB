@@ -1,9 +1,8 @@
-@using GestUAB
+﻿@using GestUAB 
 @{
     Layout = "Shared/_layout.cshtml";
-    ViewBag.Title = "Editar curso";
+    ViewBag.Title = "Editar usuário " + Model.Username;
 }
-
 @section JavaScript
 {
     <script src='@Url.Content("~/Content/js/jquery.validate.js")'></script>
@@ -13,23 +12,26 @@
 }  
 
 <div id="errors"></div>
-<form class="form-horizontal" id="edit_form" method="post" >
+<form class="form-horizontal" id="edit_form" method="PUT" 
+    action='@Url.Content("~/users/edit/" + Model.Username)'>
 
   <fieldset>
   
-    <legend>Editar curso @Model.Name</legend>
+    <legend>Editar usuário @Model.Username</legend>
     
     @HtmlTagsExtensions.FieldsFor(@Model, FormType.Update)
-
     
   </fieldset>
   
   <div class='form-actions'>
   
-    <button type="reset" class="btn" onclick="history.go(-1);return false;">Cancelar</button>
+    <button type="reset" class="btn" 
+        onclick="history.go(-1);return false;">Cancelar</button>
     <button type="reset" class="btn">Desfazer mudanças</button>
-    <button type="submit" class="btn btn-primary">Salvar</button>
+    <button type="button" class="btn btn-primary" 
+        id="update_button">Salvar</button>
     
   </div>
   
 </form>
+

@@ -1,5 +1,5 @@
 //
-// IModel.cs
+// FormType.cs
 //
 // Author:
 //       Tony Alexander Hild <tony_hild@yahoo.com>
@@ -27,9 +27,12 @@ using System;
 
 namespace GestUAB
 {
-    public interface IModel
+    public enum FormType
     {
-        Guid Id { get; set; }
+        Create,
+        Read,
+        Update,
+        Delete
     }
 }
 

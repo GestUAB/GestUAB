@@ -8,8 +8,11 @@ TestResults
 *.suo
 *.userprefs
 *.user
+App_Data
 scr/App_Data/Database
 scr/App_Data/*
+scr/App_Data/Database/*
 scr\App_Data\Database
 scr\App_Data\*
+scr\App_Data\Database\*
 [P]ackages\
