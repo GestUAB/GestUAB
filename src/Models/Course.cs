@@ -23,6 +23,11 @@ namespace GestUAB.Models
                  Description= "Nome do curso. Ex.: Matemática.")]
         [ScaffoldVisibility(all:ScaffoldVisibilityType.Show)] 
         public string Name { get; set; }
+
+        [Display(Name = "Ativo",
+                 Description= "O curso está ativo?")]
+        [ScaffoldVisibility(all:ScaffoldVisibilityType.Show)] 
+        public bool Active { get; set; }
     }
  
     public class CourseValidator: ValidatorBase<Course>

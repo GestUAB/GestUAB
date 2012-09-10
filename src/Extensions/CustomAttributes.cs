@@ -30,12 +30,6 @@ namespace GestUAB
 
     public enum ScaffoldVisibilityType
     {
-//        Create,
-//        Read,
-//        Update,
-//        Delete,
-//        All = Create | Read | Update | Delete,
-//        AllHidden = All | Hidden,
         Hidden,
         Show,
         None

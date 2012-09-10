@@ -118,6 +118,8 @@ namespace GestUAB
                     var type = prop.PropertyType;
                     if (type == typeof(string)) {
                         formTag.Append (GenerateInputText<TModel> (model, prop));
+                    } else if (type == typeof(bool)) {
+                        formTag.Append (GenerateInputCheck<TModel> (model, prop));
                     }   
                 } else {
                     formTag.Append (GenerateInputHidden<TModel> (model, prop));
@@ -169,6 +171,9 @@ namespace GestUAB
                     var type = prop.PropertyType;
                     if (type == typeof(string)) {
                         tag.Append (GenerateInputText<TModel> (model, prop));
+                    } 
+                    else if (type == typeof(bool)) {
+                        tag.Append (GenerateInputCheck<TModel> (model, prop));
                     }   
                 } else {
                     tag.Append (GenerateInputHidden<TModel> (model, prop));
@@ -252,6 +257,66 @@ namespace GestUAB
             //  </div>
             //</div>
 
+            var cg = CreateControlGroup(model, member);
+
+            var input = new TextboxTag (member.Name, modelValue.ToString ())
+                .Id (member.Name);
+
+            FillValidation<TModel> (input, member);
+
+            cg.Children[1].InsertFirst(input);
+
+            return cg;
+        }
+
+        static HtmlTag GenerateInputCheck<TModel> (TModel model, PropertyInfo member)
+        {
+            var modelValue = member.GetValue (model, null);
+
+            if (modelValue == null) {
+                return null;
+            }
+
+            //<div class="control-group">
+            //  <label class="control-label" for="Email">Email:</label>
+            //  <div class="controls">
+            //    <input type="checkbox" class="input-xlarge" data-val="true" 
+            //        data-val-email="O e-mail digitado não é válido." 
+            //        data-val-required="O campo E-mail é obrigatório." 
+            //        id="Email" name="Email" value="@Model.Email">
+            //    <span class="field-validation-valid error" data-valmsg-for="Email" 
+            //        data-valmsg-replace="true"></span>
+            //    <p class="help-block">Ex.: jose@unicentro.br</p>
+            //  </div>
+            //</div>
+          
+            var cg = CreateControlGroup(model, member);
+
+            var input = new CheckboxTag ((bool)modelValue)
+                .Attr("name", member.Name)
+                .Id (member.Name);
+
+            FillValidation<TModel> (input, member);
+
+            cg.Children[1].InsertFirst(input);
+
+            return cg;
+        }
+
+        static HtmlTag CreateControlGroup<TModel> (TModel model, PropertyInfo member) {
+             //<div class="control-group">
+            //  <label class="control-label" for="Email">Email:</label>
+            //  <div class="controls">
+            //    <input type="checkbox" class="input-xlarge" data-val="true" 
+            //        data-val-email="O e-mail digitado não é válido." 
+            //        data-val-required="O campo E-mail é obrigatório." 
+            //        id="Email" name="Email" value="@Model.Email">
+            //    <span class="field-validation-valid error" data-valmsg-for="Email" 
+            //        data-valmsg-replace="true"></span>
+            //    <p class="help-block">Ex.: jose@unicentro.br</p>
+            //  </div>
+            //</div>
+
             var controlGroup = new DivTag ().AddClass ("control-group");
 
             controlGroup.Children.Add (
@@ -265,13 +330,6 @@ namespace GestUAB
             );
             var controls = new DivTag ().AddClass ("controls");
             controlGroup.Children.Add (controls);
-
-            var input = new TextboxTag (member.Name, modelValue.ToString ())
-                .Id (member.Name);
-
-            FillValidation<TModel> (input, member);
-
-            controls.Children.Add (input);
 
             controls.Children.Add (
                 new HtmlTag ("span")
@@ -289,7 +347,6 @@ namespace GestUAB
             );
             return controlGroup;
         }
-
         /// <summary>
         /// Fills the validation.
         /// All the validators class must folows the pattern ModelName + Validator
@@ -440,11 +497,11 @@ namespace GestUAB
         public static IHtmlString LabelsFor<TModel> (TModel model)
         {
             var div = GenerateLabels (model);
-            var sb = new StringBuilder();
+            var sb = new StringBuilder ();
             foreach (var i in div.Children) {
-                sb.Append(i.ToHtmlString());
+                sb.Append (i.ToHtmlString ());
             }
-            return new NonEncodedHtmlString (div == null ? "" : sb.ToString());
+            return new NonEncodedHtmlString (div == null ? "" : sb.ToString ());
         }
 
         static HtmlTag GenerateLabels<TModel> (TModel model)
