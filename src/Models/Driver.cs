@@ -60,7 +60,7 @@ namespace GestUAB.Models
         /// </summary>
         /// 
         [Display(Name = "Telefone",
-         Description = "Telefone de contato. Ex.: (xx)-xxxx-xxxx")]
+         Description = "Telefone de contato. Ex.: (xx) xxxx-xxxx")]
         [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
         public string Phone { get; set; }
 
@@ -177,7 +177,7 @@ namespace GestUAB.Models
                 RuleFor(driver => driver.Name)
                     .NotEmpty().WithMessage("O nome do motorista é obrigatório.")
                     .Length(10, 30).WithMessage("o nome do motorista deve conter entre 10 e 30 caracteres.")
-                    .Matches(@"^[a-zA-Z][a-zA-Z0-9_]*\.?[a-zA-Z0-9_]*$").WithMessage("Insira somente letras.")
+                    .Matches(@"^[a-zA-Z\u00C0-\u00ff\s]*$").WithMessage("Insira somente letras.")
                     .Must((driver, drivername) => !session.Query<Driver>()
                         .Where(n => n.Name == drivername).Any())
                         .WithMessage(@"Motorista já cadastrado ""{0}""", driver => driver.Name)
