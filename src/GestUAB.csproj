@@ -124,15 +124,15 @@
     <Compile Include="Models\Lot.cs" />
     <Compile Include="Models\Scholarship.cs" />
     <Compile Include="Modules\CourseModule.cs" />
+    <Compile Include="Extensions\HtmlTagsExtensions.cs" />
+    <Compile Include="Extensions\AttributeExtensions.cs" />
+    <Compile Include="Extensions\CustomValidators.cs" />
+    <Compile Include="Modules\ValidationModule.cs" />
+    <Compile Include="Extensions\CustomAttributes.cs" />
+    <Compile Include="Extensions\FormType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Views\User\users.cshtml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Views\User\user.cshtml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Views\Home\index.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -169,20 +169,34 @@
     <None Include="Content\js\jquery-1.7.2.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Views\User\create.cshtml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Views\User\update.cshtml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Views\Shared\_errors.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Content\js\crud.js" />
+    <None Include="Views\Course\show.cshtml" />
+    <None Include="Views\Course\index.cshtml" />
+    <None Include="Views\Course\new.cshtml" />
+    <None Include="Views\Course\edit.cshtml" />
+    <None Include="Views\User\new.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\User\edit.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\User\show.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\User\index.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+<<<<<<< HEAD
     <None Include="Views\Course\edit.cshtml" />
     <None Include="Views\Course\index.cshtml" />
     <None Include="Views\Course\new.cshtml" />
     <None Include="Views\Course\show.cshtml" />
     <None Include="Content\js\crud.js" />
+=======
+>>>>>>> 541c1c286094df6ca08a6cd48d9a3955e4db6068
     <None Include="Views\Home\about.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -194,10 +208,11 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Content\js\localization\messages_ptbr.js" />
+    <Content Include="Content\js\additional-methods.js" />
+    <Content Include="Content\js\jquery.validate.js" />
     <Content Include="Content\js\validation.js" />
-    <Content Include="Content\js\additional-methods.min.js" />
-    <Content Include="Content\js\jquery.validate.min.js" />
-    <Content Include="Content\js\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\js\jquery.validate.unobtrusive.js" />
+    <Content Include="Content\js\jquery-1.8.1.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -207,11 +222,14 @@
         <Policies>
           <TextStylePolicy FileWidth="120" EolMarker="Unix" inheritsSet="VisualStudio" inheritsScope="text/plain" scope="text/x-csharp" />
           <CSharpFormattingPolicy inheritsSet="Mono" inheritsScope="text/x-csharp" scope="text/x-csharp" />
-          <TextStylePolicy EolMarker="Unix" inheritsSet="VisualStudio" inheritsScope="text/plain" scope="text/plain" />
-          <TextStylePolicy EolMarker="Unix" inheritsSet="VisualStudio" inheritsScope="text/plain" scope="application/config+xml" />
+          <TextStylePolicy FileWidth="120" EolMarker="Unix" inheritsSet="VisualStudio" inheritsScope="text/plain" scope="text/plain" />
+          <TextStylePolicy inheritsSet="null" scope="application/config+xml" />
           <XmlFormattingPolicy inheritsSet="null" scope="application/config+xml" />
-          <TextStylePolicy EolMarker="Unix" inheritsSet="VisualStudio" inheritsScope="text/plain" scope="application/xml" />
+          <TextStylePolicy inheritsSet="null" scope="application/xml" />
           <XmlFormattingPolicy inheritsSet="Mono" inheritsScope="application/xml" scope="application/xml" />
+          <TextStylePolicy inheritsSet="null" scope="text/html" />
+          <TextStylePolicy inheritsSet="null" scope="application/javascript" />
+          <TextStylePolicy inheritsSet="null" scope="text/css" />
         </Policies>
         <XspParameters Port="8888" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="true" />
       </Properties>

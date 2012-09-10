@@ -25,14 +25,8 @@
 // THE SOFTWARE.
 
 $(function() {
-    // Handler for .ready() called.
     $("#update_button").click(function(event) {
-        alert("Handler for .click() called.");
-        if(!$("#update_form").valid()) {
-            alert("Form not valid!");
-            return false;
-        }
-        //event.preventDefault();
+        if(!$("#update_button").valid()) return false;
         $.ajax({
            url: window.location.href,
            async: false,
@@ -62,4 +56,27 @@ $(function() {
         });
         return false;
     });
+    
+    $(".delete").click(function(event) {
+                var link = $(this);
+                $.ajax({
+                   url: link.attr("href"),
+                   async: false,
+                   type: "DELETE",
+                   dataType: "jsonp",
+                   error: function(jqXHR, textStatus, errorThrown){
+                            alert("Error!");
+                   },
+                   complete: function(jqXHR, textStatus){
+                   },
+                    statusCode: {
+                    200: function(data, textStatus, jqXHR) {
+                            link.parents("tr").slideUp();
+                        }
+                    }
+                });
+                return false;
+            });
+                
 });
+
