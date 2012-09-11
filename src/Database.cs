@@ -130,6 +130,7 @@ namespace GestUAB
 			// Put populate methods here
 			ds.PopulateUsers();
 			ds.PopulateCourses();
+            ds.PopulateDrivers();
 		}
 	}
 

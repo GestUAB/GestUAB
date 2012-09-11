@@ -101,6 +101,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\PopulateDrivers.cs" />
+    <Compile Include="Models\Driver.cs" />
+    <Compile Include="Modules\DriverModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="HtmlTagHelpers.cs" />
@@ -133,6 +136,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Views\Driver\edit.cshtml" />
+    <Content Include="Views\Driver\index.cshtml" />
+    <Content Include="Views\Driver\new.cshtml" />
+    <Content Include="Views\Driver\show.cshtml" />
     <None Include="Views\Home\index.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -230,7 +237,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>2933</DevelopmentServerPort>
+          <DevelopmentServerPort>60873</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
