@@ -23,7 +23,7 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-
+/*
 $(function() {
     $("#update_button").click(function(event) {
         if(!$("#update_button").valid()) return false;
@@ -56,7 +56,7 @@ $(function() {
         });
         return false;
     });
-    
+*/    
     $(".delete").click(function(event) {
                 var link = $(this);
                 $.ajax({
