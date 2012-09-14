@@ -36,6 +36,11 @@
   <PropertyGroup>
     <CustomizableOutDir>true</CustomizableOutDir>
   </PropertyGroup>
+<PropertyGroup>
+    <UseWPP_CopyWebApplication>True</UseWPP_CopyWebApplication>
+    <PipelineDependsOnBuild>False</PipelineDependsOnBuild>
+</PropertyGroup>
+  
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Web" />
