@@ -44,18 +44,18 @@ namespace GestUAB
 				var firstNames = new string[] {
 					"Kristina",
 					"Paige",
-					"Sherri",
+					"Sherri"/*,
 					"Gretchen",
 					"Karen",
 					"Patrick",
 					"Elsie",
 					"Hazel",
 					"Malcolm",
-					"Dolores"
+					"Dolores"*/
 				};
 
-				var lastNames = new string[]{"Chung", "Chen", "Melton", "Hill", "Puckett", "Song", "Hamilton", "Bender", "Wagner",
-                                             "McLaughlin"};
+				var lastNames = new string[]{"Chung", "Chen", "Melton"/*, "Hill", "Puckett", "Song", "Hamilton", "Bender", "Wagner",
+                                             "McLaughlin"*/};
 
 				var combs =
                 (from first in firstNames
@@ -64,10 +64,10 @@ namespace GestUAB
 
 				combs.ForEach (x => {
 					session.Store (
-                        new User{Username = x.Item1.ToLower() + "." + x.Item2.ToLower(), 
+                        new User{Username = x.Item1.ToLower() + "-" + x.Item2.ToLower(), 
                                  FirstName = x.Item1, 
                                  LastName = x.Item2, 
-                                 Email = x.Item1.ToLower() + "." +  x.Item2.ToLower() + "@gestuab.com" 
+                                 Email = x.Item1.ToLower() + "-" +  x.Item2.ToLower() + "@gestuab.com" 
                                 }
 					);
 				}
