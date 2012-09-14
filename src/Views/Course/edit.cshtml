@@ -13,7 +13,8 @@
 }  
 
 <div id="errors"></div>
-<form class="form-horizontal" id="edit_form" method="post" >
+<form class="form-horizontal" id="edit_form" method="POST"
+    action='@Url.Content("~/users/edit/" + Model.Name)'>
 
   <fieldset>
   
