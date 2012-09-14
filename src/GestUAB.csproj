@@ -124,7 +124,9 @@
     <Compile Include="Models\Lot.cs" />
     <Compile Include="Models\Scholarship.cs" />
     <Compile Include="Modules\CourseModule.cs" />
-    <Compile Include="Extensions\HtmlTagsExtensions.cs" />
+    <Compile Include="Extensions\HtmlTagsExtensions.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Extensions\AttributeExtensions.cs" />
     <Compile Include="Extensions\CustomValidators.cs" />
     <Compile Include="Modules\ValidationModule.cs" />
@@ -173,10 +175,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Content\js\crud.js" />
-    <None Include="Views\Course\show.cshtml" />
-    <None Include="Views\Course\index.cshtml" />
-    <None Include="Views\Course\new.cshtml" />
-    <None Include="Views\Course\edit.cshtml" />
+    <None Include="Views\Course\show.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\Course\index.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\Course\new.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\Course\edit.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Views\User\new.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -189,7 +199,9 @@
     <None Include="Views\User\index.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Views\Home\about.cshtml" />
+    <None Include="Views\Home\about.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
