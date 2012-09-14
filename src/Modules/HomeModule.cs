@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using GestUAB.Models;
+using Nancy.Routing;
 
 namespace GestUAB.Modules
 {
@@ -8,13 +9,11 @@ namespace GestUAB.Modules
 
         public HomeModule ()
         {
-            Get ["/"] = _ => { 
-                return View ["Home/index",
-                DocumentSession.Query<User>().ToList()];
+            Get ["/"] = x => { 
+                return View ["index"];
             };
             Get ["/about"] = _ => { 
-                return View ["Home/about",
-                DocumentSession.Query<User>().ToList()];
+                return View ["about"];
             };
         }
     }
