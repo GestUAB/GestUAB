@@ -335,7 +335,8 @@ namespace GestUAB
           
             var cg = CreateControlGroup (model, member);
 
-            var selectType = model.GetAttribute (member, typeof(ScaffoldSelectPropertiesAttribute)) as ScaffoldSelectPropertiesAttribute;
+            var selectType = model.GetAttribute (member, 
+                typeof(ScaffoldSelectPropertiesAttribute)) as ScaffoldSelectPropertiesAttribute;
 
             var selekt = new SelectTag ()
                 .Attr ("name", member.Name)
