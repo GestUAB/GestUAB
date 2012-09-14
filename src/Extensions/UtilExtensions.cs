@@ -85,10 +85,11 @@ namespace GestUAB
             //We get the array of fields for the new type instance.
             var props = dest.GetType ().GetProperties ();
 
-            int i = 0;
+            int i = -1;
 
             foreach (var p in source.GetType().GetProperties()) {
-                if (!p.CanWrite) continue;
+                ++i; 
+                if (!(p.CanWrite || props[i].CanWrite)) continue;
 
                 //We query if the fiels support the ICloneable interface.
                 var cloneType = p.PropertyType.GetInterface ("ICloneable", true);
@@ -105,7 +106,6 @@ namespace GestUAB
                     props [i].SetValue (dest, p.GetValue (source, null), null);
                 }
 
-                ++i; 
 
 //                //Now we check if the object support the 
 //                //IEnumerable interface, so if it does
