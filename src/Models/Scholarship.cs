@@ -31,6 +31,11 @@ namespace GestUAB.Models
         /// The owner.
         /// </value>
         public string Owner { get; set; }
+
+        public override string ToString ()
+        {
+            return Owner;
+        }
 		
     }
 }

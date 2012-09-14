@@ -34,6 +34,8 @@ using FluentValidation.Validators;
 using FluentValidation.Internal;
 using GestUAB.Validators;
 using System.Text;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace GestUAB
 {
@@ -120,7 +122,9 @@ namespace GestUAB
                         formTag.Append (GenerateInputText<TModel> (model, prop));
                     } else if (type == typeof(bool)) {
                         formTag.Append (GenerateInputCheck<TModel> (model, prop));
-                    }   
+                    } else if (typeof(IEnumerable).IsAssignableFrom (type)) {
+                        formTag.Append (GenerateSelect<TModel> (model, prop));
+                    }
                 } else {
                     formTag.Append (GenerateInputHidden<TModel> (model, prop));
                 }
@@ -171,10 +175,12 @@ namespace GestUAB
                     var type = prop.PropertyType;
                     if (type == typeof(string)) {
                         tag.Append (GenerateInputText<TModel> (model, prop));
-                    } 
-                    else if (type == typeof(bool)) {
+                    } else if (type == typeof(bool)) {
                         tag.Append (GenerateInputCheck<TModel> (model, prop));
-                    }   
+                    } else if (typeof(IEnumerable).IsAssignableFrom (type)) {
+                        tag.Append (GenerateSelect<TModel> (model, prop));
+                    }
+
                 } else {
                     tag.Append (GenerateInputHidden<TModel> (model, prop));
                 }
@@ -257,14 +263,14 @@ namespace GestUAB
             //  </div>
             //</div>
 
-            var cg = CreateControlGroup(model, member);
+            var cg = CreateControlGroup (model, member);
 
             var input = new TextboxTag (member.Name, modelValue.ToString ())
                 .Id (member.Name);
 
             FillValidation<TModel> (input, member);
 
-            cg.Children[1].InsertFirst(input);
+            cg.Children [1].InsertFirst (input);
 
             return cg;
         }
@@ -290,21 +296,72 @@ namespace GestUAB
             //  </div>
             //</div>
           
-            var cg = CreateControlGroup(model, member);
+            var cg = CreateControlGroup (model, member);
 
             var input = new CheckboxTag ((bool)modelValue)
-                .Attr("name", member.Name)
+                .Attr ("name", member.Name)
                 .Id (member.Name);
 
             FillValidation<TModel> (input, member);
 
-            cg.Children[1].InsertFirst(input);
+            cg.Children [1].InsertFirst (input);
 
             return cg;
         }
 
-        static HtmlTag CreateControlGroup<TModel> (TModel model, PropertyInfo member) {
-             //<div class="control-group">
+        static HtmlTag GenerateSelect<TModel> (TModel model, PropertyInfo member)
+        {
+            var modelValue = member.GetValue (model, null);
+
+            if (modelValue == null) {
+                return null;
+            }
+
+            //<div class="control-group">
+            //  <label class="control-label" for="Email">Email:</label>
+            //  <div class="controls">
+            //    <select type="checkbox" class="input-xlarge" data-val="true" 
+            //        data-val-email="O e-mail digitado não é válido." 
+            //        data-val-required="O campo E-mail é obrigatório." 
+            //        id="Email" name="Email" value="@Model.Email">
+            //       <option value="volvo">Volvo</option>
+            //       <option value="saab">Saab</option>
+            //    </select>
+            //    <span class="field-validation-valid error" data-valmsg-for="Email" 
+            //        data-valmsg-replace="true"></span>
+            //    <p class="help-block">Ex.: jose@unicentro.br</p>
+            //  </div>
+            //</div>
+          
+            var cg = CreateControlGroup (model, member);
+
+            var selectType = model.GetAttribute (member, typeof(ScaffoldSelectPropertiesAttribute)) as ScaffoldSelectPropertiesAttribute;
+
+            var selekt = new SelectTag ()
+                .Attr ("name", member.Name)
+                .Id (member.Name);
+
+            if (selectType.Type == SelectType.Multiple) {
+                selekt.Attr("multiple", "multiple");
+            }
+
+            foreach (var i in (modelValue as IEnumerable)) {
+                var tag = new HtmlTag ("option").Text (i.ToString ());
+                selekt.Append (tag);
+                tag.Attr ("value", i.GetValue(selectType.ValueMember));
+            }
+
+
+            FillValidation<TModel> (selekt, member);
+
+            cg.Children [1].InsertFirst (selekt);
+
+            return cg;
+        }
+
+        static HtmlTag CreateControlGroup<TModel> (TModel model, PropertyInfo member)
+        {
+            //<div class="control-group">
             //  <label class="control-label" for="Email">Email:</label>
             //  <div class="controls">
             //    <input type="checkbox" class="input-xlarge" data-val="true" 

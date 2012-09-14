@@ -28,6 +28,21 @@ using System.Reflection;
 
 namespace GestUAB
 {
+    public static class ReflectionExtensions
+    {
+        public static object GetValue<T> (this T obj, 
+                                          string propertyName)
+        {
+            if (obj == null)
+                return null;
+            var attrProperty = obj.GetType ().GetProperty (propertyName);
+            if (attrProperty == null)
+                return null;
+            return attrProperty.GetValue (obj, null);
+        }
+
+    }
+
     public static class AttributeExtensions
     {
 
@@ -50,17 +65,15 @@ namespace GestUAB
                 return null;
             return GetAttribute (property, attribute);
         }
-  
 
-        static Attribute GetAttribute(PropertyInfo property, 
+        static Attribute GetAttribute (PropertyInfo property, 
                                       Type attribute)
         {
             var atts = property.GetCustomAttributes (true);
             if (atts.Length == 0)
                 return null;
-            foreach(var a in atts)
-            {
-                if (a.GetType() == attribute) {
+            foreach (var a in atts) {
+                if (a.GetType () == attribute) {
                     return (Attribute)a;
                 }
             }
@@ -91,50 +104,52 @@ namespace GestUAB
                 return null;
             return GetAttributeValue (property, attribute, attributeProperty);
         }
+
         static object GetAttributeValue (Type type, string propertyName, 
                                          string attribute,
                                          string attributeProperty)
         {
-            var property = type.GetProperty(propertyName);
-            if (property == null) return null;
+            var property = type.GetProperty (propertyName);
+            if (property == null)
+                return null;
 
-            return GetAttributeValue(property, 
+            return GetAttributeValue (property, 
                                      attribute, 
                                      attributeProperty);
         }
 
-        static object GetAttributeValue(PropertyInfo property, 
+        static object GetAttributeValue (PropertyInfo property, 
                                         string attribute,
                                         string attributeProperty)
         {
             var atts = property.GetCustomAttributes (true);
             if (atts.Length == 0)
                 return null;
-            foreach(var a in atts)
-            {
-                var attrType = (a as Attribute).GetType();
-                if (attrType.Name == attribute + "Attribute" ) {
-                    var attrProperty = attrType.GetProperty(attributeProperty);
-                    if (attrProperty == null) return null;
-                    return attrProperty.GetValue(a, null);
+            foreach (var a in atts) {
+                var attrType = (a as Attribute).GetType ();
+                if (attrType.Name == attribute + "Attribute") {
+                    var attrProperty = attrType.GetProperty (attributeProperty);
+                    if (attrProperty == null)
+                        return null;
+                    return attrProperty.GetValue (a, null);
                 }
             }
             return null;
         }
 
-        static object GetAttributeValue(PropertyInfo property, 
+        static object GetAttributeValue (PropertyInfo property, 
                                         Type attribute,
                                         string attributeProperty)
         {
             var atts = property.GetCustomAttributes (true);
             if (atts.Length == 0)
                 return null;
-            foreach(var a in atts)
-            {
-                if (a.GetType() == attribute) {
-                    var attrProperty = attribute.GetProperty(attributeProperty);
-                    if (attrProperty == null) return null;
-                    return attrProperty.GetValue(a, null);
+            foreach (var a in atts) {
+                if (a.GetType () == attribute) {
+                    var attrProperty = attribute.GetProperty (attributeProperty);
+                    if (attrProperty == null)
+                        return null;
+                    return attrProperty.GetValue (a, null);
                 }
             }
             return null;

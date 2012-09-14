@@ -27,12 +27,30 @@ using System;
 
 namespace GestUAB
 {
-
     public enum ScaffoldVisibilityType
     {
         Hidden,
         Show,
         None
+    }
+
+    public enum SelectType
+    {
+        Single,
+        Multiple
+    }
+
+    public class ScaffoldSelectPropertiesAttribute : Attribute
+    {
+        public ScaffoldSelectPropertiesAttribute (string valueMember, SelectType type = SelectType.Single)
+        {
+            Type = type;
+            ValueMember = valueMember;
+        }
+
+        public SelectType Type { get; set; }
+
+        public string ValueMember { get; set; }
     }
 
     public class ScaffoldVisibilityAttribute : Attribute

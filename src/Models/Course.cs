@@ -28,6 +28,12 @@ namespace GestUAB.Models
                  Description= "O curso está ativo?")]
         [ScaffoldVisibility(all:ScaffoldVisibilityType.Show)] 
         public bool Active { get; set; }
+
+        public override string ToString ()
+        {
+            return Name;
+        }
+
     }
  
     public class CourseValidator: ValidatorBase<Course>
