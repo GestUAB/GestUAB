@@ -44,10 +44,10 @@
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Nancy.ViewEngines.Razor">
-      <HintPath>..\packages\Nancy.Viewengines.Razor.0.12.0\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
+      <HintPath>..\packages\Nancy.Viewengines.Razor.0.12.1\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
     </Reference>
     <Reference Include="Nancy.ViewEngines.Razor.BuildProviders">
-      <HintPath>..\packages\Nancy.Viewengines.Razor.0.12.0\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll</HintPath>
+      <HintPath>..\packages\Nancy.Viewengines.Razor.0.12.1\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="HtmlTags">
@@ -78,7 +78,7 @@
       <HintPath>..\packages\RavenDB.Client.1.0.960\lib\net40\Raven.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Nancy.Hosting.Aspnet">
-      <HintPath>..\packages\Nancy.Hosting.Aspnet.0.12.0\lib\net40\Nancy.Hosting.Aspnet.dll</HintPath>
+      <HintPath>..\packages\Nancy.Hosting.Aspnet.0.12.1\lib\net40\Nancy.Hosting.Aspnet.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Web.Mvc">
@@ -91,10 +91,10 @@
       <HintPath>..\packages\FluentValidation.3.4.6.0\lib\Net40\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor">
-      <HintPath>..\packages\Nancy.Viewengines.Razor.0.12.0\lib\net40\System.Web.Razor.dll</HintPath>
+      <HintPath>..\packages\Nancy.Viewengines.Razor.0.12.1\lib\net40\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="Nancy">
-      <HintPath>..\packages\Nancy.0.12.0\lib\net40\Nancy.dll</HintPath>
+      <HintPath>..\packages\Nancy.0.12.1\lib\net40\Nancy.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
