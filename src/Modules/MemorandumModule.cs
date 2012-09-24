@@ -37,11 +37,10 @@ namespace GestUAB.Modules
 
             Post ["/new"] = x => {
                 var memorandum = this.Bind<Memorandum> ();
-                var result = this.Validate (memorandum);
+                var result = new MemorandumValidator ().Validate (memorandum);
                 if (!result.IsValid)
                     return View ["Shared/_errors", result];
                 DocumentSession.Store (memorandum);
-                //return View ["show", course];
                 return Response.AsRedirect(string.Format("/memorandums/{0}", memorandum.Id));
             };
 
@@ -67,24 +66,7 @@ namespace GestUAB.Modules
                 saved.Fill (memorandum);
                 return Response.AsRedirect(string.Format("/memorandums/{0}", memorandum.Id));
             };
-//
-//            Delete ["/delete/{Id}"] = x => { 
-//                Guid coursenumber = Guid.Parse(x.Id);
-//                var course = DocumentSession.Query<Course> ("CoursesById")
-//                        .Where (n => n.Id == coursenumber)
-//                        .FirstOrDefault ();
-//                if (course == null) 
-//                    return new NotFoundResponse ();
-//                DocumentSession.Delete (course);
-//                var resp = new JsonResponse<Course> (
-//                        course,
-//                        new DefaultJsonSerializer ()
-//                );
-//                resp.StatusCode = HttpStatusCode.OK;
-//                return resp;
-//
-//            };
-//
+
             Get ["/delete/{Id}"] = x => { 
                 Guid memorandumnumber = Guid.Parse(x.Id);
                 var memorandum = DocumentSession.Query<Memorandum> ("MemorandumById")
