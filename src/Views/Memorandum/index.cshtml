@@ -1,0 +1,63 @@
+@{
+    Layout = "Shared/_layout.cshtml";
+    ViewBag.Title = "Lista de memodandos";
+}
+@section JavaScript
+{
+    <script src='@Url.Content("~/Content/js/crud.js")'></script>
+
+}        
+<table class='table'>
+  <thead>
+    <td>Nome</td>
+    <td>Observaçao</td>
+    <td>Destino</td>
+    <td>Data de Ida</td>
+    <td>Data de Volta</td>
+    <td>Conta Bancaria</td>
+    <td>Numero do Convenio</td>
+    <td>Tipo</td>
+  </thead>
+  <tbody>
+    @foreach(var memorandum in @Model) {
+        <tr> 
+            <td>@memorandum.RequesterName</td> 
+            <td>@memorandum.Observation</td> 
+            <td>@memorandum.Destiny</td> 
+            <td>@memorandum.StartDate</td> 
+            <td>@memorandum.FinishDate</td> 
+            <td>@memorandum.BankAccount</td> 
+            <td>@memorandum.CovenantNumber</td> 
+            <td>@memorandum.Type</td> 
+            <td>   
+                <a href='@Url.Content("~/memorandums/" + memorandum.Id)' class='btn'>
+                  Exibir
+                </a> 
+                <a href='@Url.Content("~/memorandums/edit/" + memorandum.Id)' class='btn btn-info'>
+                  <i class="icon-edit"></i>
+                  Editar
+                </a>
+                <a href='@Url.Content("~/memorandums/delete/" + memorandum.Id)' class='btn btn-danger delete'>
+                  <i class="icon-remove"></i>
+                  Remover
+                </a>
+            </td>
+        </tr>
+    }
+  </tbody>
+</table>
+
+
+
+<div class="row-fluid">
+
+  <a href="#" class="btn" onclick="history.go(-1);return false;">
+    <i class="icon-arrow-left"></i> Voltar
+  </a>
+  <a href='@Url.Content("~/memorandums/new")' class='btn btn-info'>
+    <i class="icon-plus"></i> Cadastrar novo
+  </a>
+  
+</div>
+
+
