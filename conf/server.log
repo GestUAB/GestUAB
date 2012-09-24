@@ -1,0 +1,1222 @@
+starting mono server
+mono server started
+Mono: gc took 36 usecs
+Mono: Assembly Loader probing location: '/usr/lib/mono/4.0/mscorlib.dll'.
+Mono: Image addref mscorlib[0x938e80] -> /usr/lib/mono/4.0/mscorlib.dll[0x938150]: 2
+Mono: AOT failed to load AOT module /usr/lib/mono/4.0/mscorlib.dll.so: /usr/lib/mono/4.0/mscorlib.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/4.0/mscorlib.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/4.0/mscorlib.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/mscorlib/mscorlib.config'.
+Mono: Assembly mscorlib[0x938e80] added to domain fastcgi-mono-server4.exe, ref_count=1
+Mono: Config attempting to parse: '/etc/mono/config'.
+Mono: Config attempting to parse: '/home/tony/.mono/config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/4.0/fastcgi-mono-server4.exe'.
+Mono: Unloading image /usr/lib/mono/gac/fastcgi-mono-server4/2.10.2.0__0738eb9f132ed756/fastcgi-mono-server4.exe [0x9c2b70].
+Mono: Image addref fastcgi-mono-server4[0x9c32c0] -> /usr/lib/mono/gac/fastcgi-mono-server4/2.10.2.0__0738eb9f132ed756/fastcgi-mono-server4.exe[0x937000]: 3
+Mono: Assembly fastcgi-mono-server4[0x9c32c0] added to domain fastcgi-mono-server4.exe, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/fastcgi-mono-server4/2.10.2.0__0738eb9f132ed756/fastcgi-mono-server4.exe.so: /usr/lib/mono/gac/fastcgi-mono-server4/2.10.2.0__0738eb9f132ed756/fastcgi-mono-server4.exe.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/4.0/fastcgi-mono-server4.exe'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/fastcgi-mono-server4/2.10.2.0__0738eb9f132ed756/fastcgi-mono-server4.exe.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/fastcgi-mono-server4/fastcgi-mono-server4.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/4.0/fastcgi-mono-server4.exe'.
+Mono: Unloading image /usr/lib/mono/gac/fastcgi-mono-server4/2.10.2.0__0738eb9f132ed756/fastcgi-mono-server4.exe [0x9c3350].
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/fastcgi-mono-server4/2.10.2.0__0738eb9f132ed756/fastcgi-mono-server4.exe.so: /usr/lib/mono/gac/fastcgi-mono-server4/2.10.2.0__0738eb9f132ed756/fastcgi-mono-server4.exe.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Ref addref fastcgi-mono-server4[0x9c32c0] -> mscorlib[0x938e80]: 2
+Mono: Config attempting to parse: '/usr/lib/mono/gac/fastcgi-mono-server4/2.10.2.0__0738eb9f132ed756/fastcgi-mono-server4.exe.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/4.0/Mono.WebServer2.dll'.
+Mono: Image addref Mono.WebServer2[0x9c4b20] -> /usr/lib/mono/gac/Mono.WebServer2/0.4.0.0__0738eb9f132ed756/Mono.WebServer2.dll[0x9c3f70]: 2
+Mono: Assembly Mono.WebServer2[0x9c4b20] added to domain fastcgi-mono-server4.exe, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/Mono.WebServer2/0.4.0.0__0738eb9f132ed756/Mono.WebServer2.dll.so: /usr/lib/mono/gac/Mono.WebServer2/0.4.0.0__0738eb9f132ed756/Mono.WebServer2.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/4.0/Mono.WebServer2.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/Mono.WebServer2/0.4.0.0__0738eb9f132ed756/Mono.WebServer2.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Mono.WebServer2/Mono.WebServer2.config'.
+Mono: Assembly Ref addref fastcgi-mono-server4[0x9c32c0] -> Mono.WebServer2[0x9c4b20]: 2
+Mono: Assembly Ref addref Mono.WebServer2[0x9c4b20] -> mscorlib[0x938e80]: 3
+Mono: Assembly Loader probing location: '/usr/lib/mono/4.0/System.dll'.
+Mono: Image addref System[0x9d6490] -> /usr/lib/mono/gac/System/4.0.0.0__b77a5c561934e089/System.dll[0x9d55f0]: 2
+Mono: Assembly System[0x9d6490] added to domain fastcgi-mono-server4.exe, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System/4.0.0.0__b77a5c561934e089/System.dll.so: /usr/lib/mo[2012-07-03 19:54:12Z] Debug   fastcgi-mono-server4
+[2012-07-03 19:54:12Z] Debug   Listening on port: 127.0.0.1
+[2012-07-03 19:54:12Z] Debug   Listening on address: 8888
+Adding applications 'www.gestuab.com:/:/srv/www/htdocs/gestuab.com/'...
+Registering application:
+    Host:          www.gestuab.com
+    Port:          any
+    Virtual path:  /
+    Physical path: /srv/www/htdocs/gestuab.com/
+[2012-07-03 19:54:12Z] Debug   Root directory: /home/tony/dev/GestUAB/conf
+[2012-07-03 19:54:12Z] Debug   Max connections: 1024
+[2012-07-03 19:54:12Z] Debug   Max requests: 1024
+[2012-07-03 19:54:12Z] Debug   Multiplex connections: False
+[2012-07-03 19:54:16Z] Debug   Accepting an incoming connection.
+[2012-07-03 19:54:16Z] Notice  Beginning to receive records on connection.
+[2012-07-03 19:54:16Z] Debug   Record received. (Type: BeginRequest, ID: 1, Length: 8)
+[2012-07-03 19:54:16Z] Debug   Record received. (Type: Params, ID: 1, Length: 799)
+[2012-07-03 19:54:16Z] Debug   Record received. (Type: Params, ID: 1, Length: 0)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (QUERY_STRING = )
+[2012-07-03 19:54:16Z] Debug   Read parameter. (REQUEST_METHOD = GET)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (CONTENT_TYPE = )
+[2012-07-03 19:54:16Z] Debug   Read parameter. (CONTENT_LENGTH = )
+[2012-07-03 19:54:16Z] Debug   Read parameter. (SCRIPT_NAME = /)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (REQUEST_URI = /)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (DOCUMENT_URI = /)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (DOCUMENT_ROOT = /srv/www/htdocs/gestuab.com)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (SERVER_PROTOCOL = HTTP/1.1)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (GATEWAY_INTERFACE = CGI/1.1)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (SERVER_SOFTWARE = nginx/1.0.10)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (REMOTE_ADDR = 127.0.0.1)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (REMOTE_PORT = 37012)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (SERVER_ADDR = 127.0.0.1)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (SERVER_PORT = 80)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (SERVER_NAME = *.gestuab.com)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (REDIRECT_STATUS = 200)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (PATH_INFO = )
+[2012-07-03 19:54:16Z] Debug   Read parameter. (SCRIPT_FILENAME = /srv/www/htdocs/gestuab.com/)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (HTTP_HOST = www.gestuab.com)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (HTTP_USER_AGENT = Mozilla/5.0 (X11; Linux x86_64; rv:13.0) Gecko/20100101 Firefox/13.0.1)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (HTTP_ACCEPT = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (HTTP_ACCEPT_LANGUAGE = pt-br,pt;q=0.8,en-us;q=0.5,en;q=0.3)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (HTTP_ACCEPT_ENCODING = gzip, deflate)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (HTTP_CONNECTION = keep-alive)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (HTTP_COOKIE = ASP.NET_SessionId=5058B659A1BBC97CE5B2582A)
+[2012-07-03 19:54:16Z] Debug   Read parameter. (HTTP_CACHE_CONTROL = max-age=0)
+no/gac/System/4.0.0.0__b77a5c561934e089/System.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/4.0/System.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System/4.0.0.0__b77a5c561934e089/System.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System/System.config'.
+Mono: Assembly Ref addref fastcgi-mono-server4[0x9c32c0] -> System[0x9d6490]: 2
+Mono: Assembly Ref addref System[0x9d6490] -> mscorlib[0x938e80]: 4
+Mono: Assembly Loader probing location: '/usr/lib/mono/4.0/System.Xml.dll'.
+Mono: Image addref System.Xml[0x9e9040] -> /usr/lib/mono/gac/System.Xml/4.0.0.0__b77a5c561934e089/System.Xml.dll[0x9e85a0]: 2
+Mono: Assembly System.Xml[0x9e9040] added to domain fastcgi-mono-server4.exe, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Xml/4.0.0.0__b77a5c561934e089/System.Xml.dll.so: /usr/lib/mono/gac/System.Xml/4.0.0.0__b77a5c561934e089/System.Xml.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/4.0/System.Xml.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Xml/4.0.0.0__b77a5c561934e089/System.Xml.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Xml/System.Xml.config'.
+Mono: Assembly Ref addref fastcgi-mono-server4[0x9c32c0] -> System.Xml[0x9e9040]: 2
+Mono: Assembly Ref addref System.Xml[0x9e9040] -> mscorlib[0x938e80]: 5
+Mono: Assembly Ref addref Mono.WebServer2[0x9c4b20] -> System[0x9d6490]: 3
+Mono: Assembly Ref addref System.Xml[0x9e9040] -> System[0x9d6490]: 4
+Mono: gc took 468 usecs
+Mono: gc took 577 usecs
+Mono: Assembly Loader probing location: '/usr/lib/mono/4.0/System.Configuration.dll'.
+Mono: Image addref System.Configuration[0xbc4e80] -> /usr/lib/mono/gac/System.Configuration/4.0.0.0__b03f5f7f11d50a3a/System.Configuration.dll[0xbc48b0]: 2
+Mono: Assembly System.Configuration[0xbc4e80] added to domain fastcgi-mono-server4.exe, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Configuration/4.0.0.0__b03f5f7f11d50a3a/System.Configuration.dll.so: /usr/lib/mono/gac/System.Configuration/4.0.0.0__b03f5f7f11d50a3a/System.Configuration.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/4.0/System.Configuration.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Configuration/4.0.0.0__b03f5f7f11d50a3a/System.Configuration.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Configuration/System.Configuration.config'.
+Mono: Assembly Ref addref fastcgi-mono-server4[0x9c32c0] -> System.Configuration[0xbc4e80]: 2
+Mono: Assembly Ref addref System.Configuration[0xbc4e80] -> mscorlib[0x938e80]: 6
+Mono: Assembly Ref addref System.Configuration[0xbc4e80] -> System[0x9d6490]: 5
+Mono: Assembly Ref addref System.Configuration[0xbc4e80] -> System.Xml[0x9e9040]: 3
+Mono: gc took 943 usecs
+Mono: gc took 757 usecs
+Mono: Assembly Ref addref System[0x9d6490] -> System.Configuration[0xbc4e80]: 3
+Mono: Assembly Ref addref System[0x9d6490] -> System.Xml[0x9e9040]: 4
+Mono: gc took 1121 usecs
+Mono: Assembly Loader probing location: '/usr/lib/mono/4.0/System.Core.dll'.
+Mono: Image addref System.Core[0x7f674802b690] -> /usr/lib/mono/gac/System.Core/4.0.0.0__b77a5c561934e089/System.Core.dll[0x7f674802ae10]: 2
+Mono: Assembly System.Core[0x7f674802b690] added to domain fastcgi-mono-server4.exe, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Core/4.0.0.0__b77a5c561934e089/System.Core.dll.so: /usr/lib/mono/gac/System.Core/4.0.0.0__b77a5c561934e089/System.Core.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/4.0/System.Core.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Core/4.0.0.0__b77a5c561934e089/System.Core.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Core/System.Core.config'.
+Mono: Assembly Ref addref Mono.WebServer2[0x9c4b20] -> System.Core[0x7f674802b690]: 2
+Mono: Assembly Ref addref System.Core[0x7f674802b690] -> mscorlib[0x938e80]: 7
+Mono: Assembly Loader probing location: '/usr/lib/mono/4.0/System.Web.dll'.
+Mono: Image addref System.Web[0x7f67480067a0] -> /usr/lib/mono/gac/System.Web/4.0.0.0__b03f5f7f11d50a3a/System.Web.dll[0x7f674802a020]: 2
+Mono: Assembly System.Web[0x7f67480067a0] added to domain fastcgi-mono-server4.exe, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Web/4.0.0.0__b03f5f7f11d50a3a/System.Web.dll.so: /usr/lib/mono/gac/System.Web/4.0.0.0__b03f5f7f11d50a3a/System.Web.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/4.0/System.Web.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Web/4.0.0.0__b03f5f7f11d50a3a/System.Web.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Web/System.Web.config'.
+Mono: Assembly Ref addref Mono.WebServer2[0x9c4b20] -> System.Web[0x7f67480067a0]: 2
+Mono: Assembly Ref addref System.Web[0x7f67480067a0] -> mscorlib[0x938e80]: 8
+Mono: Assembly Ref addref System.Web[0x7f67480067a0] -> System.Core[0x7f674802b690]: 3
+Mono: Assembly Ref addref System.Web[0x7f67480067a0] -> System[0x9d6490]: 6
+Mono: Assembly mscorlib[0x938e80] added to domain 446900e0, ref_count=9
+Mono: gc took 1364 usecs
+Mono: gc took 1724 usecs
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Web/4.0.0.0__b03f5f7f11d50a3a/System.Web.dll'.
+Mono: Assembly System.Web[0x7f67480067a0] added to domain 446900e0, ref_count=3
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Web/4.0.0.0__b03f5f7f11d50a3a/System.Web.dll.so: /usr/lib/mono/gac/System.Web/4.0.0.0__b03f5f7f11d50a3a/System.Web.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Configuration/4.0.0.0__b03f5f7f11d50a3a/System.Configuration.dll'.
+Mono: Assembly System.Configuration[0xbc4e80] added to domain 446900e0, ref_count=4
+Mono: Assembly System[0x9d6490] added to domain 446900e0, ref_count=7
+Mono: Assembly System.Xml[0x9e9040] added to domain 446900e0, ref_count=5
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Configuration/4.0.0.0__b03f5f7f11d50a3a/System.Configuration.dll.so: /usr/lib/mono/gac/System.Configuration/4.0.0.0__b03f5f7f11d50a3a/System.Configuration.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Ref addref System.Web[0x7f67480067a0] -> System.Configuration[0xbc4e80]: 5
+Mono: Assembly Ref addref System.Core[0x7f674802b690] -> System[0x9d6490]: 8
+Mono: Assembly Ref addref System[0x9d6490] -> System[0x9d6490]: 9
+Mono: Config attempting to parse: '/srv/www/htdocs/gestuab.com/Web.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/Mono.Web/4.0.0.0__0738eb9f132ed756/Mono.Web.dll'.
+Mono: Image addref Mono.Web[0x7f6748243ff0] -> /usr/lib/mono/gac/Mono.Web/4.0.0.0__0738eb9f132ed756/Mono.Web.dll[0x7f67482432c0]: 2
+Mono: Assembly Mono.Web[0x7f6748243ff0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/Mono.Web/4.0.0.0__0738eb9f132ed756/Mono.Web.dll.so: /usr/lib/mono/gac/Mono.Web/4.0.0.0__0738eb9f132ed756/Mono.Web.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/Mono.Web/4.0.0.0__0738eb9f132ed756/Mono.Web.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/Mono.Web/4.0.0.0__0738eb9f132ed756/Mono.Web.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Mono.Web/Mono.Web.config'.
+Mono: Assembly Ref addref System.Web[0x7f67480067a0] -> Mono.Web[0x7f6748243ff0]: 2
+Mono: Assembly Ref addref Mono.Web[0x7f6748243ff0] -> mscorlib[0x938e80]: 10
+Mono: Assembly Ref addref Mono.Web[0x7f6748243ff0] -> System[0x9d6490]: 10
+Mono: Assembly Ref addref Mono.Web[0x7f6748243ff0] -> S[2012-07-03 19:54:17Z] Debug   Record received. (Type: StandardInput, ID: 1, Length: 0)
+ystem.Web[0x7f67480067a0]: 4
+Mono: gc took 2116 usecs
+Mono: gc took 2288 usecs
+Mono: Assembly Ref addref Mono.Web[0x7f6748243ff0] -> System.Xml[0x9e9040]: 6
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/fastcgi-mono-server4/2.10.2.0__0738eb9f132ed756/fastcgi-mono-server4.dll'.
+Mono: Assembly Loader probing location: '/usr/lib/fastcgi-mono-server4.dll'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/fastcgi-mono-server4/2.10.2.0__0738eb9f132ed756/fastcgi-mono-server4.exe'.
+Mono: Assembly fastcgi-mono-server4[0x9c32c0] added to domain 446900e0, ref_count=2
+Mono: Assembly Mono.WebServer2[0x9c4b20] added to domain 446900e0, ref_count=3
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/fastcgi-mono-server4/2.10.2.0__0738eb9f132ed756/fastcgi-mono-server4.exe.so: /usr/lib/mono/gac/fastcgi-mono-server4/2.10.2.0__0738eb9f132ed756/fastcgi-mono-server4.exe.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Ref addref Mono.WebServer2[0x9c4b20] -> System.Configuration[0xbc4e80]: 6
+Mono: DllImport attempting to load: 'libc.so.6'.
+Mono: DllImport loading library: '/usr/lib/mono/gac/System/4.0.0.0__b77a5c561934e089/libc.so.6'.
+Mono: DllImport error loading library '/usr/lib/mono/gac/System/4.0.0.0__b77a5c561934e089/libc.so.6: cannot open shared object file: Arquivo ou diretório não encontrado'.
+Mono: DllImport loading library: '/usr/lib/mono/gac/System/4.0.0.0__b77a5c561934e089/libc.so.6.so'.
+Mono: DllImport error loading library '/usr/lib/mono/gac/System/4.0.0.0__b77a5c561934e089/libc.so.6.so: cannot open shared object file: Arquivo ou diretório não encontrado'.
+Mono: DllImport loading location: 'libc.so.6'.
+Mono: Searching for 'read'.
+Mono: Probing 'read'.
+Mono: Found as 'read'.
+Mono: gc took 6090 usecs
+Mono: Assembly Ref addref System.Web[0x7f67480067a0] -> System.Xml[0x9e9040]: 7
+Mono: Assembly Ref addref fastcgi-mono-server4[0x9c32c0] -> System.Web[0x7f67480067a0]: 5
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/Microsoft.CSharp/4.0.0.0__b03f5f7f11d50a3a/Microsoft.CSharp.dll'.
+Mono: Image addref Microsoft.CSharp[0x7f6748461f50] -> /usr/lib/mono/gac/Microsoft.CSharp/4.0.0.0__b03f5f7f11d50a3a/Microsoft.CSharp.dll[0x7f6748461210]: 2
+Mono: Assembly Microsoft.CSharp[0x7f6748461f50] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/Microsoft.CSharp/4.0.0.0__b03f5f7f11d50a3a/Microsoft.CSharp.dll.so: /usr/lib/mono/gac/Microsoft.CSharp/4.0.0.0__b03f5f7f11d50a3a/Microsoft.CSharp.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/Microsoft.CSharp/4.0.0.0__b03f5f7f11d50a3a/Microsoft.CSharp.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/Microsoft.CSharp/4.0.0.0__b03f5f7f11d50a3a/Microsoft.CSharp.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Microsoft.CSharp/Microsoft.CSharp.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Data/4.0.0.0__b77a5c561934e089/System.Data.dll'.
+Mono: Image addref System.Data[0x7f6748476410] -> /usr/lib/mono/gac/System.Data/4.0.0.0__b77a5c561934e089/System.Data.dll[0x7f674847cba0]: 2
+Mono: Assembly System.Data[0x7f6748476410] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Data/4.0.0.0__b77a5c561934e089/System.Data.dll.so: /usr/lib/mono/gac/System.Data/4.0.0.0__b77a5c561934e089/System.Data.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.Data/4.0.0.0__b77a5c561934e089/System.Data.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Data/4.0.0.0__b77a5c561934e089/System.Data.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Data/System.Data.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Web.Services/4.0.0.0__b03f5f7f11d50a3a/System.Web.Services.dll'.
+Mono: Image addref System.Web.Services[0x7f67484779b0] -> /usr/lib/mono/gac/System.Web.Services/4.0.0.0__b03f5f7f11d50a3a/System.Web.Services.dll[0x7f6748476c10]: 2
+Mono: Assembly System.Web.Services[0x7f67484779b0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Web.Services/4.0.0.0__b03f5f7f11d50a3a/System.Web.Services.dll.so: /usr/lib/mono/gac/System.Web.Services/4.0.0.0__b03f5f7f11d50a3a/System.Web.Services.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.Web.Services/4.0.0.0__b03f5f7f11d50a3a/System.Web.Services.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Web.Services/4.0.0.0__b03f5f7f11d50a3a/System.Web.Services.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Web.Services/System.Web.Services.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Drawing/4.0.0.0__b03f5f7f11d50a3a/System.Drawing.dll'.
+Mono: Image addref System.Drawing[0x7f674847a0e0] -> /usr/lib/mono/gac/System.Drawing/4.0.0.0__b03f5f7f11d50a3a/System.Drawing.dll[0x7f67484794a0]: 2
+Mono: Assembly System.Drawing[0x7f674847a0e0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Drawing/4.0.0.0__b03f5f7f11d50a3a/System.Drawing.dll.so: /usr/lib/mono/gac/System.Drawing/4.0.0.0__b03f5f7f11d50a3a/System.Drawing.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.Drawing/4.0.0.0__b03f5f7f11d50a3a/System.Drawing.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Drawing/4.0.0.0__b03f5f7f11d50a3a/System.Drawing.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Drawing/System.Drawing.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.EnterpriseServices/4.0.0.0__b03f5f7f11d50a3a/System.EnterpriseServices.dll'.
+Mono: Image addref System.EnterpriseServices[0x7f674847b6f0] -> /usr/lib/mono/gac/System.EnterpriseServices/4.0.0.0__b03f5f7f11d50a3a/System.EnterpriseServices.dll[0x7f674847a8e0]: 2
+Mono: Assembly System.EnterpriseServices[0x7f674847b6f0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.EnterpriseServices/4.0.0.0__b03f5f7f11d50a3a/System.EnterpriseServices.dll.so: /usr/lib/mono/gac/System.EnterpriseServices/4.0.0.0__b03f5f7f11d50a3a/System.EnterpriseServices.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.EnterpriseServices/4.0.0.0__b03f5f7f11d50a3a/System.EnterpriseServices.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.EnterpriseServices/4.0.0.0__b03f5f7f11d50a3a/System.EnterpriseServices.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.EnterpriseServices/System.EnterpriseServices.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.IdentityModel/4.0.0.0__b77a5c561934e089/System.IdentityModel.dll'.
+Mono: Image addref System.IdentityModel[0x7f67484926d0] -> /usr/lib/mono/gac/System.IdentityModel/4.0.0.0__b77a5c561934e089/System.IdentityModel.dll[0x7f674847be20]: 2
+Mono: Assembly System.IdentityModel[0x7f67484926d0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.IdentityModel/4.0.0.0__b77a5c561934e089/System.IdentityModel.dll.so: /usr/lib/mono/gac/System.IdentityModel/4.0.0.0__b77a5c561934e089/System.IdentityModel.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.IdentityModel/4.0.0.0__b77a5c561934e089/System.IdentityModel.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.IdentityModel/4.0.0.0__b77a5c561934e089/System.IdentityModel.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.IdentityModel/System.IdentityModel.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Runtime.Serialization/4.0.0.0__b77a5c561934e089/System.Runtime.Serialization.dll'.
+Mono: Image addref System.Runtime.Serialization[0x7f6748497c30] -> /usr/lib/mono/gac/System.Runtime.Serialization/4.0.0.0__b77a5c561934e089/System.Runtime.Serialization.dll[0x7f6748496e40]: 2
+Mono: Assembly System.Runtime.Serialization[0x7f6748497c30] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Runtime.Serialization/4.0.0.0__b77a5c561934e089/System.Runtime.Serialization.dll.so: /usr/lib/mono/gac/System.Runtime.Serialization/4.0.0.0__b77a5c561934e089/System.Runtime.Serialization.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.Runtime.Serialization/4.0.0.0__b77a5c561934e089/System.Runtime.Serialization.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Runtime.Serialization/4.0.0.0__b77a5c561934e089/System.Runtime.Serialization.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Runtime.Serialization/System.Runtime.Serialization.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Xaml/4.0.0.0__b77a5c561934e089/System.Xaml.dll'.
+Mono: Image addref System.Xaml[0x7f674849d140] -> /usr/lib/mono/gac/System.Xaml/4.0.0.0__b77a5c561934e089/System.Xaml.dll[0x7f674849c3e0]: 2
+Mono: Assembly System.Xaml[0x7f674849d140] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Xaml/4.0.0.0__b77a5c561934e089/System.Xaml.dll.so: /usr/lib/mono/gac/System.Xaml/4.0.0.0__b77a5c561934e089/System.Xaml.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.Xaml/4.0.0.0__b77a5c561934e089/System.Xaml.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Xaml/4.0.0.0__b77a5c561934e089/System.Xaml.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Xaml/System.Xaml.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.ServiceModel/4.0.0.0__b77a5c561934e089/System.ServiceModel.dll'.
+Mono: Image addref System.ServiceModel[0x7f67484a2830] -> /usr/lib/mono/gac/System.ServiceModel/4.0.0.0__b77a5c561934e089/System.ServiceModel.dll[0x7f67484a1970]: 2
+Mono: Assembly System.ServiceModel[0x7f67484a2830] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.ServiceModel/4.0.0.0__b77a5c561934e089/System.ServiceModel.dll.so: /usr/lib/mono/gac/System.ServiceModel/4.0.0.0__b77a5c561934e089/System.ServiceModel.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.ServiceModel/4.0.0.0__b77a5c561934e089/System.ServiceModel.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.ServiceModel/4.0.0.0__b77a5c561934e089/System.ServiceModel.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.ServiceModel/System.ServiceModel.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.ServiceModel.Web/4.0.0.0__31bf3856ad364e35/System.ServiceModel.Web.dll'.
+Mono: Image addref System.ServiceModel.Web[0x7f67484a7bf0] -> /usr/lib/mono/gac/System.ServiceModel.Web/4.0.0.0__31bf3856ad364e35/System.ServiceModel.Web.dll[0x7f67484a6f40]: 2
+Mono: Assembly System.ServiceModel.Web[0x7f67484a7bf0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.ServiceModel.Web/4.0.0.0__31bf3856ad364e35/System.ServiceModel.Web.dll.so: /usr/lib/mono/gac/System.ServiceModel.Web/4.0.0.0__31bf3856ad364e35/System.ServiceModel.Web.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.ServiceModel.Web/4.0.0.0__31bf3856ad364e35/System.ServiceModel.Web.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.ServiceModel.Web/4.0.0.0__31bf3856ad364e35/System.ServiceModel.Web.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.ServiceModel.Web/System.ServiceModel.Web.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Core/4.0.0.0__b77a5c561934e089/System.Core.dll'.
+Mono: Assembly System.Core[0x7f674802b690] added to domain 446900e0, ref_count=4
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Core/4.0.0.0__b77a5c561934e089/System.Core.dll.so: /usr/lib/mono/gac/System.Core/4.0.0.0__b77a5c561934e089/System.Core.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Web.Extensions/4.0.0.0__31bf3856ad364e35/System.Web.Extensions.dll'.
+Mono: Image addref System.Web.Extensions[0x7f67484acfa0] -> /usr/lib/mono/gac/System.Web.Extensions/4.0.0.0__31bf3856ad364e35/System.Web.Extensions.dll[0x7f67484ac7c0]: 2
+Mono: Assembly System.Web.Extensions[0x7f67484acfa0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Web.Extensions/4.0.0.0__31bf3856ad364e35/System.Web.Extensions.dll.so: /usr/lib/mono/gac/System.Web.Extensions/4.0.0.0__31bf3856ad364e35/System.Web.Extensions.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.Web.Extensions/4.0.0.0__31bf3856ad364e35/System.Web.Extensions.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Web.Extensions/4.0.0.0__31bf3856ad364e35/System.Web.Extensions.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Web.Extensions/System.Web.Extensions.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Data.DataSetExtensions/4.0.0.0__b77a5c561934e089/System.Data.DataSetExtensions.dll'.
+Mono: Image addref System.Data.DataSetExtensions[0x7f67484b2a60] -> /usr/lib/mono/gac/System.Data.DataSetExtensions/4.0.0.0__b77a5c561934e089/System.Data.DataSetExtensions.dll[0x7f67484b1a10]: 2
+Mono: Assembly System.Data.DataSetExtensions[0x7f67484b2a60] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Data.DataSetExtensions/4.0.0.0__b77a5c561934e089/System.Data.DataSetExtensions.dll.so: /usr/lib/mono/gac/System.Data.DataSetExtensions/4.0.0.0__b77a5c561934e089/System.Data.DataSetExtensions.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.Data.DataSetExtensions/4.0.0.0__b77a5c561934e089/System.Data.DataSetExtensions.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Data.DataSetExtensions/4.0.0.0__b77a5c561934e089/System.Data.DataSetExtensions.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Data.DataSetExtensions/System.Data.DataSetExtensions.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Xml.Linq/4.0.0.0__b77a5c561934e089/System.Xml.Linq.dll'.
+Mono: Image addref System.Xml.Linq[0x7f67484b7a20] -> /usr/lib/mono/gac/System.Xml.Linq/4.0.0.0__b77a5c561934e089/System.Xml.Linq.dll[0x7f67484b71c0]: 2
+Mono: Assembly System.Xml.Linq[0x7f67484b7a20] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Xml.Linq/4.0.0.0__b77a5c561934e089/System.Xml.Linq.dll.so: /usr/lib/mono/gac/System.Xml.Linq/4.0.0.0__b77a5c561934e089/System.Xml.Linq.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.Xml.Linq/4.0.0.0__b77a5c561934e089/System.Xml.Linq.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Xml.Linq/4.0.0.0__b77a5c561934e089/System.Xml.Linq.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Xml.Linq/System.Xml.Linq.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.ComponentModel.DataAnnotations/4.0.0.0__31bf3856ad364e35/System.ComponentModel.DataAnnotations.dll'.
+Mono: Image addref System.ComponentModel.DataAnnotations[0x7f67484bd4e0] -> /usr/lib/mono/gac/System.ComponentModel.DataAnnotations/4.0.0.0__31bf3856ad364e35/System.ComponentModel.DataAnnotations.dll[0x7f67484bc7f0]: 2
+Mono: Assembly System.ComponentModel.DataAnnotations[0x7f67484bd4e0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.ComponentModel.DataAnnotations/4.0.0.0__31bf3856ad364e35/System.ComponentModel.DataAnnotations.dll.so: /usr/lib/mono/gac/System.ComponentModel.DataAnnotations/4.0.0.0__31bf3856ad364e35/System.ComponentModel.DataAnnotations.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.ComponentModel.DataAnnotations/4.0.0.0__31bf3856ad364e35/System.ComponentModel.DataAnnotations.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.ComponentModel.DataAnnotations/4.0.0.0__31bf3856ad364e35/System.ComponentModel.DataAnnotations.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.ComponentModel.DataAnnotations/System.ComponentModel.DataAnnotations.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Web.DynamicData/4.0.0.0__31bf3856ad364e35/System.Web.DynamicData.dll'.
+Mono: Image addref System.Web.DynamicData[0x7f67484c2b30] -> /usr/lib/mono/gac/System.Web.DynamicData/4.0.0.0__31bf3856ad364e35/System.Web.DynamicData.dll[0x7f67484c1d80]: 2
+Mono: Assembly System.Web.DynamicData[0x7f67484c2b30] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Web.DynamicData/4.0.0.0__31bf3856ad364e35/System.Web.DynamicData.dll.so: /usr/lib/mono/gac/System.Web.DynamicData/4.0.0.0__31bf3856ad364e35/System.Web.DynamicData.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.Web.DynamicData/4.0.0.0__31bf3856ad364e35/System.Web.DynamicData.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Web.DynamicData/4.0.0.0__31bf3856ad364e35/System.Web.DynamicData.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Web.DynamicData/System.Web.DynamicData.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Data.Linq/4.0.0.0__b77a5c561934e089/System.Data.Linq.dll'.
+Mono: Image addref System.Data.Linq[0x7f67484c7ac0] -> /usr/lib/mono/gac/System.Data.Linq/4.0.0.0__b77a5c561934e089/System.Data.Linq.dll[0x7f67484c73e0]: 2
+Mono: Assembly System.Data.Linq[0x7f67484c7ac0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Data.Linq/4.0.0.0__b77a5c561934e089/System.Data.Linq.dll.so: /usr/lib/mono/gac/System.Data.Linq/4.0.0.0__b77a5c561934e089/System.Data.Linq.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.Data.Linq/4.0.0.0__b77a5c561934e089/System.Data.Linq.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Data.Linq/4.0.0.0__b77a5c561934e089/System.Data.Linq.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Data.Linq/System.Data.Linq.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Web.ApplicationServices/4.0.0.0__31bf3856ad364e35/System.Web.ApplicationServices.dll'.
+Mono: Image addref System.Web.ApplicationServices[0x7f67484cd530] -> /usr/lib/mono/gac/System.Web.ApplicationServices/4.0.0.0__31bf3856ad364e35/System.Web.ApplicationServices.dll[0x7f67484cc820]: 2
+Mono: Assembly System.Web.ApplicationServices[0x7f67484cd530] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Web.ApplicationServices/4.0.0.0__31bf3856ad364e35/System.Web.ApplicationServices.dll.so: /usr/lib/mono/gac/System.Web.ApplicationServices/4.0.0.0__31bf3856ad364e35/System.Web.ApplicationServices.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.Web.ApplicationServices/4.0.0.0__31bf3856ad364e35/System.Web.ApplicationServices.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Web.ApplicationServices/4.0.0.0__31bf3856ad364e35/System.Web.ApplicationServices.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Web.ApplicationServices/System.Web.ApplicationServices.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Web.Routing/4.0.0.0__31bf3856ad364e35/System.Web.Routing.dll'.
+Mono: Image addref System.Web.Routing[0x7f67484d2b50] -> /usr/lib/mono/gac/System.Web.Routing/4.0.0.0__31bf3856ad364e35/System.Web.Routing.dll[0x7f67484d1e40]: 2
+Mono: Assembly System.Web.Routing[0x7f67484d2b50] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Web.Routing/4.0.0.0__31bf3856ad364e35/System.Web.Routing.dll.so: /usr/lib/mono/gac/System.Web.Routing/4.0.0.0__31bf3856ad364e35/System.Web.Routing.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.Web.Routing/4.0.0.0__31bf3856ad364e35/System.Web.Routing.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Web.Routing/4.0.0.0__31bf3856ad364e35/System.Web.Routing.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Web.Routing/System.Web.Routing.config'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Web.Abstractions/4.0.0.0__31bf3856ad364e35/System.Web.Abstractions.dll'.
+Mono: Image addref System.Web.Abstractions[0x7f67484d7fd0] -> /usr/lib/mono/gac/System.Web.Abstractions/4.0.0.0__31bf3856ad364e35/System.Web.Abstractions.dll[0x7f67484d7260]: 2
+Mono: Assembly System.Web.Abstractions[0x7f67484d7fd0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Web.Abstractions/4.0.0.0__31bf3856ad364e35/System.Web.Abstractions.dll.so: /usr/lib/mono/gac/System.Web.Abstractions/4.0.0.0__31bf3856ad364e35/System.Web.Abstractions.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.Web.Abstractions/4.0.0.0__31bf3856ad364e35/System.Web.Abstractions.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Web.Abstractions/4.0.0.0__31bf3856ad364e35/System.Web.Abstractions.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Web.Abstractions/System.Web.Abstractions.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/BouncyCastle.Crypto.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/e44dbdb1/131b9cc8_f7562179_00000001/BouncyCastle.Crypto.dll'.
+Mono: Image addref BouncyCastle.Crypto[0x7f67484dc770] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/e44dbdb1/131b9cc8_f7562179_00000001/BouncyCastle.Crypto.dll[0x7f67484e9c50]: 2
+Mono: Assembly BouncyCastle.Crypto[0x7f67484dc770] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/e44dbdb1/131b9cc8_f7562179_00000001/BouncyCastle.Crypto.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/e44dbdb1/131b9cc8_f7562179_00000001/BouncyCastle.Crypto.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/BouncyCastle.Crypto.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/e44dbdb1/131b9cc8_f7562179_00000001/BouncyCastle.Crypto.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/BouncyCastle.Crypto/BouncyCastle.Crypto.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/FluentValidation.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1b75e34b/ec23c232_f7562179_00000001/FluentValidation.dll'.
+Mono: Image addref FluentValidation[0x7f67484e1b80] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1b75e34b/ec23c232_f7562179_00000001/FluentValidation.dll[0x7f67484e0f40]: 2
+Mono: Assembly FluentValidation[0x7f67484e1b80] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1b75e34b/ec23c232_f7562179_00000001/FluentValidation.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1b75e34b/ec23c232_f7562179_00000001/FluentValidation.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/FluentValidation.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1b75e34b/ec23c232_f7562179_00000001/FluentValidation.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/FluentValidation/FluentValidation.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Gestuab.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/3167fd8d/c631dcf4_f7562179_00000001/Gestuab.dll'.
+Mono: Image addref Gestuab[0x7f67484e6f50] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/3167fd8d/c631dcf4_f7562179_00000001/Gestuab.dll[0x7f67484e6110]: 2
+Mono: Assembly Gestuab[0x7f67484e6f50] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/3167fd8d/c631dcf4_f7562179_00000001/Gestuab.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/3167fd8d/c631dcf4_f7562179_00000001/Gestuab.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/Gestuab.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/3167fd8d/c631dcf4_f7562179_00000001/Gestuab.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Gestuab/Gestuab.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/HtmlTags.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/0908d27a/fe5ef303_f7562179_00000001/HtmlTags.dll'.
+Mono: Image addref HtmlTags[0x7f67484e8330] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/0908d27a/fe5ef303_f7562179_00000001/HtmlTags.dll[0x7f67484e7650]: 2
+Mono: Assembly HtmlTags[0x7f67484e8330] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/0908d27a/fe5ef303_f7562179_00000001/HtmlTags.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/0908d27a/fe5ef303_f7562179_00000001/HtmlTags.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/HtmlTags.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/0908d27a/fe5ef303_f7562179_00000001/HtmlTags.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/HtmlTags/HtmlTags.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/ICSharpCode.NRefactory.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/de380950/296e2829_f7562179_00000001/ICSharpCode.NRefactory.dll'.
+Mono: Image addref ICSharpCode.NRefactory[0x7f67484f8f40] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/de380950/296e2829_f7562179_00000001/ICSharpCode.NRefactory.dll[0x7f67484f85f0]: 2
+Mono: Assembly ICSharpCode.NRefactory[0x7f67484f8f40] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/de380950/296e2829_f7562179_00000001/ICSharpCode.NRefactory.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/de380950/296e2829_f7562179_00000001/ICSharpCode.NRefactory.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/ICSharpCode.NRefactory.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/de380950/296e2829_f7562179_00000001/ICSharpCode.NRefactory.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/ICSharpCode.NRefactory/ICSharpCode.NRefactory.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Lucene.Net.Contrib.Spatial.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/197d09c8/ee2b28b1_f7562179_00000001/Lucene.Net.Contrib.Spatial.dll'.
+Mono: Image addref Lucene.Net.Contrib.Spatial[0x7f67484fdfd0] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/197d09c8/ee2b28b1_f7562179_00000001/Lucene.Net.Contrib.Spatial.dll[0x7f67484fd600]: 2
+Mono: Assembly Lucene.Net.Contrib.Spatial[0x7f67484fdfd0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/197d09c8/ee2b28b1_f7562179_00000001/Lucene.Net.Contrib.Spatial.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/197d09c8/ee2b28b1_f7562179_00000001/Lucene.Net.Contrib.Spatial.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/Lucene.Net.Contrib.Spatial.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/197d09c8/ee2b28b1_f7562179_00000001/Lucene.Net.Contrib.Spatial.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Lucene.Net.Contrib.Spatial/Lucene.Net.Contrib.Spatial.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Lucene.Net.Contrib.SpellChecker.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1c6268d5/eb3449ac_f7562179_00000001/Lucene.Net.Contrib.SpellChecker.dll'.
+Mono: Image addref Lucene.Net.Contrib.SpellChecker[0x7f67485033b0] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1c6268d5/eb3449ac_f7562179_00000001/Lucene.Net.Contrib.SpellChecker.dll[0x7f6748502790]: 2
+Mono: Assembly Lucene.Net.Contrib.SpellChecker[0x7f67485033b0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1c6268d5/eb3449ac_f7562179_00000001/Lucene.Net.Contrib.SpellChecker.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1c6268d5/eb3449ac_f7562179_00000001/Lucene.Net.Contrib.SpellChecker.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/Lucene.Net.Contrib.SpellChecker.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1c6268d5/eb3449ac_f7562179_00000001/Lucene.Net.Contrib.SpellChecker.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Lucene.Net.Contrib.SpellChecker/Lucene.Net.Contrib.SpellChecker.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Lucene.Net.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/b9a45dc7/4ef27cbe_f7562179_00000001/Lucene.Net.dll'.
+Mono: Image addref Lucene.Net[0x7f67485089a0] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/b9a45dc7/4ef27cbe_f7562179_00000001/Lucene.Net.dll[0x7f6748507c90]: 2
+Mono: Assembly Lucene.Net[0x7f67485089a0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/b9a45dc7/4ef27cbe_f7562179_00000001/Lucene.Net.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/b9a45dc7/4ef27cbe_f7562179_00000001/Lucene.Net.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/Lucene.Net.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/b9a45dc7/4ef27cbe_f7562179_00000001/Lucene.Net.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Lucene.Net/Lucene.Net.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/NLog.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1e21130c/e9773275_f7562179_00000001/NLog.dll'.
+Mono: Image addref NLog[0x7f674850dcf0] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1e21130c/e9773275_f7562179_00000001/NLog.dll[0x7f674850ce90]: 2
+Mono: Assembly NLog[0x7f674850dcf0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1e21130c/e9773275_f7562179_00000001/NLog.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1e21130c/e9773275_f7562179_00000001/NLog.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/NLog.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1e21130c/e9773275_f7562179_00000001/NLog.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/NLog/NLog.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Nancy.Hosting.Aspnet.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/cc1ca8a6/3b4a89df_f7562179_00000001/Nancy.Hosting.Aspnet.dll'.
+Mono: Image addref Nancy.Hosting.Aspnet[0x7f6748512d20] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/cc1ca8a6/3b4a89df_f7562179_00000001/Nancy.Hosting.Aspnet.dll[0x7f6748512220]: 2
+Mono: Assembly Nancy.Hosting.Aspnet[0x7f6748512d20] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/cc1ca8a6/3b4a89df_f7562179_00000001/Nancy.Hosting.Aspnet.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/cc1ca8a6/3b4a89df_f7562179_00000001/Nancy.Hosting.Aspnet.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/Nancy.Hosting.Aspnet.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/cc1ca8a6/3b4a89df_f7562179_00000001/Nancy.Hosting.Aspnet.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Nancy.Hosting.Aspnet/Nancy.Hosting.Aspnet.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Nancy.Validation.FluentValidation.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/fda94643/0aff673a_f7562179_00000001/Nancy.Validation.FluentValidation.dll'.
+Mono: Image addref Nancy.Validation.FluentValidation[0x7f6748518170] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/fda94643/0aff673a_f7562179_00000001/Nancy.Validation.FluentValidation.dll[0x7f6748517840]: 2
+Mono: Assembly Nancy.Validation.FluentValidation[0x7f6748518170] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/fda94643/0aff673a_f7562179_00000001/Nancy.Validation.FluentValidation.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/fda94643/0aff673a_f7562179_00000001/Nancy.Validation.FluentValidation.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/Nancy.Validation.FluentValidation.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/fda94643/0aff673a_f7562179_00000001/Nancy.Validation.FluentValidation.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Nancy.Validation.FluentValidation/Nancy.Validation.FluentValidation.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Nancy.ViewEngines.Razor.BuildProviders.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/897ac589/7e2ce4f0_f7562179_00000001/Nancy.ViewEngines.Razor.BuildProviders.dll'.
+Mono: Image addref Nancy.ViewEngines.Razor.BuildProviders[0x7f674851d8e0] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/897ac589/7e2ce4f0_f7562179_00000001/Nancy.ViewEngines.Razor.BuildProviders.dll[0x7f674851cbd0]: 2
+Mono: Assembly Nancy.ViewEngines.Razor.BuildProviders[0x7f674851d8e0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/897ac589/7e2ce4f0_f7562179_00000001/Nancy.ViewEngines.Razor.BuildProviders.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/897ac589/7e2ce4f0_f7562179_00000001/Nancy.ViewEngines.Razor.BuildProviders.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/Nancy.ViewEngines.Razor.BuildProviders.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/897ac589/7e2ce4f0_f7562179_00000001/Nancy.ViewEngines.Razor.BuildProviders.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Nancy.ViewEngines.Razor.BuildProviders/Nancy.ViewEngines.Razor.BuildProviders.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Nancy.ViewEngines.Razor.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/006fe325/f739c25c_f7562179_00000001/Nancy.ViewEngines.Razor.dll'.
+Mono: Image addref Nancy.ViewEngines.Razor[0x7f6748522d70] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/006fe325/f739c25c_f7562179_00000001/Nancy.ViewEngines.Razor.dll[0x7f6748521eb0]: 2
+Mono: Assembly Nancy.ViewEngines.Razor[0x7f6748522d70] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/006fe325/f739c25c_f7562179_00000001/Nancy.ViewEngines.Razor.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/006fe325/f739c25c_f7562179_00000001/Nancy.ViewEngines.Razor.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/Nancy.ViewEngines.Razor.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/006fe325/f739c25c_f7562179_00000001/Nancy.ViewEngines.Razor.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Nancy.ViewEngines.Razor/Nancy.ViewEngines.Razor.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Nancy.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/f3c89827/049eb95e_f7562179_00000001/Nancy.dll'.
+Mono: Image addref Nancy[0x7f6748527b60] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/f3c89827/049eb95e_f7562179_00000001/Nancy.dll[0x7f6748527440]: 2
+Mono: Assembly Nancy[0x7f6748527b60] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/f3c89827/049eb95e_f7562179_00000001/Nancy.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/f3c89827/049eb95e_f7562179_00000001/Nancy.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/Nancy.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/f3c89827/049eb95e_f7562179_00000001/Nancy.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Nancy/Nancy.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Newtonsoft.Json.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/a19d874f/56cba636_f7562179_00000001/Newtonsoft.Json.dll'.
+Mono: Image addref Newtonsoft.Json[0x7f674852d440] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/a19d874f/56cba636_f7562179_00000001/Newtonsoft.Json.dll[0x7f674852c850]: 2
+Mono: Assembly Newtonsoft.Json[0x7f674852d440] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/a19d874f/56cba636_f7562179_00000001/Newtonsoft.Json.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/a19d874f/56cba636_f7562179_00000001/Newtonsoft.Json.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/Newtonsoft.Json.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/a19d874f/56cba636_f7562179_00000001/Newtonsoft.Json.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Newtonsoft.Json/Newtonsoft.Json.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Raven.Abstractions.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/bd555761/4a037618_f7562179_00000001/Raven.Abstractions.dll'.
+Mono: Image addref Raven.Abstractions[0x7f6748532a90] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/bd555761/4a037618_f7562179_00000001/Raven.Abstractions.dll[0x7f6748531da0]: 2
+Mono: Assembly Raven.Abstractions[0x7f6748532a90] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/bd555761/4a037618_f7562179_00000001/Raven.Abstractions.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/bd555761/4a037618_f7562179_00000001/Raven.Abstractions.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/Raven.Abstractions.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/bd555761/4a037618_f7562179_00000001/Raven.Abstractions.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Raven.Abstractions/Raven.Abstractions.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Raven.Client.Embedded.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/335f5cc5/c4097dbc_f7562179_00000001/Raven.Client.Embedded.dll'.
+Mono: Image addref Raven.Client.Embedded[0x7f6748537e50] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/335f5cc5/c4097dbc_f7562179_00000001/Raven.Client.Embedded.dll[0x7f67485370c0]: 2
+Mono: Assembly Raven.Client.Embedded[0x7f6748537e50] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/335f5cc5/c4097dbc_f7562179_00000001/Raven.Client.Embedded.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/335f5cc5/c4097dbc_f7562179_00000001/Raven.Client.Embedded.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/Raven.Client.Embedded.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/335f5cc5/c4097dbc_f7562179_00000001/Raven.Client.Embedded.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Raven.Client.Embedded/Raven.Client.Embedded.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Raven.Client.Lightweight.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/392a9a9f/ce7cbbe6_f7562179_00000001/Raven.Client.Lightweight.dll'.
+Mono: Image addref Raven.Client.Lightweight[0x7f674853cf00] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/392a9a9f/ce7cbbe6_f7562179_00000001/Raven.Client.Lightweight.dll[0x7f674853c690]: 2
+Mono: Assembly Raven.Client.Lightweight[0x7f674853cf00] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/392a9a9f/ce7cbbe6_f7562179_00000001/Raven.Client.Lightweight.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/392a9a9f/ce7cbbe6_f7562179_00000001/Raven.Client.Lightweight.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/Raven.Client.Lightweight.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/392a9a9f/ce7cbbe6_f7562179_00000001/Raven.Client.Lightweight.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Raven.Client.Lightweight/Raven.Client.Lightweight.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Raven.Database.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/cb1c284f/3c4a0936_f7562179_00000001/Raven.Database.dll'.
+Mono: Image addref Raven.Database[0x7f6748542330] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/cb1c284f/3c4a0936_f7562179_00000001/Raven.Database.dll[0x7f6748541840]: 2
+Mono: Assembly Raven.Database[0x7f6748542330] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/cb1c284f/3c4a0936_f7562179_00000001/Raven.Database.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/cb1c284f/3c4a0936_f7562179_00000001/Raven.Database.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/Raven.Database.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/cb1c284f/3c4a0936_f7562179_00000001/Raven.Database.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Raven.Database/Raven.Database.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Raven.Munin.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/bd018a43/4a57ab3a_f7562179_00000001/Raven.Munin.dll'.
+Mono: Image addref Raven.Munin[0x7f6748547980] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/bd018a43/4a57ab3a_f7562179_00000001/Raven.Munin.dll[0x7f6748546d30]: 2
+Mono: Assembly Raven.Munin[0x7f6748547980] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/bd018a43/4a57ab3a_f7562179_00000001/Raven.Munin.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/bd018a43/4a57ab3a_f7562179_00000001/Raven.Munin.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/Raven.Munin.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/bd018a43/4a57ab3a_f7562179_00000001/Raven.Munin.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Raven.Munin/Raven.Munin.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Raven.Storage.Managed.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1c5832e4/eb0e139d_f7562179_00000001/Raven.Storage.Managed.dll'.
+Mono: Image addref Raven.Storage.Managed[0x7f674854cdb0] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1c5832e4/eb0e139d_f7562179_00000001/Raven.Storage.Managed.dll[0x7f674854bfd0]: 2
+Mono: Assembly Raven.Storage.Managed[0x7f674854cdb0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1c5832e4/eb0e139d_f7562179_00000001/Raven.Storage.Managed.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1c5832e4/eb0e139d_f7562179_00000001/Raven.Storage.Managed.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/Raven.Storage.Managed.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1c5832e4/eb0e139d_f7562179_00000001/Raven.Storage.Managed.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Raven.Storage.Managed/Raven.Storage.Managed.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Spatial4n.Core.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/3a1d0b85/cd4b2afc_f7562179_00000001/Spatial4n.Core.dll'.
+Mono: Image addref Spatial4n.Core[0x7f674854ce80] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/3a1d0b85/cd4b2afc_f7562179_00000001/Spatial4n.Core.dll[0x7f6748551530]: 2
+Mono: Assembly Spatial4n.Core[0x7f674854ce80] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/3a1d0b85/cd4b2afc_f7562179_00000001/Spatial4n.Core.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/3a1d0b85/cd4b2afc_f7562179_00000001/Spatial4n.Core.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/Spatial4n.Core.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/3a1d0b85/cd4b2afc_f7562179_00000001/Spatial4n.Core.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Spatial4n.Core/Spatial4n.Core.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/System.Web.Mvc.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/133f36d7/e46917ae_f7562179_00000001/System.Web.Mvc.dll'.
+Mono: Image addref System.Web.Mvc[0x7f6748557240] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/133f36d7/e46917ae_f7562179_00000001/System.Web.Mvc.dll[0x7f67485567b0]: 2
+Mono: Assembly System.Web.Mvc[0x7f6748557240] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/133f36d7/e46917ae_f7562179_00000001/System.Web.Mvc.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/133f36d7/e46917ae_f7562179_00000001/System.Web.Mvc.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/System.Web.Mvc.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/133f36d7/e46917ae_f7562179_00000001/System.Web.Mvc.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Web.Mvc/System.Web.Mvc.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/System.Web.Razor.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/d06db68b/273b97f2_f7562179_00000001/System.Web.Razor.dll'.
+Mono: Image addref System.Web.Razor[0x7f674855c880] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/d06db68b/273b97f2_f7562179_00000001/System.Web.Razor.dll[0x7f674855bcc0]: 2
+Mono: Assembly System.Web.Razor[0x7f674855c880] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/d06db68b/273b97f2_f7562179_00000001/System.Web.Razor.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/d06db68b/273b97f2_f7562179_00000001/System.Web.Razor.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/System.Web.Razor.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/d06db68b/273b97f2_f7562179_00000001/System.Web.Razor.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Web.Razor/System.Web.Razor.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/System.Web.WebPages.Deployment.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1f09ef40/e85fce39_f7562179_00000001/System.Web.WebPages.Deployment.dll'.
+Mono: Image addref System.Web.WebPages.Deployment[0x7f6748561c60] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1f09ef40/e85fce39_f7562179_00000001/System.Web.WebPages.Deployment.dll[0x7f6748560fb0]: 2
+Mono: Assembly System.Web.WebPages.Deployment[0x7f6748561c60] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1f09ef40/e85fce39_f7562179_00000001/System.Web.WebPages.Deployment.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1f09ef40/e85fce39_f7562179_00000001/System.Web.WebPages.Deployment.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/System.Web.WebPages.Deployment.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1f09ef40/e85fce39_f7562179_00000001/System.Web.WebPages.Deployment.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Web.WebPages.Deployment/System.Web.WebPages.Deployment.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/System.Web.WebPages.Razor.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/26197e1f/d14f5f66_f7562179_00000001/System.Web.WebPages.Razor.dll'.
+Mono: Image addref System.Web.WebPages.Razor[0x7f6748566bb0] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/26197e1f/d14f5f66_f7562179_00000001/System.Web.WebPages.Razor.dll[0x7f67485663f0]: 2
+Mono: Assembly System.Web.WebPages.Razor[0x7f6748566bb0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/26197e1f/d14f5f66_f7562179_00000001/System.Web.WebPages.Razor.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/26197e1f/d14f5f66_f7562179_00000001/System.Web.WebPages.Razor.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/System.Web.WebPages.Razor.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/26197e1f/d14f5f66_f7562179_00000001/System.Web.WebPages.Razor.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Web.WebPages.Razor/System.Web.WebPages.Razor.config'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/System.Web.WebPages.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/9198bd1f/66ce9c66_f7562179_00000001/System.Web.WebPages.dll'.
+Mono: Image addref System.Web.WebPages[0x7f674856c1a0] -> /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/9198bd1f/66ce9c66_f7562179_00000001/System.Web.WebPages.dll[0x7f674856b6d0]: 2
+Mono: Assembly System.Web.WebPages[0x7f674856c1a0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/9198bd1f/66ce9c66_f7562179_00000001/System.Web.WebPages.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/9198bd1f/66ce9c66_f7562179_00000001/System.Web.WebPages.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/srv/www/htdocs/gestuab.com/bin/System.Web.WebPages.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/9198bd1f/66ce9c66_f7562179_00000001/System.Web.WebPages.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Web.WebPages/System.Web.WebPages.config'.
+Mono: Assembly Ref addref Microsoft.CSharp[0x7f6748461f50] -> mscorlib[0x938e80]: 11
+Mono: Assembly Ref addref Microsoft.CSharp[0x7f6748461f50] -> System.Core[0x7f674802b690]: 5
+Mono: Assembly Ref addref System.Data[0x7f6748476410] -> mscorlib[0x938e80]: 12
+Mono: Assembly Ref addref System.Web.Services[0x7f67484779b0] -> mscorlib[0x938e80]: 13
+Mono: Assembly Ref addref System.Drawing[0x7f674847a0e0] -> mscorlib[0x938e80]: 14
+Mono: Assembly Ref addref System.EnterpriseServices[0x7f674847b6f0] -> mscorlib[0x938e80]: 15
+Mono: Assembly Ref addref System.IdentityModel[0x7f67484926d0] -> mscorlib[0x938e80]: 16
+Mono: Assembly Ref addref System.Runtime.Serialization[0x7f6748497c30] -> mscorlib[0x938e80]: 17
+Mono: Assembly Ref addref System.Runtime.Serialization[0x7f6748497c30] -> System.Core[0x7f674802b690]: 6
+Mono: Assembly Ref addref System.Xaml[0x7f674849d140] -> mscorlib[0x938e80]: 18
+Mono: Assembly Ref addref System.Xaml[0x7f674849d140] -> System.Core[0x7f674802b690]: 7
+Mono: Assembly Ref addref System.ServiceModel[0x7f67484a2830] -> mscorlib[0x938e80]: 19
+Mono: Assembly Ref addref System.ServiceModel[0x7f67484a2830] -> System.Core[0x7f674802b690]: 8
+Mono: Assembly Ref addref System.ServiceModel.Web[0x7f67484a7bf0] -> mscorlib[0x938e80]: 20
+Mono: Assembly Ref addref System.ServiceModel.Web[0x7f67484a7bf0] -> System.Core[0x7f674802b690]: 9
+Mono: Assembly Ref addref System.Web.Extensions[0x7f67484acfa0] -> mscorlib[0x938e80]: 21
+Mono: Assembly Ref addref System.Web.Extensions[0x7f67484acfa0] -> System.Web[0x7f67480067a0]: 6
+Mono: Assembly Ref addref System.Web.Extensions[0x7f67484acfa0] -> System.Core[0x7f674802b690]: 10
+Mono: Assembly Ref addref System.Data.DataSetExtensions[0x7f67484b2a60] -> mscorlib[0x938e80]: 22
+Mono: Assembly Ref addref System.Data.DataSetExtensions[0x7f67484b2a60] -> System.Core[0x7f674802b690]: 11
+Mono: Assembly Ref addref System.Xml.Linq[0x7f67484b7a20] -> mscorlib[0x938e80]: 23
+Mono: Assembly Ref addref System.Xml.Linq[0x7f67484b7a20] -> System.Core[0x7f674802b690]: 12
+Mono: Assembly Ref addref System.ComponentModel.DataAnnotations[0x7f67484bd4e0] -> mscorlib[0x938e80]: 24
+Mono: Assembly Ref addref System.ComponentModel.DataAnnotations[0x7f67484bd4e0] -> System.Core[0x7f674802b690]: 13
+Mono: Assembly Ref addref System.Web.DynamicData[0x7f67484c2b30] -> mscorlib[0x938e80]: 25
+Mono: Assembly Ref addref System.Web.DynamicData[0x7f67484c2b30] -> System.Core[0x7f674802b690]: 14
+Mono: Assembly Ref addref System.Data.Linq[0x7f67484c7ac0] -> mscorlib[0x938e80]: 26
+Mono: Assembly Ref addref System.Data.Linq[0x7f67484c7ac0] -> System.Core[0x7f674802b690]: 15
+Mono: Assembly Ref addref System.Web.ApplicationServices[0x7f67484cd530] -> mscorlib[0x938e80]: 27
+Mono: Assembly Ref addref System.Web.Routing[0x7f67484d2b50] -> mscorlib[0x938e80]: 28
+Mono: Assembly Ref addref System.Web.Abstractions[0x7f67484d7fd0] -> mscorlib[0x938e80]: 29
+Mono: Assembly Ref addref BouncyCastle.Crypto[0x7f67484dc770] -> mscorlib[0x938e80]: 30
+Mono: Assembly Ref addref FluentValidation[0x7f67484e1b80] -> mscorlib[0x938e80]: 31
+Mono: Assembly Ref addref FluentValidation[0x7f67484e1b80] -> System.Core[0x7f674802b690]: 16
+Mono: Assembly Ref addref Gestuab[0x7f67484e6f50] -> mscorlib[0x938e80]: 32
+Mono: Assembly Ref addref Gestuab[0x7f67484e6f50] -> System.Core[0x7f674802b690]: 17
+Mono: Assembly Ref addref HtmlTags[0x7f67484e8330] -> mscorlib[0x938e80]: 33
+Mono: Assembly Ref addref HtmlTags[0x7f67484e8330] -> System.Core[0x7f674802b690]: 18
+Mono: The request to load the assembly mscorlib v2.0.0.0 was remapped to v4.0.0.0
+Mono: Assembly Ref addref ICSharpCode.NRefactory[0x7f67484f8f40] -> mscorlib[0x938e80]: 34
+Mono: The request to load the assembly System.Core v3.5.0.0 was remapped to v4.0.0.0
+Mono: Assembly Ref addref ICSharpCode.NRefactory[0x7f67484f8f40] -> System.Core[0x7f674802b690]: 19
+Mono: Assembly Ref addref Lucene.Net.Contrib.Spatial[0x7f67484fdfd0] -> mscorlib[0x938e80]: 35
+Mono: Assembly Ref addref Lucene.Net.Contrib.Spatial[0x7f67484fdfd0] -> System.Core[0x7f674802b690]: 20
+Mono: Assembly Ref addref Lucene.Net.Contrib.SpellChecker[0x7f67485033b0] -> mscorlib[0x938e80]: 36
+Mono: Assembly Ref addref Lucene.Net[0x7f67485089a0] -> mscorlib[0x938e80]: 37
+Mono: Assembly Ref addref Lucene.Net[0x7f67485089a0] -> System.Core[0x7f674802b690]: 21
+Mono: Assembly Ref addref NLog[0x7f674850dcf0] -> mscorlib[0x938e80]: 38
+Mono: Assembly Ref addref NLog[0x7f674850dcf0] -> System.Core[0x7f674802b690]: 22
+Mono: Assembly Ref addref Nancy.Hosting.Aspnet[0x7f6748512d20] -> mscorlib[0x938e80]: 39
+Mono: Assembly Ref addref Nancy.Hosting.Aspnet[0x7f6748512d20] -> System.Core[0x7f674802b690]: 23
+Mono: Assembly Ref addref Nancy.Validation.FluentValidation[0x7f6748518170] -> mscorlib[0x938e80]: 40
+Mono: Assembly Ref addref Nancy.ViewEngines.Razor.BuildProviders[0x7f674851d8e0] -> mscorlib[0x938e80]: 41
+Mono: Assembly Ref addref Nancy.ViewEngines.Razor[0x7f6748522d70] -> mscorlib[0x938e80]: 42
+Mono: Assembly Ref addref Nancy[0x7f6748527b60] -> mscorlib[0x938e80]: 43
+Mono: Assembly Ref addref Nancy[0x7f6748527b60] -> System.Core[0x7f674802b690]: 24
+Mono: Assembly Ref addref Newtonsoft.Json[0x7f674852d440] -> mscorlib[0x938e80]: 44
+Mono: Assembly Ref addref Newtonsoft.Json[0x7f674852d440] -> System.Core[0x7f674802b690]: 25
+Mono: Assembly Ref addref Raven.Abstractions[0x7f6748532a90] -> mscorlib[0x938e80]: 45
+Mono: Assembly Ref addref Raven.Abstractions[0x7f6748532a90] -> System.Core[0x7f674802b690]: 26
+Mono: Assembly Ref addref Raven.Client.Embedded[0x7f6748537e50] -> mscorlib[0x938e80]: 46
+Mono: Assembly Ref addref Raven.Client.Lightweight[0x7f674853cf00] -> mscorlib[0x938e80]: 47
+Mono: Assembly Ref addref Raven.Client.Lightweight[0x7f674853cf00] -> System.Core[0x7f674802b690]: 27
+Mono: Assembly Ref addref Raven.Database[0x7f6748542330] -> mscorlib[0x938e80]: 48
+Mono: Assembly Ref addref Raven.Database[0x7f6748542330] -> System.Core[0x7f674802b690]: 28
+Mono: Assembly Ref addref Raven.Munin[0x7f6748547980] -> mscorlib[0x938e80]: 49
+Mono: Assembly Ref addref Raven.Storage.Managed[0x7f674854cdb0] -> mscorlib[0x938e80]: 50
+Mono: Assembly Ref addref Spatial4n.Core[0x7f674854ce80] -> mscorlib[0x938e80]: 51
+Mono: Assembly Ref addref Spatial4n.Core[0x7f674854ce80] -> System.Core[0x7f674802b690]: 29
+Mono: Assembly Ref addref System.Web.Mvc[0x7f6748557240] -> System.Web[0x7f67480067a0]: 7
+Mono: Assembly Ref addref System.Web.Mvc[0x7f6748557240] -> mscorlib[0x938e80]: 52
+Mono: Assembly Ref addref System.Web.Mvc[0x7f6748557240] -> System.Core[0x7f674802b690]: 30
+Mono: Assembly Ref addref System.Web.Razor[0x7f674855c880] -> mscorlib[0x938e80]: 53
+Mono: Assembly Ref addref System.Web.Razor[0x7f674855c880] -> System.Core[0x7f674802b690]: 31
+Mono: Assembly Ref addref System.Web.WebPages.Deployment[0x7f6748561c60] -> mscorlib[0x938e80]: 54
+Mono: Assembly Ref addref System.Web.WebPages.Deployment[0x7f6748561c60] -> System.Web[0x7f67480067a0]: 8
+Mono: Assembly Ref addref System.Web.WebPages.Razor[0x7f6748566bb0] -> mscorlib[0x938e80]: 55
+Mono: Assembly Ref addref System.Web.WebPages.Razor[0x7f6748566bb0] -> System.Web[0x7f67480067a0]: 9
+Mono: Assembly Ref addref System.Web.WebPages[0x7f674856c1a0] -> mscorlib[0x938e80]: 56
+Mono: Assembly Ref addref System.Web.WebPages[0x7f674856c1a0] -> System.Web[0x7f67480067a0]: 10
+Mono: Assembly Ref addref System.Web.WebPages[0x7f674856c1a0] -> System.Core[0x7f674802b690]: 32
+Mono: Assembly Ref addref System.Web.Mvc[0x7f6748557240] -> System.Web.WebPages.Razor[0x7f6748566bb0]: 2
+Mono: Assembly Ref addref System.Web.Mvc[0x7f6748557240] -> System.Web.WebPages[0x7f674856c1a0]: 2
+Mono: Assembly Ref addref System.Web.WebPages.Razor[0x7f6748566bb0] -> System.Web.Razor[0x7f674855c880]: 2
+Mono: Assembly Ref addref System.Web.WebPages.Razor[0x7f6748566bb0] -> System[0x9d6490]: 11
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/Microsoft.Web.Infrastructure/1.0.0.0__31bf3856ad364e35/Microsoft.Web.Infrastructure.dll'.
+Mono: Image addref Microsoft.Web.Infrastructure[0x7f67485924d0] -> /usr/lib/mono/gac/Microsoft.Web.Infrastructure/1.0.0.0__31bf3856ad364e35/Microsoft.Web.Infrastructure.dll[0x7f6748591690]: 2
+Mono: Assembly Microsoft.Web.Infrastructure[0x7f67485924d0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/Microsoft.Web.Infrastructure/1.0.0.0__31bf3856ad364e35/Microsoft.Web.Infrastructure.dll.so: /usr/lib/mono/gac/Microsoft.Web.Infrastructure/1.0.0.0__31bf3856ad364e35/Microsoft.Web.Infrastructure.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/Microsoft.Web.Infrastructure/1.0.0.0__31bf3856ad364e35/Microsoft.Web.Infrastructure.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/Microsoft.Web.Infrastructure/1.0.0.0__31bf3856ad364e35/Microsoft.Web.Infrastructure.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Microsoft.Web.Infrastructure/Microsoft.Web.Infrastructure.config'.
+Mono: Assembly Ref addref System.Web.WebPages[0x7f674856c1a0] -> Microsoft.Web.Infrastructure[0x7f67485924d0]: 2
+Mono: Assembly Ref addref Microsoft.Web.Infrastructure[0x7f67485924d0] -> mscorlib[0x938e80]: 57
+Mono: Assembly Ref addref Microsoft.Web.Infrastructure[0x7f67485924d0] -> System.Web[0x7f67480067a0]: 11
+Mono: Assembly Ref addref System.Web.WebPages[0x7f674856c1a0] -> System[0x9d6490]: 12
+Mono: Assembly Ref addref Gestuab[0x7f67484e6f50] -> System.Web[0x7f67480067a0]: 12
+Mono: The request to load the assembly System v2.0.0.0 was remapped to v4.0.0.0
+Mono: The request to load the assembly System v2.0.0.0 was remapped to v4.0.0.0
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/Microsoft.JScript/8.0.1100.0__b03f5f7f11d50a3a/Microsoft.JScript.dll'.
+Mono: Assembly Loader probing location: '/usr/lib/Microsoft.JScript.dll'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/Microsoft.JScript/8.0.1100.0__b03f5f7f11d50a3a/Microsoft.JScript.exe'.
+Mono: Assembly Loader probing location: '/usr/lib/Microsoft.JScript.exe'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/VJSharpCodeProvider/2.0.0.0__b03f5f7f11d50a3a/VJSharpCodeProvider.dll'.
+Mono: Assembly Loader probing location: '/usr/lib/VJSharpCodeProvider.dll'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/VJSharpCodeProvider/2.0.0.0__b03f5f7f11d50a3a/VJSharpCodeProvider.exe'.
+Mono: Assembly Loader probing location: '/usr/lib/VJSharpCodeProvider.exe'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/CppCodeProvider/8.0.0.0__b03f5f7f11d50a3a/CppCodeProvider.dll'.
+Mono: Assembly Loader probing location: '/usr/lib/CppCodeProvider.dll'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/CppCodeProvider/8.0.0.0__b03f5f7f11d50a3a/CppCodeProvider.exe'.
+Mono: Assembly Loader probing location: '/usr/lib/CppCodeProvider.exe'.
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/BouncyCastle.Crypto.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/e44dbdb1/131b9cc8_f7562179_00000001/BouncyCastle.Crypto.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/e44dbdb1/131b9cc8_f7562179_00000001/BouncyCastle.Crypto.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/e44dbdb1/131b9cc8_f7562179_00000001/BouncyCastle.Crypto.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/FluentValidation.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1b75e34b/ec23c232_f7562179_00000001/FluentValidation.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1b75e34b/ec23c232_f7562179_00000001/FluentValidation.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1b75e34b/ec23c232_f7562179_00000001/FluentValidation.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Gestuab.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/3167fd8d/c631dcf4_f7562179_00000001/Gestuab.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/3167fd8d/c631dcf4_f7562179_00000001/Gestuab.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/3167fd8d/c631dcf4_f7562179_00000001/Gestuab.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/HtmlTags.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/0908d27a/fe5ef303_f7562179_00000001/HtmlTags.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/0908d27a/fe5ef303_f7562179_00000001/HtmlTags.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/0908d27a/fe5ef303_f7562179_00000001/HtmlTags.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/ICSharpCode.NRefactory.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/de380950/296e2829_f7562179_00000001/ICSharpCode.NRefactory.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/de380950/296e2829_f7562179_00000001/ICSharpCode.NRefactory.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/de380950/296e2829_f7562179_00000001/ICSharpCode.NRefactory.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Lucene.Net.Contrib.Spatial.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/197d09c8/ee2b28b1_f7562179_00000001/Lucene.Net.Contrib.Spatial.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/197d09c8/ee2b28b1_f7562179_00000001/Lucene.Net.Contrib.Spatial.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/197d09c8/ee2b28b1_f7562179_00000001/Lucene.Net.Contrib.Spatial.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Lucene.Net.Contrib.SpellChecker.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1c6268d5/eb3449ac_f7562179_00000001/Lucene.Net.Contrib.SpellChecker.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1c6268d5/eb3449ac_f7562179_00000001/Lucene.Net.Contrib.SpellChecker.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1c6268d5/eb3449ac_f7562179_00000001/Lucene.Net.Contrib.SpellChecker.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Lucene.Net.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/b9a45dc7/4ef27cbe_f7562179_00000001/Lucene.Net.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/b9a45dc7/4ef27cbe_f7562179_00000001/Lucene.Net.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/b9a45dc7/4ef27cbe_f7562179_00000001/Lucene.Net.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/NLog.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1e21130c/e9773275_f7562179_00000001/NLog.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1e21130c/e9773275_f7562179_00000001/NLog.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1e21130c/e9773275_f7562179_00000001/NLog.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Nancy.Hosting.Aspnet.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/cc1ca8a6/3b4a89df_f7562179_00000001/Nancy.Hosting.Aspnet.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/cc1ca8a6/3b4a89df_f7562179_00000001/Nancy.Hosting.Aspnet.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/cc1ca8a6/3b4a89df_f7562179_00000001/Nancy.Hosting.Aspnet.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Nancy.Validation.FluentValidation.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/fda94643/0aff673a_f7562179_00000001/Nancy.Validation.FluentValidation.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/fda94643/0aff673a_f7562179_00000001/Nancy.Validation.FluentValidation.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/fda94643/0aff673a_f7562179_00000001/Nancy.Validation.FluentValidation.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Nancy.ViewEngines.Razor.BuildProviders.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/897ac589/7e2ce4f0_f7562179_00000001/Nancy.ViewEngines.Razor.BuildProviders.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/897ac589/7e2ce4f0_f7562179_00000001/Nancy.ViewEngines.Razor.BuildProviders.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/897ac589/7e2ce4f0_f7562179_00000001/Nancy.ViewEngines.Razor.BuildProviders.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Nancy.ViewEngines.Razor.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/006fe325/f739c25c_f7562179_00000001/Nancy.ViewEngines.Razor.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/006fe325/f739c25c_f7562179_00000001/Nancy.ViewEngines.Razor.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/006fe325/f739c25c_f7562179_00000001/Nancy.ViewEngines.Razor.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Nancy.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/f3c89827/049eb95e_f7562179_00000001/Nancy.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/f3c89827/049eb95e_f7562179_00000001/Nancy.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/f3c89827/049eb95e_f7562179_00000001/Nancy.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Newtonsoft.Json.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/a19d874f/56cba636_f7562179_00000001/Newtonsoft.Json.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/a19d874f/56cba636_f7562179_00000001/Newtonsoft.Json.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/a19d874f/56cba636_f7562179_00000001/Newtonsoft.Json.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Raven.Abstractions.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/bd555761/4a037618_f7562179_00000001/Raven.Abstractions.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/bd555761/4a037618_f7562179_00000001/Raven.Abstractions.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/bd555761/4a037618_f7562179_00000001/Raven.Abstractions.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Raven.Client.Embedded.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/335f5cc5/c4097dbc_f7562179_00000001/Raven.Client.Embedded.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/335f5cc5/c4097dbc_f7562179_00000001/Raven.Client.Embedded.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/335f5cc5/c4097dbc_f7562179_00000001/Raven.Client.Embedded.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Raven.Client.Lightweight.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/392a9a9f/ce7cbbe6_f7562179_00000001/Raven.Client.Lightweight.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/392a9a9f/ce7cbbe6_f7562179_00000001/Raven.Client.Lightweight.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/392a9a9f/ce7cbbe6_f7562179_00000001/Raven.Client.Lightweight.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Raven.Database.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/cb1c284f/3c4a0936_f7562179_00000001/Raven.Database.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/cb1c284f/3c4a0936_f7562179_00000001/Raven.Database.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/cb1c284f/3c4a0936_f7562179_00000001/Raven.Database.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Raven.Munin.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/bd018a43/4a57ab3a_f7562179_00000001/Raven.Munin.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/bd018a43/4a57ab3a_f7562179_00000001/Raven.Munin.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/bd018a43/4a57ab3a_f7562179_00000001/Raven.Munin.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Raven.Storage.Managed.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1c5832e4/eb0e139d_f7562179_00000001/Raven.Storage.Managed.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1c5832e4/eb0e139d_f7562179_00000001/Raven.Storage.Managed.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1c5832e4/eb0e139d_f7562179_00000001/Raven.Storage.Managed.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/Spatial4n.Core.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/3a1d0b85/cd4b2afc_f7562179_00000001/Spatial4n.Core.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/3a1d0b85/cd4b2afc_f7562179_00000001/Spatial4n.Core.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/3a1d0b85/cd4b2afc_f7562179_00000001/Spatial4n.Core.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/System.Web.Mvc.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/133f36d7/e46917ae_f7562179_00000001/System.Web.Mvc.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/133f36d7/e46917ae_f7562179_00000001/System.Web.Mvc.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/133f36d7/e46917ae_f7562179_00000001/System.Web.Mvc.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/System.Web.Razor.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/d06db68b/273b97f2_f7562179_00000001/System.Web.Razor.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/d06db68b/273b97f2_f7562179_00000001/System.Web.Razor.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/d06db68b/273b97f2_f7562179_00000001/System.Web.Razor.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/System.Web.WebPages.Deployment.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1f09ef40/e85fce39_f7562179_00000001/System.Web.WebPages.Deployment.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1f09ef40/e85fce39_f7562179_00000001/System.Web.WebPages.Deployment.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/1f09ef40/e85fce39_f7562179_00000001/System.Web.WebPages.Deployment.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/System.Web.WebPages.Razor.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/26197e1f/d14f5f66_f7562179_00000001/System.Web.WebPages.Razor.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/26197e1f/d14f5f66_f7562179_00000001/System.Web.WebPages.Razor.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/26197e1f/d14f5f66_f7562179_00000001/System.Web.WebPages.Razor.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/srv/www/htdocs/gestuab.com/bin/System.Web.WebPages.dll'.
+Mono: Assembly Loader shadow-copied assembly to: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/9198bd1f/66ce9c66_f7562179_00000001/System.Web.WebPages.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/9198bd1f/66ce9c66_f7562179_00000001/System.Web.WebPages.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/9198bd1f/66ce9c66_f7562179_00000001/System.Web.WebPages.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/4.0/mscorlib.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/4.0/mscorlib.dll.so: /usr/lib/mono/4.0/mscorlib.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/Microsoft.CSharp/4.0.0.0__b03f5f7f11d50a3a/Microsoft.CSharp.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/Microsoft.CSharp/4.0.0.0__b03f5f7f11d50a3a/Microsoft.CSharp.dll.so: /usr/lib/mono/gac/Microsoft.CSharp/4.0.0.0__b03f5f7f11d50a3a/Microsoft.CSharp.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System/4.0.0.0__b77a5c561934e089/System.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System/4.0.0.0__b77a5c561934e089/System.dll.so: /usr/lib/mono/gac/System/4.0.0.0__b77a5c561934e089/System.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Configuration/4.0.0.0__b03f5f7f11d50a3a/System.Configuration.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Configuration/4.0.0.0__b03f5f7f11d50a3a/System.Configuration.dll.so: /usr/lib/mono/gac/System.Configuration/4.0.0.0__b03f5f7f11d50a3a/System.Configuration.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Web/4.0.0.0__b03f5f7f11d50a3a/System.Web.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Web/4.0.0.0__b03f5f7f11d50a3a/System.Web.dll.so: /usr/lib/mono/gac/System.Web/4.0.0.0__b03f5f7f11d50a3a/System.Web.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Data/4.0.0.0__b77a5c561934e089/System.Data.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Data/4.0.0.0__b77a5c561934e089/System.Data.dll.so: /usr/lib/mono/gac/System.Data/4.0.0.0__b77a5c561934e089/System.Data.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Web.Services/4.0.0.0__b03f5f7f11d50a3a/System.Web.Services.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Web.Services/4.0.0.0__b03f5f7f11d50a3a/System.Web.Services.dll.so: /usr/lib/mono/gac/System.Web.Services/4.0.0.0__b03f5f7f11d50a3a/System.Web.Services.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Xml/4.0.0.0__b77a5c561934e089/System.Xml.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Xml/4.0.0.0__b77a5c561934e089/System.Xml.dll.so: /usr/lib/mono/gac/System.Xml/4.0.0.0__b77a5c561934e089/System.Xml.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Drawing/4.0.0.0__b03f5f7f11d50a3a/System.Drawing.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Drawing/4.0.0.0__b03f5f7f11d50a3a/System.Drawing.dll.so: /usr/lib/mono/gac/System.Drawing/4.0.0.0__b03f5f7f11d50a3a/System.Drawing.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.EnterpriseServices/4.0.0.0__b03f5f7f11d50a3a/System.EnterpriseServices.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.EnterpriseServices/4.0.0.0__b03f5f7f11d50a3a/System.EnterpriseServices.dll.so: /usr/lib/mono/gac/System.EnterpriseServices/4.0.0.0__b03f5f7f11d50a3a/System.EnterpriseServices.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.IdentityModel/4.0.0.0__b77a5c561934e089/System.IdentityModel.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.IdentityModel/4.0.0.0__b77a5c561934e089/System.IdentityModel.dll.so: /usr/lib/mono/gac/System.IdentityModel/4.0.0.0__b77a5c561934e089/System.IdentityModel.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Runtime.Serialization/4.0.0.0__b77a5c561934e089/System.Runtime.Serialization.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Runtime.Serialization/4.0.0.0__b77a5c561934e089/System.Runtime.Serialization.dll.so: /usr/lib/mono/gac/System.Runtime.Serialization/4.0.0.0__b77a5c561934e089/System.Runtime.Serialization.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Xaml/4.0.0.0__b77a5c561934e089/System.Xaml.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Xaml/4.0.0.0__b77a5c561934e089/System.Xaml.dll.so: /usr/lib/mono/gac/System.Xaml/4.0.0.0__b77a5c561934e089/System.Xaml.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.ServiceModel/4.0.0.0__b77a5c561934e089/System.ServiceModel.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.ServiceModel/4.0.0.0__b77a5c561934e089/System.ServiceModel.dll.so: /usr/lib/mono/gac/System.ServiceModel/4.0.0.0__b77a5c561934e089/System.ServiceModel.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.ServiceModel.Web/4.0.0.0__31bf3856ad364e35/System.ServiceModel.Web.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.ServiceModel.Web/4.0.0.0__31bf3856ad364e35/System.ServiceModel.Web.dll.so: /usr/lib/mono/gac/System.ServiceModel.Web/4.0.0.0__31bf3856ad364e35/System.ServiceModel.Web.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Core/4.0.0.0__b77a5c561934e089/System.Core.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Core/4.0.0.0__b77a5c561934e089/System.Core.dll.so: /usr/lib/mono/gac/System.Core/4.0.0.0__b77a5c561934e089/System.Core.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Web.Extensions/4.0.0.0__31bf3856ad364e35/System.Web.Extensions.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Web.Extensions/4.0.0.0__31bf3856ad364e35/System.Web.Extensions.dll.so: /usr/lib/mono/gac/System.Web.Extensions/4.0.0.0__31bf3856ad364e35/System.Web.Extensions.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Data.DataSetExtensions/4.0.0.0__b77a5c561934e089/System.Data.DataSetExtensions.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Data.DataSetExtensions/4.0.0.0__b77a5c561934e089/System.Data.DataSetExtensions.dll.so: /usr/lib/mono/gac/System.Data.DataSetExtensions/4.0.0.0__b77a5c561934e089/System.Data.DataSetExtensions.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Xml.Linq/4.0.0.0__b77a5c561934e089/System.Xml.Linq.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Xml.Linq/4.0.0.0__b77a5c561934e089/System.Xml.Linq.dll.so: /usr/lib/mono/gac/System.Xml.Linq/4.0.0.0__b77a5c561934e089/System.Xml.Linq.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.ComponentModel.DataAnnotations/4.0.0.0__31bf3856ad364e35/System.ComponentModel.DataAnnotations.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.ComponentModel.DataAnnotations/4.0.0.0__31bf3856ad364e35/System.ComponentModel.DataAnnotations.dll.so: /usr/lib/mono/gac/System.ComponentModel.DataAnnotations/4.0.0.0__31bf3856ad364e35/System.ComponentModel.DataAnnotations.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Web.DynamicData/4.0.0.0__31bf3856ad364e35/System.Web.DynamicData.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Web.DynamicData/4.0.0.0__31bf3856ad364e35/System.Web.DynamicData.dll.so: /usr/lib/mono/gac/System.Web.DynamicData/4.0.0.0__31bf3856ad364e35/System.Web.DynamicData.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Data.Linq/4.0.0.0__b77a5c561934e089/System.Data.Linq.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Data.Linq/4.0.0.0__b77a5c561934e089/System.Data.Linq.dll.so: /usr/lib/mono/gac/System.Data.Linq/4.0.0.0__b77a5c561934e089/System.Data.Linq.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Web.ApplicationServices/4.0.0.0__31bf3856ad364e35/System.Web.ApplicationServices.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Web.ApplicationServices/4.0.0.0__31bf3856ad364e35/System.Web.ApplicationServices.dll.so: /usr/lib/mono/gac/System.Web.ApplicationServices/4.0.0.0__31bf3856ad364e35/System.Web.ApplicationServices.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Web.Routing/4.0.0.0__31bf3856ad364e35/System.Web.Routing.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Web.Routing/4.0.0.0__31bf3856ad364e35/System.Web.Routing.dll.so: /usr/lib/mono/gac/System.Web.Routing/4.0.0.0__31bf3856ad364e35/System.Web.Routing.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Web.Abstractions/4.0.0.0__31bf3856ad364e35/System.Web.Abstractions.dll'.
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Web.Abstractions/4.0.0.0__31bf3856ad364e35/System.Web.Abstractions.dll.so: /usr/lib/mono/gac/System.Web.Abstractions/4.0.0.0__31bf3856ad364e35/System.Web.Abstractions.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader probing location: '/tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/3167fd8d/c631dcf4_f7562179_00000001/Gestuab.dll'.
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/3167fd8d/c631dcf4_f7562179_00000001/Gestuab.dll.so: /tmp/tony-temp-aspnet-0/446900e0/assembly/shadow/3167fd8d/c631dcf4_f7562179_00000001/Gestuab.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: gc took 6320 usecs
+Mono: Assembly Loader probing location: '/tmp/tony-temp-aspnet-0/37e0a62e/App_global.asax_5a257434.dll'.
+Mono: Image addref App_global.asax_5a257434[0x7f67486d95b0] -> /tmp/tony-temp-aspnet-0/37e0a62e/App_global.asax_5a257434.dll[0x7f67486d8d40]: 2
+Mono: Assembly App_global.asax_5a257434[0x7f67486d95b0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /tmp/tony-temp-aspnet-0/37e0a62e/App_global.asax_5a257434.dll.so: /tmp/tony-temp-aspnet-0/37e0a62e/App_global.asax_5a257434.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/tmp/tony-temp-aspnet-0/37e0a62e/App_global.asax_5a257434.dll'.
+Mono: Config attempting to parse: '/tmp/tony-temp-aspnet-0/37e0a62e/App_global.asax_5a257434.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/App_global.asax_5a257434/App_global.asax_5a257434.config'.
+Mono: Assembly Ref addref App_global.asax_5a257434[0x7f67486d95b0] -> Gestuab[0x7f67484e6f50]: 2
+Mono: Assembly Ref addref App_global.asax_5a257434[0x7f67486d95b0] -> mscorlib[0x938e80]: 58
+Mono: Assembly Ref addref App_global.asax_5a257434[0x7f67486d95b0] -> System.Web[0x7f67480067a0]: 13
+Mono: Assembly Ref addref Gestuab[0x7f67484e6f50] -> System.Web.Mvc[0x7f6748557240]: 2
+Mono: gc took 7815 usecs
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/Mono.CSharp/4.0.0.0__0738eb9f132ed756/Mono.CSharp.dll'.
+Mono: Image addref Mono.CSharp[0x7f674881d7c0] -> /usr/lib/mono/gac/Mono.CSharp/4.0.0.0__0738eb9f132ed756/Mono.CSharp.dll[0x7f67488217c0]: 2
+Mono: Assembly Mono.CSharp[0x7f674881d7c0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/Mono.CSharp/4.0.0.0__0738eb9f132ed756/Mono.CSharp.dll.so: /usr/lib/mono/gac/Mono.CSharp/4.0.0.0__0738eb9f132ed756/Mono.CSharp.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/Mono.CSharp/4.0.0.0__0738eb9f132ed756/Mono.CSharp.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/Mono.CSharp/4.0.0.0__0738eb9f132ed756/Mono.CSharp.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Mono.CSharp/Mono.CSharp.config'.
+Mono: Assembly Ref addref Microsoft.CSharp[0x7f6748461f50] -> Mono.CSharp[0x7f674881d7c0]: 2
+Mono: Assembly Ref addref Mono.CSharp[0x7f674881d7c0] -> mscorlib[0x938e80]: 59
+Mono: Assembly Ref addref System.Web[0x7f67480067a0] -> System.Web.ApplicationServices[0x7f67484cd530]: 2
+Mono: Assembly Ref addref System.Web.ApplicationServices[0x7f67484cd530] -> System.Configuration[0xbc4e80]: 7
+Mono: Assembly Ref addref System.Web[0x7f67480067a0] -> System.Drawing[0x7f674847a0e0]: 2
+Mono: Assembly Ref addref System.Drawing[0x7f674847a0e0] -> System[0x9d6490]: 13
+Mono: Assembly Ref addref System.Data[0x7f6748476410] -> System[0x9d6490]: 14
+Mono: Assembly Ref addref System.Data[0x7f6748476410] -> System.Xml[0x9e9040]: 8
+Mono: Assembly Ref addref System.Web.Services[0x7f67484779b0] -> System[0x9d6490]: 15
+Mono: Assembly Ref addref System.Web.Services[0x7f67484779b0] -> System.Configuration[0xbc4e80]: 8
+Mono: Assembly Ref addref System.Web.Services[0x7f67484779b0] -> System.Xml[0x9e9040]: 9
+Mono: Assembly Ref addref System.Web.Services[0x7f67484779b0] -> System.Web[0x7f67480067a0]: 14
+Mono: Assembly Ref addref System.Runtime.Serialization[0x7f6748497c30] -> System.Xml[0x9e9040]: 10
+Mono: Assembly Ref addref System.Runtime.Serialization[0x7f6748497c30] -> System.Configuration[0xbc4e80]: 9
+Mono: Assembly Ref addref System.Xaml[0x7f674849d140] -> System[0x9d6490]: 16
+Mono: Assembly Ref addref System.ServiceModel[0x7f67484a2830] -> System.Xml[0x9e9040]: 11
+Mono: Assembly Ref addref System.ServiceModel[0x7f67484a2830] -> System.Runtime.Serialization[0x7f6748497c30]: 2
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Security/4.0.0.0__b03f5f7f11d50a3a/System.Security.dll'.
+Mono: Image addref System.Security[0x7f67489cdcb0] -> /usr/lib/mono/gac/System.Security/4.0.0.0__b03f5f7f11d50a3a/System.Security.dll[0x7f67489ccf50]: 2
+Mono: Assembly System.Security[0x7f67489cdcb0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Security/4.0.0.0__b03f5f7f11d50a3a/System.Security.dll.so: /usr/lib/mono/gac/System.Security/4.0.0.0__b03f5f7f11d50a3a/System.Security.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.Security/4.0.0.0__b03f5f7f11d50a3a/System.Security.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Security/4.0.0.0__b03f5f7f11d50a3a/System.Security.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Security/System.Security.config'.
+Mono: Assembly Ref addref System.ServiceModel[0x7f67484a2830] -> System.Security[0x7f67489cdcb0]: 2
+Mono: Assembly Ref addref System.Security[0x7f67489cdcb0] -> mscorlib[0x938e80]: 60
+Mono: Assembly Ref addref System.ServiceModel[0x7f67484a2830] -> System.Web[0x7f67480067a0]: 15
+Mono: Assembly Ref addref System.ServiceModel[0x7f67484a2830] -> System.Configuration[0xbc4e80]: 10
+Mono: Assembly Ref addref System.ServiceModel[0x7f67484a2830] -> System[0x9d6490]: 17
+Mono: Assembly Ref addref System.ServiceModel[0x7f67484a2830] -> System.IdentityModel[0x7f67484926d0]: 2
+Mono: Assembly Ref addref System.ServiceModel.Web[0x7f67484a7bf0] -> System.ServiceModel[0x7f67484a2830]: 2
+Mono: Assembly Ref addref System.ServiceModel.Web[0x7f67484a7bf0] -> System.Configuration[0xbc4e80]: 11
+Mono: Assembly Ref addref System.Web.Extensions[0x7f67484acfa0] -> System.Web.ApplicationServices[0x7f67484cd530]: 3
+Mono: Assembly Ref addref System.Web.Extensions[0x7f67484acfa0] -> System[0x9d6490]: 18
+Mono: Assembly Ref addref System.Web.Extensions[0x7f67484acfa0] -> System.Configuration[0xbc4e80]: 12
+Mono: Assembly Ref addref System.Data.DataSetExtensions[0x7f67484b2a60] -> System.Data[0x7f6748476410]: 2
+Mono: Assembly Ref addref System.Xml.Linq[0x7f67484b7a20] -> System.Xml[0x9e9040]: 12
+Mono: Assembly Ref addref System.ComponentModel.DataAnnotations[0x7f67484bd4e0] -> System[0x9d6490]: 19
+Mono: Assembly Ref addref System.Web.DynamicData[0x7f67484c2b30] -> System.Web[0x7f67480067a0]: 16
+Mono: Assembly Ref addref System.Data.Linq[0x7f67484c7ac0] -> System[0x9d6490]: 20
+Mono: Assembly Ref addref System.Data.Linq[0x7f67484c7ac0] -> System.Xml[0x9e9040]: 13
+Mono: Assembly Ref addref System.Data.Linq[0x7f67484c7ac0] -> System.Data[0x7f6748476410]: 3
+Mono: Assembly Ref addref System.Web.ApplicationServices[0x7f67484cd530] -> System[0x9d6490]: 21
+Mono: Assembly Ref addref Gestuab[0x7f67484e6f50] -> Nancy[0x7f6748527b60]: 2
+Mono: Assembly Ref addref Gestuab[0x7f67484e6f50] -> FluentValidation[0x7f67484e1b80]: 2
+Mono: Assembly Ref addref HtmlTags[0x7f67484e8330] -> System.Web[0x7f67480067a0]: 17
+Mono: Assembly Ref addref HtmlTags[0x7f67484e8330] -> System.Web.Extensions[0x7f67484acfa0]: 2
+Mono: The request to load the assembly System v2.0.0.0 was remapped to v4.0.0.0
+Mono: Assembly Ref addref ICSharpCode.NRefactory[0x7f67484f8f40] -> System[0x9d6490]: 22
+Mono: Assembly Ref addref Lucene.Net.Contrib.Spatial[0x7f67484fdfd0] -> Spatial4n.Core[0x7f674854ce80]: 2
+Mono: Assembly Ref addref Lucene.Net.Contrib.Spatial[0x7f67484fdfd0] -> Lucene.Net[0x7f67485089a0]: 2
+Mono: Assembly Ref addref Lucene.Net.Contrib.SpellChecker[0x7f67485033b0] -> Lucene.Net[0x7f67485089a0]: 3
+Mono: Assembly Ref addref NLog[0x7f674850dcf0] -> System[0x9d6490]: 23
+Mono: Assembly Ref addref NLog[0x7f674850dcf0] -> System.ServiceModel[0x7f67484a2830]: 3
+Mono: Assembly Ref addref Nancy.Hosting.Aspnet[0x7f6748512d20] -> Nancy[0x7f6748527b60]: 3
+Mono: Assembly Ref addref Nancy.Hosting.Aspnet[0x7f6748512d20] -> System.Configuration[0xbc4e80]: 13
+Mono: Assembly Ref addref Nancy.Hosting.Aspnet[0x7f6748512d20] -> System.Web[0x7f67480067a0]: 18
+Mono: Assembly Ref addref Nancy.Validation.FluentValidation[0x7f6748518170] -> FluentValidation[0x7f67484e1b80]: 3
+Mono: Assembly Ref addref Nancy.Validation.FluentValidation[0x7f6748518170] -> Nancy[0x7f6748527b60]: 4
+Mono: Assembly Ref addref Nancy.ViewEngines.Razor.BuildProviders[0x7f674851d8e0] -> System.Web[0x7f67480067a0]: 19
+Mono: Assembly Ref addref Nancy.ViewEngines.Razor[0x7f6748522d70] -> System.Web.Razor[0x7f674855c880]: 3
+Mono: Assembly Ref addref Nancy.ViewEngines.Razor[0x7f6748522d70] -> System.Configuration[0xbc4e80]: 14
+Mono: Assembly Ref addref Nancy.ViewEngines.Razor[0x7f6748522d70] -> Nancy[0x7f6748527b60]: 5
+Mono: Assembly Ref addref Nancy[0x7f6748527b60] -> System[0x9d6490]: 24
+Mono: Assembly Ref addref Newtonsoft.Json[0x7f674852d440] -> System[0x9d6490]: 25
+Mono: Assembly Ref addref Raven.Abstractions[0x7f6748532a90] -> Newtonsoft.Json[0x7f674852d440]: 2
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.ComponentModel.Composition/4.0.0.0__b77a5c561934e089/System.ComponentModel.Composition.dll'.
+Mono: Image addref System.ComponentModel.Composition[0x7f6748c92550] -> /usr/lib/mono/gac/System.ComponentModel.Composition/4.0.0.0__b77a5c561934e089/System.ComponentModel.Composition.dll[0x7f6748c91740]: 2
+Mono: Assembly System.ComponentModel.Composition[0x7f6748c92550] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.ComponentModel.Composition/4.0.0.0__b77a5c561934e089/System.ComponentModel.Composition.dll.so: /usr/lib/mono/gac/System.ComponentModel.Composition/4.0.0.0__b77a5c561934e089/System.ComponentModel.Composition.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.ComponentModel.Composition/4.0.0.0__b77a5c561934e089/System.ComponentModel.Composition.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.ComponentModel.Composition/4.0.0.0__b77a5c561934e089/System.ComponentModel.Composition.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.ComponentModel.Composition/System.ComponentModel.Composition.config'.
+Mono: Assembly Ref addref Raven.Abstractions[0x7f6748532a90] -> System.ComponentModel.Composition[0x7f6748c92550]: 2
+Mono: Assembly Ref addref System.ComponentModel.Composition[0x7f6748c92550] -> mscorlib[0x938e80]: 61
+Mono: Assembly Ref addref Raven.Abstractions[0x7f6748532a90] -> System[0x9d6490]: 26
+Mono: Assembly Ref addref Raven.Client.Embedded[0x7f6748537e50] -> Raven.Client.Lightweight[0x7f674853cf00]: 2
+Mono: Assembly Ref addref Raven.Client.Lightweight[0x7f674853cf00] -> Newtonsoft.Json[0x7f674852d440]: 3
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Transactions/4.0.0.0__b77a5c561934e089/System.Transactions.dll'.
+Mono: Image addref System.Transactions[0x7f6748caf330] -> /usr/lib/mono/gac/System.Transactions/4.0.0.0__b77a5c561934e089/System.Transactions.dll[0x7f6748cae7b0]: 2
+Mono: Assembly System.Transactions[0x7f6748caf330] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Transactions/4.0.0.0__b77a5c561934e089/System.Transactions.dll.so: /usr/lib/mono/gac/System.Transactions/4.0.0.0__b77a5c561934e089/System.Transactions.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.Transactions/4.0.0.0__b77a5c561934e089/System.Transactions.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Transactions/4.0.0.0__b77a5c561934e089/System.Transactions.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Transactions/System.Transactions.config'.
+Mono: Assembly Ref addref Raven.Client.Lightweight[0x7f674853cf00] -> System.Transactions[0x7f6748caf330]: 2
+Mono: Assembly Ref addref Raven.Database[0x7f6748542330] -> Raven.Abstractions[0x7f6748532a90]: 2
+Mono: Assembly Ref addref Raven.Database[0x7f6748542330] -> Lucene.Net[0x7f67485089a0]: 4
+Mono: Assembly Ref addref Raven.Database[0x7f6748542330] -> ICSharpCode.NRefactory[0x7f67484f8f40]: 2
+Mono: Assembly Ref addref Raven.Database[0x7f6748542330] -> System.Transactions[0x7f6748caf330]: 3
+Mono: Assembly Ref addref Raven.Database[0x7f6748542330] -> Lucene.Net.Contrib.SpellChecker[0x7f67485033b0]: 2
+Mono: Assembly Ref addref Raven.Database[0x7f6748542330] -> NLog[0x7f674850dcf0]: 2
+Mono: Assembly Ref addref Raven.Munin[0x7f6748547980] -> Raven.Abstractions[0x7f6748532a90]: 3
+Mono: Assembly Ref addref Raven.Storage.Managed[0x7f674854cdb0] -> Raven.Database[0x7f6748542330]: 2
+Mono: Assembly Ref addref Raven.Storage.Managed[0x7f674854cdb0] -> Raven.Munin[0x7f6748547980]: 2
+Mono: Assembly Ref addref Raven.Storage.Managed[0x7f674854cdb0] -> Raven.Abstractions[0x7f6748532a90]: 4
+Mono: Assembly Ref addref System.Web.Mvc[0x7f6748557240] -> System.ComponentModel.DataAnnotations[0x7f67484bd4e0]: 2
+Mono: Assembly Ref addref System.Web.Mvc[0x7f6748557240] -> System.Web.Razor[0x7f674855c880]: 4
+Mono: Assembly Ref addref System.Web.Mvc[0x7f6748557240] -> System[0x9d6490]: 27
+Mono: Assembly Ref addref System.Web.WebPages.Razor[0x7f6748566bb0] -> System.Configuration[0xbc4e80]: 15
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/Mono.Security/4.0.0.0__0738eb9f132ed756/Mono.Security.dll'.
+Mono: Image addref Mono.Security[0x7f6748dc7170] -> /usr/lib/mono/gac/Mono.Security/4.0.0.0__0738eb9f132ed756/Mono.Security.dll[0x7f6748dc66e0]: 2
+Mono: Assembly Mono.Security[0x7f6748dc7170] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/Mono.Security/4.0.0.0__0738eb9f132ed756/Mono.Security.dll.so: /usr/lib/mono/gac/Mono.Security/4.0.0.0__0738eb9f132ed756/Mono.Security.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/Mono.Security/4.0.0.0__0738eb9f132ed756/Mono.Security.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/Mono.Security/4.0.0.0__0738eb9f132ed756/Mono.Security.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Mono.Security/Mono.Security.config'.
+Mono: Assembly Ref addref System[0x9d6490] -> Mono.Security[0x7f6748dc7170]: 2
+Mono: Assembly Ref addref Mono.Security[0x7f6748dc7170] -> mscorlib[0x938e80]: 62
+Mono: Assembly Ref addref System.Web[0x7f67480067a0] -> System.Data[0x7f6748476410]: 4
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/Mono.Data.Tds/4.0.0.0__0738eb9f132ed756/Mono.Data.Tds.dll'.
+Mono: Image addref Mono.Data.Tds[0x7f6748e4e8e0] -> /usr/lib/mono/gac/Mono.Data.Tds/4.0.0.0__0738eb9f132ed756/Mono.Data.Tds.dll[0x7f6748e4dcd0]: 2
+Mono: Assembly Mono.Data.Tds[0x7f6748e4e8e0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/Mono.Data.Tds/4.0.0.0__0738eb9f132ed756/Mono.Data.Tds.dll.so: /usr/lib/mono/gac/Mono.Data.Tds/4.0.0.0__0738eb9f132ed756/Mono.Data.Tds.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/Mono.Data.Tds/4.0.0.0__0738eb9f132ed756/Mono.Data.Tds.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/Mono.Data.Tds/4.0.0.0__0738eb9f132ed756/Mono.Data.Tds.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Mono.Data.Tds/Mono.Data.Tds.config'.
+Mono: Assembly Ref addref System.Data[0x7f6748476410] -> Mono.Data.Tds[0x7f6748e4e8e0]: 2
+Mono: Assembly Ref addref Mono.Data.Tds[0x7f6748e4e8e0] -> mscorlib[0x938e80]: 63
+Mono: Assembly Ref addref System.Web.Services[0x7f67484779b0] -> System.EnterpriseServices[0x7f674847b6f0]: 2
+Mono: Assembly Ref addref System.IdentityModel[0x7f67484926d0] -> System[0x9d6490]: 28
+Mono: Assembly Ref addref System.IdentityModel[0x7f67484926d0] -> System.Xml[0x9e9040]: 14
+Mono: Assembly Ref addref System.Runtime.Serialization[0x7f6748497c30] -> System[0x9d6490]: 29
+Mono: Assembly Ref addref System.Xaml[0x7f674849d140] -> System.Xml[0x9e9040]: 15
+Mono: Assembly Ref addref System.ServiceModel[0x7f67484a2830] -> System.Web.ApplicationServices[0x7f67484cd530]: 4
+Mono: Assembly Ref addref System.ServiceModel[0x7f67484a2830] -> System.Web.Services[0x7f67484779b0]: 2
+Mono: Assembly Ref addref System.ServiceModel[0x7f67484a2830] -> System.Transactions[0x7f6748caf330]: 4
+Mono: Assembly Ref addref System.Transactions[0x7f6748caf330] -> mscorlib[0x938e80]: 64
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Messaging/4.0.0.0__b03f5f7f11d50a3a/System.Messaging.dll'.
+Mono: Image addref System.Messaging[0x7f6748ee1350] -> /usr/lib/mono/gac/System.Messaging/4.0.0.0__b03f5f7f11d50a3a/System.Messaging.dll[0x7f6748ee08a0]: 2
+Mono: Assembly System.Messaging[0x7f6748ee1350] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Messaging/4.0.0.0__b03f5f7f11d50a3a/System.Messaging.dll.so: /usr/lib/mono/gac/System.Messaging/4.0.0.0__b03f5f7f11d50a3a/System.Messaging.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.Messaging/4.0.0.0__b03f5f7f11d50a3a/System.Messaging.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Messaging/4.0.0.0__b03f5f7f11d50a3a/System.Messaging.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Messaging/System.Messaging.config'.
+Mono: Assembly Ref addref System.ServiceModel[0x7f67484a2830] -> System.Messaging[0x7f6748ee1350]: 2
+Mono: Assembly Ref addref System.Messaging[0x7f6748ee1350] -> mscorlib[0x938e80]: 65
+Mono: Assembly Ref addref System.ServiceModel.Web[0x7f67484a7bf0] -> System.Runtime.Serialization[0x7f6748497c30]: 3
+Mono: Assembly Ref addref System.ServiceModel.Web[0x7f67484a7bf0] -> System[0x9d6490]: 30
+Mono: Assembly Ref addref System.ServiceModel.Web[0x7f67484a7bf0] -> System.Xml[0x9e9040]: 16
+Mono: Assembly Ref addref System.Web.DynamicData[0x7f67484c2b30] -> System[0x9d6490]: 31
+Mono: Assembly Ref addref System.Web.DynamicData[0x7f67484c2b30] -> System.Web.Extensions[0x7f67484acfa0]: 3
+Mono: Assembly Ref addref System.Web.DynamicData[0x7f67484c2b30] -> System.ComponentModel.DataAnnotations[0x7f67484bd4e0]: 3
+Mono: Assembly Ref addref BouncyCastle.Crypto[0x7f67484dc770] -> System[0x9d6490]: 32
+Mono: Assembly Ref addref FluentValidation[0x7f67484e1b80] -> System[0x9d6490]: 33
+Mono: Assembly Ref addref Gestuab[0x7f67484e6f50] -> Raven.Client.Lightweight[0x7f674853cf00]: 3
+Mono: Assembly Ref addref HtmlTags[0x7f67484e8330] -> System[0x9d6490]: 34
+Mono: Assembly Ref addref Lucene.Net[0x7f67485089a0] -> System[0x9d6490]: 35
+Mono: Assembly Ref addref NLog[0x7f674850dcf0] -> System.Data[0x7f6748476410]: 5
+Mono: Assembly Ref addref NLog[0x7f674850dcf0] -> System.Configuration[0xbc4e80]: 16
+Mono: Assembly Ref addref NLog[0x7f674850dcf0] -> System.Drawing[0x7f674847a0e0]: 3
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Windows.Forms/4.0.0.0__b77a5c561934e089/System.Windows.Forms.dll'.
+Mono: Image addref System.Windows.Forms[0x7f6749021b90] -> /usr/lib/mono/gac/System.Windows.Forms/4.0.0.0__b77a5c561934e089/System.Windows.Forms.dll[0x7f6749020c60]: 2
+Mono: Assembly System.Windows.Forms[0x7f6749021b90] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Windows.Forms/4.0.0.0__b77a5c561934e089/System.Windows.Forms.dll.so: /usr/lib/mono/gac/System.Windows.Forms/4.0.0.0__b77a5c561934e089/System.Windows.Forms.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.Windows.Forms/4.0.0.0__b77a5c561934e089/System.Windows.Forms.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Windows.Forms/4.0.0.0__b77a5c561934e089/System.Windows.Forms.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Windows.Forms/System.Windows.Forms.config'.
+Mono: Assembly Ref addref NLog[0x7f674850dcf0] -> System.Windows.Forms[0x7f6749021b90]: 2
+Mono: Assembly Ref addref System.Windows.Forms[0x7f6749021b90] -> System[0x9d6490]: 36
+Mono: Assembly Ref addref System.Windows.Forms[0x7f6749021b90] -> mscorlib[0x938e80]: 66
+Mono: Assembly Ref addref Nancy.ViewEngines.Razor.BuildProviders[0x7f674851d8e0] -> System.Web.Razor[0x7f674855c880]: 5
+Mono: Assembly Ref addref Nancy.ViewEngines.Razor.BuildProviders[0x7f674851d8e0] -> System[0x9d6490]: 37
+Mono: Assembly Ref addref Nancy.ViewEngines.Razor[0x7f6748522d70] -> System[0x9d6490]: 38
+Mono: Assembly Ref addref System.Web.Razor[0x7f674855c880] -> System[0x9d6490]: 39
+Mono: Assembly Ref addref Newtonsoft.Json[0x7f674852d440] -> System.Runtime.Serialization[0x7f6748497c30]: 4
+Mono: Assembly Ref addref Raven.Client.Lightweight[0x7f674853cf00] -> System[0x9d6490]: 40
+Mono: Assembly Ref addref Raven.Client.Embedded[0x7f6748537e50] -> Raven.Database[0x7f6748542330]: 3
+Mono: Assembly Ref addref Raven.Client.Embedded[0x7f6748537e50] -> System[0x9d6490]: 41
+Mono: Assembly Ref addref Raven.Client.Embedded[0x7f6748537e50] -> Raven.Abstractions[0x7f6748532a90]: 5
+Mono: Assembly Ref addref Raven.Client.Lightweight[0x7f674853cf00] -> Raven.Abstractions[0x7f6748532a90]: 6
+Mono: Assembly Ref addref Raven.Client.Lightweight[0x7f674853cf00] -> NLog[0x7f674850dcf0]: 3
+Mono: Assembly Ref addref Raven.Database[0x7f6748542330] -> System[0x9d6490]: 42
+Mono: Assembly Ref addref Raven.Database[0x7f6748542330] -> System.Web[0x7f67480067a0]: 20
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Runtime.Caching/4.0.0.0__b03f5f7f11d50a3a/System.Runtime.Caching.dll'.
+Mono: Image addref System.Runtime.Caching[0x7f67490ee090] -> /usr/lib/mono/gac/System.Runtime.Caching/4.0.0.0__b03f5f7f11d50a3a/System.Runtime.Caching.dll[0x7f67490ed410]: 2
+Mono: Assembly System.Runtime.Caching[0x7f67490ee090] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Runtime.Caching/4.0.0.0__b03f5f7f11d50a3a/System.Runtime.Caching.dll.so: /usr/lib/mono/gac/System.Runtime.Caching/4.0.0.0__b03f5f7f11d50a3a/System.Runtime.Caching.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.Runtime.Caching/4.0.0.0__b03f5f7f11d50a3a/System.Runtime.Caching.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Runtime.Caching/4.0.0.0__b03f5f7f11d50a3a/System.Runtime.Caching.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Runtime.Caching/System.Runtime.Caching.config'.
+Mono: Assembly Ref addref Raven.Database[0x7f6748542330] -> System.Runtime.Caching[0x7f67490ee090]: 2
+Mono: Assembly Ref addref System.Runtime.Caching[0x7f67490ee090] -> mscorlib[0x938e80]: 67
+Mono: Assembly Ref addref Raven.Database[0x7f6748542330] -> System.ComponentModel.Composition[0x7f6748c92550]: 3
+Mono: Assembly Ref addref Raven.Storage.Managed[0x7f674854cdb0] -> NLog[0x7f674850dcf0]: 4
+Mono: Assembly Ref addref Raven.Storage.Managed[0x7f674854cdb0] -> System.Core[0x7f674802b690]: 33
+Mono: Assembly Ref addref System.Web.Mvc[0x7f6748557240] -> System.Runtime.Caching[0x7f67490ee090]: 3
+Mono: Assembly Ref addref System.Web.Mvc[0x7f6748557240] -> System.Xml[0x9e9040]: 17
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Web.Mvc.resources/3.0.0.0_pt-br_31bf3856ad364e35/System.Web.Mvc.resources.dll'.
+Mono: Assembly Loader probing location: '/usr/lib/System.Web.Mvc.resources.dll'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Web.Mvc.resources/3.0.0.0_pt-br_31bf3856ad364e35/System.Web.Mvc.resources.exe'.
+Mono: Assembly Loader probing location: '/usr/lib/System.Web.Mvc.resources.exe'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Web.Mvc.resources/3.0.0.0_pt_31bf3856ad364e35/System.Web.Mvc.resources.dll'.
+Mono: Assembly Loader probing location: '/usr/lib/System.Web.Mvc.resources.dll'.
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Web.Mvc.resources/3.0.0.0_pt_31bf3856ad364e35/System.Web.Mvc.resources.exe'.
+Mono: Assembly Loader probing location: '/usr/lib/System.Web.Mvc.resources.exe'.
+Mono: DllImport attempting to load: 'libc.so.6'.
+Mono: DllImport loading library: '/usr/lib/mono/gac/System/4.0.0.0__b77a5c561934e089/libc.so.6'.
+Mono: DllImport error loading library '/usr/lib/mono/gac/System/4.0.0.0__b77a5c561934e089/libc.so.6: cannot open shared object file: Arquivo ou diretório não encontrado'.
+Mono: DllImport loading library: '/usr/lib/mono/gac/System/4.0.0.0__b77a5c561934e089/libc.so.6.so'.
+Mono: DllImport error loading library '/usr/lib/mono/gac/System/4.0.0.0__b77a5c561934e089/libc.so.6.so: cannot open shared object file: Arquivo ou diretório não encontrado'.
+Mono: DllImport loading location: 'libc.so.6'.
+Mono: Searching for 'close'.
+Mono: Probing 'close'.
+Mono: Found as 'close'.
+Mono: Assembly Ref addref Mono.Web[0x7f6748243ff0] -> System.Configuration[0xbc4e80]: 17
+Mono: gc took 18059 usecs
+Mono: Assembly Ref addref System.Web.WebPages[0x7f674856c1a0] -> System.Web.WebPages.Deployment[0x7f6748561c60]: 2
+Mono: Assembly Ref addref System.Runtime.Caching[0x7f67490ee090] -> System.Configuration[0xbc4e80]: 18
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/Accessibility/4.0.0.0__b03f5f7f11d50a3a/Accessibility.dll'.
+Mono: Image addref Accessibility[0x7f6749294f10] -> /usr/lib/mono/gac/Accessibility/4.0.0.0__b03f5f7f11d50a3a/Accessibility.dll[0x7f6749271af0]: 2
+Mono: Assembly Accessibility[0x7f6749294f10] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/Accessibility/4.0.0.0__b03f5f7f11d50a3a/Accessibility.dll.so: /usr/lib/mono/gac/Accessibility/4.0.0.0__b03f5f7f11d50a3a/Accessibility.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/Accessibility/4.0.0.0__b03f5f7f11d50a3a/Accessibility.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/Accessibility/4.0.0.0__b03f5f7f11d50a3a/Accessibility.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Accessibility/Accessibility.config'.
+Mono: Assembly Ref addref System.Windows.Forms[0x7f6749021b90] -> Accessibility[0x7f6749294f10]: 2
+Mono: Assembly Ref addref System.Windows.Forms[0x7f6749021b90] -> System.Drawing[0x7f674847a0e0]: 4
+Mono: Assembly Ref addref System.Windows.Forms[0x7f6749021b90] -> System.Configuration[0xbc4e80]: 19
+Mono: Assembly Ref addref System.Messaging[0x7f6748ee1350] -> System[0x9d6490]: 43
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/System.Configuration.Install/4.0.0.0__b03f5f7f11d50a3a/System.Configuration.Install.dll'.
+Mono: Image addref System.Configuration.Install[0x7f67492fe470] -> /usr/lib/mono/gac/System.Configuration.Install/4.0.0.0__b03f5f7f11d50a3a/System.Configuration.Install.dll[0x7f67492fd750]: 2
+Mono: Assembly System.Configuration.Install[0x7f67492fe470] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/System.Configuration.Install/4.0.0.0__b03f5f7f11d50a3a/System.Configuration.Install.dll.so: /usr/lib/mono/gac/System.Configuration.Install/4.0.0.0__b03f5f7f11d50a3a/System.Configuration.Install.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/System.Configuration.Install/4.0.0.0__b03f5f7f11d50a3a/System.Configuration.Install.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/System.Configuration.Install/4.0.0.0__b03f5f7f11d50a3a/System.Configuration.Install.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/System.Configuration.Install/System.Configuration.Install.config'.
+Mono: Assembly Ref addref System.Messaging[0x7f6748ee1350] -> System.Configuration.Install[0x7f67492fe470]: 2
+Mono: Assembly Ref addref System.Configuration.Install[0x7f67492fe470] -> System[0x9d6490]: 44
+Mono: Assembly Ref addref System.Messaging[0x7f6748ee1350] -> System.Windows.Forms[0x7f6749021b90]: 3
+Mono: Assembly Ref addref System.Messaging[0x7f6748ee1350] -> System.Drawing[0x7f674847a0e0]: 5
+Mono: Assembly Ref addref System.Transactions[0x7f6748caf330] -> System.Configuration[0xbc4e80]: 20
+Mono: Assembly Ref addref System.Security[0x7f67489cdcb0] -> System[0x9d6490]: 45
+Mono: Assembly Ref addref System.Windows.Forms[0x7f6749021b90] -> System.Xml[0x9e9040]: 18
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/Mono.WebBrowser/4.0.0.0__0738eb9f132ed756/Mono.WebBrowser.dll'.
+Mono: Image addref Mono.WebBrowser[0x7f67493ae1f0] -> /usr/lib/mono/gac/Mono.WebBrowser/4.0.0.0__0738eb9f132ed756/Mono.WebBrowser.dll[0x7f67493ad990]: 2
+Mono: Assembly Mono.WebBrowser[0x7f67493ae1f0] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/Mono.WebBrowser/4.0.0.0__0738eb9f132ed756/Mono.WebBrowser.dll.so: /usr/lib/mono/gac/Mono.WebBrowser/4.0.0.0__0738eb9f132ed756/Mono.WebBrowser.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/Mono.WebBrowser/4.0.0.0__0738eb9f132ed756/Mono.WebBrowser.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/Mono.WebBrowser/4.0.0.0__0738eb9f132ed756/Mono.WebBrowser.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Mono.WebBrowser/Mono.WebBrowser.config'.
+Mono: Assembly Ref addref System.Windows.Forms[0x7f6749021b90] -> Mono.WebBrowser[0x7f67493ae1f0]: 2
+Mono: Assembly Loader probing location: '/usr/lib/mono/gac/Mono.Messaging/4.0.0.0__0738eb9f132ed756/Mono.Messaging.dll'.
+Mono: Image addref Mono.Messaging[0x7f6749404210] -> /usr/lib/mono/gac/Mono.Messaging/4.0.0.0__0738eb9f132ed756/Mono.Messaging.dll[0x7f6749403740]: 2
+Mono: Assembly Mono.Messaging[0x7f6749404210] added to domain 446900e0, ref_count=1
+Mono: AOT failed to load AOT module /usr/lib/mono/gac/Mono.Messaging/4.0.0.0__0738eb9f132ed756/Mono.Messaging.dll.so: /usr/lib/mono/gac/Mono.Messaging/4.0.0.0__0738eb9f132ed756/Mono.Messaging.dll.so: cannot open shared object file: Arquivo ou diretório não encontrado
+
+Mono: Assembly Loader loaded assembly from location: '/usr/lib/mono/gac/Mono.Messaging/4.0.0.0__0738eb9f132ed756/Mono.Messaging.dll'.
+Mono: Config attempting to parse: '/usr/lib/mono/gac/Mono.Messaging/4.0.0.0__0738eb9f132ed756/Mono.Messaging.dll.config'.
+Mono: Config attempting to parse: '/etc/mono/assemblies/Mono.Messaging/Mono.Messaging.config'.
+Mono: Assembly Ref addref System.Messaging[0x7f6748ee1350] -> Mono.Messaging[0x7f6749404210]: 2
+Mono: Assembly Ref addref Mono.Messaging[0x7f6749404210] -> mscorlib[0x938e80]: 68
+Mono: Assembly Ref addref System.Configuration.Install[0x7f67492fe470] -> mscorlib[0x938e80]: 69
+Mono: Assembly Ref addref Mono.Security[0x7f6748dc7170] -> System[0x9d6490]: 46
+Mono: Assembly Ref addref System.ComponentModel.Composition[0x7f6748c92550] -> System.Core[0x7f674802b690]: 34
+Mono: Assembly Ref addref System.ComponentModel.Composition[0x7f6748c92550] -> System[0x9d6490]: 47
+Mono: Assembly Ref addref System.Security[0x7f67489cdcb0] -> System.Xml[0x9e9040]: 19
+Mono: Assembly Ref addref Mono.CSharp[0x7f674881d7c0] -> System.Xml[0x9e9040]: 20
+Mono: Assembly Ref addref Mono.CSharp[0x7f674881d7c0] -> System.Core[0x7f674802b690]: 35
+Mono: Assembly Ref addref Mono.CSharp[0x7f674881d7c0] -> System[0x9d6490]: 48
+Mono: Assembly Ref addref Raven.Database[0x7f6748542330] -> Spatial4n.Core[0x7f674854ce80]: 3
+Mono: Assembly Ref addref System.Web.Extensions[0x7f67484acfa0] -> System.Web.Services[0x7f67484779b0]: 3
+Mono: Assembly Ref addref System.Web.Extensions[0x7f67484acfa0] -> System.Xml[0x9e9040]: 21
+Mono: Assembly Ref addref Mono.WebServer2[0x9c4b20] -> Mono.Security[0x7f6748dc7170]: 3
+Mono: Assembly Ref addref Mono.WebBrowser[0x7f67493ae1f0] -> mscorlib[0x938e80]: 70
+Mono: Assembly Ref addref Mono.WebBrowser[0x7f67493ae1f0] -> System[0x9d6490]: 49
+Mono: Assembly Ref addref Accessibility[0x7f6749294f10] -> mscorlib[0x938e80]: 71
+Mono: gc took 13007 usecs
+Mono: gc took 15568 usecs
+Mono: gc took 20955 usecs
+Mono: gc took 26852 usecs
+Mono: gc took 26899 usecs
+Mono: gc took 32431 usecs
+Mono: gc took 27534 usecs
+Mono: gc took 17939 usecs
+Mono: Assembly Ref addref Newtonsoft.Json[0x7f674852d440] -> System.Xml[0x9e9040]: 22
+Mono: gc took 29145 usecs
+Mono: gc took 18154 usecs
+Mono: gc took 20081 usecs
+Mono: gc took 31536 usecs
+Mono: gc took 17964 usecs
+Mono: gc took 34519 usecs
+Mono: gc took 24328 usecs
+Mono: gc took 17434 usecs
+Mono: Assembly Ref addref Nancy.ViewEngines.Razor[0x7f6748522d70] -> Microsoft.CSharp[0x7f6748461f50]: 2
+Mono: Assembly Ref addref Nancy.ViewEngines.Razor[0x7f6748522d70] -> System.Core[0x7f674802b690]: 36
+Mono: gc took 17583 usecs
+Mono: Assembly Ref addref Nancy[0x7f6748527b60] -> System.Drawing[0x7f674847a0e0]: 6
+Mono: Assembly Re[2012-07-03 19:54:31Z] Debug   Record sent. (Type: StandardOutput, ID: 1, Length: 152)
+[2012-07-03 19:54:31Z] Debug   Record sent. (Type: StandardOutput, ID: 1, Length: 5204)
+[2012-07-03 19:54:31Z] Debug   Record sent. (Type: StandardOutput, ID: 1, Length: 0)
+[2012-07-03 19:54:31Z] Debug   Record sent. (Type: EndRequest, ID: 1, Length: 8)
+[2012-07-03 19:54:31Z] Notice  Finished receiving records on connection.
