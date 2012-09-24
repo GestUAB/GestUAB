@@ -129,12 +129,33 @@
     <Compile Include="Modules\ValidationModule.cs" />
     <Compile Include="Extensions\CustomAttributes.cs" />
     <Compile Include="Extensions\FormType.cs" />
+    <Compile Include="Modules\MemorandumModule.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Models\Memorandum.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Database\PopulateMemorandum.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Views\Memorandum\index.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\Memorandum\new.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\Memorandum\show.cshtml" />
+    <None Include="Views\Memorandum\edit.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\Memorandum\_form.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Memorandum\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config">
