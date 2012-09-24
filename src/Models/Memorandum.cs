@@ -12,6 +12,12 @@ namespace GestUAB
 {
     public class Memorandum : IModel
     {
+        [GlobalizedEnum(typeof(MemorandumType), "Geral", "Diária")]
+        public enum MemorandumType {
+            General,
+            DailyRate
+        }
+
         public Memorandum ()
         {
             Id = Guid.NewGuid();
@@ -70,7 +76,8 @@ namespace GestUAB
         [Display(Name = "Diaria solicitada",
                  Description= "Tipo de diaria solicitada.")]
         [ScaffoldVisibility(all:ScaffoldVisibilityType.Show)] 
-        public int Type { get ; set ; }
+        [ScaffoldSelectProperties("", SelectType.Single)]
+        public MemorandumType Type { get ; set ; }
     }
 
     public class MemorandumValidator : ValidatorBase<Memorandum>

@@ -24,6 +24,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace GestUAB
 {
@@ -83,6 +85,26 @@ namespace GestUAB
                 Delete = delete;
             }
             All = all;
+        }
+    }
+
+    public class GlobalizedEnumAttribute : Attribute {
+
+        Dictionary<string, string> _names = new Dictionary<string, string>();
+
+        public GlobalizedEnumAttribute (Type type, params string[] names){
+            if (!type.IsEnum) {
+                throw new ArgumentException("type", "The type parameter must be of type Enum.");
+            }
+            var fields = type.GetFields();
+            for (int i = 1; i < fields.Length; i++) {
+                var f = fields[i];
+                _names.Add(f.Name, names[i - 1]);
+            }
+        }
+
+        public string GetName(string name) {
+            return _names[name];
         }
     }
 }

@@ -124,6 +124,8 @@ namespace GestUAB
                         formTag.Append (GenerateInputCheck<TModel> (model, prop));
                     } else if (typeof(IEnumerable).IsAssignableFrom (type)) {
                         formTag.Append (GenerateSelect<TModel> (model, prop));
+                    } else if (type.IsEnum) {
+                        formTag.Append (GenerateSelect<TModel> (model, prop));
                     }
                 } else {
                     formTag.Append (GenerateInputHidden<TModel> (model, prop));
@@ -178,6 +180,8 @@ namespace GestUAB
                     } else if (type == typeof(bool)) {
                         tag.Append (GenerateInputCheck<TModel> (model, prop));
                     } else if (typeof(IEnumerable).IsAssignableFrom (type)) {
+                        tag.Append (GenerateSelect<TModel> (model, prop));
+                    } else if (type.IsEnum) {
                         tag.Append (GenerateSelect<TModel> (model, prop));
                     }
 
@@ -309,6 +313,8 @@ namespace GestUAB
             return cg;
         }
 
+        static Dictionary<string, string> _enumCache = new Dictionary<string, string> ();
+
         static HtmlTag GenerateSelect<TModel> (TModel model, PropertyInfo member)
         {
             var modelValue = member.GetValue (model, null);
@@ -343,13 +349,39 @@ namespace GestUAB
                 .Id (member.Name);
 
             if (selectType.Type == SelectType.Multiple) {
-                selekt.Attr("multiple", "multiple");
+                selekt.Attr ("multiple", "multiple");
             }
 
-            foreach (var i in (modelValue as IEnumerable)) {
-                var tag = new HtmlTag ("option").Text (i.ToString ());
-                selekt.Append (tag);
-                tag.Attr ("value", i.GetValue(selectType.ValueMember));
+            if (member.PropertyType.IsEnum) {
+                var atts = modelValue.GetType ().GetCustomAttributes (true);
+                GlobalizedEnumAttribute ge = null;
+                if (atts.Length == 0)
+                    ge = null;
+                foreach (var a in atts) {
+                    if (a.GetType () == typeof(GlobalizedEnumAttribute)) {
+                        ge = (GlobalizedEnumAttribute)a;
+                    }
+                }
+                var fields = modelValue.GetType().GetFields();
+                for (int i = 1; i < fields.Length; i++) {
+                    var f = fields[i];
+                    string name = string.Empty;
+                    if (ge == null) {
+                        name = f.GetValue (f.Name).ToString ();
+                    } else {
+                        name = ge.GetName (f.Name);
+                    }
+                    var tag = new HtmlTag ("option").Text (name);
+                    selekt.Append (tag);
+                    tag.Attr ("value", f.Name);
+
+                }
+            } else {
+                foreach (var i in (modelValue as IEnumerable)) {
+                    var tag = new HtmlTag ("option").Text (i.ToString ());
+                    selekt.Append (tag);
+                    tag.Attr ("value", i.GetValue (selectType.ValueMember));
+                }
             }
 
 
