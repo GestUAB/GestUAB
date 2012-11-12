@@ -25,9 +25,8 @@
 // THE SOFTWARE.
 using System;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
-using System.Reflection;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace GestUAB
 {
@@ -70,19 +69,27 @@ namespace GestUAB
         }
 
         /// <summary>
-        /// Clone the object, and returning a reference to a cloned object.
+        /// Fill the dest object with the source object.
         /// </summary>
-        /// <returns>Reference to the new cloned 
-        /// object.</returns>
+        /// <param name='dest'>
+        /// Destination.
+        /// </param>
+        /// <param name='source'>
+        /// Source.
+        /// </param>
+        /// <typeparam name='T'>
+        /// The type parameter of filled object.
+        /// </typeparam>
         public static void Fill<T> (this T dest, T source)
         {
             //We get the array of fields for the new type instance.
             var props = dest.GetType ().GetProperties ();
 
-            int i = 0;
+            int i = -1;
 
             foreach (var p in source.GetType().GetProperties()) {
-                if (!p.CanWrite) continue;
+                ++i; 
+                if (!(p.CanWrite || props[i].CanWrite)) continue;
 
                 //We query if the fiels support the ICloneable interface.
                 var cloneType = p.PropertyType.GetInterface ("ICloneable", true);
@@ -99,7 +106,6 @@ namespace GestUAB
                     props [i].SetValue (dest, p.GetValue (source, null), null);
                 }
 
-                ++i; 
 
 //                //Now we check if the object support the 
 //                //IEnumerable interface, so if it does

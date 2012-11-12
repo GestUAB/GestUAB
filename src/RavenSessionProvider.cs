@@ -23,12 +23,12 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+using System;
+using System.IO;
 using Raven.Client;
-using Raven.Client.Extensions;
 using Raven.Client.Embedded;
 using System.IO;
 using System;
-
 
 namespace GestUAB
 {
@@ -55,7 +55,7 @@ namespace GestUAB
                 DataDirectory = path
             }.Initialize ();
 
-            if (populate) documentStore.PopulateUsers();
+            if (populate) documentStore.PopulateAll();
 
             //documentStore.DatabaseCommands.EnsureDatabaseExists (Conventions.RavenDatabase);
 
@@ -69,4 +69,3 @@ namespace GestUAB
         }
     }
 }
-

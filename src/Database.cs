@@ -23,12 +23,13 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-using Raven.Client;
-using Raven.Client.Embedded;
 using System.Linq;
 using GestUAB.Models;
 using Raven.Abstractions.Indexing;
+using Raven.Client;
 using Raven.Client.Indexes;
+using System;
+using System.Reflection;
 
 namespace GestUAB
 {
@@ -125,32 +126,21 @@ namespace GestUAB
 
     public static partial class PopulateDatabaseExtensions
     {
-        public static void PopulateUsers (this IDocumentStore ds)
-        {
-            using (var session = ds.OpenSession()) {
-                // Operations against session
-                session.Store (new User{Username = "thild", FirstName = "Tony", LastName= "Hild"});
-                session.Store (new User{Username = "jbarbosa", FirstName = "João", LastName= "Barbosa"});
-                session.Store (new User{Username = "rciqueira", FirstName = "Ricardo", LastName= "Ciqueira"});
-                // Flush those changes
-                session.SaveChanges ();
-            }
+		public static void PopulateAll (this IDocumentStore ds)
+		{
+            MethodInfo[] methodInfos = typeof(PopulateDatabaseExtensions).GetMethods(BindingFlags.Public | BindingFlags.Static);
 
-            ds.DatabaseCommands.PutIndex("UsersByUsername", new IndexDefinitionBuilder<User>
+            foreach (MethodInfo methodInfo in methodInfos)
             {
-                Map = users => from user in users
-                               select new { user.Username },
-                Indexes =
-                    {
-                        { x => x.Username, FieldIndexing.Analyzed}
-                    }
-            });
-            
+                if (methodInfo.Name.Contains("Populate") && !methodInfo.Name.Contains("PopulateAll"))
+                {
+                    Console.Write("Executing " + methodInfo.Name);
+                    object[] parametersArray = new object[] { ds };
 
-        }
-
-
-    }
+                    methodInfo.Invoke(ds, parametersArray);
+                }
+            }
+		}
+	}
 
 }
-

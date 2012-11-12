@@ -1,42 +1,62 @@
-﻿using Nancy;
+﻿using System.Linq;
 using GestUAB.Models;
-using Raven.Client.Linq;
-using System.Linq;
-using Nancy.Responses;
+using Nancy;
 using Nancy.ModelBinding;
-using Nancy.Validation;
+using Nancy.Responses;
+using FluentValidation;
 
 namespace GestUAB.Modules
 {
     public class UserModule : BaseModule
     {
 
-        public UserModule ()
+        public UserModule () : base("/users")
         {
-            Get ["/users"] = _ => { 
-                return View ["User/users", DocumentSession.Query<User> ().ToList ()];
+            Get ["/"] = _ => { 
+                return View ["index", DocumentSession.Query<User> ()
+                    .Customize(q => q.WaitForNonStaleResultsAsOfLastWrite())
+                    .ToList ()];
             };
     
-            Get ["/user/{Username}"] = x => { 
+            Get ["/{Username}"] = x => { 
                 var username = (string)x.Username;
                 var user = DocumentSession.Query<User> ("UsersByUsername")
+                    .Customize(q => q.WaitForNonStaleResultsAsOfLastWrite())
                     .Where (n => n.Username == username).FirstOrDefault ();
                 if (user == null)
                     return new NotFoundResponse ();
-                return View ["User/user", user];
+                return View ["show", user];
             };
 
-            Get ["/user/update/{Username}"] = x => {
+            Get ["/new"] = x => { 
+                return View ["new", new User ()];
+            };
+
+            Post ["/new"] = x => {
+                var user = this.Bind<User> ();
+                var result = new UserValidator ().Validate (user);
+                if (!result.IsValid) {
+                    return View ["Shared/_errors", result];
+                }
+                DocumentSession.Store (user);
+                return Response.AsRedirect(string.Format("/users/{0}", user.Username));
+            };
+
+            Get ["/edit/{Username}"] = x => {
                 var username = (string)x.Username;
                 var user = DocumentSession.Query<User> ("UsersByUsername")
                     .Where (n => n.Username == username).FirstOrDefault ();
                 if (user == null) 
                     return new NotFoundResponse ();
-                return View ["User/update", user];
+                return View ["edit", user];
             };
-
-            Put ["/user/update/{Username}"] = x => {
+            
+            Post ["/edit/{Username}"] = x => {
                 var user = this.Bind<User> ();
+                var result = new UserValidator ().Validate (user, ruleSet: "Update");
+                if (!result.IsValid) {
+                    return View ["Shared/_errors", result];
+                }
                 var username = (string)x.Username;
                 var saved = DocumentSession.Query<User> ("UsersByUsername")
                     .Where (n => n.Username == username)
@@ -44,36 +64,10 @@ namespace GestUAB.Modules
                 if (saved == null) 
                     return new NotFoundResponse ();
                 saved.Fill (user);
-                var resp = new JsonResponse<User> (
-                    saved,
-                    new DefaultJsonSerializer ()
-                );
-                resp.Headers.Add ("Location", "/user/" + saved.Username);
-                resp.StatusCode = HttpStatusCode.OK;
-                return resp;
+                return Response.AsRedirect(string.Format("/users/{0}", user.Username));
             };
 
-            Get ["/user/create"] = x => { 
-                return View ["User/create"];
-            };
-
-            Post ["/user/create"] = x => {
-                var user = this.Bind<User> ();
-                var result = this.Validate(user);
-                if (!result.IsValid) {
-                    return View["Shared/_errors", result];
-                }
-                DocumentSession.Store (user);
-                var resp = new JsonResponse<User> (
-                    user,
-                    new DefaultJsonSerializer ()
-                );
-                resp.Headers.Add ("Location", "/user/" + user.Username);
-                resp.StatusCode = HttpStatusCode.Created;
-                return resp;
-            };
-
-            Delete ["/user/delete/{Username}"] = x => { 
+             Delete ["/delete/{Username}"] = x => { 
                 var username = (string)x.Username;
                 var user = DocumentSession.Query<User> ("UsersByUsername")
                         .Where (n => n.Username == username)
@@ -89,8 +83,16 @@ namespace GestUAB.Modules
                 return resp;
 
             };
-    
 
+            Get ["/delete/{Username}"] = x => { 
+                var username = (string)x.Username;
+                var user = DocumentSession.Query<User> ("UsersByUsername")
+                    .Where (n => n.Username == username).FirstOrDefault ();
+                if (user == null) 
+                    return new NotFoundResponse ();
+                DocumentSession.Delete (user);
+                return Response.AsRedirect("/users");
+            };
         }
     }
 }
