@@ -7,7 +7,7 @@ namespace GestUAB.Modules
     public class HomeModule : BaseModule
     {
 
-        public HomeModule ()
+        public HomeModule () : base()
         {
             Get ["/"] = x => { 
                 return View ["index"];
