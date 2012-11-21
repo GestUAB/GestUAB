@@ -26,6 +26,7 @@
 using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.Diagnostics;
+using Nancy.TinyIoc;
 
 namespace GestUAB
 {
@@ -40,7 +41,7 @@ namespace GestUAB
             }
         }
 
-        protected override void ApplicationStartup (TinyIoC.TinyIoCContainer container, IPipelines pipelines)
+        protected override void ApplicationStartup (TinyIoCContainer container, IPipelines pipelines)
         {
             base.ApplicationStartup (container, pipelines);
 #if (DEBUG)
