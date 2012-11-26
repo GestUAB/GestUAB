@@ -8,6 +8,7 @@ TestResults
 *.suo
 *.userprefs
 *.user
+*.pidb
 App_Data
 scr/App_Data/Database
 scr/App_Data/*
