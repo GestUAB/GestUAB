@@ -19,6 +19,42 @@ namespace GestUAB.Modules
                     .Customize(q => q.WaitForNonStaleResultsAsOfLastWrite())
                     .ToList ()];
             };
+            
+            Get ["/{Id}"] = x => { 
+                Guid id = Guid.Parse(x.Id);
+                var professor = DocumentSession.Query<Teacher> ("TeachersById")
+                    .Customize(q => q.WaitForNonStaleResultsAsOfLastWrite())
+                    .Where (n => n.Id == id).FirstOrDefault ();
+                if (professor == null)
+                    return new NotFoundResponse ();
+                return View ["show", professor];
+            };
+            
+            Get ["/edit/{Id}"] = x => { 
+                Guid id = Guid.Parse(x.Id);
+                var professor = DocumentSession.Query<Teacher> ("TeachersById")
+                    .Customize(q => q.WaitForNonStaleResultsAsOfLastWrite())
+                    .Where (n => n.Id == id).FirstOrDefault ();
+                if (professor == null)
+                    return new NotFoundResponse ();
+                return View ["edit", professor];
+            };
+            
+            Get ["/new"] = x => { 
+                return View ["new", new Teacher ()];
+            };
+            
+            Post ["/new"] = x => {
+                var teacher = this.Bind<Teacher> ();
+                var result = new TeacherValidator ().Validate (teacher);
+                if (!result.IsValid) {
+                    return View ["Shared/_errors", result];
+                }
+                DocumentSession.Store (teacher);
+                return Response.AsRedirect(string.Format("/teacher/{0}", teacher.Id));
+            };
+            
+            
         }
     }
 }
