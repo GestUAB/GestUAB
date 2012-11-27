@@ -34,7 +34,6 @@ Ankh.NoLoad
 #MonoDevelop
 *.pidb
 *.userprefs
-<<<<<<< HEAD
 
 #Tooling
 _ReSharper*/
@@ -77,4 +76,4 @@ scr\App_Data\Database
 scr\App_Data\*
 scr\App_Data\Database\*
 [P]ackages\
->>>>>>> local
+
