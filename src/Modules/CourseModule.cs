@@ -31,16 +31,15 @@ namespace GestUAB.Modules
             };
             
             Get ["/new"] = x => {
-                return View ["new", new Course ()];
+                return View ["new", Course.DefaultCourse()];
             };
 
             Post ["/new"] = x => {
                 var course = this.Bind<Course> ();
-                var result = this.Validate (course);
+                var result = new CourseValidator().Validate (course);
                 if (!result.IsValid)
                     return View ["Shared/_errors", result];
                 DocumentSession.Store (course);
-                //return View ["show", course];
                 return Response.AsRedirect(string.Format("/courses/{0}", course.Id));
             };
             
@@ -65,7 +64,6 @@ namespace GestUAB.Modules
                     return new NotFoundResponse ();
                 saved.Fill (course);
                 return Response.AsRedirect(string.Format("/courses/{0}", course.Id));
-//                return View ["show", course];
             };
 
             Delete ["/delete/{Id}"] = x => { 
@@ -93,7 +91,6 @@ namespace GestUAB.Modules
                     return new NotFoundResponse ();
                 DocumentSession.Delete (course);
                 return Response.AsRedirect("/courses");
-//                return View ["index", DocumentSession.Query<Course> ().ToList ()];
             };
         }
     }

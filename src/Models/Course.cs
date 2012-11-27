@@ -6,11 +6,21 @@ namespace GestUAB.Models
 {
     public class Course : IModel
     {
+        #region Builder
         public Course ()
         {
-            Id = Guid.NewGuid ();
-            Name = string.Empty;
+
         }
+
+        public static Course DefaultCourse()
+        {
+            return new Course() { 
+                Id = Guid.NewGuid(),
+                Name = string.Empty
+            };
+        }
+
+        #endregion
 
         #region IModel implementation
         [Display(Name = "Código",

@@ -12,12 +12,22 @@ namespace GestUAB
 {
     public class Teacher : IModel
     {
+        #region Builder
         public Teacher ()
         {
-            Id = Guid.NewGuid();
-            Name = string.Empty;
+
         }
-        
+
+        public static Teacher DefaultTeacher()
+        {
+            return new Teacher() { 
+                Id = Guid.NewGuid(),
+                Name = string.Empty
+            };
+        }
+
+        #endregion
+
         #region IModel implementation
         [Display(Name = "Id")]
         [ScaffoldVisibility(all:ScaffoldVisibilityType.Hidden)] 

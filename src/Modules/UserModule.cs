@@ -29,7 +29,7 @@ namespace GestUAB.Modules
             };
 
             Get ["/new"] = x => { 
-                return View ["new", new User ()];
+                return View ["new", User.DefaultUser()];
             };
 
             Post ["/new"] = x => {

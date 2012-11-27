@@ -31,22 +31,32 @@ using System.Linq;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using GestUAB.Validators;
+using GestUAB.Models;
 
 namespace GestUAB.Models
 {
     public class User : IModel
     {
+        #region Builder
         public User ()
         {
-            (this as IModel).Id = Guid.NewGuid();
-            Username = string.Empty;
-            FirstName = string.Empty;
-            LastName = string.Empty;
-            Email = string.Empty;
+
         }
 
+        public static User DefaultUser()
+        {
+            return new User() {
+                Id = Guid.NewGuid(),
+                Username = string.Empty,
+                FirstName = string.Empty,
+                LastName = string.Empty,
+                Email = string.Empty
+            };
+        }
+        #endregion
+
         #region IModel implementation
-        System.Guid IModel.Id { get ; set ; }
+        public System.Guid Id { get ; set ; }
         #endregion
 
         [Display(Name = "Nome do usuário",

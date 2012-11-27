@@ -18,18 +18,28 @@ namespace GestUAB
             DailyRate
         }
 
+        #region Builder
+
         public Memorandum ()
         {
-            Id = Guid.NewGuid();
-            Observation = string.Empty;
-            Destiny = string.Empty;
-            StartDate = DateTime.Now;
-            FinishDate = DateTime.Now;
-            RequesterName = string.Empty;
-            BankAccount = string.Empty;
-            CovenantNumber = string.Empty;
-            Type = 0;
+
         }
+
+        public static Memorandum DefaultMemorandum()
+        {
+            return new Memorandum() { 
+                Id = Guid.NewGuid(),
+                Observation = string.Empty,
+                Destiny = string.Empty,
+                StartDate = DateTime.Now,
+                FinishDate = DateTime.Now,
+                RequesterName = string.Empty,
+                BankAccount = string.Empty,
+                CovenantNumber = string.Empty,
+                Type = 0
+            };
+        }
+        #endregion
 
         #region IModel implementation
         [Display(Name = "Código",

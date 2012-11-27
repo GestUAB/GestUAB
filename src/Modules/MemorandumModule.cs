@@ -32,7 +32,7 @@ namespace GestUAB.Modules
             };
 
             Get ["/new"] = x => {
-                return View ["new", new Memorandum ()];
+                return View ["new", Memorandum.DefaultMemorandum()];
             };
 
             Post ["/new"] = x => {
@@ -54,7 +54,7 @@ namespace GestUAB.Modules
             };
 
             Post ["/edit/{Id}"] = x => {
-                var memorandum = this.Bind<Memorandum> ();
+                var memorandum = this.Bind<Memorandum>();
                 var result = new MemorandumValidator ().Validate (memorandum, ruleSet: "Update");
                 if (!result.IsValid)
                     return View ["Shared/_errors", result];
