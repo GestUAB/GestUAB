@@ -10,6 +10,10 @@ using GestUAB.Models;
 
 namespace GestUAB.Models
 {
+    /// <summary>
+    /// Class Driver.
+    /// </summary>
+    /// 
     public class Driver : IModel
     {
         #region IModel implementation
@@ -148,11 +152,21 @@ namespace GestUAB.Models
         #endregion
 
         #region Class Builder
+        
+        /// <summary>
+        /// Builder Class Driver
+        /// </summary>
+        /// 
         public Driver()
         {
 
         }
 
+        /// <summary>
+        /// Static method that creates a default Driver.
+        /// </summary>
+        /// <returns> Default Driver</returns>
+        /// 
         public static Driver DefaultDriver()
         {
             return new Driver() {
@@ -176,9 +190,16 @@ namespace GestUAB.Models
         #endregion
     }
 
-
+    /// <summary>
+    /// Driver Validator
+    /// </summary>
+    /// 
     public class DriverValidator : ValidatorBase<Driver>
     {
+        /// <summary>
+        /// Method that validates when the object will be created or changed.
+        /// </summary>
+        /// 
         public DriverValidator()
         {
             #region New Driver

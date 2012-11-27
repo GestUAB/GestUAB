@@ -10,21 +10,34 @@ using GestUAB.Models;
 
 namespace GestUAB
 {
+    /// <summary>
+    /// Memorandum Class
+    /// </summary>
     public class Memorandum : IModel
     {
+        #region EnumType
         [GlobalizedEnum(typeof(MemorandumType), "Geral", "Diária")]
         public enum MemorandumType {
             General,
             DailyRate
         }
+        #endregion
 
         #region Builder
 
+        /// <summary>
+        /// Builder Class Memorandum
+        /// </summary>
         public Memorandum ()
         {
 
         }
 
+        /// <summary>
+        /// Static method that creates a default Memorandum.
+        /// </summary>
+        /// <returns> Default Memorandum </returns>
+        /// 
         public static Memorandum DefaultMemorandum()
         {
             return new Memorandum() { 
@@ -48,6 +61,7 @@ namespace GestUAB
         public System.Guid Id { get ; set ; }
         #endregion
 
+        #region Variables
         [Display(Name = "Referente",
                  Description= "Texto \"Referente\" a.")]
         [ScaffoldVisibility(all:ScaffoldVisibilityType.Show)] 
@@ -88,10 +102,19 @@ namespace GestUAB
         [ScaffoldVisibility(all:ScaffoldVisibilityType.Show)] 
         [ScaffoldSelectProperties("", SelectType.Single)]
         public MemorandumType Type { get ; set ; }
+        #endregion
     }
 
+    /// <summary>
+    /// Memorandum Validator
+    /// </summary>
+    /// 
     public class MemorandumValidator : ValidatorBase<Memorandum>
     {
+        /// <summary>
+        /// Method that validates when the object will be created or changed.
+        /// </summary>
+        /// 
         public MemorandumValidator ()
         {
             using (var session = DocumentSession) {

@@ -35,14 +35,26 @@ using GestUAB.Models;
 
 namespace GestUAB.Models
 {
+    /// <summary>
+    /// User Class
+    /// </summary>
+    /// 
     public class User : IModel
     {
         #region Builder
+        /// <summary>
+        /// Builder Class User
+        /// </summary>
         public User ()
         {
 
         }
 
+        /// <summary>
+        /// Static method that creates a default User.
+        /// </summary>
+        /// <returns> Default User </returns>
+        /// 
         public static User DefaultUser()
         {
             return new User() {
@@ -59,6 +71,7 @@ namespace GestUAB.Models
         public System.Guid Id { get ; set ; }
         #endregion
 
+        #region Variables
         [Display(Name = "Nome do usuário",
                  Description= "Nome do usuário. Ex.: jsilva.")]
         [ScaffoldVisibility(create:ScaffoldVisibilityType.Show,
@@ -86,10 +99,19 @@ namespace GestUAB.Models
                  Description= "E-mail do usuário. Ex.: joao@gestuab.com.br.")]
         [ScaffoldVisibility(all:ScaffoldVisibilityType.Show)] 
         public string Email { get; set; }
+        #endregion
     }
 
+    /// <summary>
+    /// User Validator
+    /// </summary>
+    /// 
     public class UserValidator : ValidatorBase<User>
     {
+        /// <summary>
+        /// Method that validates when the object will be created or changed.
+        /// </summary>
+        /// 
         public UserValidator ()
         {
             using (var session = DocumentSession) {

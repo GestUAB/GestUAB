@@ -12,12 +12,15 @@ namespace GestUAB.Modules
 
         public UserModule () : base("/users")
         {
+            #region Method that returns the index View User, with the registered Users
             Get ["/"] = _ => { 
                 return View ["index", DocumentSession.Query<User> ()
                     .Customize(q => q.WaitForNonStaleResultsAsOfLastWrite())
                     .ToList ()];
             };
-    
+            #endregion
+
+            #region Method that returns a View Show, displaying the User in the form according to the ID.
             Get ["/{Username}"] = x => { 
                 var username = (string)x.Username;
                 var user = DocumentSession.Query<User> ("UsersByUsername")
@@ -27,11 +30,15 @@ namespace GestUAB.Modules
                     return new NotFoundResponse ();
                 return View ["show", user];
             };
+            #endregion
 
+            #region Method that returns the New View, creating a default User
             Get ["/new"] = x => { 
                 return View ["new", User.DefaultUser()];
             };
+            #endregion
 
+            #region Method that creates and validates a new User in accordance with the specifications of the class UserValidator
             Post ["/new"] = x => {
                 var user = this.Bind<User> ();
                 var result = new UserValidator ().Validate (user);
@@ -41,7 +48,9 @@ namespace GestUAB.Modules
                 DocumentSession.Store (user);
                 return Response.AsRedirect(string.Format("/users/{0}", user.Username));
             };
+            #endregion
 
+            #region Displays data in the form of the User according to Username
             Get ["/edit/{Username}"] = x => {
                 var username = (string)x.Username;
                 var user = DocumentSession.Query<User> ("UsersByUsername")
@@ -50,7 +59,9 @@ namespace GestUAB.Modules
                     return new NotFoundResponse ();
                 return View ["edit", user];
             };
-            
+            #endregion
+
+            #region Method editing the Memorandum according to Username
             Post ["/edit/{Username}"] = x => {
                 var user = this.Bind<User> ();
                 var result = new UserValidator ().Validate (user, ruleSet: "Update");
@@ -66,8 +77,10 @@ namespace GestUAB.Modules
                 saved.Fill (user);
                 return Response.AsRedirect(string.Format("/users/{0}", user.Username));
             };
+            #endregion
 
-             Delete ["/delete/{Username}"] = x => { 
+            #region Method to delete a record according to Username
+            Delete ["/delete/{Username}"] = x => { 
                 var username = (string)x.Username;
                 var user = DocumentSession.Query<User> ("UsersByUsername")
                         .Where (n => n.Username == username)
@@ -93,6 +106,7 @@ namespace GestUAB.Modules
                 DocumentSession.Delete (user);
                 return Response.AsRedirect("/users");
             };
+            #endregion
         }
     }
 }
