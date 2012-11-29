@@ -9,12 +9,21 @@ namespace GestUAB.Models
     /// </summary>
     public class Scholarship : IModel
     {
-        
+        #region Builder
         public Scholarship ()
         {
-            Id = Guid.NewGuid();
-            Owner = string.Empty;
+            
         }
+
+        public static Scholarship DefaultScholarship()
+        {
+            return new Scholarship() { 
+                Id = Guid.NewGuid(),
+                Owner = string.Empty
+            };
+        }
+
+        #endregion
 
         #region IModel implementation
         [Display(Name = "Código",
