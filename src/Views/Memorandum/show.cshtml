@@ -4,6 +4,23 @@
     ViewBag.Title = "Detalhes do memorando";
 }
 
+@section JavaScript
+{
+    <script>
+        function remove()
+        {
+            bootbox.confirm("Deseja mesmo remover?", function(result) {
+                if (result) {
+                    location.href = '@Url.Content("~/memorandums/delete/" + @Model.Id)';
+                }
+            });
+            
+        }
+    </script>
+    
+}  
+
+
 <div class="page-header">
 <h1>Memorando</h1>
 </div>
@@ -17,7 +34,7 @@
 <div class="row-fluid">
 
   <a href="#" class="btn" onclick="history.go(-1);return false;">Voltar</a>
-  <a href='@Url.Content("~/memorandums/delete/" + @Model.Id)' class='btn btn-danger'>
+  <a href="#" class='btn btn-danger' onclick="remove();">
     <i class="icon-remove"></i> Remover
   </a>
   <a href='@Url.Content("~/memorandums/edit/" + @Model.Id)' class='btn btn-info'>
@@ -26,5 +43,7 @@
   <a href='@Url.Content("~/memorandums/new")' class='btn btn-info'>
     <i class="icon-plus"></i> Cadastrar novo
   </a>
+  
+  
   
 </div>

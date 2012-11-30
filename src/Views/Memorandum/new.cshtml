@@ -13,6 +13,16 @@
         $('#datepicker').datepicker({
             inline: true
         });
+        
+        function back()
+        {
+            bootbox.confirm("Deseja mesmo cancelar o cadastro?", function(result) {
+                if (result) {
+                    location.href = '@Url.Content("~/memorandums/")';
+                }
+            });
+            
+        }
     </script>
 }  
 <div id="errors"></div>
@@ -25,7 +35,7 @@
   </fieldset>
   
   <div class='form-actions'>
-    <button type="reset" class="btn" onclick="history.go(-1);return false;">Cancelar</button>
+    <button type="reset" class="btn" onclick="back();">Cancelar</button>
     <button type="reset" class="btn">Limpar</button>
     <button type="submit" class="btn btn-primary">Salvar</button>
   </div>  

@@ -1,11 +1,22 @@
 @{
     Layout = "Shared/_layout.cshtml";
-    ViewBag.Title = "Lista de memodandos";
+    ViewBag.Title = "Lista de memorandos";
 }
 @section JavaScript
 {
     <script src='@Url.Content("~/Content/js/crud.js")'></script>
-
+    <script>
+      function remove(id)
+        {
+            bootbox.confirm("Deseja mesmo remover?", function(result) {
+                if (result) {
+                    //location.href = '@Url.Content("~/memorandums/delete/" + id)';
+                    console.log(id);
+                }
+            });
+            
+        }
+    </script>
 }        
 <table class='table'>
   <thead>
@@ -20,7 +31,7 @@
   </thead>
   <tbody>
     @foreach(var memorandum in @Model) {
-        <tr> 
+        <tr id=@memorandum.Id> 
             <td>@memorandum.RequesterName</td> 
             <td>@memorandum.Observation</td> 
             <td>@memorandum.Destiny</td> 
@@ -37,7 +48,7 @@
                   <i class="icon-edit"></i>
                   Editar
                 </a>
-                <a href='@Url.Content("~/memorandums/delete/" + memorandum.Id)' class='btn btn-danger delete'>
+                <a href='#' onclick='remove($(this).parent().parent().attr("id"));' class='btn btn-danger'>
                   <i class="icon-remove"></i>
                   Remover
                 </a>
