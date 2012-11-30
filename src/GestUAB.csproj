@@ -261,6 +261,27 @@
     </Content>
     <Content Include="Views\Memorandum\_form.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+<<<<<<< HEAD
+    </None>
+<<<<<<< HEAD
+    <None Include="Views\Course\edit.cshtml" />
+    <None Include="Views\Course\index.cshtml" />
+    <None Include="Views\Course\new.cshtml" />
+    <None Include="Views\Course\show.cshtml" />
+    <None Include="Content\js\crud.js" />
+=======
+>>>>>>> 541c1c286094df6ca08a6cd48d9a3955e4db6068
+    <None Include="Views\Home\about.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\About\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+=======
+>>>>>>> 2ee53ef89a9e3a41f20ca0c5f8d00b21bb0f480f
     </Content>
     <Content Include="Content\css\base.css">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
