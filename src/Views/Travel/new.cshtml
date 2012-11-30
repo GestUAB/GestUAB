@@ -1,7 +1,7 @@
-@using GestUAB 
+@using GestUAB
 @{
     Layout = "Shared/_layout.cshtml";
-    ViewBag.Title = "Editar Viagem " + Model.TravelTitle;
+    ViewBag.Title = "Nova Viagem";
 }
 @section JavaScript
 {
@@ -10,27 +10,24 @@
     <script src='@Url.Content("~/Content/js/additional-methods.js")'></script>
     <script src='@Url.Content("~/Content/js/validation.js")'></script>
 }  
-
 <div id="errors"></div>
-<form class="form-horizontal" id="edit_form" method="POST" 
-    action='@Url.Content("~/travels/edit/" + Model.TravelTitle)'>
+<form class="form-horizontal" id="new_form" method="post" action='@Url.Content("~/travels/new")'>
 
   <fieldset>
   
-    <legend>Editar viagem @Model.TravelTitle</legend>
-    
-    @HtmlTagsExtensions.FieldsFor(@Model, FormType.Update)
-    
+    <legend>Nova Viagem</legend>
+
+    @HtmlTagsExtensions.FieldsFor(@Model, FormType.Create)
+
+
   </fieldset>
   
   <div class='form-actions'>
   
-    <button type="reset" class="btn" 
-        onclick="history.go(-1);return false;">Cancelar</button>
-    <button type="reset" class="btn">Desfazer mudanças</button>
+    <button type="reset" class="btn" onclick="history.go(-1);return false;">Cancelar</button>
+    <button type="reset" class="btn">Limpar</button>
     <button type="submit" class="btn btn-primary">Salvar</button>
     
   </div>
   
 </form>
-

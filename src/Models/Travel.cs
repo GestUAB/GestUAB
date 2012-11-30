@@ -28,6 +28,7 @@ namespace GestUAB.Models
         {
             return new Travel(){
                 Id = Guid.NewGuid(),
+                TravelTitle = string.Empty,
                 TeacherName = string.Empty,
                 DepartureDate = DateTimeOffset.Now,
                 DepartureTime = DateTimeOffset.Now,
@@ -42,6 +43,10 @@ namespace GestUAB.Models
         #region IModel implementation
         System.Guid IModel.Id { get ; set ; }
         #endregion
+        
+        [Display(Name = "Título da viagem",
+                 Description= "Título da viagem. Ex.: Excursão para o CSBC.")]
+        public string TravelTitle { get; set; }
 
         [Display(Name = "Nome do professor",
                  Description= "Nome do professor. Ex.: Tony Hild.")]
@@ -80,6 +85,14 @@ namespace GestUAB.Models
         public TravelValidator ()
         {
             using (var session = DocumentSession){
+                RuleFor (travel => travel.TravelTitle)
+                    .NotEmpty().WithMessage("O título da viagem é obrigatório.")
+                        .Length(5, 60).WithMessage("O título da viagem deve conter entre 5 e 60 caracteres")
+                        .Matches(@"^[a-zA-Z][a-zA-Z0-9_]*\.?[a-zA-Z0-9_]*$").WithMessage ("Insira somente letras.")
+                        .Must ((travel, title) => !session.Query<Travel> ()
+                        .Where (n => n.TravelTitle == title).Any ()
+                ).WithMessage (@"Já existe uma viagem cadastrada com este título: ""{0}""", travel => travel.TravelTitle)
+                     .Remote ("Viagem já cadastrada.", "/validation/travel/validate-exists-title", "GET", "*");
                 RuleFor (travel => travel.TeacherName)
                     .NotEmpty().WithMessage("O nome do professor é obrigatório.")
                         .Length(5, 30).WithMessage("O nome do professor deve conter entre 5 e 30 caracteres")
