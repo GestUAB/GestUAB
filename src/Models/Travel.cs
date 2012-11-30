@@ -9,18 +9,35 @@ namespace GestUAB.Models
 {
     public class Travel : IModel
     {
-
-        public Travel()
+        #region Builder
+        /// <summary>
+        /// Builder Class Travel
+        /// </summary>
+        /// 
+        public Travel ()
         {
-            (this as IModel).Id = Guid.NewGuid();
-            ProfessorName = string.Empty;
-            DepartureDate = DateTimeOffset.Now;
-            DepartureTime = DateTimeOffset.Now;
-            ReturnDate = DateTimeOffset.Now;
-            Vehicle = string.Empty;
-            TravelReason = string.Empty;
-            Driver = false;
+            
         }
+        
+        /// <summary>
+        /// Static method that creates a default Travel.
+        /// </summary>
+        /// <returns> Default Travel </returns>
+        /// 
+        public static Travel DefaultTravel()
+        {
+            return new Travel(){
+                Id = Guid.NewGuid(),
+                TeacherName = string.Empty,
+                DepartureDate = DateTimeOffset.Now,
+                DepartureTime = DateTimeOffset.Now,
+                ReturnDate = DateTimeOffset.Now,
+                Vehicle = string.Empty,
+                TravelReason = string.Empty,
+                Driver = false
+            };
+        }
+        #endregion
 
         #region IModel implementation
         System.Guid IModel.Id { get ; set ; }
@@ -28,7 +45,7 @@ namespace GestUAB.Models
 
         [Display(Name = "Nome do professor",
                  Description= "Nome do professor. Ex.: Tony Hild.")]
-        public string ProfessorName { get; set; }
+        public string TeacherName { get; set; }
 
         [Display(Name = "Data de partida",
                  Description= "Data de partida. Ex.: 13/09/2012.")]
@@ -63,13 +80,28 @@ namespace GestUAB.Models
         public TravelValidator ()
         {
             using (var session = DocumentSession){
-                RuleFor (travel => travel.ProfessorName)
+                RuleFor (travel => travel.TeacherName)
                     .NotEmpty().WithMessage("O nome do professor é obrigatório.")
-                        .Length(5, 30).WithMessage("O nome deve conter entre 5 e 15 caracteres")
+                        .Length(5, 30).WithMessage("O nome do professor deve conter entre 5 e 30 caracteres")
                         .Matches(@"^[a-zA-Z][a-zA-Z0-9_]*\.?[a-zA-Z0-9_]*$").WithMessage ("Insira somente letras.");
                 RuleFor (travel => travel.CompareDate)
                     .Must(true).WithMessage("A data de retorno deve ser maior que a data de partida.");
+                RuleFor (travel => travel.TravelReason)
+                    .NotEmpty().WithMessage("O motivo da viagem é obrigatório.")
+                        .Matches(@"^[a-zA-Z][a-zA-Z0-9_]*\.?[a-zA-Z0-9_]*$").WithMessage ("Insira somente letras.");
             }
+            RuleSet ("Update", () => {
+                RuleFor (travel => travel.TeacherName)
+                    .NotEmpty ().WithMessage ("O nome do professor é obrigatório.")
+                        .Matches (@"^[a-zA-Z\u00C0-\u00ff\s]*$").WithMessage ("Insira somente letras.")
+                        .Length (5, 30).WithMessage ("O nome deve conter entre 5 e 30 caracteres.");
+                RuleFor (travel => travel.CompareDate)
+                    .Must(true).WithMessage("A data de retorno deve ser maior que a data de partida.");
+                RuleFor (travel => travel.TravelReason)
+                    .NotEmpty().WithMessage("O motivo da viagem é obrigatório.")
+                        .Matches(@"^[a-zA-Z][a-zA-Z0-9_]*\.?[a-zA-Z0-9_]*$").WithMessage ("Insira somente letras.");
+            }
+            );
         }
     }
 }

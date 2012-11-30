@@ -19,76 +19,75 @@ namespace GestUAB.Modules
             };
             #endregion
             
-            #region Method that returns a View Show, displaying the User in the form according to the ID.
-            Get ["/{Username}"] = x => { 
-                var username = (string)x.Username;
-                var user = DocumentSession.Query<User> ("UsersByUsername")
-                .Customize(q => q.WaitForNonStaleResultsAsOfLastWrite())
-                .Where (n => n.Username == username).FirstOrDefault ();
-                if (user == null)
+            #region Method that returns a View Show, displaying the Travel of the teacher.
+            Get ["/{TeacherName}"] = x => { 
+                var teacher = (string)x.TeacherName;
+                var travel = DocumentSession.Query<Travel> ("TravelByTeacher")
+                .Where (n => n.TeacherName == teacher).FirstOrDefault ();
+                if (travel == null)
                 return new NotFoundResponse ();
-                return View ["show", user];
+                return View ["show", travel];
             };
             #endregion
             
-            #region Method that returns the New View, creating a default User
+            #region Method that returns the New View, creating a default Travel
             Get ["/new"] = x => { 
-                return View ["new", User.DefaultUser()];
+                return View ["new", Travel.DefaultTravel()];
             };
-#endregion
+            #endregion
             
-            #region Method that creates and validates a new User in accordance with the specifications of the class UserValidator
+            #region Method that creates and validates a new Travel in accordance with the specifications of the class TravelValidator
             Post ["/new"] = x => {
-                var user = this.Bind<User> ();
-                var result = new UserValidator ().Validate (user);
+                var travel = this.Bind<Travel> ();
+                var result = new TravelValidator ().Validate (travel);
                 if (!result.IsValid) {
                     return View ["Shared/_errors", result];
                 }
-                DocumentSession.Store (user);
-                return Response.AsRedirect(string.Format("/users/{0}", user.Username));
+                DocumentSession.Store (travel);
+                return Response.AsRedirect(string.Format("/travels/{0}", travel.TeacherName));
             };
-#endregion
+            #endregion
             
-            #region Displays data in the form of the User according to Username
-            Get ["/edit/{Username}"] = x => {
-                var username = (string)x.Username;
-                var user = DocumentSession.Query<User> ("UsersByUsername")
-                .Where (n => n.Username == username).FirstOrDefault ();
-                if (user == null) 
+            #region Displays data in the form of the Travel according to TeacherName
+            Get ["/edit/{TeacherName}"] = x => {
+                var teacher = (string)x.TeacherName;
+                var travel = DocumentSession.Query<Travel> ("TravelByTeacher")
+                .Where (n => n.TeacherName == teacher).FirstOrDefault ();
+                if (travel == null) 
                 return new NotFoundResponse ();
-                return View ["edit", user];
+                return View ["edit", travel];
             };
-#endregion
+            #endregion
             
-            #region Method editing the Memorandum according to Username
-            Post ["/edit/{Username}"] = x => {
-                var user = this.Bind<User> ();
-                var result = new UserValidator ().Validate (user, ruleSet: "Update");
+            #region Method editing the Memorandum according to TeacherName
+            Post ["/edit/{TeacherName}"] = x => {
+                var travel = this.Bind<Travel> ();
+                var result = new TravelValidator ().Validate (travel, ruleSet: "Update");
                 if (!result.IsValid) {
                     return View ["Shared/_errors", result];
                 }
-                var username = (string)x.Username;
-                var saved = DocumentSession.Query<User> ("UsersByUsername")
-                .Where (n => n.Username == username)
+                var teacher = (string)x.TeacherName;
+                var saved = DocumentSession.Query<Travel> ("TravelByTeacher")
+                .Where (n => n.TeacherName == teacher)
                 .FirstOrDefault ();
                 if (saved == null) 
                 return new NotFoundResponse ();
-                saved.Fill (user);
-                return Response.AsRedirect(string.Format("/users/{0}", user.Username));
+                saved.Fill (teacher);
+                return Response.AsRedirect(string.Format("/travels/{0}", travel.TeacherName));
             };
-#endregion
+            #endregion
             
-            #region Method to delete a record according to Username
-            Delete ["/delete/{Username}"] = x => { 
-                var username = (string)x.Username;
-                var user = DocumentSession.Query<User> ("UsersByUsername")
-                .Where (n => n.Username == username)
+            #region Method to delete a record according to TeacherName
+            Delete ["/delete/{TeacherName}"] = x => { 
+                var teacher = (string)x.TeacherName;
+                var travel = DocumentSession.Query<Travel> ("TravelByTeacher")
+                .Where (n => n.TeacherName == teacher)
                 .FirstOrDefault ();
-                if (user == null) 
+                if (travel == null) 
                 return new NotFoundResponse ();
-                DocumentSession.Delete (user);
-                var resp = new JsonResponse<User> (
-                    user,
+                DocumentSession.Delete (travel);
+                var resp = new JsonResponse<Travel> (
+                    travel,
                     new DefaultJsonSerializer ()
                     );
                 resp.StatusCode = HttpStatusCode.OK;
@@ -96,16 +95,16 @@ namespace GestUAB.Modules
                 
             };
             
-            Get ["/delete/{Username}"] = x => { 
-                var username = (string)x.Username;
-                var user = DocumentSession.Query<User> ("UsersByUsername")
-                .Where (n => n.Username == username).FirstOrDefault ();
-                if (user == null) 
+            Get ["/delete/{TravelName}"] = x => { 
+                var teacher = (string)x.TeacherName;
+                var travel = DocumentSession.Query<Travel> ("TravelByTeacher")
+                .Where (n => n.TeacherName == teacher).FirstOrDefault ();
+                if (travel == null) 
                 return new NotFoundResponse ();
-                DocumentSession.Delete (user);
-                return Response.AsRedirect("/users");
+                DocumentSession.Delete (travel);
+                return Response.AsRedirect("/travels");
             };
-#endregion
+            #endregion
 
        
         }
