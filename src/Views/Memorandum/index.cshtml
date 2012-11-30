@@ -6,16 +6,19 @@
 {
     <script src='@Url.Content("~/Content/js/crud.js")'></script>
     <script>
-      function remove(id)
-        {
-            bootbox.confirm("Deseja mesmo remover?", function(result) {
+      $(".confirm").click(function(event) {
+            event.preventDefault();
+            bootbox.confirm(this.dataset.message, function(result) {
                 if (result) {
-                    
-                    console.log(id);
+                    location.href = event.target.href;
                 }
             });
-            
-        }
+        });
+        
+        $(".back").click(function(event) {
+            event.preventDefault();
+                location.href = event.target.href;
+        });
     </script>
 }        
 <table class='table'>
@@ -48,7 +51,7 @@
                   <i class="icon-edit"></i>
                   Editar
                 </a>
-                <a href='#' onclick='remove($(this).parent().parent().attr("id"));' class='btn btn-danger'>
+                <a href='@Url.Content("~/memorandums/delete/" + memorandum.Id)' class='btn btn-danger confirm' data-message='Deseja mesmo excluir?'>
                   <i class="icon-remove"></i>
                   Remover
                 </a>

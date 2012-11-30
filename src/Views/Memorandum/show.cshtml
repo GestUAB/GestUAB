@@ -7,15 +7,19 @@
 @section JavaScript
 {
     <script>
-        function remove()
-        {
-            bootbox.confirm("Deseja mesmo remover?", function(result) {
+        $(".confirm").click(function(event) {
+            event.preventDefault();
+            bootbox.confirm(this.dataset.message, function(result) {
                 if (result) {
-                    location.href = '@Url.Content("~/memorandums/delete/" + @Model.Id)';
+                    location.href = event.target.href;
                 }
             });
-            
-        }
+        });
+        
+        $(".back").click(function(event) {
+            event.preventDefault();
+                location.href = event.target.href;
+        });
     </script>
     
 }  
@@ -33,11 +37,13 @@
 
 <div class="row-fluid">
 
-  <a href="#" class="btn" onclick="history.go(-1);return false;">Voltar</a>
-  <a href="#" class='btn btn-danger' onclick="remove();">
+  <a href='@Url.Content("~/memorandums/")' class="btn back">Voltar</a>
+  
+  <a href='@Url.Content("~/memorandums/delete/" + @Model.Id)' class='btn btn-danger confirm' data-message='Deseja mesmo remover?'>
     <i class="icon-remove"></i> Remover
   </a>
-  <a href='@Url.Content("~/memorandums/edit/" + @Model.Id)' class='btn btn-info'>
+ 
+   <a href='@Url.Content("~/memorandums/edit/" + @Model.Id)' class='btn btn-info'>
     <i class="icon-edit"></i> Editar
   </a>
   <a href='@Url.Content("~/memorandums/new")' class='btn btn-info'>
