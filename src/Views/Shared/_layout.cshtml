@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +21,8 @@
       }
     </style>
     <link href='@Url.Content("~/Content/css/bootstrap-responsive.css")' rel="stylesheet">
+    <link href='@Url.Content("~/Content/css/docs.css")' rel="stylesheet"> 
+    <link href='@Url.Content("~/Content/css/base.css")' rel="stylesheet"> 
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -37,7 +38,7 @@
     <style type="text/css">@@media print { #feedlyMiniIcon { display: none; } }</style>
 </head>
 <body data-feedly-processed="yes">
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container-fluid">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -68,20 +69,27 @@
               <li><a href='@Url.Content("~/users")' >Usu&aacute;rios</a></li>
 =======
               <li class="active"><a href='@Url.Content("~/")'>Home</a></li>
+<<<<<<< HEAD
               <li><a href='@Url.Content("~/users")' >Usuários</a></li>
 <<<<<<< HEAD
 >>>>>>> 541c1c286094df6ca08a6cd48d9a3955e4db6068
 =======
               <li><a href='@Url.Content("~/memorandums")' >Memorandos</a></li>
 >>>>>>> 2ee53ef89a9e3a41f20ca0c5f8d00b21bb0f480f
+=======
+              <li><a href='@Url.Content("~/teachers")'>Professores</a></li>
+              <li><a href='@Url.Content("~/memorandums")' >Memorandum</a></li>
+			  <li><a href='@Url.Content("~/drivers")' >Motoristas</a></li>
+>>>>>>> 70cfecbc977f780387c66b1a591f0aab35d25f37
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   Bolsas <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a href='@Url.Content("~/courses")' >Cursos</a></li>
+                  <li><a href='@Url.Content("~/courses")' >Tutores</a></li>
                 </ul>
               </li>
+              <li><a href='@Url.Content("~/about")' >Diárias</a></li>
               <li><a href='@Url.Content("~/about")' >Sobre</a></li>
               <li><a href="#contact">Contato</a></li>
             </ul>
@@ -90,6 +98,8 @@
       </div>
     </div>
     
+    @RenderSection("HomeHeader", required: false)
+   
     <div class="container">
       
       @RenderBody()
@@ -107,6 +117,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src='@Url.Content("~/Content/js/jquery-1.8.1.min.js")'></script>
     <script src='@Url.Content("~/Content/js/bootstrap.min.js")'></script>
+    <script src='@Url.Content("~/Content/js/base.js")'></script>
     @RenderSection("JavaScript", required: false)
     
     <!--    <script src="fluid_arquivos/bootstrap-transition.js"></script>

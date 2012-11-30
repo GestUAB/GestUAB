@@ -4,14 +4,23 @@ using Nancy.Routing;
 
 namespace GestUAB.Modules
 {
+    /// <summary>
+    /// HomeModule Class
+    /// </summary>
     public class HomeModule : BaseModule
     {
-
-        public HomeModule ()
+        /// <summary>
+        /// HomeModule Builder
+        /// </summary>
+        public HomeModule () : base()
         {
+            #region Index
             Get ["/"] = x => { 
                 return View ["index"];
             };
+            #endregion
+
+            #region About
             Get ["/about"] = _ => { 
 <<<<<<< HEAD
                 return View ["Home/about",
@@ -26,6 +35,7 @@ namespace GestUAB.Modules
                 return View ["about"];
 >>>>>>> 2ee53ef89a9e3a41f20ca0c5f8d00b21bb0f480f
             };
+            #endregion
         }
     }
     

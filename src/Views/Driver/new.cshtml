@@ -1,7 +1,7 @@
 @using GestUAB
 @{
     Layout = "Shared/_layout.cshtml";
-    ViewBag.Title = "Atualizar memorando";
+    ViewBag.Title = "Novo motorista";
 }
 @section JavaScript
 {
@@ -11,17 +11,24 @@
     <script src='@Url.Content("~/Content/js/validation.js")'></script>
 }  
 <div id="errors"></div>
-<form class="form-horizontal" id="new_form" method="post" action='@Url.Content("~/memorandums/edit/" + Model.Id)'>
-  
+<form class="form-horizontal" id="new_form" method="post" action='@Url.Content("~/drivers/new")'>
+
   <fieldset>
-    <legend>Atualizar memorando</legend>    
-    @HtmlTagsExtensions.FieldsFor(Model, FormType.Update) 
+  
+    <legend>Novo motorista</legend>
+
+    @HtmlTagsExtensions.FieldsFor(@Model, FormType.Create)
+
+
   </fieldset>
   
   <div class='form-actions'>
+  
     <button type="reset" class="btn" onclick="history.go(-1);return false;">Cancelar</button>
     <button type="reset" class="btn">Limpar</button>
     <button type="submit" class="btn btn-primary">Salvar</button>
-  </div>  
-
+    
+  </div>
+  
 </form>
+
