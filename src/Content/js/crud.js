@@ -57,26 +57,22 @@ $(function() {
         return false;
     });
 */    
-    $(".delete").click(function(event) {
-                var link = $(this);
-                $.ajax({
-                   url: link.attr("href"),
-                   async: false,
-                   type: "DELETE",
-                   dataType: "jsonp",
-                   error: function(jqXHR, textStatus, errorThrown){
-                            alert("Error!");
-                   },
-                   complete: function(jqXHR, textStatus){
-                   },
-                    statusCode: {
-                    200: function(data, textStatus, jqXHR) {
-                            link.parents("tr").slideUp();
-                        }
-                    }
-                });
-                return false;
-            });
-                
+$(".delete").click(function(event) {
+    var link = $(this);
+    
+    $.ajax({
+        url: link.attr("href"),
+        async: false,
+        type: "DELETE",
+        dataType: "jsonp",
+        error: function(jqXHR, textStatus, errorThrown){
+            alert("Error!");
+        },
+        statusCode: {
+            200: function(data, textStatus, jqXHR) {
+                link.parents("tr").slideUp();
+            }
+        }
+    });
+    return false;
 });
-

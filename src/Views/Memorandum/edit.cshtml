@@ -5,10 +5,22 @@
 }
 @section JavaScript
 {
+    <script>
+        function back()
+        {
+            bootbox.confirm("Sair sem salvar os dados?", function(result) {
+                if (result) {
+                    location.href = '@Url.Content("~/memorandums/")';
+                }
+            });
+        }
+    </script>
     <script src='@Url.Content("~/Content/js/jquery.validate.js")'></script>
     <script src='@Url.Content("~/Content/js/jquery.validate.unobtrusive.js")'></script>
     <script src='@Url.Content("~/Content/js/additional-methods.js")'></script>
     <script src='@Url.Content("~/Content/js/validation.js")'></script>
+    
+    
 }  
 <div id="errors"></div>
 <form class="form-horizontal" id="new_form" method="post" action='@Url.Content("~/memorandums/edit/" + Model.Id)'>
@@ -19,7 +31,7 @@
   </fieldset>
   
   <div class='form-actions'>
-    <button type="reset" class="btn" onclick="history.go(-1);return false;">Cancelar</button>
+    <button type="reset" class="btn" onclick="back();">Cancelar</button>
     <button type="reset" class="btn">Limpar</button>
     <button type="submit" class="btn btn-primary">Salvar</button>
   </div>  

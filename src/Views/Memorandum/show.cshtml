@@ -4,6 +4,27 @@
     ViewBag.Title = "Detalhes do memorando";
 }
 
+@section JavaScript
+{
+    <script>
+        $(".confirm").click(function(event) {
+            event.preventDefault();
+            bootbox.confirm(this.dataset.message, function(result) {
+                if (result) {
+                    location.href = event.target.href;
+                }
+            });
+        });
+        
+        $(".back").click(function(event) {
+            event.preventDefault();
+                location.href = event.target.href;
+        });
+    </script>
+    
+}  
+
+
 <div class="page-header">
 <h1>Memorando</h1>
 </div>
@@ -16,15 +37,19 @@
 
 <div class="row-fluid">
 
-  <a href="#" class="btn" onclick="history.go(-1);return false;">Voltar</a>
-  <a href='@Url.Content("~/memorandums/delete/" + @Model.Id)' class='btn btn-danger'>
+  <a href='@Url.Content("~/memorandums/")' class="btn back">Voltar</a>
+  
+  <a href='@Url.Content("~/memorandums/delete/" + @Model.Id)' class='btn btn-danger confirm' data-message='Deseja mesmo remover?'>
     <i class="icon-remove"></i> Remover
   </a>
-  <a href='@Url.Content("~/memorandums/edit/" + @Model.Id)' class='btn btn-info'>
+ 
+   <a href='@Url.Content("~/memorandums/edit/" + @Model.Id)' class='btn btn-info'>
     <i class="icon-edit"></i> Editar
   </a>
   <a href='@Url.Content("~/memorandums/new")' class='btn btn-info'>
     <i class="icon-plus"></i> Cadastrar novo
   </a>
+  
+  
   
 </div>

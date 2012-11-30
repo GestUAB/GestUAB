@@ -1,11 +1,25 @@
 @{
     Layout = "Shared/_layout.cshtml";
-    ViewBag.Title = "Lista de memodandos";
+    ViewBag.Title = "Lista de memorandos";
 }
 @section JavaScript
 {
     <script src='@Url.Content("~/Content/js/crud.js")'></script>
-
+    <script>
+      $(".confirm").click(function(event) {
+            event.preventDefault();
+            bootbox.confirm(this.dataset.message, function(result) {
+                if (result) {
+                    location.href = event.target.href;
+                }
+            });
+        });
+        
+        $(".back").click(function(event) {
+            event.preventDefault();
+                location.href = event.target.href;
+        });
+    </script>
 }        
 <table class='table'>
   <thead>
@@ -20,7 +34,7 @@
   </thead>
   <tbody>
     @foreach(var memorandum in @Model) {
-        <tr> 
+        <tr id=@memorandum.Id> 
             <td>@memorandum.RequesterName</td> 
             <td>@memorandum.Observation</td> 
             <td>@memorandum.Destiny</td> 
@@ -37,7 +51,7 @@
                   <i class="icon-edit"></i>
                   Editar
                 </a>
-                <a href='@Url.Content("~/memorandums/delete/" + memorandum.Id)' class='btn btn-danger delete'>
+                <a href='@Url.Content("~/memorandums/delete/" + memorandum.Id)' class='btn btn-danger confirm' data-message='Deseja mesmo excluir?'>
                   <i class="icon-remove"></i>
                   Remover
                 </a>

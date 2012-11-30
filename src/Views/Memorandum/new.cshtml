@@ -9,17 +9,33 @@
     <script src='@Url.Content("~/Content/js/jquery.validate.unobtrusive.js")'></script>
     <script src='@Url.Content("~/Content/js/additional-methods.js")'></script>
     <script src='@Url.Content("~/Content/js/validation.js")'></script>
+    <script>
+        $('#datepicker').datepicker({
+            inline: true
+        });
+        
+        function back()
+        {
+            bootbox.confirm("Deseja mesmo cancelar o cadastro?", function(result) {
+                if (result) {
+                    location.href = '@Url.Content("~/memorandums/")';
+                }
+            });
+            
+        }
+    </script>
 }  
 <div id="errors"></div>
 <form class="form-horizontal" id="new_form" method="post" action='@Url.Content("~/memorandums/new")'>
   
   <fieldset>
     <legend>Novo memorando</legend>    
-    @HtmlTagsExtensions.FieldsFor(@Model, FormType.Create)    
+    @HtmlTagsExtensions.FieldsFor(@Model, FormType.Create)  
+    <input id="datepicker" type="text" size="25"">  
   </fieldset>
   
   <div class='form-actions'>
-    <button type="reset" class="btn" onclick="history.go(-1);return false;">Cancelar</button>
+    <button type="reset" class="btn" onclick="back();">Cancelar</button>
     <button type="reset" class="btn">Limpar</button>
     <button type="submit" class="btn btn-primary">Salvar</button>
   </div>  
