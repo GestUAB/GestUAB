@@ -146,6 +146,8 @@
     <Compile Include="Modules\TeacherModule.cs" />
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Database\PopulateTeachers.cs" />
+    <Compile Include="Models\Travel.cs" />
+    <Compile Include="Modules\TravelModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -154,9 +156,14 @@
     <Content Include="Views\Driver\new.cshtml" />
     <Content Include="Views\Driver\show.cshtml" />
     <None Include="Views\Teacher\index.cshtml" />
+    <None Include="Views\Travel\create.cshtml" />
+    <None Include="Views\Travel\travel.cshtml" />
+    <None Include="Views\Travel\travels.cshtml" />
+    <None Include="Views\Travel\update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Travel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config">

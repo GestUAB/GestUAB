@@ -1,0 +1,6 @@
+﻿@{
+    Layout = "Shared/_layout.cshtml";
+    ViewBag.Title = "Detalhes da viagem";
+}
+<h1>Hello @Model.Name</h1>
+<a href='@Url.Content("~/travel/update/" + Model.ID)'>Editar</a>

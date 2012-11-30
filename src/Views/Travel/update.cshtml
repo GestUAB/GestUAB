@@ -1,0 +1,139 @@
+﻿@{
+    Layout = "Shared/_layout.cshtml";
+    ViewBag.Title = "Editar viagem " + Model.ID;
+}
+@section JavaScript
+{
+    <script src='@Url.Content("~/Content/js/jquery.validate.min.js")'></script>
+    <script src='@Url.Content("~/Content/js/jquery.validate.unobtrusive.min.js")'></script>
+    <script src='@Url.Content("~/Content/js/validation.js")'></script>
+    <script src='@Url.Content("~/Content/js/crud.js")'></script>
+}  
+
+<div id="summary"></div>
+<form class="form-horizontal" id="update_form" method="PUT" 
+    action='@Url.Content("~/travel/update/" + Model.ID)'>
+
+  <fieldset>
+  
+    <legend>Editar viagem @Model.ID</legend>
+    
+    <fieldset class="control-group">
+      <label class="control-label" for="ProfessorName">Nome do Professor:</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" data-val="true" 
+            data-val-alpha="O nome deve conter apenas caracteres alfabéticos." 
+            data-val-length="O nome deve conter entre 2 e 30 caracteres." 
+            data-val-length-max="30" data-val-length-min="2" 
+            data-val-required="O campo Nome do Professor é obrigatório." 
+            id="ProfessorName" name="ProfessorName" value="@Model.ProfessorName">
+        <span class="field-validation-valid error" data-valmsg-for="ProfessorName" 
+            data-valmsg-replace="true"></span>
+        <p class="help-block">Ex.: Eleandro</p>
+      </div>
+    </fieldset>
+    
+    <fieldset class="control-group">
+      <label class="control-label" for="DepartureDate">Data de Partida:</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" data-val="true" 
+            data-val-alpha="A data deve ter o formato dd/mm/aaaa." 
+            data-val-length="A data deve ter o formato dd/mm/aaaa." 
+            data-val-length-max="8" data-val-length-min="8" 
+            data-val-required="O campo Data de Partida é obrigatório." 
+            id="DepartureDate" name="DepartureDate" value="@Model.DepartureDate">
+        <span class="field-validation-valid error" data-valmsg-for="DepartureDate" 
+            data-valmsg-replace="true"></span>
+        <p class="help-block">Ex.: 01/01/2010</p>
+      </div>
+    </fieldset>
+    
+    <fieldset class="control-group">
+      <label class="control-label" for="DepartureTime">Horário de Partida:</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" data-val="true" 
+            data-val-alpha="O horário deve ter o formato hh:mm." 
+            data-val-length="O horário deve ter o formato hh:mm." 
+            data-val-length-max="4" data-val-length-min="4" 
+            data-val-required="O campo Horario de Partida é obrigatório." 
+            id="DepartureTime" name="DepartureTime" value="@Model.DepartureTime">
+        <span class="field-validation-valid error" data-valmsg-for="DepartureTime" 
+            data-valmsg-replace="true"></span>
+        <p class="help-block">Ex.: 08:30</p>
+      </div>
+    </fieldset>
+    
+    <fieldset class="control-group">
+      <label class="control-label" for="ReturnDate">Data de Retorno:</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" data-val="true" 
+            data-val-alpha="A data deve ter o formato dd/mm/aaaa." 
+            data-val-length="A data deve ter o formato dd/mm/aaaa." 
+            data-val-length-max="8" data-val-length-min="8" 
+            data-val-required="O campo Data de Retorno é obrigatório." 
+            id="ReturnDate" name="ReturnDate" value="@Model.ReturnDate">
+        <span class="field-validation-valid error" data-valmsg-for="ReturnDate" 
+            data-valmsg-replace="true"></span>
+        <p class="help-block">Ex.: 01/01/2010</p>
+      </div>
+    </fieldset>
+    
+    <fieldset class="control-group">
+      <label class="control-label" for="Vehicle">Veículo:</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" data-val="true" 
+            data-val-alpha="O nome do veículo deve conter apenas caracteres alfabéticos." 
+            data-val-length="O nome do veículo deve conter entre 2 e 30 caracteres." 
+            data-val-length-max="30" data-val-length-min="2" 
+            data-val-required="O campo Veículo é obrigatório." 
+            id="Vehicle" name="Vehicle" value="@Model.Vehicle">
+        <span class="field-validation-valid error" data-valmsg-for="Vehicle" 
+            data-valmsg-replace="true"></span>
+        <p class="help-block">Ex.: Carro Blindado</p>
+      </div>
+    </fieldset>
+    
+    <fieldset class="control-group">
+      <label class="control-label" for="TravelReason">Motivo da Viagem:</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" data-val="true" 
+            data-val-alpha="O motivo da viagem conter apenas caracteres alfabéticos." 
+            data-val-length="O motivo da viagem deve conter entre 2 e 30 caracteres." 
+            data-val-length-max="30" data-val-length-min="2" 
+            data-val-required="O campo Motivo da Viagem é obrigatório." 
+            id="TravelReason" name="TravelReason" value="@Model.TravelReason">
+        <span class="field-validation-valid error" data-valmsg-for="TravelReason" 
+            data-valmsg-replace="true"></span>
+        <p class="help-block">Ex.: Congresso da SBC</p>
+      </div>
+    </fieldset>
+    
+    <fieldset class="control-group">
+      <label class="control-label" for="DriverName">Nome do Motorista:</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" data-val="true" 
+            data-val-alpha="O nome do motorista conter apenas caracteres alfabéticos." 
+            data-val-length="O nome do motorista deve conter entre 2 e 30 caracteres." 
+            data-val-length-max="30" data-val-length-min="2" 
+            data-val-required="O campo Nome do Motorista é obrigatório." 
+            id="DriverName" name="DriverName" value="@Model.DriverName">
+        <span class="field-validation-valid error" data-valmsg-for="DriverName" 
+            data-valmsg-replace="true"></span>
+        <p class="help-block">Ex.: Lucas Pavelski</p>
+      </div>
+    </fieldset>
+    
+  </fieldset>
+  
+  <div class='form-actions'>
+  
+    <button type="reset" class="btn" 
+        onclick="history.go(-1);return false;">Cancelar</button>
+    <button type="reset" class="btn">Desfazer mudanças</button>
+    <button type="button" class="btn btn-primary" 
+        id="update_button">Salvar</button>
+    
+  </div>
+  
+</form>
+
