@@ -402,72 +402,18 @@ namespace GestUAB
             if (modelValue == null) {
                 return null;
             }
-
-            //<div class="control-group">
-            //  <label class="control-label" for="Email">Email:</label>
-            //  <div class="controls">
-            //    <select type="checkbox" class="input-xlarge" data-val="true" 
-            //        data-val-email="O e-mail digitado não é válido." 
-            //        data-val-required="O campo E-mail é obrigatório." 
-            //        id="Email" name="Email" value="@Model.Email">
-            //       <option value="volvo">Volvo</option>
-            //       <option value="saab">Saab</option>
-            //    </select>
-            //    <span class="field-validation-valid error" data-valmsg-for="Email" 
-            //        data-valmsg-replace="true"></span>
-            //    <p class="help-block">Ex.: jose@unicentro.br</p>
-            //  </div>
-            //</div>
           
             var cg = CreateControlGroup (model, member);
 
-            var selectType = model.GetAttribute (member, 
-                typeof(ScaffoldSelectPropertiesAttribute)) as ScaffoldSelectPropertiesAttribute;
-
-            var selekt = new SelectTag ()
+            var textbox = new TextboxTag ()
                 .Attr ("name", member.Name)
                 .Id (member.Name);
 
-            if (selectType.Type == SelectType.Multiple) {
-                selekt.Attr ("multiple", "multiple");
-            }
+           
 
-            if (member.PropertyType.IsEnum) {
-                var atts = modelValue.GetType ().GetCustomAttributes (true);
-                GlobalizedEnumAttribute ge = null;
-                if (atts.Length == 0)
-                    ge = null;
-                foreach (var a in atts) {
-                    if (a.GetType () == typeof(GlobalizedEnumAttribute)) {
-                        ge = (GlobalizedEnumAttribute)a;
-                    }
-                }
-                var fields = modelValue.GetType ().GetFields ();
-                for (int i = 1; i < fields.Length; i++) {
-                    var f = fields [i];
-                    string name = string.Empty;
-                    if (ge == null) {
-                        name = f.GetValue (f.Name).ToString ();
-                    } else {
-                        name = ge.GetName (f.Name);
-                    }
-                    var tag = new HtmlTag ("option").Text (name);
-                    selekt.Append (tag);
-                    tag.Attr ("value", f.Name);
+            FillValidation<TModel> (textbox, member);
 
-                }
-            } else {
-                foreach (var i in (modelValue as IEnumerable)) {
-                    var tag = new HtmlTag ("option").Text (i.ToString ());
-                    selekt.Append (tag);
-                    tag.Attr ("value", i.GetValue (selectType.ValueMember));
-                }
-            }
-
-
-            FillValidation<TModel> (selekt, member);
-
-            cg.Children [1].InsertFirst (selekt);
+            cg.Children [1].InsertFirst (textbox);
 
             return cg;
         }

@@ -143,6 +143,10 @@
     <Compile Include="Modules\TeacherModule.cs" />
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Database\PopulateTeachers.cs" />
+    <Compile Include="Models\Colaborador.cs" />
+    <Compile Include="Models\Vinculo.cs" />
+    <Compile Include="Models\Funcao.cs" />
+    <Compile Include="Extensions\ObjectListAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
