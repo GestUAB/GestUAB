@@ -10,14 +10,37 @@ using GestUAB.Models;
 
 namespace GestUAB
 {
+    /// <summary>
+    /// Teacher Class
+    /// </summary>
+    /// 
     public class Teacher : IModel
     {
+        #region Builder
+        /// <summary>
+        /// Builder Class Teacher
+        /// </summary>
+        /// 
         public Teacher ()
         {
-            Id = Guid.NewGuid();
-            Name = string.Empty;
+
         }
-        
+
+        /// <summary>
+        /// Static method that creates a default Teacher.
+        /// </summary>
+        /// <returns> Default Teacher</returns>
+        /// 
+        public static Teacher DefaultTeacher()
+        {
+            return new Teacher() { 
+                Id = Guid.NewGuid(),
+                Name = string.Empty
+            };
+        }
+
+        #endregion
+
         #region IModel implementation
         [Display(Name = "Id")]
         [ScaffoldVisibility(all:ScaffoldVisibilityType.Hidden)] 

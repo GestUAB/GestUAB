@@ -4,13 +4,36 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GestUAB.Models
 {
+    /// <summary>
+    /// Course class
+    /// </summary>
+    /// 
     public class Course : IModel
     {
+        #region Builder
+        
+        /// <summary>
+        /// Class builder
+        /// </summary>
         public Course ()
         {
-            Id = Guid.NewGuid ();
-            Name = string.Empty;
+
         }
+
+        /// <summary>
+        /// Static method that creates a default course.
+        /// </summary>
+        /// <returns>Default course</returns>
+        /// 
+        public static Course DefaultCourse()
+        {
+            return new Course() { 
+                Id = Guid.NewGuid(),
+                Name = string.Empty
+            };
+        }
+
+        #endregion
 
         #region IModel implementation
         [Display(Name = "Código",
@@ -18,7 +41,8 @@ namespace GestUAB.Models
         [ScaffoldVisibility(all:ScaffoldVisibilityType.Hidden)] 
         public System.Guid Id { get ; set ; }
         #endregion
-
+        
+        #region Variables
         [Display(Name = "Nome",
                  Description= "Nome do curso. Ex.: Matemática.")]
         [ScaffoldVisibility(all:ScaffoldVisibilityType.Show)] 
@@ -28,16 +52,20 @@ namespace GestUAB.Models
                  Description= "O curso está ativo?")]
         [ScaffoldVisibility(all:ScaffoldVisibilityType.Show)] 
         public bool Active { get; set; }
-
-        public override string ToString ()
-        {
-            return Name;
-        }
+        #endregion
 
     }
- 
+
+    /// <summary>
+    /// Course Validator Class
+    /// </summary>
+    /// 
     public class CourseValidator: ValidatorBase<Course>
     {
+        /// <summary>
+        /// Method that validates when the object will be created or changed
+        /// </summary>
+        /// 
         public CourseValidator ()
         {
             RuleFor (course => course.Id).NotEmpty ();
