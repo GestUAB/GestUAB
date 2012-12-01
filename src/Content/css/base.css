@@ -5,3 +5,14 @@ header.subhead{ background:#027dc1 url('../img/bg-header.png'); }
 .title-header{ float:left; width:90%; margin-left:15px; }
 .shadow-left{ position:absolute; left:30px; top:0; }
 .shadow-right{ position:absolute; right:30px; top:0; }
+body{
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+.sidebar-nav {
+	padding: 9px 0;
+}
+
+@media print { 
+	#feedlyMiniIcon { display: none; } 
+}
