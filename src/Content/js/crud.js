@@ -3,7 +3,7 @@
 //
 // Author:
 //       Tony Alexander Hild <tony_hild@yahoo.com>
-//
+//       mklipe   
 // Copyright (c) 2012 
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -75,4 +75,28 @@ $(".delete").click(function(event) {
         }
     });
     return false;
+});
+
+// Use confirm class when we require user confirmation (with message) for an action such as 
+// deleting, leave a page without saving and other
+$(".confirm").click(function(event) {
+        event.preventDefault();
+        
+        bootbox.confirm(this.dataset.message, function(result) {
+        
+        if (result) {
+            location.href = event.target.href;
+        }
+    });
+});
+
+// Use back class when we do not require a confirmation        
+$(".back").click(function(event) {
+    event.preventDefault();
+    location.href = event.target.href;
+});
+
+// Add with-datepicker class in Date fields
+$('.with-datepicker').datepicker({
+    inline: true
 });

@@ -5,21 +5,12 @@
 }
 @section JavaScript
 {
-    <script>
-        function back()
-        {
-            bootbox.confirm("Sair sem salvar os dados?", function(result) {
-                if (result) {
-                    location.href = '@Url.Content("~/memorandums/")';
-                }
-            });
-        }
-    </script>
+    
     <script src='@Url.Content("~/Content/js/jquery.validate.js")'></script>
     <script src='@Url.Content("~/Content/js/jquery.validate.unobtrusive.js")'></script>
     <script src='@Url.Content("~/Content/js/additional-methods.js")'></script>
     <script src='@Url.Content("~/Content/js/validation.js")'></script>
-    
+    <script src='@Url.Content("~/Content/js/crud.js")'></script>
     
 }  
 <div id="errors"></div>
@@ -27,11 +18,12 @@
   
   <fieldset>
     <legend>Atualizar memorando</legend>    
+    
     @HtmlTagsExtensions.FieldsFor(Model, FormType.Update) 
   </fieldset>
-  
+  <input class="with-datepicker" type="text" size="25""> 
   <div class='form-actions'>
-    <button type="reset" class="btn" onclick="back();">Cancelar</button>
+    <a href="@Url.Content("~/memorandums/")" data-message="Sair sem salvar?" class="btn confirm">Cancelar</a>
     <button type="reset" class="btn">Limpar</button>
     <button type="submit" class="btn btn-primary">Salvar</button>
   </div>  

@@ -2,25 +2,12 @@
     Layout = "Shared/_layout.cshtml";
     ViewBag.Title = "Lista de memorandos";
 }
+
 @section JavaScript
 {
     <script src='@Url.Content("~/Content/js/crud.js")'></script>
-    <script>
-      $(".confirm").click(function(event) {
-            event.preventDefault();
-            bootbox.confirm(this.dataset.message, function(result) {
-                if (result) {
-                    location.href = event.target.href;
-                }
-            });
-        });
+}
         
-        $(".back").click(function(event) {
-            event.preventDefault();
-                location.href = event.target.href;
-        });
-    </script>
-}        
 <table class='table'>
   <thead>
     <td>Nome</td>
