@@ -1,0 +1,30 @@
+@using GestUAB
+@{
+    Layout = "Shared/_layout.cshtml";
+    ViewBag.Title = "Detalhes da viagem";
+}
+
+<div class="page-header">
+<h1>@Model.TravelTitle</h1>
+</div>
+
+<div class="row-fluid">
+
+    @HtmlTagsExtensions.LabelsFor(@Model)
+  
+</div>
+
+<div class="row-fluid">
+
+  <a href="#" class="btn" onclick="history.go(-1);return false;">Voltar</a>
+  <a href='@Url.Content("~/travels/delete/" + @Model.Username)' class='btn btn-danger'>
+    <i class="icon-remove"></i> Remover
+  </a>
+  <a href='@Url.Content("~/travels/edit/" + @Model.TravelTitle)' class='btn btn-info'>
+    <i class="icon-edit"></i> Editar
+  </a>
+  <a href='@Url.Content("~/travels/new")' class='btn btn-info'>
+    <i class="icon-plus"></i> Cadastrar nova
+  </a>
+  
+</div>
