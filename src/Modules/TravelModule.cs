@@ -9,7 +9,7 @@ namespace GestUAB.Modules
 {
     public class TravelModule : BaseModule
     {
-        public TravelModule ()
+        public TravelModule () : base("/travels")
         {
             #region Method that returns the index View Travel, with the scheduled travels
             Get ["/"] = _ => { 

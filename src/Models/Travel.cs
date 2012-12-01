@@ -1,9 +1,12 @@
+using System;
 using FluentValidation;
 using Raven.Client;
 using Raven.Client.Linq;
 using System.Linq;
-using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using GestUAB.Validators;
+using GestUAB.Models;
 
 namespace GestUAB.Models
 {
@@ -41,41 +44,55 @@ namespace GestUAB.Models
         #endregion
 
         #region IModel implementation
+        [Display(Name = "Código",
+                 Description = "Código da viagem.")]
+        [ScaffoldVisibility(all: ScaffoldVisibilityType.Hidden)]
         System.Guid IModel.Id { get ; set ; }
         #endregion
         
         [Display(Name = "Título da viagem",
                  Description= "Título da viagem. Ex.: Excursão para o CSBC.")]
+        [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
         public string TravelTitle { get; set; }
 
         [Display(Name = "Nome do professor",
                  Description= "Nome do professor. Ex.: Tony Hild.")]
+        [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
         public string TeacherName { get; set; }
 
         [Display(Name = "Data de partida",
                  Description= "Data de partida. Ex.: 13/09/2012.")]
+        [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
         public DateTimeOffset DepartureDate { get; set; }
 
         [Display(Name = "Data de retorno",
                  Description= "Data de retorno. Ex.: 14/09/2012.")]
+        [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
         public DateTimeOffset ReturnDate { get; set; }
 
         [Display(Name = "Hora de partida",
                  Description= "Hora de partida. Ex.: 15:00")]
+        [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
         public DateTimeOffset DepartureTime { get; set; }
 
         [Display(Name = "Observaçao para o veículo",
                  Description= "Observação para veículo. Ex.: Carro com ar condicionado.")]
+        [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
         public string Vehicle { get; set; }
 
         [Display(Name = "Motivo da viagem",
                  Description= "Motivo da viagem. Ex.: Aula de campo.")]
+        [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
         public string TravelReason { get; set; }
 
         [Display(Name = "Solicitar motorista",
                  Description= "Solicitar motorista. Se necessário, marque a opção.")]
+        [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
         public bool Driver { get; set; }
 
+        [Display(Name = "Comparar datas",
+                 Description= "Comparar data de ida e data de retorno.")]
+        [ScaffoldVisibility(all: ScaffoldVisibilityType.Hidden)]
         public DateTimeOffset CompareDate { get { return ReturnDate > DepartureDate; } }
 
     }
