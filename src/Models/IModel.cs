@@ -29,7 +29,7 @@ namespace GestUAB
 {
     public interface IModel
     {
-
+        Guid Id { get; set; }
     }
 }
 

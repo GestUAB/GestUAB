@@ -1,20 +1,30 @@
 ﻿using System.Linq;
 using GestUAB.Models;
+using Nancy.Routing;
 
 namespace GestUAB.Modules
 {
+    /// <summary>
+    /// HomeModule Class
+    /// </summary>
     public class HomeModule : BaseModule
     {
-
-        public HomeModule ()
+        /// <summary>
+        /// HomeModule Builder
+        /// </summary>
+        public HomeModule () : base()
         {
-            Get ["/"] = _ => { 
-                return View ["Home/index",
-                DocumentSession.Query<User>().ToList()];
+            #region Index
+            Get ["/"] = x => { 
+                return View ["index"];
             };
-            Get ["/test"] = _ => { 
-                return "test";
+            #endregion
+
+            #region About
+            Get ["/about"] = _ => { 
+                return View ["about"];
             };
+            #endregion
         }
     }
     

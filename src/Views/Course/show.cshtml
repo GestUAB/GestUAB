@@ -1,3 +1,4 @@
+@using GestUAB
 @{
     Layout = "Shared/_layout.cshtml";
     ViewBag.Title = "Detalhes do curso";
@@ -9,22 +10,17 @@
 
 <div class="row-fluid">
 
-  <p> 
-    Número: @Model.Number
-  </p>
-  <p> 
-    Nome: @Model.Name
-  </p>
+    @HtmlTagsExtensions.LabelsFor(@Model)
   
 </div>
 
 <div class="row-fluid">
 
-  <a href="#" class="btn" onclick="history.go(-1);return false;">Voltar</button>
-  <a href='@Url.Content("~/courses/delete/" + @Model.Number)' class='btn btn-danger'>
+  <a href="#" class="btn" onclick="history.go(-1);return false;">Voltar</a>
+  <a href='@Url.Content("~/courses/delete/" + @Model.Id)' class='btn btn-danger'>
     <i class="icon-remove"></i> Remover
   </a>
-  <a href='@Url.Content("~/courses/edit/" + @Model.Number)' class='btn btn-info'>
+  <a href='@Url.Content("~/courses/edit/" + @Model.Id)' class='btn btn-info'>
     <i class="icon-edit"></i> Editar
   </a>
   <a href='@Url.Content("~/courses/new")' class='btn btn-info'>

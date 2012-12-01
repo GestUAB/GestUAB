@@ -25,13 +25,28 @@
 // THE SOFTWARE.
 using Nancy;
 using Raven.Client;
+using System.Diagnostics;
 
 
 namespace GestUAB.Modules
 {
     public abstract class BaseModule : NancyModule
     {
-        protected BaseModule() { }
+        protected BaseModule() {
+            if (!Nancy.StaticConfiguration.DisableErrorTraces) {
+                Before += ctx => {                    
+                    
+                    this.Context.Trace.TraceLog.WriteLog(
+                        s => s.AppendLine(string.Format ("Executing request {0}", ctx.Request.Url)));
+                    return null;
+                };
+                After += ctx => {
+                    Debug.WriteLine ("Executed request {0}", ctx.Request.Url);
+                   
+                };
+            
+            }
+        }
 
         protected BaseModule(string modulePath) 
             : base(modulePath) { }
