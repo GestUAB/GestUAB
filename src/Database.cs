@@ -25,6 +25,7 @@
 // THE SOFTWARE.
 using System.Linq;
 using GestUAB.Models;
+using Raven;
 using Raven.Abstractions.Indexing;
 using Raven.Client;
 using Raven.Client.Indexes;

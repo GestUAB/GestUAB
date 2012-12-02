@@ -1,0 +1,142 @@
+/**
+ * Droplist Filter
+ *
+ * @author  Joshua Chan
+ */
+
+/* Main activation button */
+.dfActivate {
+    width: 18px; 
+    height: 18px;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-left: 3px !important;
+    background-color: transparent !important;
+    background-image: url("search.gif");
+    background-repeat: no-repeat;
+    vertical-align: middle; 
+    display: inline-block;
+}
+.Firefox2 .dfActivate {
+    /*display: -moz-inline-box;*/
+    /*top: -4px;*/
+    position: relative;
+    display: table-cell;
+}
+.MSIE .dfActivate {
+    display: inline;
+}
+
+.dfActivate div {
+    display: block;
+    height: 18px;
+    width: 18px;
+    border: none;
+    padding: none;
+    margin: none;
+}
+
+
+/* Overall searchbox container */
+.dfContainer {
+    vertical-align: middle;
+    display: inline-block; 
+    background-repeat: repeat; 
+    height: 26px; 
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background-image: url("background.gif");
+    background-repeat: repeat-x;
+    overflow: hidden;
+}
+.Firefox2 .dfContainer {
+    display: table-cell;
+}
+.Firefox3 .dfContainer {
+    display: inline-table;
+}
+.MSIE .dfContainer {
+    display: inline;
+}
+
+
+/* DIVs for faking the OSX searchbox */
+.dfLeft {
+    border: 0 !important;
+    height: 26px;
+    width: 188px;
+    background-image: url(text-left.gif);
+    background-repeat: no-repeat;
+    background-position: top left;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.dfRight {
+    border: 0 !important;
+    height: 26px;
+    background-image: url(text-right.gif);
+    background-repeat: no-repeat;
+    background-position: top right;
+    margin: 0 !important;
+    padding: 0 !important
+}
+
+/* the INPUT textbox */
+.dfText {
+    padding: 0;
+    margin: 0;
+    border: none 0;
+    outline: 0;
+}
+.dfText {
+    display: block;
+    padding-top: 4px;
+    height: 26px;
+    width: 155px;
+    background: transparent url(text-bg.gif) repeat-x;
+    margin-left: 17px;
+    margin-right: 16px;
+    font-size: 13px;
+}
+.Firefox3 .dfText {
+}
+.Gecko .dfText {
+}
+.Opera .dfText {
+  padding-top: 0;
+}
+.MSIE .dfText {
+  margin-top: -1px;
+  padding-top: 6px;
+}
+
+/* OK and Reset buttons */
+.dfOK {
+    border: 0 !important; 
+    vertical-align: top !important; 
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-top: 3px !important; 
+    margin-right: 3px !important;
+    float: right !important; 
+    width: 18px;
+    height: 18px;
+    background-image: url("searching.gif");
+    background-repeat: no-repeat;
+}
+.dfReset {
+    border: 0 !important; 
+    vertical-align: top !important; 
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-top: 3px !important; 
+    margin-right: 3px !important;
+    float: right !important; 
+    width: 14px;
+    height: 18px;
+    background-image: url("reset.gif");
+    background-repeat: no-repeat;
+    background-position: 0px 2px;
+}

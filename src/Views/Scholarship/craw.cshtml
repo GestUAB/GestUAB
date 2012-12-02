@@ -1,0 +1,19 @@
+@using GestUAB
+@{
+    Layout = "Shared/_layout.cshtml";
+    ViewBag.Title = "Inserindo dados de bolsas da capes.";
+}
+@section JavaScript
+{
+    <script src='@Url.Content("~/Content/js/crud.js")'></script>    
+    <script src='@Url.Content("~/Content/js/jquery.validate.js")'></script>
+    <script src='@Url.Content("~/Content/js/jquery.validate.unobtrusive.js")'></script>
+    <script src='@Url.Content("~/Content/js/additional-methods.js")'></script>
+    <script src='@Url.Content("~/Content/js/validation.js")'></script>
+}  
+<div id="errors"></div>
+<body>
+<a href='@Url.Content("~/scholarships/")' class='btn'>
+                  Voltar
+                </a> 
+</body>

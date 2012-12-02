@@ -29,6 +29,16 @@ namespace GestUAB
                         { x => x.Id, FieldIndexing.Analyzed}
                     }
             });
+
+            ds.DatabaseCommands.PutIndex("CoursesByName", new IndexDefinitionBuilder<Course>
+                                         {
+                Map = courses => from course in courses
+                select new { course.Name },
+                Indexes =
+                {
+                    { x => x.Name, FieldIndexing.Analyzed}
+                }
+            });
 		}
 	}
 }

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -17,18 +17,18 @@
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
+    <DebugSymbols>True</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>False</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
+    <ConsolePause>False</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>True</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -100,14 +100,29 @@
     <Reference Include="NLog">
       <HintPath>..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Web.Infrastructure">
-      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    <Reference Include="Fizzler">
+      <HintPath>..\dlls\Fizzler.dll</HintPath>
+    </Reference>
+    <Reference Include="Fizzler.Systems.HtmlAgilityPack">
+      <HintPath>..\dlls\Fizzler.Systems.HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Fizzler.Systems.XmlNodeQuery">
+      <HintPath>..\dlls\Fizzler.Systems.XmlNodeQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Fizzler.Tests">
+      <HintPath>..\dlls\Fizzler.Tests.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\dlls\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\dlls\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="SgmlReaderDll">
+      <HintPath>..\dlls\SgmlReaderDll.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\PopulateDriver.cs" />
-    <Compile Include="Models\Driver.cs" />
-    <Compile Include="Modules\DriverModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="HtmlTagHelpers.cs" />
@@ -124,7 +139,6 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\IModel.cs" />
     <Compile Include="Models\ValidatorBase.cs" />
-    <Compile Include="Database\PopulateCourses.cs" />
     <Compile Include="Database\PopulateUsers.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Function.cs" />
@@ -149,17 +163,19 @@
     <Compile Include="Modules\TeacherModule.cs" />
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Database\PopulateTeachers.cs" />
+    <Compile Include="Database\PopulateScholarship.cs" />
+    <Compile Include="Modules\ScholarshipModule.cs" />
+    <Compile Include="Extensions\DataCrawler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Views\Driver\edit.cshtml" />
-    <Content Include="Views\Driver\index.cshtml" />
-    <Content Include="Views\Driver\new.cshtml" />
-    <Content Include="Views\Driver\show.cshtml" />
     <None Include="Views\Teacher\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Memorandum\" />
+    <Folder Include="Views\Teacher\" />
+    <Folder Include="Views\Scholarship\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config">
@@ -303,12 +319,24 @@
     <Content Include="Content\js\jquery.validate.unobtrusive.min.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Views\Scholarship\show.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Scholarship\index.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Scholarship\new.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Scholarship\craw.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>
     <MonoDevelop>
-      <Properties VerifyCodeBehindFields="true" VerifyCodeBehindEvents="true">
+      <Properties VerifyCodeBehindFields="True" VerifyCodeBehindEvents="True">
         <Policies>
           <TextStylePolicy FileWidth="120" EolMarker="Unix" inheritsSet="VisualStudio" inheritsScope="text/plain" scope="text/x-csharp" />
           <CSharpFormattingPolicy inheritsSet="Mono" inheritsScope="text/x-csharp" scope="text/x-csharp" />
@@ -321,7 +349,7 @@
           <TextStylePolicy inheritsSet="null" scope="application/javascript" />
           <TextStylePolicy inheritsSet="null" scope="text/css" />
         </Policies>
-        <XspParameters Port="8888" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="true" />
+        <XspParameters Port="8888" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
       </Properties>
     </MonoDevelop>
     <VisualStudio>
