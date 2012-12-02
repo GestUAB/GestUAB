@@ -35,21 +35,43 @@ namespace GestUAB
         {
             return new Teacher() { 
                 Id = Guid.NewGuid(),
-                Name = string.Empty
+                Name = string.Empty,
+                Course = null
             };
         }
 
         #endregion
 
         #region IModel implementation
-        [Display(Name = "Id")]
-        [ScaffoldVisibility(all:ScaffoldVisibilityType.Hidden)] 
-        public Guid Id {get; set;}
+        [Display(Name = "Id", Description = "Código do Professor")]
+        [ScaffoldVisibility(all: ScaffoldVisibilityType.Hidden)]
+        public Guid Id { get; set; }
         #endregion
-        
-        [Display(Name = "Nome")]
-        [ScaffoldVisibility(all:ScaffoldVisibilityType.Show)] 
-        public String Name {get; set;}
+
+        [Display(Name = "Nome", Description = "Nome do Professor")]
+        [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
+        public String Name { get; set; }
+
+        [Display(Name = "Curso", Description = "Curso que o Professor leciona")]
+        [ScaffoldVisibility(read: ScaffoldVisibilityType.Show)]
+        public Course Course { get ; set; }
+    }
+
+    public class TeacherValidator : ValidatorBase<Teacher>
+    {
+        public TeacherValidator()
+        {
+            RuleFor(course => course.Course.Name).NotEmpty();
+
+            RuleSet("Update", () =>
+            {
+                RuleFor(teacher => teacher.Name)
+                    .NotEmpty().WithMessage("O campo nome é obrigatório.")
+                    .Matches(@"^[a-zA-Z\u00C0-\u00ff\s]*$").WithMessage("Insira somente letras.")
+                        .Length(2, 30).WithMessage("O nome deve conter entre 2 e 30 caracteres.");
+            }
+            );
+        }
     }
 }
 

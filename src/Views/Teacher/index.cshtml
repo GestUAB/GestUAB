@@ -7,19 +7,34 @@
     <script src='@Url.Content("~/Content/js/crud.js")'></script>
 
 }        
+
 <table class='table'>
   <thead>
     <td>Nome</td>
+    <td>Curso</td>
   </thead>
   <tbody>
     @foreach(var teacher in @Model) {
         <tr> 
-            <td>@teacher.Id</td> 
+            <td>@teacher.Name</td>      
+            <td>@teacher.Course.Name</td>
+            <td>   
+                <a href='@Url.Content("~/teachers/" + teacher.Id)' class='btn'>
+                  Exibir
+                </a> 
+                <a href='@Url.Content("~/teachers/edit/" + teacher.Id)' class='btn btn-info'>
+                  <i class="icon-edit"></i>
+                  Editar
+                </a>
+                <a href='@Url.Content("~/teachers/delete/" + teacher.Id)' class='btn btn-danger delete'>
+                  <i class="icon-remove"></i>
+                  Remover
+                </a>
+            </td>
         </tr>
     }
   </tbody>
 </table>
-
 
 
 <div class="row-fluid">
@@ -27,7 +42,7 @@
   <a href="#" class="btn" onclick="history.go(-1);return false;">
     <i class="icon-arrow-left"></i> Voltar
   </a>
-  <a href='#' class='btn btn-info'>
+  <a href='@Url.Content("~/teachers/new")' class='btn btn-info'>
     <i class="icon-plus"></i> Cadastrar novo
   </a>
   

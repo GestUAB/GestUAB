@@ -65,3 +65,15 @@ packages/
 
 #Database
 src/App_Data/Database/
+*.user
+*.pidb
+App_Data
+scr/App_Data/Database
+scr/App_Data/*
+scr/App_Data/Database/*
+scr\App_Data\Database
+scr\App_Data\*
+scr\App_Data\Database\*
+[P]ackages\
+
+
