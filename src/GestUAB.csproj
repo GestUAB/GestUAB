@@ -154,7 +154,7 @@
     <Content Include="Views\Driver\new.cshtml" />
     <Content Include="Views\Driver\show.cshtml" />
     <Content Include="Views\Teacher\edit.cshtml" />
-    <None Include="Views\Teacher\index.cshtml" />
+    <Content Include="Views\Teacher\index.cshtml" />
     <Content Include="Views\Teacher\new.cshtml" />
     <Content Include="Views\Teacher\show.cshtml" />
   </ItemGroup>

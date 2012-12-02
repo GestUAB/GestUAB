@@ -21,6 +21,7 @@ namespace GestUAB.Modules
                     .ToList()];
             };
 
+
             Get["/{Id}"] = x =>
             {
                 Guid id = Guid.Parse(x.Id);

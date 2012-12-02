@@ -62,8 +62,7 @@ namespace GestUAB
                          { x => x.Id, FieldIndexing.Analyzed}
                      }
             });     
-               
-            
+                          
         }
     }
 }

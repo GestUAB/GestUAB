@@ -1,3 +1,5 @@
+
+@using GestUAB
 @{
     Layout = "Shared/_layout.cshtml";
     ViewBag.Title = "Atualizar dados do Professor";
@@ -13,6 +15,7 @@
 <form class="form-horizontal" id="new_form" method="post" action='@Url.Content("~/teacher/edit/" + Model.Id)'>
   
   <fieldset>
+
     <legend>Atualizar dados do Professor</legend>
     @HtmlTagsExtensions.FieldsFor(@Model, FormType.Update)
   </fieldset>
