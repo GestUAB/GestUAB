@@ -20,15 +20,15 @@
             <td>@user.Username</td> 
             <td>@user.Name</td> 
             <td>   
-                <a href='@Url.Content("~/users/" + user.Username)' class='btn'>
+                <a href='@Url.Content("~/users/" + user.Username)' class='btn btn-small'>
                   <i class="icon-eye-open"></i>
                   Exibir
                 </a> 
-                <a href='@Url.Content("~/users/edit/" + user.Username)' class='btn btn-info'>
+                <a href='@Url.Content("~/users/edit/" + user.Username)' class='btn btn-info btn-small'>
                   <i class="icon-edit"></i>
                   Editar
                 </a>
-                <a href='@Url.Content("~/users/delete/" + user.Username)' class='btn btn-danger delete' id="remove_button">
+                <a href='@Url.Content("~/users/delete/" + user.Username)' class='btn btn-danger delete btn-small' id="remove_button">
                   <i class="icon-remove"></i>
                   Remover
                 </a>

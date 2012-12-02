@@ -17,15 +17,15 @@
         <tr>
             <td>@course.Name</td> 
             <td>   
-				<a href='@Url.Content("~/courses/" + course.Id)' class='btn'>
+				<a href='@Url.Content("~/courses/" + course.Id)' class='btn btn-small'>
           <i class="icon-eye-open"></i>
 				  Exibir
 				</a> 
-				<a href='@Url.Content("~/courses/edit/" + course.Id)' class='btn btn-info'>
+				<a href='@Url.Content("~/courses/edit/" + course.Id)' class='btn btn-info btn-small'>
 				  <i class="icon-edit"></i>
 				  Editar
 				</a>
-				<a href='@Url.Content("~/courses/delete/" + course.Id)' class='btn btn-danger delete' id="remove_button">
+				<a href='@Url.Content("~/courses/delete/" + course.Id)' class='btn btn-danger delete btn-small' id="remove_button">
 				  <i class="icon-remove"></i>
 				  Remover
 				</a>
