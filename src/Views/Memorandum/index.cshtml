@@ -5,7 +5,6 @@
 @section JavaScript
 {
     <script src='@Url.Content("~/Content/js/crud.js")'></script>
-
 }        
 <table class='table'>
   <thead>
@@ -32,14 +31,15 @@
         <td>@memorandum.CovenantNumber</td> 
         <td>@memorandum.Type</td> 
         <td>   
-          <a href='@Url.Content("~/memorandums/" + memorandum.Id)' class='btn'>
+          <a href='@Url.Content("~/memorandums/" + memorandum.Id)' class='btn btn-small'>
+            <i class="icon-eye-open"></i>
             Exibir
           </a> 
-          <a href='@Url.Content("~/memorandums/edit/" + memorandum.Id)' class='btn btn-info'>
+          <a href='@Url.Content("~/memorandums/edit/" + memorandum.Id)' class='btn btn-info btn-small'>
             <i class="icon-edit"></i>
             Editar
           </a>
-          <a href='@Url.Content("~/memorandums/delete/" + memorandum.Id)' class='btn btn-danger delete'>
+          <a href='@Url.Content("~/memorandums/delete/" + memorandum.Id)' class='btn btn-danger delete btn-small' id="remove_button">
             <i class="icon-remove"></i>
             Remover
           </a>
@@ -49,12 +49,10 @@
   </tbody>
 </table>
 <div class="row-fluid">
-  <a href="#" class="btn" onclick="history.go(-1);return false;">
+  <a href="#" id="back_button" class="btn">
     <i class="icon-arrow-left"></i> Voltar
   </a>
   <a href='@Url.Content("~/memorandums/new")' class='btn btn-info'>
     <i class="icon-plus"></i> Cadastrar novo
   </a> 
 </div>
-
-

@@ -12,8 +12,11 @@
   @HtmlTagsExtensions.LabelsFor(@Model)
 </div>
 <div class="row-fluid">
-  <a href="#" class="btn" onclick="history.go(-1);return false;">Voltar</a>
-  <a href='@Url.Content("~/memorandums/delete/" + @Model.Id)' class='btn btn-danger'>
+  <a href="#" class="btn" id="back_button">
+    <i class="icon-arrow-left"></i>
+    Voltar
+  </a>
+  <a href='@Url.Content("~/memorandums/delete/" + @Model.Id)' class='btn btn-danger' id="remove_button">
     <i class="icon-remove"></i> Remover
   </a>
   <a href='@Url.Content("~/memorandums/edit/" + @Model.Id)' class='btn btn-info'>

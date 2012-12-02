@@ -24,13 +24,14 @@
             <td>@car.Plate</td> 
             <td>   
 				<a href='@Url.Content("~/cars/" + car.Id)' class='btn'>
+          <i class="icon-eye-open"></i>
 				  Exibir
 				</a> 
 				<a href='@Url.Content("~/cars/edit/" + car.Id)' class='btn btn-info'>
 				  <i class="icon-edit"></i>
 				  Editar
 				</a>
-				<a href='@Url.Content("~/cars/delete/" + car.Id)' class='btn btn-danger delete'>
+				<a href='@Url.Content("~/cars/delete/" + car.Id)' class='btn btn-danger delete' id="remove_button">
 				  <i class="icon-remove"></i>
 				  Remover
 				</a>
@@ -44,7 +45,7 @@
 
 <div class="row-fluid">
 
-  <a href="#" class="btn" onclick="history.go(-1);return false;">
+  <a href="#" class="btn" id="back_button">
     <i class="icon-arrow-left"></i> Voltar
   </a>
   <a href='@Url.Content("~/cars/new")' class='btn btn-info'>

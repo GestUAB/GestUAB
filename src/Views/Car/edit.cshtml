@@ -6,10 +6,10 @@
 
 @section JavaScript
 {
-    <script src='@Url.Content("~/Content/js/jquery.validate.js")'></script>
-    <script src='@Url.Content("~/Content/js/jquery.validate.unobtrusive.js")'></script>
-    <script src='@Url.Content("~/Content/js/additional-methods.js")'></script>
-    <script src='@Url.Content("~/Content/js/validation.js")'></script>
+  <script src='@Url.Content("~/Content/js/jquery.validate.js")'></script>
+  <script src='@Url.Content("~/Content/js/jquery.validate.unobtrusive.js")'></script>
+  <script src='@Url.Content("~/Content/js/additional-methods.js")'></script>
+  <script src='@Url.Content("~/Content/js/validation.js")'></script>
 }  
 
 <div id="errors"></div>
@@ -27,7 +27,7 @@
   
   <div class='form-actions'>
   
-    <button type="reset" class="btn" onclick="history.go(-1);return false;">Cancelar</button>
+    <button class="btn" id="cancel_button">Cancelar</button>
     <button type="reset" class="btn">Desfazer mudanças</button>
     <button type="submit" class="btn btn-primary">Salvar</button>
     
