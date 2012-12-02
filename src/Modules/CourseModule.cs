@@ -112,6 +112,13 @@ namespace GestUAB.Modules
                 return Response.AsRedirect("/courses");
             };
             #endregion
+
+            Get["/select"] = _ =>
+            {
+                return View["select", DocumentSession.Query<Course>()
+                    .Customize(q => q.WaitForNonStaleResultsAsOfLastWrite())
+                    .ToList()];
+            };
         }
     }
 }

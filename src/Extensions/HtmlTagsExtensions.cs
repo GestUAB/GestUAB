@@ -186,8 +186,7 @@ namespace GestUAB
                         tag.Append (GenerateSelect<TModel> (model, prop));
                     } else if (type.IsEnum) {
                         tag.Append (GenerateSelect<TModel> (model, prop));
-                    }
-
+                    } 
                 } else {
                     tag.Append (GenerateInputHidden<TModel> (model, prop));
                 }
@@ -701,9 +700,16 @@ namespace GestUAB
             if (modelValue == null) {
                 return null;
             }
+
+            if (modelValue.GetType() != typeof(string))
+            {
+                modelValue = modelValue.GetValue("Name");
+            }
+
             var p = new HtmlTag ("p").AddClass ("field");
 
             //<input type="hidden" name="member.Name" id="member.Name" value="modelValue.ToString ()" />
+        
             var labelText = model.GetAttributeValue (member.Name, 
                                                "Display", 
                                                 "Name") + ": ";
