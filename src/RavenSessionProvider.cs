@@ -27,8 +27,6 @@ using System;
 using System.IO;
 using Raven.Client;
 using Raven.Client.Embedded;
-using System.IO;
-using System;
 
 namespace GestUAB
 {

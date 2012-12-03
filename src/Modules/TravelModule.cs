@@ -72,7 +72,7 @@ namespace GestUAB.Modules
                 .FirstOrDefault ();
                 if (saved == null) 
                 return new NotFoundResponse ();
-                saved.Fill (title);
+                saved.Fill (travel);
                 return Response.AsRedirect(string.Format("/travels/{0}", travel.TravelTitle));
             };
             #endregion
