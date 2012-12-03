@@ -102,10 +102,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\PopulateCars.cs" />
     <Compile Include="Database\PopulateDriver.cs" />
+<<<<<<< HEAD
     <Compile Include="Database\PopulateRenunciation.cs" />
     <Compile Include="Models\Driver.cs" />
     <Compile Include="Models\Renunciation.cs" />
+=======
+    <Compile Include="Models\Car.cs" />
+    <Compile Include="Models\Driver.cs" />
+    <Compile Include="Modules\CarModule.cs" />
+>>>>>>> cfef505a9fc8397f6267cd56810cb3d2d075232b
     <Compile Include="Modules\DriverModule.cs" />
     <Compile Include="Modules\RenunciationModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -161,10 +168,17 @@
     <Content Include="Views\Driver\index.cshtml" />
     <Content Include="Views\Driver\new.cshtml" />
     <Content Include="Views\Driver\show.cshtml" />
+<<<<<<< HEAD
     <None Include="Views\Renunciation\edit.cshtml" />
     <None Include="Views\Renunciation\index.cshtml" />
     <None Include="Views\Renunciation\new.cshtml" />
     <None Include="Views\Renunciation\show.cshtml" />
+=======
+    <None Include="Views\Car\edit.cshtml" />
+    <None Include="Views\Car\index.cshtml" />
+    <None Include="Views\Car\new.cshtml" />
+    <None Include="Views\Car\show.cshtml" />
+>>>>>>> cfef505a9fc8397f6267cd56810cb3d2d075232b
     <None Include="Views\Teacher\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
