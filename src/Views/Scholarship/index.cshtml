@@ -6,7 +6,28 @@
 {
     <script src='@Url.Content("~/Content/js/crud.js")'></script>
 
-}        
+}     
+<table class='table'>
+  <thead>
+    <td>Total Professores</td>
+    <td>Tutor a Distancia</td>
+    <td>Tutor Presencial</td>
+    <td>Professor Pesquisador I</td>
+    <td>Professor Pesquisador II</td>
+    <td>Coordenador de Curso I</td>
+    <td>Coordenador de Curso II</td>
+    <td>Coordenador de Tutoria I</td>
+    <td>Coordenador de Tutoria II</td>  
+  
+    </thead>
+  <tbody>
+        <tr> 
+            <td>@Model.Count</td>  
+        </tr>
+    
+  </tbody>
+</table>   
+
 <table class='table'>
   <thead>
     <td>CPF</td>
@@ -25,12 +46,13 @@
             <td>@scholarship.Lots</td>
             <td>@scholarship.State</td>
             <td>@scholarship.Value</td>      
+            <!--
             <td>   
                 <a href='@Url.Content("~/scholarships/" + scholarship.Id)' class='btn'>
                   Exibir
                 </a> 
    
-            </td>
+            </td>-->
         </tr>
     }
   </tbody>

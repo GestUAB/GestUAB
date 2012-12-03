@@ -31,6 +31,26 @@ namespace GestUAB
                 Indexes =
                 {
                     { x => x.Id, FieldIndexing.Analyzed}
+                }      
+            });
+
+            ds.DatabaseCommands.PutIndex("ScholarshipByName", new IndexDefinitionBuilder<Scholarship>
+                                         {
+                Map = scholarships => from scholarship in scholarships
+                select new { scholarship.Name},
+                Indexes =
+                {
+                    { x => x.Id, FieldIndexing.Analyzed}
+                }
+            });
+
+            ds.DatabaseCommands.PutIndex("ScholarshipByFunction", new IndexDefinitionBuilder<Scholarship>
+                                         {
+                Map = scholarships => from scholarship in scholarships
+                select new { scholarship.Function},
+                Indexes =
+                {
+                    { x => x.Id, FieldIndexing.Analyzed}
                 }
             });
 

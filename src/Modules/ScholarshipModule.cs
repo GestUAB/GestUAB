@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Nancy;
 using GestUAB.Models;
 using Raven.Client.Linq;
@@ -32,6 +33,28 @@ namespace GestUAB.Modules
                 return View ["show", scholarship];
             };
 
+            Get ["/{Name}"] = x => { 
+                string scholarshipName = x.Name;
+                var scholarship = DocumentSession.Query<Scholarship> ("ScholarshipByName")
+                .Customize(q => q.WaitForNonStaleResultsAsOfLastWrite())
+                .Where (n => n.Name == scholarshipName);
+                if (scholarship == null)
+                return new NotFoundResponse ();
+                
+                return View ["show", scholarship];
+            };
+
+            Get ["/{Function}"] = x => { 
+                string scholarshipFunction = x.Function;
+                var scholarship = DocumentSession.Query<Scholarship> ("ScholarshipByFunction")
+                .Customize(q => q.WaitForNonStaleResultsAsOfLastWrite())
+                .Where (n => n.Name == scholarshipFunction);
+                if (scholarship == null)
+                return new NotFoundResponse ();
+                
+                return View ["show", scholarship];
+            };
+
             Get ["/new"] = x => {
                 return View ["new", Scholarship.DefaultScholarship()];
             };
@@ -39,7 +62,11 @@ namespace GestUAB.Modules
             Get ["/craw"] = x => { 
                 string url = "../../GestUAB/test_data/101752.html"; // x.Url
                 string htmlString = DataCrawler.GetTestText(url);
-                foreach (Scholarship scholarship in DataCrawler.CrawData(htmlString))
+                List<Scholarship> scholarships = DataCrawler.CrawData(htmlString);
+                //ScholarshipsCounts c = new ScholarshipsCounts();
+                //c.CountFunction(scholarships,"TUTOR A DISTÂNCIA");
+                //c.Count = scholarships.Count; 
+                foreach (Scholarship scholarship in scholarships)
                 {
                     // Cadastrar no banco
                     DocumentSession.Store(scholarship);
