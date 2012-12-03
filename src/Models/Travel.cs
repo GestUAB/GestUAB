@@ -90,11 +90,6 @@ namespace GestUAB.Models
         [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
         public bool Driver { get; set; }
 
-        [Display(Name = "Comparar datas",
-                 Description= "Comparar data de ida e data de retorno.")]
-        [ScaffoldVisibility(all: ScaffoldVisibilityType.Hidden)]
-        public DateTimeOffset CompareDate { get { return ReturnDate > DepartureDate; } }
-
     }
 
     public class TravelValidator : ValidatorBase<Travel>
@@ -114,8 +109,13 @@ namespace GestUAB.Models
                     .NotEmpty().WithMessage("O nome do professor é obrigatório.")
                         .Length(5, 30).WithMessage("O nome do professor deve conter entre 5 e 30 caracteres")
                         .Matches(@"^[a-zA-Z][a-zA-Z0-9_]*\.?[a-zA-Z0-9_]*$").WithMessage ("Insira somente letras.");
-                RuleFor (travel => travel.CompareDate)
-                    .Must(true).WithMessage("A data de retorno deve ser maior que a data de partida.");
+                RuleFor (travel => travel.DepartureDate)
+                    .NotEmtpy().WithMessage("A data de partida deve ser preenchida.");
+                RuleFor (travel => travel.ReturnDate)
+                    .NotEmtpy().WithMessage("A data de partida deve ser preenchida.")
+                        .Must ((travel, returnDate) => travel.DepartureDate < returnDate 
+               ).WithMessage ("A data de retorno deve ser maior que a data de partida.");
+
                 RuleFor (travel => travel.TravelReason)
                     .NotEmpty().WithMessage("O motivo da viagem é obrigatório.")
                         .Matches(@"^[a-zA-Z][a-zA-Z0-9_]*\.?[a-zA-Z0-9_]*$").WithMessage ("Insira somente letras.");
