@@ -5,6 +5,7 @@
 #Visual Studio files
 *.[Oo]bj
 *.user
+*.csproj.user
 *.aps
 *.pch
 *.vspscc
