@@ -27,6 +27,8 @@ using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.Diagnostics;
 using Nancy.TinyIoc;
+using System.Collections.Generic;
+using System;
 
 namespace GestUAB
 {
@@ -35,11 +37,25 @@ namespace GestUAB
 //        const int CACHE_SECONDS = 30;
 //        readonly Dictionary<string, Tuple<DateTime, Response, int>> cachedResponses = new Dictionary<string, Tuple<DateTime, Response, int>> ();
 
-        protected override NancyInternalConfiguration InternalConfiguration {
-            get {   
-                return NancyInternalConfiguration.WithOverrides (x => x.NancyModuleBuilder = typeof(RavenModuleBuilder)); 
+        protected override NancyInternalConfiguration InternalConfiguration 
+        {
+            get
+            {
+                return NancyInternalConfiguration.WithOverrides(
+                  x =>
+                  {
+                      x.NancyModuleBuilder = typeof(RavenModuleBuilder);
+                      x.ErrorHandlers = new List<Type>
+                                              {
+                                                  typeof (Generic404ErrorHandler),
+                                                  typeof (Api404ErrorHandler),
+                                                  typeof (Nancy.ErrorHandling.DefaultErrorHandler),
+                                              };
+                  });
             }
         }
+
+        
 
         protected override void ApplicationStartup (TinyIoCContainer container, IPipelines pipelines)
         {

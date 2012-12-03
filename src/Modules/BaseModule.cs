@@ -43,8 +43,7 @@ namespace GestUAB.Modules
                 After += ctx => {
                     Debug.WriteLine ("Executed request {0}", ctx.Request.Url);
                    
-                };
-            
+                };           
             }
         }
 
