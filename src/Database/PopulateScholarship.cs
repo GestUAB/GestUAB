@@ -13,16 +13,17 @@ namespace GestUAB
     {
         public static void PopulateScholarship (this IDocumentStore ds)
         {
+            /**
             using (var session = ds.OpenSession()) {
-                var function = session.Query<Function> ("FunctionByName")
+               // var function = session.Query<Function> ("FunctionByName")
                     .Where (x => x.Name == "Tutor a distancia").FirstOrDefault();
               //  var course = session.Query<Course> ("CourseByName")
                     //.Where (x => x.Name == "Geografia").FirstOrDefault();
                 // Operations against session
-               session.Store(new Scholarship() {CPF = "075.113.070-40", Name = "Zezao", Function = function.Name, Lots =  "50", State = "ES", Value = "R$ 1.000,00"});
+               //session.Store(new Scholarship() {CPF = "075.113.070-40", Name = "Zezao", Function = function.Name, Lots =  "50", State = "ES", Value = "R$ 1.000,00"});
                 // Flush those changes
                 session.SaveChanges ();
-            }
+            }*/
                         
             ds.DatabaseCommands.PutIndex("ScholarshipById", new IndexDefinitionBuilder<Scholarship>
                                 {
@@ -40,7 +41,7 @@ namespace GestUAB
                 select new { scholarship.Name},
                 Indexes =
                 {
-                    { x => x.Id, FieldIndexing.Analyzed}
+                    { x => x.Name, FieldIndexing.Analyzed}
                 }
             });
 
@@ -63,7 +64,7 @@ namespace GestUAB
                 // Flush those changes
                 session.SaveChanges ();
             }
-            
+            /**
             ds.DatabaseCommands.PutIndex("FunctionpById", new IndexDefinitionBuilder<Function>
                                          {
                 Map = functions => from function in functions
@@ -82,7 +83,7 @@ namespace GestUAB
                 {
                     { x => x.Name, FieldIndexing.Analyzed}
                 }
-            });
+            });*/
             #endregion
 
             /**

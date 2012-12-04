@@ -1,0 +1,20 @@
+{
+  "Name": "TeachersByName",
+  "Map": "docs.Teachers\r\n\t.Select(teacher => new {Name = teacher.Name})",
+  "Maps": [
+    "docs.Teachers\r\n\t.Select(teacher => new {Name = teacher.Name})"
+  ],
+  "Reduce": null,
+  "TransformResults": null,
+  "IsMapReduce": false,
+  "IsCompiled": false,
+  "IsTemp": false,
+  "Stores": {},
+  "Indexes": {
+    "Name": "Analyzed"
+  },
+  "SortOptions": {},
+  "Analyzers": {},
+  "Fields": [],
+  "Type": "Map"
+}

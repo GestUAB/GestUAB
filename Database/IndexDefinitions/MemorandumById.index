@@ -1,0 +1,20 @@
+{
+  "Name": "MemorandumById",
+  "Map": "docs.Memorandums\r\n\t.Select(memorandum => new {Id = memorandum.__document_id})",
+  "Maps": [
+    "docs.Memorandums\r\n\t.Select(memorandum => new {Id = memorandum.__document_id})"
+  ],
+  "Reduce": null,
+  "TransformResults": null,
+  "IsMapReduce": false,
+  "IsCompiled": false,
+  "IsTemp": false,
+  "Stores": {},
+  "Indexes": {
+    "Id": "Analyzed"
+  },
+  "SortOptions": {},
+  "Analyzers": {},
+  "Fields": [],
+  "Type": "Map"
+}
