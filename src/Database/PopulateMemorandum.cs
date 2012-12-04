@@ -19,8 +19,8 @@ namespace GestUAB
                 session.Store (new Memorandum{
                     Observation = "First Travel Test",
                     Destiny = "Neverland",
-                    StartDate = DateTime.Now,
-                    FinishDate = DateTime.Now.AddDays(10),
+                    StartDate = "" + DateTime.Now,
+                    FinishDate = "" + DateTime.Now.AddDays(10),
                     RequesterName = "Hild",
                     BankAccount = "0123456",
                     CovenantNumber = "123asd",
@@ -29,8 +29,8 @@ namespace GestUAB
                 session.Store (new Memorandum{
                     Observation = "Second Travel Test",
                     Destiny = "Neverland",
-                    StartDate = DateTime.Now,
-                    FinishDate = DateTime.Now.AddDays(10),
+                    StartDate = "" + DateTime.Now,
+                    FinishDate = "" + DateTime.Now.AddDays(10),
                     RequesterName = "Hild",
                     BankAccount = "0123456",
                     CovenantNumber = "123asd",

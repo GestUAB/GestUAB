@@ -44,8 +44,8 @@ namespace GestUAB
                 Id = Guid.NewGuid(),
                 Observation = string.Empty,
                 Destiny = string.Empty,
-                StartDate = DateTime.Now,
-                FinishDate = DateTime.Now,
+                StartDate = string.Empty,
+                FinishDate = string.Empty,
                 RequesterName = string.Empty,
                 BankAccount = string.Empty,
                 CovenantNumber = string.Empty,
@@ -75,12 +75,12 @@ namespace GestUAB
         [Display(Name = "Data Ida",
                  Description= "Data de ida.")]
         [ScaffoldVisibility(all:ScaffoldVisibilityType.Show)] 
-        public DateTime StartDate { get ; set ; }
+        public String StartDate { get ; set ; }
 
         [Display(Name = "Data Volta",
                  Description= "Data de volta.")]
         [ScaffoldVisibility(all:ScaffoldVisibilityType.Show)] 
-        public DateTime FinishDate { get ; set ; }
+        public String FinishDate { get ; set ; }
 
         [Display(Name = "Solicitante",
                  Description= "Nome do solicitante.")]
