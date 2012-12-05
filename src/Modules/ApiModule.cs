@@ -10,17 +10,15 @@ using Nancy.Responses;
 
 namespace GestUAB.Modules
 {
-    public class TeacherModule : BaseModule
+    public class ApiModule : BaseModule
     {
-        public TeacherModule () : base("/teachers")
+        public ApiModule()
+            : base("/api")
         {
-            Get["/"] = _ => { 
-                return View ["index", DocumentSession.Query<Teacher> ()
+            Get["/teachers"] = _ => Response.AsJson(DocumentSession.Query<Teacher> ()
                     .Customize(q => q.WaitForNonStaleResultsAsOfLastWrite())
-                    .ToList ()];
-            };
+                    .ToList (), HttpStatusCode.OK); 
         }
-
     }
 }
 

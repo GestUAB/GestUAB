@@ -34,6 +34,7 @@ namespace GestUAB.Models
                 TravelTitle = string.Empty,
                 TeacherName = string.Empty,
                 DepartureDate = string.Empty,
+                DepartureTime = DateTimeOffset.Now,
                 ReturnDate = string.Empty,
                 Vehicle = string.Empty,
                 TravelReason = string.Empty,
@@ -60,10 +61,15 @@ namespace GestUAB.Models
         [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
         public string TeacherName { get; set; }
 
-        [Display(Name = "Data e hora de partida",
+        [Display(Name = "Data de partida",
                  Description = "Data de partida. Ex.: 13/09/2012.")]
         [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
         public string DepartureDate { get; set; }
+
+        [Display(Name = "Hora de partida",
+                 Description = "Data de partida. Ex.: 15:00.")]
+        [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
+        public DateTimeOffset DepartureTime { get; set; }
 
         [Display(Name = "Data de retorno",
                  Description= "Data de retorno. Ex.: 14/09/2012.")]
@@ -104,16 +110,21 @@ namespace GestUAB.Models
                     .NotEmpty().WithMessage("O nome do professor é obrigatório.")
                         .Length(5, 30).WithMessage("O nome do professor deve conter entre 5 e 30 caracteres")
                         .Matches("^[A-Za-z ]+$").WithMessage("Insira somente letras.");
-                RuleFor(travel => travel.DepartureDate)
-                    .NotEmpty().WithMessage("A data de partida deve ser preenchida.")
-                    .Length(10)
-                    .Matches("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}$")
-                    .WithMessage("O formato deve seguir o seguinte padrão: 01/01/0001 ");
-                RuleFor(travel => travel.ReturnDate)
-                    .NotEmpty().WithMessage("A data de retorno deve ser preenchida.")
-                    .Length(10)
-                    .Matches("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}$")
-                    .WithMessage("O formato deve seguir o seguinte padrão: 01/01/0001 ");
+                //RuleFor(travel => travel.DepartureDate)
+                //    .NotEmpty().WithMessage("A data de partida deve ser preenchida.")
+                //    .Length(10)
+                //    .Matches("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}$")
+                //    .WithMessage("O formato deve seguir o seguinte padrão: 01/01/0001 ");
+                //RuleFor(travel => travel.DepartureTime)
+                //    .NotEmpty().WithMessage("A hora de partida deve ser preenchida.")
+                //    .Length(5)
+                //    .Matches("^(0[0-2]|1[0-9]|):(0[0-5]|1[0-9])$")
+                //    .WithMessage("O formato deve seguir o seguinte padrão: 00:00 ");
+                //RuleFor(travel => travel.ReturnDate)
+                //    .NotEmpty().WithMessage("A data de retorno deve ser preenchida.")
+                //    .Length(10)
+                //    .Matches("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}$")
+                //    .WithMessage("O formato deve seguir o seguinte padrão: 01/01/0001 ");
                 RuleFor (travel => travel.TravelReason)
                     .NotEmpty().WithMessage("O motivo da viagem é obrigatório.")
                         .Length(10, 60).WithMessage("O motivo da viagem deve conter entre 10 e 60 caracteres")

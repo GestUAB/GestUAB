@@ -186,6 +186,10 @@ namespace GestUAB
                         tag.Append (GenerateSelect<TModel> (model, prop));
                     } else if (type.IsEnum) {
                         tag.Append (GenerateSelect<TModel> (model, prop));
+                    
+                     } else if (typeof(DateTime).IsAssignableFrom (type) || 
+                        typeof(DateTimeOffset).IsAssignableFrom (type)) {
+                        tag.Append (GenerateCalendar<TModel> (model, prop));
                     }
 
                 } else {
@@ -397,77 +401,39 @@ namespace GestUAB
 
         static HtmlTag GenerateCalendar<TModel> (TModel model, PropertyInfo member)
         {
-            var modelValue = member.GetValue (model, null);
+            var modelValue = member.GetValue(model, null);
 
-            if (modelValue == null) {
+            if (modelValue == null)
+            {
                 return null;
             }
 
+            //http://www.eyecon.ro/bootstrap-datepicker/
             //<div class="control-group">
             //  <label class="control-label" for="Email">Email:</label>
             //  <div class="controls">
-            //    <select type="checkbox" class="input-xlarge" data-val="true" 
-            //        data-val-email="O e-mail digitado não é válido." 
-            //        data-val-required="O campo E-mail é obrigatório." 
-            //        id="Email" name="Email" value="@Model.Email">
-            //       <option value="volvo">Volvo</option>
-            //       <option value="saab">Saab</option>
-            //    </select>
+            //<div class="input-append date" id="dp3" data-date="12-02-2012" data-date-format="dd-mm-yyyy">
+            //<input class="span2" size="16" type="text" value="12-02-2012">
+            //<span class="add-on"><i class="icon-th"></i></span>
+            //</div>
             //    <span class="field-validation-valid error" data-valmsg-for="Email" 
             //        data-valmsg-replace="true"></span>
             //    <p class="help-block">Ex.: jose@unicentro.br</p>
             //  </div>
             //</div>
-          
-            var cg = CreateControlGroup (model, member);
 
-            var selectType = model.GetAttribute (member, 
-                typeof(ScaffoldSelectPropertiesAttribute)) as ScaffoldSelectPropertiesAttribute;
+            var cg = CreateControlGroup(model, member);
+            var div = new DivTag().AddClass("datepicker");
 
-            var selekt = new SelectTag ()
-                .Attr ("name", member.Name)
-                .Id (member.Name);
+            var input = new TextboxTag(member.Name, modelValue.ToString())
+                .Id(member.Name);
+            var span = new LiteralTag("span").AddClass("add-on");
+            div.Append(input);
+            div.Append(span);
 
-            if (selectType.Type == SelectType.Multiple) {
-                selekt.Attr ("multiple", "multiple");
-            }
+            FillValidation<TModel>(input, member);
 
-            if (member.PropertyType.IsEnum) {
-                var atts = modelValue.GetType ().GetCustomAttributes (true);
-                GlobalizedEnumAttribute ge = null;
-                if (atts.Length == 0)
-                    ge = null;
-                foreach (var a in atts) {
-                    if (a.GetType () == typeof(GlobalizedEnumAttribute)) {
-                        ge = (GlobalizedEnumAttribute)a;
-                    }
-                }
-                var fields = modelValue.GetType ().GetFields ();
-                for (int i = 1; i < fields.Length; i++) {
-                    var f = fields [i];
-                    string name = string.Empty;
-                    if (ge == null) {
-                        name = f.GetValue (f.Name).ToString ();
-                    } else {
-                        name = ge.GetName (f.Name);
-                    }
-                    var tag = new HtmlTag ("option").Text (name);
-                    selekt.Append (tag);
-                    tag.Attr ("value", f.Name);
-
-                }
-            } else {
-                foreach (var i in (modelValue as IEnumerable)) {
-                    var tag = new HtmlTag ("option").Text (i.ToString ());
-                    selekt.Append (tag);
-                    tag.Attr ("value", i.GetValue (selectType.ValueMember));
-                }
-            }
-
-
-            FillValidation<TModel> (selekt, member);
-
-            cg.Children [1].InsertFirst (selekt);
+            cg.Children[1].InsertFirst(input);
 
             return cg;
         }
