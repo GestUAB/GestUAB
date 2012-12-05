@@ -20,5 +20,16 @@ namespace GestUAB.Tests.Modules
 			// Assert
 			Assert.IsNotNull(((NancyModule)(instance)).View);
 		}
+
+		[Test]
+		public void TestesHomeModuleAbout()
+		{
+			// Arrange
+			var instance = new HomeModule();
+			((NancyModule)(instance)).Get.InvokeNonPublicX("AddRoute", "/about", ((Func<NancyContext, bool>)(a1 => default(bool))), ((Func<object, object>)(a1 => default(object))));
+		
+			// Assert
+			Assert.IsNotNull(((NancyModule)(instance)).View);
+		}
 	}
 }
