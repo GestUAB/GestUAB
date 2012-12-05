@@ -1,0 +1,47 @@
+@{
+    Layout = "Shared/_layout.cshtml";
+    ViewBag.Title = "Lista de Viagens";
+}
+@section JavaScript
+{
+    <script src='@Url.Content("~/Content/js/crud.js")'></script>
+}          
+<table class='table'>
+  <thead>
+    <td>Título da viagem</td>
+    <td>Ações</td>
+  </thead>
+  <tbody>
+    @foreach(var travel in @Model) {
+        <tr>
+            <td>@travel.TravelTitle</td> 
+            <td>   
+                <a href='@Url.Content("~/travels/" + travel.TravelTitle)' class='btn'>
+                  Exibir
+                </a> 
+                <a href='@Url.Content("~/travels/edit/" + travel.TravelTitle)' class='btn btn-info'>
+                  <i class="icon-edit"></i>
+                  Editar
+                </a>
+                <a href='@Url.Content("~/travels/delete/" + travel.TravelTitle)' class='btn btn-danger delete'>
+                  <i class="icon-remove"></i>
+                  Remover
+                </a>
+            </td>
+        </tr>
+    }
+  </tbody>
+</table>
+
+
+
+<div class="row-fluid">
+
+  <a href="#" class="btn" onclick="history.go(-1);return false;">
+    <i class="icon-arrow-left"></i> Voltar
+  </a>
+  <a href='@Url.Content("~/travels/new")' class='btn btn-info'>
+    <i class="icon-plus"></i> Cadastrar nova
+  </a>
+  
+</div>
