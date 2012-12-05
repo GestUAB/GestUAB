@@ -9,6 +9,7 @@ namespace GestUAB.Modules
     /// </summary>
     public class HomeModule : BaseModule
     {
+
         /// <summary>
         /// HomeModule Builder
         /// </summary>
