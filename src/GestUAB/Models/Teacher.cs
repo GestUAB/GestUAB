@@ -11,14 +11,14 @@ using GestUAB.Models;
 namespace GestUAB
 {
     /// <summary>
-    /// Teacher Class
+    /// Teacher class.
     /// </summary>
     /// 
     public class Teacher : IModel
     {
         #region Builder
         /// <summary>
-        /// Builder Class Teacher
+        /// Teacher class builder.
         /// </summary>
         /// 
         public Teacher ()

@@ -2,10 +2,10 @@ using System;
 
 namespace GestUAB
 {
-    //TODO: Maps this class to an requeriment.
+    //TODO: Map this class to a requeriment.
     /// <summary>
     /// Function.
-    /// This class maps to what requeriment?
+    /// This class maps to which requeriment?
     /// </summary>
 	public class Function
 	{

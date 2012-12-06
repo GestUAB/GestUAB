@@ -11,7 +11,7 @@ using GestUAB.Models;
 namespace GestUAB
 {
     /// <summary>
-    /// Memorandum Class
+    /// Memorandum class.
     /// </summary>
     public class Memorandum : IModel
     {
@@ -26,7 +26,7 @@ namespace GestUAB
         #region Builder
 
         /// <summary>
-        /// Builder Class Memorandum
+        /// Memorandum class builder.
         /// </summary>
         public Memorandum ()
         {
@@ -106,13 +106,13 @@ namespace GestUAB
     }
 
     /// <summary>
-    /// Memorandum Validator
+    /// Memorandum validator.
     /// </summary>
     /// 
     public class MemorandumValidator : ValidatorBase<Memorandum>
     {
         /// <summary>
-        /// Method that validates when the object will be created or changed.
+        /// Method that validates the creation of or a change in an object.
         /// </summary>
         /// 
         public MemorandumValidator ()

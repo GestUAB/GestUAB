@@ -36,14 +36,14 @@ using GestUAB.Models;
 namespace GestUAB.Models
 {
     /// <summary>
-    /// User Class
+    /// User class.
     /// </summary>
     /// 
     public class User : IModel
     {
         #region Builder
         /// <summary>
-        /// Builder Class User
+        /// User class builder.
         /// </summary>
         public User ()
         {
@@ -103,13 +103,13 @@ namespace GestUAB.Models
     }
 
     /// <summary>
-    /// User Validator
+    /// User validator
     /// </summary>
     /// 
     public class UserValidator : ValidatorBase<User>
     {
         /// <summary>
-        /// Method that validates when the object will be created or changed.
+        /// Method that validates the creation of or a change in an object.
         /// </summary>
         /// 
         public UserValidator ()

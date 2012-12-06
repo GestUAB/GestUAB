@@ -32,7 +32,7 @@ namespace GestUAB.Models
         public System.Guid Id { get ; set ; }
         #endregion
 
-        //TODO: This must be a person?
+        //TODO: Must this be a person?
         /// <summary>
         /// Gets or sets the owner.
         /// </summary>
