@@ -108,6 +108,7 @@
     <Compile Include="Models\Driver.cs" />
     <Compile Include="Modules\CarModule.cs" />
     <Compile Include="Modules\DriverModule.cs" />
+    <Compile Include="Generic404ErrorHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="HtmlTagHelpers.cs" />
@@ -149,6 +150,7 @@
     <Compile Include="Modules\TeacherModule.cs" />
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Database\PopulateTeachers.cs" />
+    <Compile Include="ViewFactoryExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -160,6 +162,10 @@
     <None Include="Views\Car\index.cshtml" />
     <None Include="Views\Car\new.cshtml" />
     <None Include="Views\Car\show.cshtml" />
+    <Content Include="Views\Shared\404.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Views\Teacher\index.cshtml" />
   </ItemGroup>
   <ItemGroup>

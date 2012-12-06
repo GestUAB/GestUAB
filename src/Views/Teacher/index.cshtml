@@ -5,30 +5,28 @@
 @section JavaScript
 {
     <script src='@Url.Content("~/Content/js/crud.js")'></script>
-
 }        
 <table class='table'>
   <thead>
-    <td>Nome</td>
+    <tr>
+      <th>Nome</th>
+    </tr>
   </thead>
   <tbody>
     @foreach(var teacher in @Model) {
-        <tr> 
-            <td>@teacher.Id</td> 
-        </tr>
+      <tr> 
+        <td>@teacher.Id</td> 
+      </tr>
     }
   </tbody>
 </table>
 
-
-
 <div class="row-fluid">
-
-  <a href="#" class="btn" onclick="history.go(-1);return false;">
-    <i class="icon-arrow-left"></i> Voltar
+  <a href="#" class="btn" id="back_button">
+    <i class="icon-arrow-left"></i>
+    Voltar
   </a>
   <a href='#' class='btn btn-info'>
     <i class="icon-plus"></i> Cadastrar novo
-  </a>
-  
+  </a> 
 </div>

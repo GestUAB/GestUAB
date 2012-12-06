@@ -5,59 +5,54 @@
 @section JavaScript
 {
     <script src='@Url.Content("~/Content/js/crud.js")'></script>
-
 }        
 <table class='table'>
   <thead>
-    <td>Nome</td>
-    <td>Observaçao</td>
-    <td>Destino</td>
-    <td>Data de Ida</td>
-    <td>Data de Volta</td>
-    <td>Conta Bancaria</td>
-    <td>Numero do Convenio</td>
-    <td>Tipo</td>
+    <tr>
+      <th>Nome</th>
+      <th>Observaçao</th>
+      <th>Destino</th>
+      <th>Data de Ida</th>
+      <th>Data de Volta</th>
+      <th>Conta Bancaria</th>
+      <th>Numero do Convenio</th>
+      <th>Tipo</th>
+    </tr>
   </thead>
   <tbody>
     @foreach(var memorandum in @Model) {
-        <tr> 
-            <td>@memorandum.RequesterName</td> 
-            <td>@memorandum.Observation</td> 
-            <td>@memorandum.Destiny</td> 
-            <td>@memorandum.StartDate</td> 
-            <td>@memorandum.FinishDate</td> 
-            <td>@memorandum.BankAccount</td> 
-            <td>@memorandum.CovenantNumber</td> 
-            <td>@memorandum.Type</td> 
-            <td>   
-                <a href='@Url.Content("~/memorandums/" + memorandum.Id)' class='btn'>
-                  Exibir
-                </a> 
-                <a href='@Url.Content("~/memorandums/edit/" + memorandum.Id)' class='btn btn-info'>
-                  <i class="icon-edit"></i>
-                  Editar
-                </a>
-                <a href='@Url.Content("~/memorandums/delete/" + memorandum.Id)' class='btn btn-danger delete'>
-                  <i class="icon-remove"></i>
-                  Remover
-                </a>
-            </td>
+      <tr> 
+        <td>@memorandum.RequesterName</td> 
+        <td>@memorandum.Observation</td> 
+        <td>@memorandum.Destiny</td> 
+        <td>@memorandum.StartDate</td> 
+        <td>@memorandum.FinishDate</td> 
+        <td>@memorandum.BankAccount</td> 
+        <td>@memorandum.CovenantNumber</td> 
+        <td>@memorandum.Type</td> 
+        <td>   
+          <a href='@Url.Content("~/memorandums/" + memorandum.Id)' class='btn btn-small'>
+            <i class="icon-eye-open"></i>
+            Exibir
+          </a> 
+          <a href='@Url.Content("~/memorandums/edit/" + memorandum.Id)' class='btn btn-info btn-small'>
+            <i class="icon-edit"></i>
+            Editar
+          </a>
+          <a href='@Url.Content("~/memorandums/delete/" + memorandum.Id)' class='btn btn-danger delete btn-small' id="remove_button">
+            <i class="icon-remove"></i>
+            Remover
+          </a>
+        </td>
         </tr>
     }
   </tbody>
 </table>
-
-
-
 <div class="row-fluid">
-
-  <a href="#" class="btn" onclick="history.go(-1);return false;">
+  <a href="#" id="back_button" class="btn">
     <i class="icon-arrow-left"></i> Voltar
   </a>
   <a href='@Url.Content("~/memorandums/new")' class='btn btn-info'>
     <i class="icon-plus"></i> Cadastrar novo
-  </a>
-  
+  </a> 
 </div>
-
-
