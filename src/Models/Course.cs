@@ -57,13 +57,13 @@ namespace GestUAB.Models
     }
 
     /// <summary>
-    /// Course Validator Class
+    /// Course Validator class
     /// </summary>
     /// 
     public class CourseValidator: ValidatorBase<Course>
     {
         /// <summary>
-        /// Method that validates when the object will be created or changed
+        /// Method that validates the creation of or a change in an object.
         /// </summary>
         /// 
         public CourseValidator ()

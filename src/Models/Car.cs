@@ -11,14 +11,14 @@ using GestUAB.Models;
 namespace GestUAB.Models
 {
     /// <summary>
-    /// Class Car.
+    /// Car Class.
     /// </summary>
     /// 
     public class Car : IModel
     {
 
         /// <summary>
-        /// Builder Class Car
+        /// Builder Car Class
         /// </summary>
         /// 
         public Car()
@@ -70,7 +70,7 @@ namespace GestUAB.Models
         public string Year { get; set; }
 
         /// <summary>
-        /// The Car's Chassi.
+        /// The Car's Chassis number.
         /// </summary>
         ///
         [Display(Name = "Chassi",
@@ -102,7 +102,7 @@ namespace GestUAB.Models
     public class CarValidator : ValidatorBase<Car>
     {
         /// <summary>
-        /// Method that validates when the object will be created or changed.
+        /// Method that validates the creation of or a change in an object.
         /// </summary>
         /// 
         public CarValidator()

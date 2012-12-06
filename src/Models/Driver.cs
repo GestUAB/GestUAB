@@ -11,7 +11,7 @@ using GestUAB.Models;
 namespace GestUAB.Models
 {
     /// <summary>
-    /// Class Driver.
+    /// Driver class.
     /// </summary>
     /// 
     public class Driver : IModel
@@ -25,7 +25,7 @@ namespace GestUAB.Models
 
         #region Variables
         /// <summary>
-        /// Name of driver.
+        /// Driver's name.
         /// </summary>
         /// 
         [Display(Name = "Nome",
@@ -34,7 +34,7 @@ namespace GestUAB.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Date of birth of the driver.
+        /// Driver's birthdate.
         /// </summary>
         /// 
         [Display(Name = "DtNascimento",
@@ -43,7 +43,7 @@ namespace GestUAB.Models
         public string BirthDate { get; set; }
 
         /// <summary>
-        /// Registration of natural person's driver (CPF).
+        /// Driver's Natural Person Register (CPF).
         /// </summary>
         /// 
         [Display(Name = "Cpf Motorista",
@@ -52,7 +52,7 @@ namespace GestUAB.Models
         public string Cpf { get; set; }
 
         /// <summary>
-        /// Registrar General of the driver (RG).
+        /// Driver's  ID card (RG).
         /// </summary>
         /// 
         [Display(Name = "Rg Motorista",
@@ -61,7 +61,7 @@ namespace GestUAB.Models
         public string Rg { get; set; }
 
         /// <summary>
-        /// Telephone number of the driver.
+        /// Driver's telephone number.
         /// </summary>
         /// 
         [Display(Name = "Telefone",
@@ -70,7 +70,7 @@ namespace GestUAB.Models
         public string Phone { get; set; }
 
         /// <summary>
-        /// Cell phone number of the driver.
+        /// Driver cellphone number.
         /// </summary>
         /// 
         [Display(Name = "Celular",
@@ -79,7 +79,7 @@ namespace GestUAB.Models
         public string CellPhone { get; set; }
 
         /// <summary>
-        /// Address driver
+        /// Driver's address.
         /// </summary>
         /// 
         [Display(Name = "Endereco",
@@ -88,7 +88,7 @@ namespace GestUAB.Models
         public string Address { get; set; }
 
         /// <summary>
-        /// Number of home driver.
+        /// Driver's house number.
         /// </summary>
         /// 
         [Display(Name = "Numero Casa",
@@ -133,7 +133,7 @@ namespace GestUAB.Models
         public string Workplace { get; set; }
 
         /// <summary>
-        /// Bout to work.
+        /// Work shift.
         /// </summary>
         /// 
         [Display(Name = "Turno",
@@ -154,7 +154,7 @@ namespace GestUAB.Models
         #region Class Builder
         
         /// <summary>
-        /// Builder Class Driver
+        /// Driver class builder.
         /// </summary>
         /// 
         public Driver()
@@ -191,13 +191,13 @@ namespace GestUAB.Models
     }
 
     /// <summary>
-    /// Driver Validator
+    /// Driver validator
     /// </summary>
     /// 
     public class DriverValidator : ValidatorBase<Driver>
     {
         /// <summary>
-        /// Method that validates when the object will be created or changed.
+        /// Method that validates the creation of or a change in an object.
         /// </summary>
         /// 
         public DriverValidator()

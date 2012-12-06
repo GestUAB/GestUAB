@@ -5,7 +5,7 @@ using Nancy.Routing;
 namespace GestUAB.Modules
 {
     /// <summary>
-    /// HomeModule Class
+    /// HomeModule class.
     /// </summary>
     public class HomeModule : BaseModule
     {
