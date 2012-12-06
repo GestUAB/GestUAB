@@ -47,8 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\DriverTests.cs" />
-    <Compile Include="Modules\DriverModuleTests.cs" />
+    <Compile Include="Models\CarTests.cs" />
+    <Compile Include="Models\CourseTests.cs" />
+    <Compile Include="Models\UserTests.cs" />
+    <Compile Include="Modules\CarModuleTests.cs" />
+    <Compile Include="Modules\UserModuleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -57,6 +60,7 @@
       <Name>GestUAB</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
