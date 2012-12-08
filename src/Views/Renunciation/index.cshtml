@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "Shared/_layout.cshtml";
+    ViewBag.Title = "Listagem das desistências";
+}
+@section JavaScript
+{
+    <script src='@Url.Content("~/Content/js/crud.js")'></script>
+
+}
+        
+<table class='table'>
+  <thead>
+    <td>Professor</td>
+    <td>Data da desistência</td>
+<td>Destino</td>
+<td>Motivo da desistência</td>
+    <td>Ações</td>
+  </thead>
+  <tbody>
+    @foreach(var renunciation in @Model) {
+        <tr>
+            <td>@renunciation.NameTeacher</td>
+<td>@renunciation.TravelDate</td>
+<td>@renunciation.Destiny</td>
+<td>@renunciation.ReasonGiveup</td>
+            <td>
+<a href='@Url.Content("~/renunciations/" + renunciation.Id)' class='btn'>
+Exibir
+</a>
+<a href='@Url.Content("~/renunciations/edit/" + renunciation.Id)' class='btn btn-info'>
+<i class="icon-edit"></i>
+Editar
+</a>
+<a href='@Url.Content("~/renunciations/delete/" + renunciation.Id)' class='delete btn btn-danger'>
+<i class="icon-remove"></i>
+Remover
+</a>
+            </td>
+        </tr>
+    }
+  </tbody>
+</table>
+
+
+
+<div class="row-fluid">
+
+  <a href="#" class="btn" onclick="history.go(-1);return false;">
+    <i class="icon-arrow-left"></i> Voltar
+  </a>
+  <a href='@Url.Content("~/renunciations/new")' class='btn btn-info'>
+    <i class="icon-plus"></i> Cadastrar novo
+  </a>
+  
+</div>
+
+
+

@@ -105,10 +105,10 @@
     <Compile Include="Database\PopulateCars.cs" />
     <Compile Include="Database\PopulateDriver.cs" />
     <Compile Include="Models\Car.cs" />
-    <Compile Include="Models\Driver.cs" />
     <Compile Include="Modules\CarModule.cs" />
     <Compile Include="Database\PopulateRenunciation.cs" />
     <Compile Include="Models\Renunciation.cs" />
+    <Compile Include="Models\Driver.cs" />
     <Compile Include="Modules\DriverModule.cs" />
     <Compile Include="Modules\RenunciationModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
