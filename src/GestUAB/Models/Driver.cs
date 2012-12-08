@@ -1,51 +1,21 @@
-﻿//
-// Driver.cs
-//
-// Author:
-//       Tony Alexander Hild <tony_hild@yahoo.com>
-//
-// Copyright (c) 2012 
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
+﻿using System;
+using FluentValidation;
+using Raven.Client;
+using Raven.Client.Linq;
+using System.Linq;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using GestUAB.Validators;
+using GestUAB.Models;
+
 namespace GestUAB.Models
 {
-    using System;
-    using FluentValidation;
-    using Raven.Client;
-    using Raven.Client.Linq;
-    using System.Linq;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-    using GestUAB.Validators;
-    using GestUAB.Models;
-
     /// <summary>
-    /// Class Driver.
+    /// Driver class.
     /// </summary>
+    /// 
     public class Driver : IModel
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>
-        /// The identifier.
-        /// </value>
         #region IModel implementation
         [Display(Name = "Código",
             Description = "Código do motorista.")]
@@ -55,55 +25,61 @@ namespace GestUAB.Models
 
         #region Variables
         /// <summary>
-        /// Gets or sets the name of driver.
+        /// Driver's name.
         /// </summary>
+        /// 
         [Display(Name = "Nome",
                  Description = "Nome do usuário. Ex.: João.")]
         [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the driver datebirth.
+        /// Driver's birthdate.
         /// </summary>
+        /// 
         [Display(Name = "DtNascimento",
          Description = "Data de Nascimento. Ex.: 01/01/1967.")]
         [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
-        public DateTimeOffset BirthDate { get; set; }
+        public string BirthDate { get; set; }
 
         /// <summary>
-        /// Gets or sets the driver's CPF.
+        /// Driver's Natural Person Register (CPF).
         /// </summary>
+        /// 
         [Display(Name = "Cpf Motorista",
          Description = "CPF do motorista. Ex.: xxx.xxx.xxx-xx.")]
         [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
         public string Cpf { get; set; }
 
         /// <summary>
-        /// Gets or sets driver's RG.
+        /// Driver's  ID card (RG).
         /// </summary>
+        /// 
         [Display(Name = "Rg Motorista",
          Description = "RG do motorista.")]
         [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
         public string Rg { get; set; }
 
         /// <summary>
-        /// Gets or sets the driver's telephone number.
+        /// Driver's telephone number.
         /// </summary>
+        /// 
         [Display(Name = "Telefone",
          Description = "Telefone de contato. Ex.: (xx) xxxx-xxxx")]
         [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
         public string Phone { get; set; }
 
         /// <summary>
-        /// Cell phone number of the driver.
+        /// Driver cellphone number.
         /// </summary>
+        /// 
         [Display(Name = "Celular",
          Description = "Telefone celular. Ex.: (xx) xxxx-xxxx.")]
         [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
         public string CellPhone { get; set; }
 
         /// <summary>
-        /// Address driver
+        /// Driver's address.
         /// </summary>
         /// 
         [Display(Name = "Endereco",
@@ -112,7 +88,7 @@ namespace GestUAB.Models
         public string Address { get; set; }
 
         /// <summary>
-        /// Number of home driver.
+        /// Driver's house number.
         /// </summary>
         /// 
         [Display(Name = "Numero Casa",
@@ -157,7 +133,7 @@ namespace GestUAB.Models
         public string Workplace { get; set; }
 
         /// <summary>
-        /// Bout to work.
+        /// Work shift.
         /// </summary>
         /// 
         [Display(Name = "Turno",
@@ -178,11 +154,12 @@ namespace GestUAB.Models
         #region Class Builder
         
         /// <summary>
-        /// Builder Class Driver
+        /// Driver class builder.
         /// </summary>
         /// 
-        public Driver ()
+        public Driver()
         {
+
         }
 
         /// <summary>
@@ -190,12 +167,12 @@ namespace GestUAB.Models
         /// </summary>
         /// <returns> Default Driver</returns>
         /// 
-        public static Driver DefaultDriver ()
+        public static Driver DefaultDriver()
         {
-            return new Driver () {
+            return new Driver() {
                 Id = Guid.NewGuid(),
                 Name = string.Empty,
-                BirthDate = DateTime.Now,
+                BirthDate = string.Empty,
                 Cpf = string.Empty,
                 Rg = string.Empty,
                 Phone = string.Empty,
@@ -214,119 +191,117 @@ namespace GestUAB.Models
     }
 
     /// <summary>
-    /// Driver Validator
+    /// Driver validator
     /// </summary>
     /// 
     public class DriverValidator : ValidatorBase<Driver>
     {
         /// <summary>
-        /// Method that validates when the object will be created or changed.
+        /// Method that validates the creation of or a change in an object.
         /// </summary>
         /// 
-        public DriverValidator ()
+        public DriverValidator()
         {
             #region New Driver
-            using (var session = DocumentSession) {
-                RuleFor (driver => driver.Id).NotEmpty ();
+            using (var session = DocumentSession)
+            {
+                RuleFor(driver => driver.Id).NotEmpty();
 
-                RuleFor (driver => driver.Name)
-                    .NotEmpty ().WithMessage ("O nome do motorista é obrigatório.")
-                    .Length (10, 30).WithMessage ("o nome do motorista deve conter entre 10 e 30 caracteres.")
-                    .Matches (@"^[a-zA-Z\u00C0-\u00ff\s]*$").WithMessage ("Insira somente letras.")
-                    .Must ((driver, drivername) => !session.Query<Driver> ()
-                        .Where (n => n.Name == drivername).Any ()
-                )
-                        .WithMessage (@"Motorista já cadastrado ""{0}""", driver => driver.Name)
-                        .Remote ("Motorista já existe.", "/validation/user/validate-exists-username", "GET", "*");//verificar
+                RuleFor(driver => driver.Name)
+                    .NotEmpty().WithMessage("O nome do motorista é obrigatório.")
+                    .Length(10, 30).WithMessage("o nome do motorista deve conter entre 10 e 30 caracteres.")
+                    .Matches(@"^[a-zA-Z\u00C0-\u00ff\s]*$").WithMessage("Insira somente letras.")
+                    .Must((driver, drivername) => !session.Query<Driver>()
+                        .Where(n => n.Name == drivername).Any())
+                        .WithMessage(@"Motorista já cadastrado ""{0}""", driver => driver.Name)
+                        .Remote("Motorista já existe.", "/validation/user/validate-exists-username", "GET", "*");//verificar
 
-//                RuleFor (driver => driver.BirthDate).NotEmpty ()
-//                    .Length (10)
-//                    .Matches ("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}$")
-//                    .WithMessage ("O formato deve seguir o seguinte padrão: 01/01/0001 ");
+                RuleFor(driver => driver.BirthDate).NotEmpty()
+                    .Length(10)
+                    .Matches("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}$")
+                    .WithMessage("O formato deve seguir o seguinte padrão: 01/01/0001 ");
 
-                RuleFor (cpfDriver => cpfDriver.Cpf)
-                    .Length (14).WithMessage ("O campo CPF deve conter 14 caracteres.")
-                    .Matches ("^(\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2})|(\\d{11})$").WithMessage ("Formato do CPF incorreto.")
-                    .Must ((cpf, cpfdriver) => !session.Query<Driver> ()
-                        .Where (n => n.Cpf == cpfdriver).Any ()
-                )
-                        .WithMessage (@"O cpf informado já está cadastrado ""{0}""", cpfDriver => cpfDriver.Cpf)
-                        .Remote ("CPF já cadastrado.", "/validation/user/validate-exists-username", "GET", "*");//verificar
+                RuleFor(cpfDriver => cpfDriver.Cpf)
+                    .Length(14).WithMessage("O campo CPF deve conter 14 caracteres.")
+                    .Matches("^(\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2})|(\\d{11})$").WithMessage("Formato do CPF incorreto.")
+                    .Must((cpf, cpfdriver) => !session.Query<Driver>()
+                        .Where(n => n.Cpf == cpfdriver).Any())
+                        .WithMessage(@"O cpf informado já está cadastrado ""{0}""", cpfDriver => cpfDriver.Cpf)
+                        .Remote("CPF já cadastrado.", "/validation/user/validate-exists-username", "GET", "*");//verificar
 
-                RuleFor (driver => driver.Rg).NotEmpty ().WithMessage ("Informe o RG.");
+                RuleFor(driver => driver.Rg).NotEmpty().WithMessage("Informe o RG.");
 
-                RuleFor (driver => driver.Phone).NotEmpty ()
-                    .Length (14).WithMessage ("O campo telefone deve conter 14 caracteres.")
-                    .Matches ("^\\([0-9]{2}\\)\\s[0-9]{4}-[0-9]{4}$").WithMessage ("O telefone deve seguir o seguinte padrão: (xx) xxxx-xxxx.");
+                RuleFor(driver => driver.Phone).NotEmpty()
+                    .Length(14).WithMessage("O campo telefone deve conter 14 caracteres.")
+                    .Matches("^\\([0-9]{2}\\)\\s[0-9]{4}-[0-9]{4}$").WithMessage("O telefone deve seguir o seguinte padrão: (xx) xxxx-xxxx.");
 
-                RuleFor (driver => driver.CellPhone).NotEmpty ()
-                    .Length (14).WithMessage ("O campo telefone deve conter 14 caracteres.")
-                    .Matches ("^\\([0-9]{2}\\)\\s[0-9]{4}-[0-9]{4}$").WithMessage ("O telefone deve seguir o seguinte padrão: (xx) xxxx-xxxx.");
+                RuleFor(driver => driver.CellPhone).NotEmpty()
+                    .Length(14).WithMessage("O campo telefone deve conter 14 caracteres.")
+                    .Matches("^\\([0-9]{2}\\)\\s[0-9]{4}-[0-9]{4}$").WithMessage("O telefone deve seguir o seguinte padrão: (xx) xxxx-xxxx.");
 
-                RuleFor (driver => driver.Address).NotEmpty ().WithMessage ("Preencha o endereço.");
+                RuleFor(driver => driver.Address).NotEmpty().WithMessage("Preencha o endereço.");
 
-                RuleFor (driver => driver.AddressNumber).NotEmpty ().WithMessage ("Preencha o número da casa.");
+                RuleFor(driver => driver.AddressNumber).NotEmpty().WithMessage("Preencha o número da casa.");
 
-                RuleFor (driver => driver.Complement).NotEmpty ().WithMessage ("Preencha o complemento.");
+                RuleFor(driver => driver.Complement).NotEmpty().WithMessage("Preencha o complemento.");
 
-                RuleFor (driver => driver.Cep).NotEmpty ().WithMessage ("Preencha o CEP");
+                RuleFor(driver => driver.Cep).NotEmpty().WithMessage("Preencha o CEP");
 
-                RuleFor (driver => driver.Neighborhood).NotEmpty ().WithMessage ("Preencha o bairro.");
+                RuleFor(driver => driver.Neighborhood).NotEmpty().WithMessage("Preencha o bairro.");
 
-                RuleFor (driver => driver.Workplace).NotEmpty ().WithMessage ("Preencha o local de trabalho.");
+                RuleFor(driver => driver.Workplace).NotEmpty().WithMessage("Preencha o local de trabalho.");
 
-                RuleFor (driver => driver.Rotation).NotEmpty ().WithMessage ("Preencha o turno que deseja trabalhar.");
+                RuleFor(driver => driver.Rotation).NotEmpty().WithMessage("Preencha o turno que deseja trabalhar.");
 
-                RuleFor (driver => driver.Obs).NotEmpty ().WithMessage ("Preencha o campo observação.");
+                RuleFor(driver => driver.Obs).NotEmpty().WithMessage("Preencha o campo observação.");
             }
             #endregion
 
             #region Update
-            RuleSet ("Update", () =>
-            {
-                RuleFor (driver => driver.Id).NotEmpty ();
+            RuleSet("Update", () =>
+                {
+                    RuleFor(driver => driver.Id).NotEmpty();
 
-                RuleFor (driver => driver.Name)
-                        .NotEmpty ().WithMessage ("O nome do motorista é obrigatório.")
-                        .Length (10, 30).WithMessage ("o nome do motorista deve conter entre 10 e 30 caracteres.")
-                        .Matches (@"^[a-zA-Z\u00C0-\u00ff\s]*$").WithMessage ("Insira somente letras.");
+                    RuleFor(driver => driver.Name)
+                        .NotEmpty().WithMessage("O nome do motorista é obrigatório.")
+                        .Length(10, 30).WithMessage("o nome do motorista deve conter entre 10 e 30 caracteres.")
+                        .Matches(@"^[a-zA-Z\u00C0-\u00ff\s]*$").WithMessage("Insira somente letras.");
 
-//                RuleFor (driver => driver.BirthDate).NotEmpty ()
-//                        .Length (10)
-//                        .Matches ("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}$")
-//                        .WithMessage ("O formato deve seguir o seguinte padrão: 01/01/0001 ");
+                    RuleFor(driver => driver.BirthDate).NotEmpty()
+                        .Length(10)
+                        .Matches("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}$")
+                        .WithMessage("O formato deve seguir o seguinte padrão: 01/01/0001 ");
 
-                RuleFor (cpfDriver => cpfDriver.Cpf)
-                        .Length (14).WithMessage ("O campo CPF deve conter 14 caracteres.")
-                        .Matches ("^(\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2})|(\\d{11})$").WithMessage ("Formato do CPF incorreto.");
+                    RuleFor(cpfDriver => cpfDriver.Cpf)
+                        .Length(14).WithMessage("O campo CPF deve conter 14 caracteres.")
+                        .Matches("^(\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2})|(\\d{11})$").WithMessage("Formato do CPF incorreto.");
 
-                RuleFor (driver => driver.Rg).NotEmpty ().WithMessage ("Informe o RG.");
+                    RuleFor(driver => driver.Rg).NotEmpty().WithMessage("Informe o RG.");
 
-                RuleFor (driver => driver.Phone).NotEmpty ()
-                        .Length (14).WithMessage ("O campo telefone deve conter 14 caracteres.")
-                        .Matches ("^\\([0-9]{2}\\)\\s[0-9]{4}-[0-9]{4}$").WithMessage ("O telefone deve seguir o seguinte padrão: (xx) xxxx-xxxx.");
+                    RuleFor(driver => driver.Phone).NotEmpty()
+                        .Length(14).WithMessage("O campo telefone deve conter 14 caracteres.")
+                        .Matches("^\\([0-9]{2}\\)\\s[0-9]{4}-[0-9]{4}$").WithMessage("O telefone deve seguir o seguinte padrão: (xx) xxxx-xxxx.");
 
-                RuleFor (driver => driver.CellPhone).NotEmpty ()
-                        .Length (14).WithMessage ("O campo telefone deve conter 14 caracteres.")
-                        .Matches ("^\\([0-9]{2}\\)\\s[0-9]{4}-[0-9]{4}$").WithMessage ("O telefone deve seguir o seguinte padrão: (xx) xxxx-xxxx.");
+                    RuleFor(driver => driver.CellPhone).NotEmpty()
+                        .Length(14).WithMessage("O campo telefone deve conter 14 caracteres.")
+                        .Matches("^\\([0-9]{2}\\)\\s[0-9]{4}-[0-9]{4}$").WithMessage("O telefone deve seguir o seguinte padrão: (xx) xxxx-xxxx.");
 
-                RuleFor (driver => driver.Address).NotEmpty ().WithMessage ("Preencha o endereço.");
+                    RuleFor(driver => driver.Address).NotEmpty().WithMessage("Preencha o endereço.");
 
-                RuleFor (driver => driver.AddressNumber).NotEmpty ().WithMessage ("Preencha o número da casa.");
+                    RuleFor(driver => driver.AddressNumber).NotEmpty().WithMessage("Preencha o número da casa.");
 
-                RuleFor (driver => driver.Complement).NotEmpty ().WithMessage ("Preencha o complemento.");
+                    RuleFor(driver => driver.Complement).NotEmpty().WithMessage("Preencha o complemento.");
 
-                RuleFor (driver => driver.Cep).NotEmpty ().WithMessage ("Preencha o CEP");
+                    RuleFor(driver => driver.Cep).NotEmpty().WithMessage("Preencha o CEP");
 
-                RuleFor (driver => driver.Neighborhood).NotEmpty ().WithMessage ("Preencha o bairro.");
+                    RuleFor(driver => driver.Neighborhood).NotEmpty().WithMessage("Preencha o bairro.");
 
-                RuleFor (driver => driver.Workplace).NotEmpty ().WithMessage ("Preencha o local de trabalho.");
+                    RuleFor(driver => driver.Workplace).NotEmpty().WithMessage("Preencha o local de trabalho.");
 
-                RuleFor (driver => driver.Rotation).NotEmpty ().WithMessage ("Preencha o turno que deseja trabalhar.");
+                    RuleFor(driver => driver.Rotation).NotEmpty().WithMessage("Preencha o turno que deseja trabalhar.");
 
-                RuleFor (driver => driver.Obs).NotEmpty ().WithMessage ("Preencha o campo observação.");
-            }
-            );
+                    RuleFor(driver => driver.Obs).NotEmpty().WithMessage("Preencha o campo observação.");
+                });
             #endregion
         }
     }

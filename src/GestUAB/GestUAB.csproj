@@ -39,9 +39,6 @@
     <Reference Include="System.Web" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="HtmlTags">
-      <HintPath>..\packages\HtmlTags.1.1.0.111\lib\4.0\HtmlTags.dll</HintPath>
-    </Reference>
     <Reference Include="Raven.Database">
       <HintPath>..\packages\RavenDB.Database.1.0.960\lib\net40\Raven.Database.dll</HintPath>
     </Reference>
@@ -63,9 +60,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="Raven.Client.UniqueConstraints">
       <HintPath>..\packages\RavenDB.Client.UniqueConstraints.1.0.960\lib\net40\Raven.Client.UniqueConstraints.dll</HintPath>
-    </Reference>
-    <Reference Include="FluentValidation">
-      <HintPath>..\packages\FluentValidation.3.4.6.0\lib\Net40\FluentValidation.dll</HintPath>
     </Reference>
     <Reference Include="Nancy">
       <HintPath>..\packages\Nancy.0.13.0\lib\net40\Nancy.dll</HintPath>
@@ -100,6 +94,12 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="FluentValidation">
+      <HintPath>..\packages\FluentValidation.3.4.6.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlTags">
+      <HintPath>..\packages\HtmlTags.1.1.0.111\lib\4.0\HtmlTags.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\PopulateCars.cs" />
@@ -164,14 +164,14 @@
     <Content Include="Views\Driver\index.cshtml" />
     <Content Include="Views\Driver\new.cshtml" />
     <Content Include="Views\Driver\show.cshtml" />
-    <None Include="Views\Car\edit.cshtml" />
-    <None Include="Views\Car\index.cshtml" />
-    <None Include="Views\Car\new.cshtml" />
-    <None Include="Views\Car\show.cshtml" />
     <None Include="Views\Renunciation\edit.cshtml" />
     <None Include="Views\Renunciation\index.cshtml" />
     <None Include="Views\Renunciation\new.cshtml" />
     <None Include="Views\Renunciation\show.cshtml" />
+    <None Include="Views\Car\edit.cshtml" />
+    <None Include="Views\Car\index.cshtml" />
+    <None Include="Views\Car\new.cshtml" />
+    <None Include="Views\Car\show.cshtml" />
     <None Include="Views\Teacher\index.cshtml" />
     <Content Include="Content\js\bootstrap-datepicker.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
