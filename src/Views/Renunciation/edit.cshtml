@@ -1,0 +1,35 @@
+﻿@using GestUAB
+@{
+    Layout = "Shared/_layout.cshtml";
+    ViewBag.Title = "Editar Desistência";
+}
+
+@section JavaScript
+{
+    <script src='@Url.Content("~/Content/js/jquery.validate.js")'></script>
+    <script src='@Url.Content("~/Content/js/jquery.validate.unobtrusive.js")'></script>
+    <script src='@Url.Content("~/Content/js/additional-methods.js")'></script>
+    <script src='@Url.Content("~/Content/js/validation.js")'></script>
+}
+
+<div id="errors"></div>
+<form class="form-horizontal" id="edit_form" method="post" >
+
+  <fieldset>
+  
+    <legend>Editar Desistência </legend>
+    
+    @HtmlTagsExtensions.FieldsFor(@Model, FormType.Update)
+
+    
+  </fieldset>
+  
+  <div class='form-actions'>
+  
+    <button type="reset" class="btn" onclick="history.go(-1);return false;">Cancelar</button>
+    <button type="reset" class="btn">Desfazer mudanças</button>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    
+  </div>
+  
+</form>
