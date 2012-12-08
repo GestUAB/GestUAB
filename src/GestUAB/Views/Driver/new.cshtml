@@ -1,0 +1,46 @@
+@using GestUAB
+@{
+    Layout = "Shared/_layout.cshtml";
+    ViewBag.Title = "Novo motorista";
+}
+@section JavaScript
+{
+    <script src='@Url.Content("~/Content/js/jquery.validate.js")'></script>
+    <script src='@Url.Content("~/Content/js/jquery.validate.unobtrusive.js")'></script>
+    <script src='@Url.Content("~/Content/js/additional-methods.js")'></script>
+    <script src='@Url.Content("~/Content/js/validation.js")'></script>
+    <script src='@Url.Content("~/Content/js/bootstrap-datepicker.js")'></script>
+    <script>
+        $(document).ready(function() {
+            alert("");
+            $('.datepicker').datepicker();
+        });    
+    </script>
+}  
+
+@section Styles
+{
+    <link href='@Url.Content("~/Content/css/datepicker.css")' rel="stylesheet">
+}
+<div id="errors"></div>
+<form class="form-horizontal" id="new_form" method="post" action='@Url.Content("~/drivers/new")'>
+
+  <fieldset>
+  
+    <legend>Novo motorista</legend>
+
+    @HtmlTagsExtensions.FieldsFor(@Model, FormType.Create, @Html)
+
+
+  </fieldset>
+  
+  <div class='form-actions'>
+  
+    <button type="reset" class="btn" onclick="history.go(-1);return false;">Cancelar</button>
+    <button type="reset" class="btn">Limpar</button>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    
+  </div>
+  
+</form>
+
