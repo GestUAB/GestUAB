@@ -23,22 +23,23 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-using System;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
-using HtmlTags;
-using Nancy.ViewEngines.Razor;
-using FluentValidation;
-using FluentValidation.Validators;
-using FluentValidation.Internal;
-using GestUAB.Validators;
-using System.Text;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace GestUAB
 {
+    using System;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.Reflection;
+    using HtmlTags;
+    using Nancy.ViewEngines.Razor;
+    using FluentValidation;
+    using FluentValidation.Validators;
+    using FluentValidation.Internal;
+    using GestUAB.Validators;
+    using System.Text;
+    using System.Collections;
+    using System.Collections.Generic;
+
     /// <summary>
     /// Html tags extensions class.
     /// This class is capable to render html elements in a razor page.
@@ -46,18 +47,33 @@ namespace GestUAB
     /// </summary>
     public static class HtmlTagsExtensions
     {
-        static PropertyInfo GetMember<TModel> (Expression<Func<TModel, object>> objectProperty)
+        /// <summary>
+        /// Gets the member.
+        /// </summary>
+        /// <returns>
+        /// The member.
+        /// </returns>
+        /// <param name='objectProperty'>
+        /// Object property.
+        /// </param>
+        /// <typeparam name='TModel'>
+        /// The 1st type parameter.
+        /// </typeparam>
+        static PropertyInfo GetMember<TModel>(Expression<Func<TModel, object>> objectProperty)
         {
             var lambda = objectProperty as LambdaExpression;
-            if (lambda == null) {
+            if (lambda == null)
+            {
                 return null;
             }
             var property = lambda.Body as MemberExpression;
-            if (property == null) {
+            if (property == null)
+            {
                 return null;
             }
             var member = property.Member as PropertyInfo;
-            if (member == null) {
+            if (member == null)
+            {
                 return null;
             }
             return member;
@@ -81,10 +97,10 @@ namespace GestUAB
         /// <typeparam name='TModel'>
         /// The 1st type parameter.
         /// </typeparam>
-        public static IHtmlString FormFor<TModel> (TModel model, FormType formType, FormTag formTag)
+        public static IHtmlString FormFor<TModel>(TModel model, FormType formType, FormTag formTag)
         {
-            var form = GenerateForm (model, formType, formTag);
-            return new NonEncodedHtmlString (form == null ? "" : form.ToString ());
+            var form = GenerateForm(model, formType, formTag);
+            return new NonEncodedHtmlString(form == null ? "" : form.ToString());
         }
 
         /// <summary>
@@ -102,39 +118,49 @@ namespace GestUAB
         /// <typeparam name='TModel'>
         /// The 1st type parameter.
         /// </typeparam>
-        public static IHtmlString FormFor<TModel> (TModel model, FormType formType)
+        public static IHtmlString FormFor<TModel>(TModel model, FormType formType)
         {
-            var form = GenerateForm (model, formType, new FormTag ());
-            return new NonEncodedHtmlString (form == null ? "" : form.ToString ());
+            var form = GenerateForm(model, formType, new FormTag());
+            return new NonEncodedHtmlString(form == null ? "" : form.ToString());
         }
 
-        static HtmlTag GenerateForm<TModel> (TModel model, FormType formType, FormTag formTag)
+        static HtmlTag GenerateForm<TModel>(TModel model, FormType formType, FormTag formTag)
         {
-            foreach (var prop in model.GetType().GetProperties()) {
+            foreach (var prop in model.GetType().GetProperties())
+            {
                 //var value = prop.GetValue (model, null);
-                var visibility = (ScaffoldVisibilityType)model.GetAttributeValue (prop, typeof(ScaffoldVisibilityAttribute), formType.ToString ());
-                if (visibility == ScaffoldVisibilityType.None) {
+                var visibility = (ScaffoldVisibilityType)model.GetAttributeValue(prop, typeof(ScaffoldVisibilityAttribute), formType.ToString());
+                if (visibility == ScaffoldVisibilityType.None)
+                {
                     continue;
                 }
-                if (visibility == ScaffoldVisibilityType.Show) {
+                if (visibility == ScaffoldVisibilityType.Show)
+                {
                     var type = prop.PropertyType;
-                    if (type == typeof(string)) {
-                        formTag.Append (GenerateInputText<TModel> (model, prop));
-                    } else if (type == typeof(bool)) {
-                        formTag.Append (GenerateInputCheck<TModel> (model, prop));
-                    } else if (typeof(IEnumerable).IsAssignableFrom (type)) {
-                        formTag.Append (GenerateSelect<TModel> (model, prop));
-                    } else if (type.IsEnum) {
-                        formTag.Append (GenerateSelect<TModel> (model, prop));
-                    } else if (typeof(DateTime).IsAssignableFrom (type) || 
-                        typeof(DateTimeOffset).IsAssignableFrom (type)) {
-                        formTag.Append (GenerateCalendar<TModel> (model, prop));
+                    if (type == typeof(string))
+                    {
+                        formTag.Append(GenerateInputText<TModel>(model, prop));
+                    } else if (type == typeof(bool))
+                    {
+                        formTag.Append(GenerateInputCheck<TModel>(model, prop));
+                    } else if (typeof(IEnumerable).IsAssignableFrom(type))
+                    {
+                        formTag.Append(GenerateSelect<TModel>(model, prop));
+                    } else if (type.IsEnum)
+                    {
+                        formTag.Append(GenerateSelect<TModel>(model, prop));
+                    } else if (typeof(DateTime).IsAssignableFrom(type) || 
+                        typeof(DateTimeOffset).IsAssignableFrom(type))
+                    {
+                        formTag.Append(GenerateCalendar<TModel>(model, prop));
                     }
-                } else {
-                    formTag.Append (GenerateInputHidden<TModel> (model, prop));
+                } else
+                {
+                    formTag.Append(GenerateInputHidden<TModel>(model, prop));
                 }
             }
-            if (formTag.Children.Count == 0) {
+            if (formTag.Children.Count == 0)
+            {
                 return null;
             }
             return formTag;
@@ -155,17 +181,17 @@ namespace GestUAB
         /// <typeparam name='TModel'>
         /// The 1st type parameter.
         /// </typeparam>
-        public static IHtmlString FieldsFor<TModel> (TModel model, FormType formType)
+        public static IHtmlString FieldsFor<TModel>(TModel model, FormType formType)
         {
-            var form = GenerateFields (model, formType);
-            return new NonEncodedHtmlString (form == null ? "" : form.ToString ());
+            var form = GenerateFields(model, formType);
+            return new NonEncodedHtmlString(form == null ? "" : form.ToString());
         }
 
-        public static IHtmlString FieldsFor<TModel> (TModel model, FormType formType, object context)
+        public static IHtmlString FieldsFor<TModel>(TModel model, FormType formType, object context)
         {
-            var form = GenerateFields (model, formType);
+            var form = GenerateFields(model, formType);
             var c = context;
-            return new NonEncodedHtmlString (form == null ? "" : form.ToString ());
+            return new NonEncodedHtmlString(form == null ? "" : form.ToString());
         }
 
 //        public static IHtmlString FildsFor<TModel> (TModel model, FormType formType)
@@ -174,35 +200,45 @@ namespace GestUAB
 //            return new NonEncodedHtmlString (form == null ? "" : form.ToString()) ;
 //        }
 
-        static HtmlTag GenerateFields<TModel> (TModel model, FormType formType)
+        static HtmlTag GenerateFields<TModel>(TModel model, FormType formType)
         {
-            var tag = new DivTag ();
-            foreach (var prop in model.GetType().GetProperties()) {
+            var tag = new DivTag();
+            foreach (var prop in model.GetType().GetProperties())
+            {
                 //var value = prop.GetValue (model, null);
-                var visibility = (ScaffoldVisibilityType)model.GetAttributeValue (prop, typeof(ScaffoldVisibilityAttribute), formType.ToString ());
-                if (visibility == ScaffoldVisibilityType.None) {
+                var visibility = (ScaffoldVisibilityType)model.GetAttributeValue(prop, typeof(ScaffoldVisibilityAttribute), formType.ToString());
+                if (visibility == ScaffoldVisibilityType.None)
+                {
                     continue;
                 }
-                if (visibility == ScaffoldVisibilityType.Show) {
+                if (visibility == ScaffoldVisibilityType.Show)
+                {
                     var type = prop.PropertyType;
-                    if (type == typeof(string)) {
-                        tag.Append (GenerateInputText<TModel> (model, prop));
-                    } else if (type == typeof(bool)) {
-                        tag.Append (GenerateInputCheck<TModel> (model, prop));
-                    } else if (typeof(IEnumerable).IsAssignableFrom (type)) {
-                        tag.Append (GenerateSelect<TModel> (model, prop));
-                    } else if (type.IsEnum) {
-                        tag.Append (GenerateSelect<TModel> (model, prop));
-                    } else if (typeof(DateTime).IsAssignableFrom (type) || 
-                        typeof(DateTimeOffset).IsAssignableFrom (type)) {
-                        tag.Append (GenerateCalendar<TModel> (model, prop));
+                    if (type == typeof(string))
+                    {
+                        tag.Append(GenerateInputText<TModel>(model, prop));
+                    } else if (type == typeof(bool))
+                    {
+                        tag.Append(GenerateInputCheck<TModel>(model, prop));
+                    } else if (typeof(IEnumerable).IsAssignableFrom(type))
+                    {
+                        tag.Append(GenerateSelect<TModel>(model, prop));
+                    } else if (type.IsEnum)
+                    {
+                        tag.Append(GenerateSelect<TModel>(model, prop));
+                    } else if (typeof(DateTime).IsAssignableFrom(type) || 
+                        typeof(DateTimeOffset).IsAssignableFrom(type))
+                    {
+                        tag.Append(GenerateCalendar<TModel>(model, prop));
                     }
 
-                } else {
-                    tag.Append (GenerateInputHidden<TModel> (model, prop));
+                } else
+                {
+                    tag.Append(GenerateInputHidden<TModel>(model, prop));
                 }
             }
-            if (tag.Children.Count == 0) {
+            if (tag.Children.Count == 0)
+            {
                 return null;
             }
             return tag;
@@ -223,14 +259,14 @@ namespace GestUAB
         /// <typeparam name='TModel'>
         /// The 1st type parameter.
         /// </typeparam>
-        public static IHtmlString InputTextFor<TModel> (TModel model, 
+        public static IHtmlString InputTextFor<TModel>(TModel model, 
             Expression<Func<TModel, object>> objectProperty)
         {
-            var member = GetMember<TModel> (objectProperty);
+            var member = GetMember<TModel>(objectProperty);
             if (member == null)
-                return new NonEncodedHtmlString ("");
-            var tag = GenerateInputText (model, member);
-            return new NonEncodedHtmlString (tag == null ? "" : tag.ToString ());
+                return new NonEncodedHtmlString("");
+            var tag = GenerateInputText(model, member);
+            return new NonEncodedHtmlString(tag == null ? "" : tag.ToString());
         }
 
         /// <summary>
@@ -248,22 +284,23 @@ namespace GestUAB
         /// <typeparam name='TModel'>
         /// The 1st type parameter.
         /// </typeparam>
-        public static IHtmlString InputTextFor<TModel> (TModel model, 
+        public static IHtmlString InputTextFor<TModel>(TModel model, 
             string propertyName)
         {
-            var member = typeof(TModel).GetProperty (propertyName, 
+            var member = typeof(TModel).GetProperty(propertyName, 
                 BindingFlags.Public | BindingFlags.Instance);
             if (member == null)
-                return new NonEncodedHtmlString ("");
-            var tag = GenerateInputText (model, member);
-            return new NonEncodedHtmlString (tag == null ? "" : tag.ToString ());
+                return new NonEncodedHtmlString("");
+            var tag = GenerateInputText(model, member);
+            return new NonEncodedHtmlString(tag == null ? "" : tag.ToString());
         }
 
-        static HtmlTag GenerateInputText<TModel> (TModel model, PropertyInfo member)
+        static HtmlTag GenerateInputText<TModel>(TModel model, PropertyInfo member)
         {
-            var modelValue = member.GetValue (model, null);
+            var modelValue = member.GetValue(model, null);
 
-            if (modelValue == null) {
+            if (modelValue == null)
+            {
                 return null;
             }
 
@@ -280,23 +317,24 @@ namespace GestUAB
             //  </div>
             //</div>
 
-            var cg = CreateControlGroup (model, member);
+            var cg = CreateControlGroup(model, member);
 
-            var input = new TextboxTag (member.Name, modelValue.ToString ())
-                .Id (member.Name);
+            var input = new TextboxTag(member.Name, modelValue.ToString())
+                .Id(member.Name);
 
-            FillValidation<TModel> (input, member);
+            FillValidation<TModel>(input, member);
 
-            cg.Children [1].InsertFirst (input);
+            cg.Children [1].InsertFirst(input);
 
             return cg;
         }
 
-        static HtmlTag GenerateInputCheck<TModel> (TModel model, PropertyInfo member)
+        static HtmlTag GenerateInputCheck<TModel>(TModel model, PropertyInfo member)
         {
-            var modelValue = member.GetValue (model, null);
+            var modelValue = member.GetValue(model, null);
 
-            if (modelValue == null) {
+            if (modelValue == null)
+            {
                 return null;
             }
 
@@ -313,26 +351,27 @@ namespace GestUAB
             //  </div>
             //</div>
           
-            var cg = CreateControlGroup (model, member);
+            var cg = CreateControlGroup(model, member);
 
-            var input = new CheckboxTag ((bool)modelValue)
-                .Attr ("name", member.Name)
-                .Id (member.Name);
+            var input = new CheckboxTag((bool)modelValue)
+                .Attr("name", member.Name)
+                .Id(member.Name);
 
-            FillValidation<TModel> (input, member);
+            FillValidation<TModel>(input, member);
 
-            cg.Children [1].InsertFirst (input);
+            cg.Children [1].InsertFirst(input);
 
             return cg;
         }
 
-        static Dictionary<string, string> _enumCache = new Dictionary<string, string> ();
+        static Dictionary<string, string> _enumCache = new Dictionary<string, string>();
 
-        static HtmlTag GenerateSelect<TModel> (TModel model, PropertyInfo member)
+        static HtmlTag GenerateSelect<TModel>(TModel model, PropertyInfo member)
         {
-            var modelValue = member.GetValue (model, null);
+            var modelValue = member.GetValue(model, null);
 
-            if (modelValue == null) {
+            if (modelValue == null)
+            {
                 return null;
             }
 
@@ -352,64 +391,73 @@ namespace GestUAB
             //  </div>
             //</div>
           
-            var cg = CreateControlGroup (model, member);
+            var cg = CreateControlGroup(model, member);
 
-            var selectType = model.GetAttribute (member, 
+            var selectType = model.GetAttribute(member, 
                 typeof(ScaffoldSelectPropertiesAttribute)) as ScaffoldSelectPropertiesAttribute;
 
-            var selekt = new SelectTag ()
-                .Attr ("name", member.Name)
-                .Id (member.Name);
+            var selekt = new SelectTag()
+                .Attr("name", member.Name)
+                .Id(member.Name);
 
-            if (selectType.Type == SelectType.Multiple) {
-                selekt.Attr ("multiple", "multiple");
+            if (selectType.Type == SelectType.Multiple)
+            {
+                selekt.Attr("multiple", "multiple");
             }
 
-            if (member.PropertyType.IsEnum) {
-                var atts = modelValue.GetType ().GetCustomAttributes (true);
+            if (member.PropertyType.IsEnum)
+            {
+                var atts = modelValue.GetType().GetCustomAttributes(true);
                 GlobalizedEnumAttribute ge = null;
                 if (atts.Length == 0)
                     ge = null;
-                foreach (var a in atts) {
-                    if (a.GetType () == typeof(GlobalizedEnumAttribute)) {
+                foreach (var a in atts)
+                {
+                    if (a.GetType() == typeof(GlobalizedEnumAttribute))
+                    {
                         ge = (GlobalizedEnumAttribute)a;
                     }
                 }
-                var fields = modelValue.GetType ().GetFields ();
-                for (int i = 1; i < fields.Length; i++) {
+                var fields = modelValue.GetType().GetFields();
+                for (int i = 1; i < fields.Length; i++)
+                {
                     var f = fields [i];
                     string name = string.Empty;
-                    if (ge == null) {
-                        name = f.GetValue (f.Name).ToString ();
-                    } else {
-                        name = ge.GetName (f.Name);
+                    if (ge == null)
+                    {
+                        name = f.GetValue(f.Name).ToString();
+                    } else
+                    {
+                        name = ge.GetName(f.Name);
                     }
-                    var tag = new HtmlTag ("option").Text (name);
-                    selekt.Append (tag);
-                    tag.Attr ("value", f.Name);
+                    var tag = new HtmlTag("option").Text(name);
+                    selekt.Append(tag);
+                    tag.Attr("value", f.Name);
 
                 }
-            } else {
-                foreach (var i in (modelValue as IEnumerable)) {
-                    var tag = new HtmlTag ("option").Text (i.ToString ());
-                    selekt.Append (tag);
-                    tag.Attr ("value", i.GetValue (selectType.ValueMember));
+            } else
+            {
+                foreach (var i in (modelValue as IEnumerable))
+                {
+                    var tag = new HtmlTag("option").Text(i.ToString());
+                    selekt.Append(tag);
+                    tag.Attr("value", i.GetValue(selectType.ValueMember));
                 }
             }
 
 
-            FillValidation<TModel> (selekt, member);
+            FillValidation<TModel>(selekt, member);
 
-            cg.Children [1].InsertFirst (selekt);
+            cg.Children [1].InsertFirst(selekt);
 
             return cg;
         }
 
-        static HtmlTag GenerateCalendar<TModel> (TModel model, PropertyInfo member)
+        static HtmlTag GenerateCalendar<TModel>(TModel model, PropertyInfo member)
         {
 
             DateTime modelValue = DateTime.Now;
-            DateTime.TryParse(member.GetValue (model, null).ToString(), out modelValue);
+            DateTime.TryParse(member.GetValue(model, null).ToString(), out modelValue);
 
             //<div class="control-group">
             // <label class="control-label" for="Email">Email:</label>
@@ -420,19 +468,19 @@ namespace GestUAB
             // <p class="help-block">Ex.: jose@unicentro.br</p>
             // </div>
             //</div>
-            var cg = CreateControlGroup (model, member);
+            var cg = CreateControlGroup(model, member);
 
-            var input = new TextboxTag (member.Name, modelValue.ToShortDateString())
+            var input = new TextboxTag(member.Name, modelValue.ToShortDateString())
                 .AddClass("datepicker")
                 .Data("date-format", "dd/mm/yyyy")
-                .Id (member.Name);
+                .Id(member.Name);
 
-            FillValidation<TModel> (input, member);
-            cg.Children [1].InsertFirst (input);
+            FillValidation<TModel>(input, member);
+            cg.Children [1].InsertFirst(input);
             return cg;
         }
 
-        static HtmlTag CreateControlGroup<TModel> (TModel model, PropertyInfo member)
+        static HtmlTag CreateControlGroup<TModel>(TModel model, PropertyInfo member)
         {
             //<div class="control-group">
             //  <label class="control-label" for="Email">Email:</label>
@@ -447,32 +495,32 @@ namespace GestUAB
             //  </div>
             //</div>
 
-            var controlGroup = new DivTag ().AddClass ("control-group");
+            var controlGroup = new DivTag().AddClass("control-group");
 
-            controlGroup.Children.Add (
-                new HtmlTag ("label")
-                    .AddClass ("control-label")
-                    .Attr ("for", member.Name)
-                    .Text (model.GetAttributeValue (member.Name, 
+            controlGroup.Children.Add(
+                new HtmlTag("label")
+                    .AddClass("control-label")
+                    .Attr("for", member.Name)
+                    .Text(model.GetAttributeValue(member.Name, 
                                                   "Display", 
                                                   "Name") + ":"
             )
             );
-            var controls = new DivTag ().AddClass ("controls");
-            controlGroup.Children.Add (controls);
+            var controls = new DivTag().AddClass("controls");
+            controlGroup.Children.Add(controls);
 
-            controls.Children.Add (
-                new HtmlTag ("span")
-                    .AddClasses ("field-validation-valid help-inline", "error")
-                    .Data ("valmsg-for", member.Name)
-                    .Data ("valmsg-replace", true)
+            controls.Children.Add(
+                new HtmlTag("span")
+                    .AddClasses("field-validation-valid help-inline", "error")
+                    .Data("valmsg-for", member.Name)
+                    .Data("valmsg-replace", true)
             );
-            controls.Children.Add (
-                new HtmlTag ("p")
-                    .AddClass ("help-block")
-                    .Text (model.GetAttributeValue (member.Name, 
+            controls.Children.Add(
+                new HtmlTag("p")
+                    .AddClass("help-block")
+                    .Text(model.GetAttributeValue(member.Name, 
                                                   "Display", 
-                                                  "Description").ToString ()
+                                                  "Description").ToString()
             )
             );
             return controlGroup;
@@ -484,60 +532,68 @@ namespace GestUAB
         /// <param name='tag'>
         /// Tag.
         /// </param>
-        static void FillValidation<TModel> (HtmlTag tag, PropertyInfo member)
+        static void FillValidation<TModel>(HtmlTag tag, PropertyInfo member)
         {
-            var fullName = Assembly.GetExecutingAssembly ().FullName;
+            var fullName = Assembly.GetExecutingAssembly().FullName;
             var typeFullName = typeof(TModel).FullName;
             var validator = 
-                (AbstractValidator<TModel>)Activator.CreateInstance (fullName, 
-                                        typeFullName + "Validator").Unwrap ();
-            var descriptor = validator.CreateDescriptor ();
-            var members = descriptor.GetMembersWithValidators ();
-            foreach (var m in members) {
+                (AbstractValidator<TModel>)Activator.CreateInstance(fullName, 
+                                        typeFullName + "Validator").Unwrap();
+            var descriptor = validator.CreateDescriptor();
+            var members = descriptor.GetMembersWithValidators();
+            foreach (var m in members)
+            {
                 if (m.Key != member.Name)
                     continue;
-                var rules = descriptor.GetRulesForMember (m.Key);
-                foreach (var r in rules) {
-                    FillValidation<TModel> (tag, r as PropertyRule);
+                var rules = descriptor.GetRulesForMember(m.Key);
+                foreach (var r in rules)
+                {
+                    FillValidation<TModel>(tag, r as PropertyRule);
                 }
             }
         }
 
-        static void FillValidation<TModel> (HtmlTag tag, PropertyRule r)
+        static void FillValidation<TModel>(HtmlTag tag, PropertyRule r)
         {
-            tag.Data ("val", "true");
-            foreach (var v in r.Validators) {
+            tag.Data("val", "true");
+            foreach (var v in r.Validators)
+            {
                 var message = v.ErrorMessageSource;
-                var messageFormatter = new MessageFormatter ();
-                messageFormatter.AppendPropertyName (r.DisplayName.GetString ());
-                var formattedMessage = messageFormatter.BuildMessage (message.GetString ());
-                if (v is NotEmptyValidator) {
-                    tag.Data ("val-required", formattedMessage);
+                var messageFormatter = new MessageFormatter();
+                messageFormatter.AppendPropertyName(r.DisplayName.GetString());
+                var formattedMessage = messageFormatter.BuildMessage(message.GetString());
+                if (v is NotEmptyValidator)
+                {
+                    tag.Data("val-required", formattedMessage);
                 }
-                if (v is EmailValidator) {
-                    tag.Data ("val-email", formattedMessage);
+                if (v is EmailValidator)
+                {
+                    tag.Data("val-email", formattedMessage);
                 }
-                if (v is RegularExpressionValidator) {
-                    tag.Data ("val-regex", formattedMessage);
-                    tag.Data ("val-regex-pattern", (v as RegularExpressionValidator).Expression);
+                if (v is RegularExpressionValidator)
+                {
+                    tag.Data("val-regex", formattedMessage);
+                    tag.Data("val-regex-pattern", (v as RegularExpressionValidator).Expression);
                 }
-                if (v is LengthValidator) {
+                if (v is LengthValidator)
+                {
                     var lv = v as LengthValidator;
-                    tag.Data ("val-length", formattedMessage
-                                .Replace ("PropertyName", "0")
-                                .Replace ("MinLength", "1")
-                                .Replace ("MaxLength", "2")
-                                .Replace ("TotalLength", "3")
+                    tag.Data("val-length", formattedMessage
+                                .Replace("PropertyName", "0")
+                                .Replace("MinLength", "1")
+                                .Replace("MaxLength", "2")
+                                .Replace("TotalLength", "3")
                     );
-                    tag.Data ("val-length-max", lv.Max);
-                    tag.Data ("val-length-min", lv.Min);
+                    tag.Data("val-length-max", lv.Max);
+                    tag.Data("val-length-min", lv.Min);
                 }
-                if (v is RemoteValidator) {
+                if (v is RemoteValidator)
+                {
                     var rv = v as RemoteValidator;
-                    tag.Data ("val-remote", formattedMessage);
-                    tag.Data ("val-remote-additionalfields", rv.AdditionalFields);
-                    tag.Data ("val-remote-type", rv.HttpMethod);
-                    tag.Data ("val-remote-url", rv.Action);
+                    tag.Data("val-remote", formattedMessage);
+                    tag.Data("val-remote-additionalfields", rv.AdditionalFields);
+                    tag.Data("val-remote-type", rv.HttpMethod);
+                    tag.Data("val-remote-url", rv.Action);
                 }
             }
         }
@@ -557,14 +613,14 @@ namespace GestUAB
         /// <typeparam name='TModel'>
         /// The 1st type parameter.
         /// </typeparam>
-        public static IHtmlString InputHiddenFor<TModel> (TModel model, 
+        public static IHtmlString InputHiddenFor<TModel>(TModel model, 
             Expression<Func<TModel, object>> objectProperty)
         {
-            var member = GetMember<TModel> (objectProperty);
+            var member = GetMember<TModel>(objectProperty);
             if (member == null)
                 return null;
-            var tag = GenerateInputText (model, member);
-            return new NonEncodedHtmlString (tag == null ? "" : tag.ToString ());
+            var tag = GenerateInputText(model, member);
+            return new NonEncodedHtmlString(tag == null ? "" : tag.ToString());
         }
 
         /// <summary>
@@ -582,32 +638,33 @@ namespace GestUAB
         /// <typeparam name='TModel'>
         /// The 1st type parameter.
         /// </typeparam>
-        public static IHtmlString InputHiddenFor<TModel> (TModel model, 
+        public static IHtmlString InputHiddenFor<TModel>(TModel model, 
             string propertyName)
         {
-            var member = typeof(TModel).GetProperty (propertyName, 
+            var member = typeof(TModel).GetProperty(propertyName, 
                 BindingFlags.Public | BindingFlags.Instance);
             if (member == null)
-                return new NonEncodedHtmlString ("");
-            var tag = GenerateInputText (model, member);
-            return new NonEncodedHtmlString (tag == null ? "" : tag.ToString ());
+                return new NonEncodedHtmlString("");
+            var tag = GenerateInputText(model, member);
+            return new NonEncodedHtmlString(tag == null ? "" : tag.ToString());
         }
 
-        static HtmlTag GenerateInputHidden<TModel> (TModel model, PropertyInfo member)
+        static HtmlTag GenerateInputHidden<TModel>(TModel model, PropertyInfo member)
         {
-            var modelValue = member.GetValue (model, null);
+            var modelValue = member.GetValue(model, null);
 
-            if (modelValue == null) {
+            if (modelValue == null)
+            {
                 return null;
             }
 
             //<input type="hidden" name="member.Name" id="member.Name" value="modelValue.ToString ()" />
-            var input = new HiddenTag ()
-                .Attr ("name", member.Name)
-                .Attr ("value", modelValue.ToString ())
-                .Id (member.Name);
+            var input = new HiddenTag()
+                .Attr("name", member.Name)
+                .Attr("value", modelValue.ToString())
+                .Id(member.Name);
 
-            FillValidation<TModel> (input, member);
+            FillValidation<TModel>(input, member);
 
             return input;
         }
@@ -624,56 +681,62 @@ namespace GestUAB
         /// <typeparam name='TModel'>
         /// The 1st type parameter.
         /// </typeparam>
-        public static IHtmlString LabelsFor<TModel> (TModel model)
+        public static IHtmlString LabelsFor<TModel>(TModel model)
         {
-            var div = GenerateLabels (model);
-            var sb = new StringBuilder ();
-            foreach (var i in div.Children) {
-                sb.Append (i.ToHtmlString ());
+            var div = GenerateLabels(model);
+            var sb = new StringBuilder();
+            foreach (var i in div.Children)
+            {
+                sb.Append(i.ToHtmlString());
             }
-            return new NonEncodedHtmlString (div == null ? "" : sb.ToString ());
+            return new NonEncodedHtmlString(div == null ? "" : sb.ToString());
         }
 
-        static HtmlTag GenerateLabels<TModel> (TModel model)
+        static HtmlTag GenerateLabels<TModel>(TModel model)
         {
-            var ul = new HtmlTag ("div").AddClass ("fields");
+            var ul = new HtmlTag("div").AddClass("fields");
             
-            foreach (var prop in model.GetType().GetProperties()) {
-                var scaffold = model.GetAttribute (prop, typeof(ScaffoldVisibilityAttribute)) as ScaffoldVisibilityAttribute;
-                if (scaffold.Read == ScaffoldVisibilityType.Show) {
-                    var p = GenerateLabel (model, prop);
-                    if (p != null) {
-                        ul.Append (p);
+            foreach (var prop in model.GetType().GetProperties())
+            {
+                var scaffold = model.GetAttribute(prop, typeof(ScaffoldVisibilityAttribute)) as ScaffoldVisibilityAttribute;
+                if (scaffold.Read == ScaffoldVisibilityType.Show)
+                {
+                    var p = GenerateLabel(model, prop);
+                    if (p != null)
+                    {
+                        ul.Append(p);
                     }
                 }
             }
-            if (ul.Children.Count == 0) {
+            if (ul.Children.Count == 0)
+            {
                 return null;
             }
             return ul;
             
         }
 
-        static HtmlTag GenerateLabel<TModel> (TModel model, PropertyInfo member)
+        static HtmlTag GenerateLabel<TModel>(TModel model, PropertyInfo member)
         {
-            var modelValue = member.GetValue (model, null);
+            var modelValue = member.GetValue(model, null);
 
-            if (modelValue == null) {
+            if (modelValue == null)
+            {
                 return null;
             }
-            var p = new HtmlTag ("p").AddClass ("field");
+            var p = new HtmlTag("p").AddClass("field");
 
             //<input type="hidden" name="member.Name" id="member.Name" value="modelValue.ToString ()" />
-            var labelText = model.GetAttributeValue (member.Name, 
+            var labelText = model.GetAttributeValue(member.Name, 
                                                "Display", 
                                                 "Name") + ": ";
-            p.Append (new HtmlTag ("span")
-                .AddClass ("field-label")
-                .Text (labelText ?? member.Name)
+            p.Append(new HtmlTag("span")
+                .AddClass("field-label")
+                .Text(labelText ?? member.Name)
             );
-            p.Append (new HtmlTag ("span")
-                .AddClass ("field-value")
-                 .Text (modelValue.ToString ())
+            p.Append(new HtmlTag("span")
+                .AddClass("field-value")
+                 .Text(modelValue.ToString())
             );
             return p;
         }

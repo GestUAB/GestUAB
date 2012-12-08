@@ -40,7 +40,7 @@ namespace GestUAB.Models
         [Display(Name = "DtNascimento",
          Description = "Data de Nascimento. Ex.: 01/01/1967.")]
         [ScaffoldVisibility(all: ScaffoldVisibilityType.Show)]
-        public string BirthDate { get; set; }
+        public DateTimeOffset BirthDate { get; set; }
 
         /// <summary>
         /// Driver's Natural Person Register (CPF).
@@ -172,7 +172,7 @@ namespace GestUAB.Models
             return new Driver() {
                 Id = Guid.NewGuid(),
                 Name = string.Empty,
-                BirthDate = string.Empty,
+                BirthDate = DateTime.Today,
                 Cpf = string.Empty,
                 Rg = string.Empty,
                 Phone = string.Empty,
@@ -216,9 +216,8 @@ namespace GestUAB.Models
                         .WithMessage(@"Motorista já cadastrado ""{0}""", driver => driver.Name)
                         .Remote("Motorista já existe.", "/validation/user/validate-exists-username", "GET", "*");//verificar
 
-                RuleFor(driver => driver.BirthDate).NotEmpty()
-                    .Length(10)
-                    .Matches("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}$")
+                RuleFor(driver => driver.BirthDate)
+                    .InclusiveBetween(DateTime.Today.AddYears(-80), DateTime.Today)
                     .WithMessage("O formato deve seguir o seguinte padrão: 01/01/0001 ");
 
                 RuleFor(cpfDriver => cpfDriver.Cpf)
@@ -267,9 +266,8 @@ namespace GestUAB.Models
                         .Length(10, 30).WithMessage("o nome do motorista deve conter entre 10 e 30 caracteres.")
                         .Matches(@"^[a-zA-Z\u00C0-\u00ff\s]*$").WithMessage("Insira somente letras.");
 
-                    RuleFor(driver => driver.BirthDate).NotEmpty()
-                        .Length(10)
-                        .Matches("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}$")
+                    RuleFor(driver => driver.BirthDate)
+                        .InclusiveBetween(DateTime.Today.AddYears(-80), DateTime.Today)
                         .WithMessage("O formato deve seguir o seguinte padrão: 01/01/0001 ");
 
                     RuleFor(cpfDriver => cpfDriver.Cpf)
