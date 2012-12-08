@@ -61,8 +61,11 @@ packages/
 # visual studio database projects
 *.dbmdl
 
+#KDE,Windows
+*.ini
+
 #Test files
 *.testsettings
 
 #Database
-Database/
+src/GestUAB/App_Data/Database/
