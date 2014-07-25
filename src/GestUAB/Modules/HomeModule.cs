@@ -1,13 +1,13 @@
 ﻿using System.Linq;
-using GestUAB.Models;
 using Nancy.Routing;
+using Nancy;
 
 namespace GestUAB.Modules
 {
     /// <summary>
     /// HomeModule class.
     /// </summary>
-    public class HomeModule : BaseModule
+    public class HomeModule : NancyModule
     {
         /// <summary>
         /// HomeModule Builder
@@ -25,6 +25,16 @@ namespace GestUAB.Modules
                 return View ["about"];
             };
             #endregion
+
+            Get ["/test"] = _ => { 
+                return View ["test"];
+            };
+            Get ["/bla"] = _ => { 
+                return View ["bla"];
+            };
+            Get ["/foo"] = _ => { 
+                return View ["foo"];
+            };
         }
     }
     

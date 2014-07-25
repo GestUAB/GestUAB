@@ -1,0 +1,51 @@
+@{
+    Layout = "Shared/_layout.cshtml";
+    ViewBag.Title = "Lista de setores";
+}
+@section JavaScript
+{
+    <script src='@Url.Content("~/Content/js/crud.js")'></script>
+    <script src='@Url.Content("~/Content/js/bootbox.min.js")'></script>
+} 
+        
+<table class='table'>
+  <thead>
+    <td>Nome</td>
+    <td>Ações</td>
+  </thead>
+  <tbody>
+    @foreach(var setor in @Model) {
+        <tr>
+            <td>@setor.Nome</td> 
+            <td>
+				<a href='@Url.Content("~/setores/" + setor.Id)' class='btn'>
+				  Exibir
+				</a> 
+				<a href='@Url.Content("~/setores/edit/" + setor.Id)' class='btn btn-info'>
+				  <i class="icon-edit"></i>
+				  Editar
+				</a>
+				<a href='@Url.Content("~/setores/delete/" + setor.Id + "?ajax=true")' class='btn-delete btn btn-danger'>
+				  <i class="icon-remove"></i>
+				  Remover
+				</a>
+            </td>
+        </tr>
+    }
+  </tbody>
+</table>
+
+
+
+<div class="row-fluid">
+
+  <a href="#" class="btn" onclick="history.go(-1);return false;">
+    <i class="icon-arrow-left"></i> Voltar
+  </a>
+  <a href='@Url.Content("~/setores/new")' class='btn btn-info'>
+    <i class="icon-plus"></i> Cadastrar novo
+  </a>
+  
+</div>
+
+

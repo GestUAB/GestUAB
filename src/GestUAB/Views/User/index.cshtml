@@ -15,17 +15,17 @@
   <tbody>
     @foreach(var user in @Model) {
         <tr>
-            <td>@user.Username</td> 
+            <td>@user.UserName</td> 
             <td>@user.Name</td> 
             <td>   
-                <a href='@Url.Content("~/users/" + user.Username)' class='btn'>
+                <a href='@Url.Content("~/users/" + user.UserName)' class='btn'>
                   Exibir
                 </a> 
-                <a href='@Url.Content("~/users/edit/" + user.Username)' class='btn btn-info'>
+                <a href='@Url.Content("~/users/edit/" + user.UserName)' class='btn btn-info'>
                   <i class="icon-edit"></i>
                   Editar
                 </a>
-                <a href='@Url.Content("~/users/delete/" + user.Username)' class='btn btn-danger delete'>
+                <a href='@Url.Content("~/users/delete/" + user.UserName)' class='btn btn-danger delete'>
                   <i class="icon-remove"></i>
                   Remover
                 </a>

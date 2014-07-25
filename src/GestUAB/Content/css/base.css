@@ -1,7 +1,19 @@
-
 header.subhead{ background:#027dc1 url('../img/bg-header.png'); }
-#carousel-home{ margin-top:-1px; }
-.logo{ float:left; }
-.title-header{ float:left; width:90%; margin-left:15px; }
 .shadow-left{ position:absolute; left:30px; top:0; }
 .shadow-right{ position:absolute; right:30px; top:0; }
+.control-group{padding: 10px !important; border: none !important;}
+.control-group.alert{padding: 10px !important; border: none !important;}
+
+div.form-actions.fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    bottom: 0px;
+ }
+ 
+ .form-horizontal .form-actions {
+    padding: 3px 0 3px 0;
+}

@@ -1,9 +1,7 @@
 ﻿<ul>
     @foreach(var e in @Model.Errors) {
-        foreach(var memberName in e.MemberNames) {
-            <li class="user-item">
-                <span>@e.GetMessage(memberName)</span> 
-            </li>
-        }
+        <li class="user-item">
+            <span>@e.ErrorMessage</span> 
+        </li>
     }
 </ul>

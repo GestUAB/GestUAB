@@ -1,0 +1,49 @@
+@using GestUAB
+@{
+    Layout = "Shared/_layout.cshtml";
+    ViewBag.Title = "Editar setor";
+}
+
+@section JavaScript
+{
+    <script src='@Url.Content("~/Content/js/jquery.validate.js")'></script>
+    <script src='@Url.Content("~/Content/js/jquery.validate.unobtrusive.js")'></script>
+    <script src='@Url.Content("~/Content/js/jquery.pnotify.js")'></script>
+    <script src='@Url.Content("~/Content/js/additional-methods.js")'></script>
+    <script src='@Url.Content("~/Content/js/validation.js")'></script>
+    <script src='@Url.Content("~/Content/js/bootstrap-inputmask.js")'></script>
+    <script src='@Url.Content("~/Content/js/bootstrap-datepicker.js")'></script>
+    <script src='@Url.Content("~/Content/js/locales/bootstrap-datepicker.pt-BR.js")'></script>
+    <script src='@Url.Content("~/Content/js/crud.js")'></script>
+}  
+
+@section Styles
+{
+    <link href='@Url.Content("~/Content/css/datepicker.css")' rel="stylesheet">
+    <link href='@Url.Content("~/Content/css/jquery.pnotify.default.css")' rel="stylesheet">
+    <link href='@Url.Content("~/Content/css/jquery.pnotify.default.icons.css")' rel="stylesheet">
+}
+
+<a name="errors">
+    <div id="errors"></div>
+</a>
+<form class="form-horizontal" id="edit-form" method="post" >
+
+  <fieldset>
+  
+    <legend>Editar setor @Model.Nome</legend>
+    
+    @HtmlTagsExtensions.FieldsFor(@Model, FormType.Update)
+
+    
+  </fieldset>
+  
+  <div class='form-actions fixed'>
+  
+    <button type="reset" class="btn" onclick="history.go(-1);return false;">Cancelar</button>
+    <button type="reset" class="btn">Desfazer mudanças</button>
+    <button id="btn-edit" type="submit" class="btn btn-primary">Salvar</button>
+    
+  </div>
+  
+</form>

@@ -26,6 +26,7 @@
 using Nancy;
 using Raven.Client;
 using System.Diagnostics;
+using GestUAB.DataAccess;
 
 
 namespace GestUAB.Modules
@@ -51,9 +52,6 @@ namespace GestUAB.Modules
         protected BaseModule(string modulePath) 
             : base(modulePath) { }
 
-        protected IDocumentSession DocumentSession
-        {
-            get { return Context.Items[Conventions.RavenSession] as IDocumentSession; }
-        }
+
     }
 }

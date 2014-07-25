@@ -26,24 +26,11 @@
 
 namespace GestUAB
 {
-    using System;
-    using System.IO;
+    using GestUAB.DataAccess;
     using Raven.Client;
     using Raven.Client.Embedded;
-
-    /// <summary>
-    /// I raven session provider.
-    /// </summary>
-    public interface IRavenSessionProvider
-    {
-        /// <summary>
-        /// Gets the session.
-        /// </summary>
-        /// <returns>
-        /// The session.
-        /// </returns>
-        IDocumentSession GetSession();
-    }
+    using System;
+    using System.IO;
 
     /// <summary>
     /// Raven session provider.

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{536F20BB-B7BF-4D72-B748-7908B002C080}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>GestUAB.DataAccess</RootNamespace>
+    <AssemblyName>GestUAB.DataAccess</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="Dapper">
+      <HintPath>..\packages\Dapper.1.13\lib\net40\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Data.Sqlite">
+      <HintPath>..\..\..\ServiceStack.OrmLite\src\ServiceStack.OrmLite.Sqlite\bin\Release\Mono.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common">
+      <HintPath>..\..\..\forks\ServiceStack.OrmLite\src\ServiceStack.OrmLite.Sqlite\bin\Release\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>..\..\..\forks\ServiceStack.OrmLite\src\ServiceStack.OrmLite.Sqlite\bin\Release\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\..\..\forks\ServiceStack.OrmLite\src\ServiceStack.OrmLite.Sqlite\bin\Release\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ColaboradorDao.cs" />
+    <Compile Include="ICrud.cs" />
+    <Compile Include="Database.cs" />
+    <Compile Include="Mapper.cs" />
+    <Compile Include="Dapper\SqlMapperExtensions.cs" />
+    <Compile Include="CursoDao.cs" />
+    <Compile Include="SetorDao.cs" />
+    <Compile Include="DataFacade.cs" />
+    <Compile Include="DynamicExtensions.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="sqlite\x64\sqlite3.dll" />
+    <None Include="sqlite\x86\sqlite3.def" />
+    <None Include="sqlite\x86\sqlite3.dll" />
+    <None Include="sqlite\x86\sqlite3.exe" />
+    <None Include="Old\Database.cs" />
+    <None Include="Old\PopulateCars.cs" />
+    <None Include="Old\PopulateCourses.cs" />
+    <None Include="Old\PopulateDriver.cs" />
+    <None Include="Old\PopulatePedidoDiaria.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Old\PopulateRenunciation.cs" />
+    <None Include="Old\PopulateTeachers.cs" />
+    <None Include="Old\PopulateUsers.cs" />
+    <None Include="Old\UserDataAccess.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Simple.Data\Simple.Data\Simple.Data.csproj">
+      <Project>{148CEE80-2E84-4ABD-B5AB-20415B2BBD21}</Project>
+      <Name>Simple.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Simple.Data\Simple.Data.Ado\Simple.Data.Ado.csproj">
+      <Project>{ECC2D7DB-EC7F-44B6-B09F-5B471C629685}</Project>
+      <Name>Simple.Data.Ado</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Simple.Data.Sqlite\src\Simple.Data.Sqlite\Simple.Data.Sqlite.csproj">
+      <Project>{81522EFB-0420-4683-B209-BD19FB174D25}</Project>
+      <Name>Simple.Data.Sqlite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\forks\ServiceStack.OrmLite\src\ServiceStack.OrmLite\ServiceStack.OrmLite.csproj">
+      <Project>{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}</Project>
+      <Name>ServiceStack.OrmLite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\forks\ServiceStack.OrmLite\src\ServiceStack.OrmLite.Sqlite\ServiceStack.OrmLite.Sqlitev40.csproj">
+      <Project>{8CA77485-7F0F-4C59-8C25-312D43EF1F8C}</Project>
+      <Name>ServiceStack.OrmLite.Sqlitev40</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GestUAB.Models\GestUAB.Models.csproj">
+      <Project>{7EDBAFF5-08C8-4923-A2D4-946E3984E508}</Project>
+      <Name>GestUAB.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Old\" />
+  </ItemGroup>
+</Project>

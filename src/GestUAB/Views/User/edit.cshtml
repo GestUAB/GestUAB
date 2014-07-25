@@ -1,7 +1,7 @@
 ﻿@using GestUAB 
 @{
     Layout = "Shared/_layout.cshtml";
-    ViewBag.Title = "Editar usuário " + Model.Username;
+    ViewBag.Title = "Editar usuário " + Model.UserName;
 }
 @section JavaScript
 {
@@ -13,11 +13,11 @@
 
 <div id="errors"></div>
 <form class="form-horizontal" id="edit_form" method="POST" 
-    action='@Url.Content("~/users/edit/" + Model.Username)'>
+    action='@Url.Content("~/users/edit/" + Model.UserName)'>
 
   <fieldset>
   
-    <legend>Editar usuário @Model.Username</legend>
+    <legend>Editar usuário @Model.UserName</legend>
     
     @HtmlTagsExtensions.FieldsFor(@Model, FormType.Update)
     
@@ -28,7 +28,7 @@
     <button type="reset" class="btn" 
         onclick="history.go(-1);return false;">Cancelar</button>
     <button type="reset" class="btn">Desfazer mudanças</button>
-    <button type="submit" class="btn btn-primary">Salvar</button>
+    <button id="edit-button" type="submit" class="btn btn-primary">Salvar</button>
     
   </div>
   

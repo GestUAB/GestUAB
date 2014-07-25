@@ -10,10 +10,11 @@
     <script src='@Url.Content("~/Content/js/jquery.validate.unobtrusive.js")'></script>
     <script src='@Url.Content("~/Content/js/additional-methods.js")'></script>
     <script src='@Url.Content("~/Content/js/validation.js")'></script>
+    <script src='@Url.Content("~/Content/js/crud.js")'></script>
 }  
 
 <div id="errors"></div>
-<form class="form-horizontal" id="edit_form" method="post" >
+<form class="form-horizontal" id="edit-form" method="post" >
 
   <fieldset>
   
@@ -28,7 +29,7 @@
   
     <button type="reset" class="btn" onclick="history.go(-1);return false;">Cancelar</button>
     <button type="reset" class="btn">Desfazer mudanças</button>
-    <button type="submit" class="btn btn-primary">Salvar</button>
+    <button id="edit-button" type="submit" class="btn btn-primary">Salvar</button>
     
   </div>
   

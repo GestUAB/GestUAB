@@ -27,6 +27,7 @@ using System;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 
 namespace GestUAB
 {
@@ -66,6 +67,26 @@ namespace GestUAB
                 stream.Seek (0, SeekOrigin.Begin);
                 return (T)formatter.Deserialize (stream);
             }
+        }
+
+        public static string ToUTF8Encode(this string str)
+        {
+            var enc = new UTF8Encoding();
+            var bytes = enc.GetBytes(str);
+            return bytes.ToString();
+        }
+
+        public static string ToUnicodeEncode(this string str)
+        {
+            var enc = new UnicodeEncoding();
+            var bytes = enc.GetBytes(str);
+            return bytes.ToString();
+        }
+
+
+        public static string ToHtmlEncode(this string str)
+        {
+            return System.Net.WebUtility.HtmlEncode(str);
         }
 
         /// <summary>

@@ -23,120 +23,208 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
-using Nancy;
-using Nancy.Bootstrapper;
-using Nancy.Diagnostics;
-using Nancy.TinyIoc;
+using Nancy.Scaffolding;
+using GestUAB.Models;
+using System.Security.Cryptography.X509Certificates;
 
 namespace GestUAB
 {
+    using Nancy;
+    using Nancy.Authentication.Forms;
+    using Nancy.Bootstrapper;
+    using Nancy.Diagnostics;
+    using Nancy.Security;
+    using Nancy.TinyIoc;
+
     public class Bootstrapper : DefaultNancyBootstrapper
     {
 //        const int CACHE_SECONDS = 30;
 //        readonly Dictionary<string, Tuple<DateTime, Response, int>> cachedResponses = new Dictionary<string, Tuple<DateTime, Response, int>> ();
 
-        protected override NancyInternalConfiguration InternalConfiguration {
-            get {   
-                return NancyInternalConfiguration.WithOverrides (x => x.NancyModuleBuilder = typeof(RavenModuleBuilder)); 
-            }
-        }
+//        protected override NancyInternalConfiguration InternalConfiguration
+//        {
+//            get
+//            {   
+//                return NancyInternalConfiguration.WithOverrides(x => x.NancyModuleBuilder = typeof(RavenModuleBuilder)); 
+//            }
+//        }
 
-        protected override void ApplicationStartup (TinyIoCContainer container, IPipelines pipelines)
+        protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
-            base.ApplicationStartup (container, pipelines);
+            GestUAB.Migrations.Schema.Update();
+            Jsonp.Enable(pipelines);
+
+            RegisterScaffoldingConfigContainer(container);
+
+
+
+
+
+
+
+            // At request startup we modify the request pipelines to
+            // include forms authentication - passing in our now request
+            // scoped user name mapper.
+            //
+            // The pipelines passed in here are specific to this request,
+            // so we can add/remove/update items in them as we please.
+//            var formsAuthConfiguration =
+//                new FormsAuthenticationConfiguration()
+//                {
+//                    RedirectUrl = "~/login",
+//                    UserMapper = container.Resolve<IUserMapper>()
+//                };
+
+//            FormsAuthentication.Enable(pipelines, formsAuthConfiguration);
+
+//            var membershipConfig = new MembershipConfig() {
+//                OnlineTimeWindow = 10,
+//                Provider = new RavenDbMembershipProvider(DataAccess.Database.DocumentStore)
+//            };
+//            Membership.Enable(membershipConfig);
+
 #if (DEBUG)
             StaticConfiguration.DisableErrorTraces = false;
-            StaticConfiguration.DisableCaches = true;
             StaticConfiguration.EnableRequestTracing = true;
 #endif
         }
 
-        protected override Nancy.Diagnostics.DiagnosticsConfiguration DiagnosticsConfiguration {
-            get {
+        protected override Nancy.Diagnostics.DiagnosticsConfiguration DiagnosticsConfiguration
+        {
+            get
+            {
                 return new DiagnosticsConfiguration { Password = @"teste"};
             }
         }
 
-//        protected override void ConfigureConventions (NancyConventions nancyConventions)
-//        {
-////            nancyConventions.StaticContentsConventions.Add (StaticContentConventionBuilder.AddDirectory (
-////                "styles", @"content\css", "css"
-////            ));
-//            nancyConventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("content", "Assets"));
-//        }
+        static void RegisterScaffoldingConfigContainer(TinyIoCContainer container)
+        {
+            var configContainer = new ConfigContainer();
 
-//        protected override void ApplicationStartup (TinyIoC.TinyIoCContainer container, IPipelines pipelines)
-//        {
-//            base.ApplicationStartup (container, pipelines);
-//            StaticConfiguration.DisableCaches  = false;
-//            pipelines.BeforeRequest += CheckCache;
-//
-//            pipelines.AfterRequest += SetCache;
-//        }
-//
-//        /// <summary>
-//        /// Check to see if we have a cache entry - if we do, see if it has expired or not,
-//        /// if it hasn't then return it, otherwise return null;
-//        /// </summary>
-//        /// <param name="context">Current context</param>
-//        /// <returns>Request or null</returns>
-//        public Response CheckCache (NancyContext context)
-//        {
-//            Tuple<DateTime, Response, int> cacheEntry;
-//
-//            if (this.cachedResponses.TryGetValue (
-//                context.Request.Path,
-//                out cacheEntry
-//            )) {
-//                if (cacheEntry.Item3 == int.MaxValue) {
-//                    return cacheEntry.Item2;
-//                }
-//                else if (cacheEntry.Item1.AddSeconds (cacheEntry.Item3) > DateTime.Now) {
-//                    return cacheEntry.Item2;
-//                }
-//            }
-//
-//            return null;
-//        }
-//
-//        /// <summary>
-//        /// Adds the current response to the cache if required
-//        /// Only stores by Path and stores the response in a dictionary.
-//        /// Do not use this as an actual cache :-)
-//        /// </summary>
-//        /// <param name="context">Current context</param>
-//        public void SetCache (NancyContext context)
-//        {
-//            if (context.Response.StatusCode != HttpStatusCode.OK) {
-//                return;
-//            }
-//
-//            object cacheSecondsObject;
-//            if (!context.Items.TryGetValue (
-//                ContextExtensions.OUTPUT_CACHE_TIME_KEY,
-//                out cacheSecondsObject
-//            )) {
-//                return;
-//            }
-//
-//            int cacheSeconds;
-//            if (!int.TryParse (
-//                cacheSecondsObject.ToString (),
-//                out cacheSeconds
-//            )) {       
-//                return;
-//            }
-//
-//            var cachedResponse = new CachedResponse (context.Response);
-//
-//            this.cachedResponses [context.Request.Path] = new Tuple<DateTime, Response, int> (
-//                DateTime.Now,
-//                cachedResponse,
-//                cacheSeconds
-//            );
-//
-//            context.Response = cachedResponse;
-//        }
+            configContainer.Register((Colaborador x) => x.Id)
+                .Named("Código")
+                    .Described("Código do colaborador.")
+                    .WithVisibilityConfig(all: Visibility.Hidden);
+
+            configContainer.Register((Colaborador x) => x.Instituicao)
+                .Named("Instituição")
+                    .Described("Nome da instituição de vínculo. Ex.: Unicentro - Universidade Estadual do Centro-Oeste.");
+
+            configContainer.Register((Colaborador x) => x.Cpf)
+                .Named("CPF")
+                    .Described("CPF do colaborador. Ex.: xxx.xxx.xxx-xx.");
+
+            configContainer.Register((Colaborador x) => x.Nome)
+                .Named("Nome")
+                    .Described("Nome do colaborador. Ex.: João da Silva.");
+
+            configContainer.Register((Colaborador x) => x.Profissao)
+                .Named("Profissão")
+                    .Described("Profissão do colaborador. Ex.: Professor.");
+
+            configContainer.Register((Colaborador x) => x.Sexo)
+                .Named("Sexo")
+                    .Described("Sexo do colaborador.")
+                    .WithEnumAsSelect();
+
+            configContainer.Register((Colaborador x) => x.DataNascimento)
+                .Named("Data de nascimento")
+                    .Described("Data de Nascimento. Ex.: 01/01/1967.");
+
+            configContainer.Register((Colaborador x) => x.TipoDocumento)
+                .Named("Tipo do documnento")
+                    .Described("Tipo do documento de identificação do colaborador.")
+                    .WithEnumAsSelect();
+
+            configContainer.Register((Colaborador x) => x.Documento)
+                .Named("Documnento")
+                    .Described("Documento de identificação do colaborador.");
+
+            configContainer.Register((Colaborador x) => x.OrgaoEmissor)
+                .Named("Orgão emissor")
+                    .Described("Orgão emissor do documento. Ex.: SSP-PR.");
+
+            configContainer.Register((Colaborador x) => x.DataEmissao)
+                .Named("Data de emissão")
+                    .Described("Data de emissão do documento. Ex.: 01/01/1967.");
+
+            configContainer.Register((Colaborador x) => x.UfNascimento)
+                .Named("UF de nascimento")
+                    .Described("Unidade da federação de nascimento do colaborador.")
+                    .WithEnumAsSelect();
+
+            configContainer.Register((Colaborador x) => x.MunicipioNascimento)
+                .Named("Município de nascimento")
+                    .Described("Município de nascimento do colaborador.");
+
+            configContainer.Register((Colaborador x) => x.EstadoCivil)
+                .Named("Estado civil")
+                    .Described("Estado civil de nascimento do colaborador.")
+                    .WithEnumAsSelect();
+
+            configContainer.Register((Colaborador x) => x.NomeConjuge)
+                .Named("Nome do cônjuge")
+                    .Described("Nome do cônjuge do colaborador.");
+
+            configContainer.Register((Colaborador x) => x.NomePai)
+                .Named("Nome do pai")
+                    .Described("Nome do pai do colaborador.");
+
+            configContainer.Register((Colaborador x) => x.NomeMae)
+                .Named("Nome da mãe")
+                    .Described("Nome da mãe do colaborador.");
+
+            configContainer.Register((Colaborador x) => x.TipoLogradouro)
+                .Named("Tipo do logradouro")
+                    .Described("Tipo do logradouro.");
+
+            configContainer.Register((Colaborador x) => x.Logradouro)
+                .Named("Logradouro")
+                    .Described("Logradouro. Ex. Fulano de Tal...");
+
+            configContainer.Register((Colaborador x) => x.Numero)
+                .Named("Número")
+                    .Described("Número do endereço.");
+
+            configContainer.Register((Colaborador x) => x.Complemento)
+                .Named("Complemento")
+                    .Described("Complemento do endereço.");
+
+            configContainer.Register((Colaborador x) => x.Cep)
+                .Named("CEP")
+                    .Described("Código de endereçamento postal (CEP). Ex.: xxxxx-xxx.");
+
+            configContainer.Register((Colaborador x) => x.Bairro)
+                .Named("Bairro")
+                    .Described("Bairro de residência do colaborador.");
+
+            configContainer.Register((Colaborador x) => x.Uf)
+                .Named("UF")
+                    .Described("UF (Estado) de residência do colaborador.");
+
+            configContainer.Register((Colaborador x) => x.Municipio)
+                .Named("Município")
+                    .Described("Município de residência.");
+
+            configContainer.Register((Colaborador x) => x.Telefone)
+                .Named("Telefone")
+                    .Described("Telefone de contato. Ex.: (xx) xxxx-xxxx.");
+
+            configContainer.Register((Colaborador x) => x.Celular)
+                .Named("Celular")
+                    .Described("Celular de contato. Ex.: (xx) xxxx-xxxx.");
+
+            configContainer.Register((Colaborador x) => x.Email)
+                .Named("E-mail")
+                    .Described("Email de contato do colaborador. Ex.: nome@unicentro.br.");
+
+            configContainer.Register((Colaborador x) => x.Observacoes)
+                .Named("Observações")
+                    .Described("Observação sobre o colaborador.");
+
+            TinyIoCContainer.Current.Register<ConfigContainer>(configContainer);
+            TinyIoCContainer.Current.Register<ColaboradorValidator>("ColaboradorValidator");
+        }
     }
 }
 

@@ -36,12 +36,9 @@ namespace GestUAB.Modules
         public ValidationModule ()
         {
             Get ["/validation/user/validate-exists-username"] = x => { 
-                return Response.AsJson<bool>(true);
-            };
-            Get ["/validation/user/validate-exists-email"] = x => { 
                 var user = new User();
                 var q = DeserializeQueryString(Request.Query["*"]);
-                user.Username = q.Username;
+                user.UserName = q.Username;
                 user.FirstName =  q.FirstName;
                 user.LastName =  q.LastName;
                 user.Email =  q.Email;
@@ -50,6 +47,23 @@ namespace GestUAB.Modules
                     return Response.AsJson<bool>(true);
                 }
                 return Response.AsJson<bool>(false);
+            };
+            Get ["/validation/user/validate-exists-email"] = x => { 
+                var user = new User();
+                var q = DeserializeQueryString(Request.Query["*"]);
+                user.UserName = q.Username;
+                user.FirstName =  q.FirstName;
+                user.LastName =  q.LastName;
+                user.Email =  q.Email;
+                var result = new UserValidator().Validate(user, y => y.Email);
+                if (result.IsValid) {
+                    return Response.AsJson<bool>(true);
+                }
+                return Response.AsJson<bool>(false);
+            };
+
+            Get ["/validation/colaborador/validate-exists-cpf"] = x => { 
+                return Response.AsJson<bool>(true);
             };
         }
 

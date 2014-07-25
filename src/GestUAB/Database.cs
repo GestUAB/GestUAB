@@ -124,23 +124,6 @@ namespace GestUAB
 //        }
 //    }
 
-    public static partial class PopulateDatabaseExtensions
-    {
-		public static void PopulateAll (this IDocumentStore ds)
-		{
-            MethodInfo[] methodInfos = typeof(PopulateDatabaseExtensions).GetMethods(BindingFlags.Public | BindingFlags.Static);
 
-            foreach (MethodInfo methodInfo in methodInfos)
-            {
-                if (methodInfo.Name.Contains("Populate") && !methodInfo.Name.Contains("PopulateAll"))
-                {
-                    Console.Write("Executing " + methodInfo.Name);
-                    object[] parametersArray = new object[] { ds };
-
-                    methodInfo.Invoke(ds, parametersArray);
-                }
-            }
-		}
-	}
 
 }

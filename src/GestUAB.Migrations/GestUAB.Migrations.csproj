@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C92E0406-6BBC-41C7-B740-13A36F8A81D1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>GestUAB.Migrations</RootNamespace>
+    <AssemblyName>GestUAB.Migrations</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="Mono.Data.Sqlite" />
+    <Reference Include="Dapper">
+      <HintPath>..\packages\Dapper.1.13\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="ServiceStack.Common">
+      <HintPath>..\..\..\forks\ServiceStack.OrmLite\src\ServiceStack.OrmLite.Sqlite\bin\Release\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>..\..\..\forks\ServiceStack.OrmLite\src\ServiceStack.OrmLite.Sqlite\bin\Release\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\..\..\forks\ServiceStack.OrmLite\src\ServiceStack.OrmLite.Sqlite\bin\Release\ServiceStack.Text.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Schema.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="sqlite\x64\sqlite3.dll" />
+    <None Include="sqlite\x86\sqlite3.def" />
+    <None Include="sqlite\x86\sqlite3.dll" />
+    <None Include="sqlite\x86\sqlite3.exe" />
+    <None Include="WebzyteDatabase.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GestUAB.Models\GestUAB.Models.csproj">
+      <Project>{7EDBAFF5-08C8-4923-A2D4-946E3984E508}</Project>
+      <Name>GestUAB.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GestUAB.DataAccess\GestUAB.DataAccess.csproj">
+      <Project>{536F20BB-B7BF-4D72-B748-7908B002C080}</Project>
+      <Name>GestUAB.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\forks\ServiceStack.OrmLite\src\ServiceStack.OrmLite\ServiceStack.OrmLite.csproj">
+      <Project>{96179AC6-F6F1-40C3-9FDD-4F6582F54C5C}</Project>
+      <Name>ServiceStack.OrmLite</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\forks\ServiceStack.OrmLite\src\ServiceStack.OrmLite.Sqlite\ServiceStack.OrmLite.Sqlitev40.csproj">
+      <Project>{8CA77485-7F0F-4C59-8C25-312D43EF1F8C}</Project>
+      <Name>ServiceStack.OrmLite.Sqlitev40</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GestUAB.Managers\GestUAB.Managers.csproj">
+      <Project>{0B8E1FCE-915D-44F5-A468-D89992911AE3}</Project>
+      <Name>GestUAB.Managers</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="gestuab.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

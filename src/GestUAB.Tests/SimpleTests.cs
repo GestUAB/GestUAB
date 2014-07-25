@@ -36,22 +36,22 @@ namespace GestUAB.Tests
 {
     public class BasicAuthenticationFixture
     {
-        [Fact]
-        public void ShouldReturnStatusOkWhenRouteExists ()
-        {
-            // Given
-            var bootstrapper = new DefaultNancyBootstrapper ();
-            var browser = new Browser (bootstrapper);
-     
-            // When
-            var result = browser.Get ("/", with => {
-                with.HttpRequest ();
-            }
-            );
-        
-            // Then
-            Assert.Equal (HttpStatusCode.OK, result.StatusCode);
-        }
+//        [Fact]
+//        public void ShouldReturnStatusOkWhenRouteExists ()
+//        {
+//            // Given
+//            var bootstrapper = new DefaultNancyBootstrapper ();
+//            var browser = new Browser (bootstrapper);
+//     
+//            // When
+//            var result = browser.Get ("/", with => {
+//                with.HttpRequest ();
+//            }
+//            );
+//        
+//            // Then
+//            Assert.Equal (HttpStatusCode.OK, result.StatusCode);
+//        }
     }
 }
 

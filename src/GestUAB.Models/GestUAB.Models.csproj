@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7EDBAFF5-08C8-4923-A2D4-946E3984E508}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>GestUAB.Models</RootNamespace>
+    <AssemblyName>GestUAB.Models</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="FluentValidation">
+      <HintPath>..\packages\FluentValidation.4.0.0.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Colaborador.cs" />
+    <Compile Include="IModel.cs" />
+    <Compile Include="SexoType.cs" />
+    <Compile Include="UfType.cs" />
+    <Compile Include="EstadoCivilType.cs" />
+    <Compile Include="Validators.cs" />
+    <Compile Include="Curso.cs" />
+    <Compile Include="DocumentoType.cs" />
+    <Compile Include="CursoType.cs" />
+    <Compile Include="GrandeAreaConhecimentoType.cs" />
+    <Compile Include="Setor.cs" />
+    <Compile Include="Vinculo.cs" />
+    <Compile Include="FuncaoType.cs" />
+    <Compile Include="Polo.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="TipoLogradouro.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Old\Car.cs" />
+    <None Include="Old\Course.cs" />
+    <None Include="Old\Departamento.cs" />
+    <None Include="Old\Driver.cs" />
+    <None Include="Old\Function.cs" />
+    <None Include="Old\IConveniado.cs" />
+    <None Include="Old\Lot.cs" />
+    <None Include="Old\PedidoDiaria.cs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Old\PedidoDiariaValidator.cs" />
+    <None Include="Old\Renunciation.cs" />
+    <None Include="Old\Scholarship.cs" />
+    <None Include="Old\Teacher.cs" />
+    <None Include="Old\ValidatorBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Nancy.Scaffolding\Nancy.Scaffolding.csproj">
+      <Project>{0CC99505-897D-419D-B8BC-8D9530E1CDD0}</Project>
+      <Name>Nancy.Scaffolding</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Old\" />
+  </ItemGroup>
+</Project>

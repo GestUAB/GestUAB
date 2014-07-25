@@ -1,0 +1,17 @@
+@{
+    Layout = "Shared/_layout.cshtml";
+    ViewBag.Title = "GestUAB - Login";
+}
+
+  <form method="POST">
+        Usuário <input type="text" name="UserName" />
+        <br />
+        Senha <input type="password" name="Password"  />
+        <br />
+        Lembrar senha <input name="RememberMe" type="checkbox" value="True" />
+        <br />
+        <input type="submit" value="Entrar" />
+    </form>
+    @if (Model.Errored) {
+        <div id="errorBox" class="floatingError">Usuário eu senha inválidos</div>
+    }

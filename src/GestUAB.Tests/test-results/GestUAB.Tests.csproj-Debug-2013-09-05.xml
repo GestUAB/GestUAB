@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestRecord xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results />
+  <Tests>
+    <TestRecord Name="GestUAB">
+      <Results />
+      <Tests>
+        <TestRecord Name="Tests">
+          <Results />
+          <Tests>
+            <TestRecord Name="ScaffoldingTests">
+              <Results>
+                <UnitTestResult>
+                  <TestDate>2013-09-05T21:53:54</TestDate>
+                  <Status />
+                  <Passed>0</Passed>
+                  <Errors>1</Errors>
+                  <Failures>0</Failures>
+                  <Inconclusive>0</Inconclusive>
+                  <NotRunnable>0</NotRunnable>
+                  <Skipped>0</Skipped>
+                  <Ignored>0</Ignored>
+                  <Time />
+                  <Message>One or more child tests had errors</Message>
+                </UnitTestResult>
+              </Results>
+              <Tests>
+                <TestRecord Name="SimpleTest">
+                  <Results>
+                    <UnitTestResult>
+                      <TestDate>2013-09-05T00:36:41</TestDate>
+                      <Status />
+                      <Passed>1</Passed>
+                      <Errors>0</Errors>
+                      <Failures>0</Failures>
+                      <Inconclusive>0</Inconclusive>
+                      <NotRunnable>0</NotRunnable>
+                      <Skipped>0</Skipped>
+                      <Ignored>0</Ignored>
+                      <Time />
+                      <Message>Test successful
+
+Execution time: 0,13ms</Message>
+                      <ConsoleOutput />
+                      <ConsoleError />
+                    </UnitTestResult>
+                    <UnitTestResult>
+                      <TestDate>2013-09-05T00:40:46</TestDate>
+                      <Status />
+                      <Passed>1</Passed>
+                      <Errors>0</Errors>
+                      <Failures>0</Failures>
+                      <Inconclusive>0</Inconclusive>
+                      <NotRunnable>0</NotRunnable>
+                      <Skipped>0</Skipped>
+                      <Ignored>0</Ignored>
+                      <Time />
+                      <Message>Test successful
+
+Execution time: 0,07ms</Message>
+                      <ConsoleOutput />
+                      <ConsoleError />
+                    </UnitTestResult>
+                    <UnitTestResult>
+                      <TestDate>2013-09-05T00:41:42</TestDate>
+                      <Status />
+                      <Passed>1</Passed>
+                      <Errors>0</Errors>
+                      <Failures>0</Failures>
+                      <Inconclusive>0</Inconclusive>
+                      <NotRunnable>0</NotRunnable>
+                      <Skipped>0</Skipped>
+                      <Ignored>0</Ignored>
+                      <Time />
+                      <Message>Test successful
+
+Execution time: 0,07ms</Message>
+                      <ConsoleOutput />
+                      <ConsoleError />
+                    </UnitTestResult>
+                    <UnitTestResult>
+                      <TestDate>2013-09-05T21:50:17</TestDate>
+                      <Status />
+                      <Passed>1</Passed>
+                      <Errors>0</Errors>
+                      <Failures>0</Failures>
+                      <Inconclusive>0</Inconclusive>
+                      <NotRunnable>0</NotRunnable>
+                      <Skipped>0</Skipped>
+                      <Ignored>0</Ignored>
+                      <Time />
+                      <Message>Test successful
+
+Execution time: 0,37ms</Message>
+                      <ConsoleOutput />
+                      <ConsoleError />
+                    </UnitTestResult>
+                    <UnitTestResult>
+                      <TestDate>2013-09-05T21:50:34</TestDate>
+                      <Status>Failure</Status>
+                      <Passed>0</Passed>
+                      <Errors>0</Errors>
+                      <Failures>0</Failures>
+                      <Inconclusive>0</Inconclusive>
+                      <NotRunnable>0</NotRunnable>
+                      <Skipped>0</Skipped>
+                      <Ignored>0</Ignored>
+                      <Time />
+                      <Message>Object reference not set to an instance of an object</Message>
+                      <StackTrace>  at MonoDevelop.NUnit.UnitTestResult.CreateFailure (System.String message, System.Exception ex) [0x00017] in /home/abuild/rpmbuild/BUILD/monodevelop-4.0.12/src/addins/NUnit/Services/UnitTestResult.cs:67 
+  at MonoDevelop.NUnit.NUnitAssemblyTestSuite.RunUnitTest (MonoDevelop.NUnit.UnitTest test, System.String suiteName, System.String pathName, System.String testName, MonoDevelop.NUnit.TestContext testContext) [0x00240] in /home/abuild/rpmbuild/BUILD/monodevelop-4.0.12/src/addins/NUnit/Services/NUnitAssemblyTestSuite.cs:440 
+  at MonoDevelop.NUnit.NUnitTestCase.OnRun (MonoDevelop.NUnit.TestContext testContext) [0x0001b] in /home/abuild/rpmbuild/BUILD/monodevelop-4.0.12/src/addins/NUnit/Services/NUnitTestCase.cs:55 
+  at MonoDevelop.NUnit.UnitTest.Run (MonoDevelop.NUnit.TestContext testContext) [0x00020] in /home/abuild/rpmbuild/BUILD/monodevelop-4.0.12/src/addins/NUnit/Services/UnitTest.cs:373 </StackTrace>
+                    </UnitTestResult>
+                    <UnitTestResult>
+                      <TestDate>2013-09-05T21:53:54</TestDate>
+                      <Status />
+                      <Passed>0</Passed>
+                      <Errors>1</Errors>
+                      <Failures>0</Failures>
+                      <Inconclusive>0</Inconclusive>
+                      <NotRunnable>0</NotRunnable>
+                      <Skipped>0</Skipped>
+                      <Ignored>0</Ignored>
+                      <Time />
+                      <Message>System.TypeInitializationException : An exception was thrown by the type initializer for GestUAB.DataAccess.Database
+  ----&gt; System.Configuration.ConfigurationErrorsException : Error Initializing the configuration system.
+  ----&gt; System.Threading.ThreadAbortException : Thread was being aborted</Message>
+                      <StackTrace>  at GestUAB.DataAccess.CursoDao.ReadAll () [0x00001] in /home/tony/244/tony/dev/GestUAB/src/GestUAB.DataAccess/CursoDao.cs:67 
+  at GestUAB.DataAccess.DataFacade.ReadAllCursos () [0x00006] in /home/tony/244/tony/dev/GestUAB/src/GestUAB.DataAccess/DataFacade.cs:76 
+  at GestUAB.Tests.ScaffoldingTests.&lt;SimpleTest&gt;m__0 () [0x00006] in /home/tony/244/tony/dev/GestUAB/src/GestUAB.Tests/ScaffoldingTests.cs:52 
+  at Nancy.Scaffolding.ObjectListConfig.get_Objects () [0x00018] in /home/tony/244/tony/dev/GestUAB/src/Nancy.Scaffolding/ObjectListConfig.cs:44 
+--ConfigurationErrorsException
+  at System.Configuration.ClientConfigurationSystem.get_Configuration () [0x00025] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.Configuration/System.Configuration/ClientConfigurationSystem.cs:52 
+  at System.Configuration.ClientConfigurationSystem.System.Configuration.Internal.IInternalConfigSystem.GetSection (System.String configKey) [0x00000] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.Configuration/System.Configuration/ClientConfigurationSystem.cs:61 
+  at System.Configuration.ConfigurationManager.GetSection (System.String sectionName) [0x00000] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.Configuration/System.Configuration/ConfigurationManager.cs:162 
+  at System.Configuration.ConfigurationManager.get_ConnectionStrings () [0x00000] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.Configuration/System.Configuration/ConfigurationManager.cs:182 
+  at GestUAB.DataAccess.Database..cctor () [0x00000] in /home/tony/244/tony/dev/GestUAB/src/GestUAB.DataAccess/Database.cs:11 
+--ThreadAbortException
+  at Mono.Xml2.XmlTextReader.IncrementAttributeToken () [0x00021] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.XML/System.Xml/XmlTextReader.cs:1811 
+  at Mono.Xml2.XmlTextReader.ReadAttributes (Boolean isXmlDecl) [0x0002f] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.XML/System.Xml/XmlTextReader.cs:1752 
+  at Mono.Xml2.XmlTextReader.ReadStartTag () [0x00086] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.XML/System.Xml/XmlTextReader.cs:1350 
+  at Mono.Xml2.XmlTextReader.ReadContent () [0x00133] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.XML/System.Xml/XmlTextReader.cs:1282 
+  at Mono.Xml2.XmlTextReader.Read () [0x00141] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.XML/System.Xml/XmlTextReader.cs:573 
+  at System.Xml.XmlTextReader.Read () [0x0006b] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.XML/System.Xml/XmlTextReader2.cs:566 
+  at System.Xml.XmlWriter.WriteNode (System.Xml.XmlReader reader, Boolean defattr) [0x00218] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.XML/System.Xml/XmlWriter.cs:551 
+  at System.Xml.XmlWriter.WriteNode (System.Xml.XmlReader reader, Boolean defattr) [0x0010d] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.XML/System.Xml/XmlWriter.cs:505 
+  at System.Xml.XmlWriter.WriteNode (System.Xml.XmlReader reader, Boolean defattr) [0x0010d] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.XML/System.Xml/XmlWriter.cs:505 
+  at System.Xml.XmlReader.ReadOuterXml () [0x00046] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.XML/System.Xml/XmlReader.cs:747 
+  at System.Configuration.SectionInfo.ReadData (System.Configuration.Configuration config, System.Xml.XmlReader reader, Boolean overrideAllowed) [0x000dc] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.Configuration/System.Configuration/SectionInfo.cs:186 
+  at System.Configuration.SectionGroupInfo.ReadContent (System.Xml.XmlReader reader, System.Configuration.Configuration config, Boolean overrideAllowed, Boolean root) [0x0014b] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.Configuration/System.Configuration/SectionGroupInfo.cs:328 
+  at System.Configuration.SectionGroupInfo.ReadData (System.Configuration.Configuration config, System.Xml.XmlReader reader, Boolean overrideAllowed) [0x00018] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.Configuration/System.Configuration/SectionGroupInfo.cs:281 
+  at System.Configuration.SectionGroupInfo.ReadContent (System.Xml.XmlReader reader, System.Configuration.Configuration config, Boolean overrideAllowed, Boolean root) [0x0014b] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.Configuration/System.Configuration/SectionGroupInfo.cs:328 
+  at System.Configuration.SectionGroupInfo.ReadRootData (System.Xml.XmlReader reader, System.Configuration.Configuration config, Boolean overrideAllowed) [0x00007] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.Configuration/System.Configuration/SectionGroupInfo.cs:273 
+  at System.Configuration.Configuration.ReadConfigFile (System.Xml.XmlReader reader, System.String fileName) [0x000ec] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.Configuration/System.Configuration/Configuration.cs:568 
+  at System.Configuration.Configuration.Load () [0x00052] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.Configuration/System.Configuration/Configuration.cs:528 
+  at System.Configuration.Configuration.Init (IConfigSystem system, System.String configPath, System.Configuration.Configuration parent) [0x00065] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.Configuration/System.Configuration/Configuration.cs:137 
+  at System.Configuration.Configuration..ctor (System.Configuration.InternalConfigurationSystem system, System.String locationSubPath) [0x0005c] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.Configuration/System.Configuration/Configuration.cs:96 
+  at System.Configuration.Configuration..ctor (System.Configuration.InternalConfigurationSystem system, System.String locationSubPath) [0x0003b] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.Configuration/System.Configuration/Configuration.cs:91 
+  at System.Configuration.InternalConfigurationFactory.Create (System.Type typeConfigHost, System.Object[] hostInitConfigurationParams) [0x0000e] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.Configuration/System.Configuration/InternalConfigurationFactory.cs:41 
+  at System.Configuration.ConfigurationManager.OpenExeConfigurationInternal (ConfigurationUserLevel userLevel, System.Reflection.Assembly calling_assembly, System.String exePath) [0x00102] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.Configuration/System.Configuration/ConfigurationManager.cs:119 
+  at System.Configuration.ClientConfigurationSystem.get_Configuration () [0x00011] in /home/abuild/rpmbuild/BUILD/mono-3.2.1/mcs/class/System.Configuration/System.Configuration/ClientConfigurationSystem.cs:49 </StackTrace>
+                      <ConsoleOutput />
+                      <ConsoleError />
+                    </UnitTestResult>
+                    <UnitTestResult>
+                      <TestDate>2013-09-05T21:56:24</TestDate>
+                      <Status />
+                      <Passed>1</Passed>
+                      <Errors>0</Errors>
+                      <Failures>0</Failures>
+                      <Inconclusive>0</Inconclusive>
+                      <NotRunnable>0</NotRunnable>
+                      <Skipped>0</Skipped>
+                      <Ignored>0</Ignored>
+                      <Time />
+                      <Message>Test successful
+
+Execution time: 2,70ms</Message>
+                      <ConsoleOutput />
+                      <ConsoleError />
+                    </UnitTestResult>
+                    <UnitTestResult>
+                      <TestDate>2013-09-05T21:56:42</TestDate>
+                      <Status />
+                      <Passed>1</Passed>
+                      <Errors>0</Errors>
+                      <Failures>0</Failures>
+                      <Inconclusive>0</Inconclusive>
+                      <NotRunnable>0</NotRunnable>
+                      <Skipped>0</Skipped>
+                      <Ignored>0</Ignored>
+                      <Time />
+                      <Message>Test successful
+
+Execution time: 0,24ms</Message>
+                      <ConsoleOutput />
+                      <ConsoleError />
+                    </UnitTestResult>
+                    <UnitTestResult>
+                      <TestDate>2013-09-05T21:57:01</TestDate>
+                      <Status />
+                      <Passed>1</Passed>
+                      <Errors>0</Errors>
+                      <Failures>0</Failures>
+                      <Inconclusive>0</Inconclusive>
+                      <NotRunnable>0</NotRunnable>
+                      <Skipped>0</Skipped>
+                      <Ignored>0</Ignored>
+                      <Time />
+                      <Message>Test successful
+
+Execution time: 46,75ms</Message>
+                      <ConsoleOutput />
+                      <ConsoleError />
+                    </UnitTestResult>
+                    <UnitTestResult>
+                      <TestDate>2013-09-05T21:59:34</TestDate>
+                      <Status>Failure</Status>
+                      <Passed>0</Passed>
+                      <Errors>0</Errors>
+                      <Failures>0</Failures>
+                      <Inconclusive>0</Inconclusive>
+                      <NotRunnable>0</NotRunnable>
+                      <Skipped>0</Skipped>
+                      <Ignored>0</Ignored>
+                      <Time />
+                      <Message>Object reference not set to an instance of an object</Message>
+                      <StackTrace>  at MonoDevelop.NUnit.UnitTestResult.CreateFailure (System.String message, System.Exception ex) [0x00017] in /home/abuild/rpmbuild/BUILD/monodevelop-4.0.12/src/addins/NUnit/Services/UnitTestResult.cs:67 
+  at MonoDevelop.NUnit.NUnitAssemblyTestSuite.RunUnitTest (MonoDevelop.NUnit.UnitTest test, System.String suiteName, System.String pathName, System.String testName, MonoDevelop.NUnit.TestContext testContext) [0x00240] in /home/abuild/rpmbuild/BUILD/monodevelop-4.0.12/src/addins/NUnit/Services/NUnitAssemblyTestSuite.cs:440 
+  at MonoDevelop.NUnit.NUnitTestCase.OnRun (MonoDevelop.NUnit.TestContext testContext) [0x0001b] in /home/abuild/rpmbuild/BUILD/monodevelop-4.0.12/src/addins/NUnit/Services/NUnitTestCase.cs:55 
+  at MonoDevelop.NUnit.UnitTest.Run (MonoDevelop.NUnit.TestContext testContext) [0x00020] in /home/abuild/rpmbuild/BUILD/monodevelop-4.0.12/src/addins/NUnit/Services/UnitTest.cs:373 </StackTrace>
+                    </UnitTestResult>
+                  </Results>
+                  <Tests />
+                </TestRecord>
+              </Tests>
+            </TestRecord>
+          </Tests>
+        </TestRecord>
+      </Tests>
+    </TestRecord>
+  </Tests>
+</TestRecord>

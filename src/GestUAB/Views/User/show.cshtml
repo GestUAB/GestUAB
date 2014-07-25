@@ -17,10 +17,10 @@
 <div class="row-fluid">
 
   <a href="#" class="btn" onclick="history.go(-1);return false;">Voltar</a>
-  <a href='@Url.Content("~/users/delete/" + @Model.Username)' class='btn btn-danger'>
+  <a href='@Url.Content("~/users/delete/" + @Model.UserName)' class='btn btn-danger'>
     <i class="icon-remove"></i> Remover
   </a>
-  <a href='@Url.Content("~/users/edit/" + @Model.Username)' class='btn btn-info'>
+  <a href='@Url.Content("~/users/edit/" + @Model.UserName)' class='btn btn-info'>
     <i class="icon-edit"></i> Editar
   </a>
   <a href='@Url.Content("~/users/new")' class='btn btn-info'>
